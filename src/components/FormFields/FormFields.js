@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './FormFields.css'
 import CustomHTML from "../CustomHTML/CustomHTML";
+import Utils from '../../utils/Utils'
 
 function FormFields({fields, showErrors}) {
     const getFieldValues = () => {
@@ -25,20 +26,57 @@ function FormFields({fields, showErrors}) {
 
     const fieldsComp = fields.map( (field,i) => {
         const type = field.getType();
+        console.log(field)
+
+        const title = <CustomHTML className="title" html={field.getTitle()} />
 
         let el;
         if (type==='checkbox') {
             el = (
                 <label>
-                    <CustomHTML className="title" html={field.getTitle()} />
+                    {title}
                     <input type="checkbox" checked={fieldValues[i]} onChange={ (event) => onChangeHandler(event, field) }  />
                 </label>
             );
+        } else if (type === 'select') {
+            const options = Utils.getMultiOptions(field.data.options)
+            el = (
+                <>
+                    {title}
+                    <select onChange={(event) => onChangeHandler(event, field)} name={field.getTitle()} id={field.getId()}>
+                        {options.map(({ id, value }) => (
+                            <option value={id}>{value}</option>
+                        ))}
+                    </select>
+                </>
+            )
+        } else if (type === 'radio-group') {
+            const options = Utils.getMultiOptions(field.data.options)
+            el = (
+                <>
+                    {title}
+                    <div name={field.getTitle()} id={field.getId()}>
+                        {options.map(({ id, value }) => (
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={id}
+                                    value={value}
+                                    checked={fieldValues[i]}
+                                    className="form-check-input"
+                                    onChange={(event) => onChangeHandler(event, field)} 
+                                />
+                                {value}
+                            </label>
+                        ))}
+                    </div>
+                </>
+            )
         } else {
             el = (
                 <>
                     <label>
-                        <CustomHTML className="title" html={field.getTitle()} />
+                        {title}
                     </label>
                     <input type="text" value={fieldValues[i]} onChange={ (event) => onChangeHandler(event, field) }  />
                 </>
