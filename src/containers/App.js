@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
+import 'assets/styles/Styling.scss';
 import SlideContextProvider from '../context/SlideContext'
 import Slide from '../slides/Slide'
 
