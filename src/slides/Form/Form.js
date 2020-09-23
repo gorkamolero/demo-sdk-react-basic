@@ -4,6 +4,7 @@ import FormFields from "../../components/FormFields/FormFields";
 import Navigation from '../../components/Navigation/Navigation'
 import Header from "../../components/Header/Header";
 import './Form.css'
+import { MyButton, icons } from 'visly'
 
 function Form() {
     const { slideModel, nav } = useContext(SlideContext);
@@ -20,6 +21,8 @@ function Form() {
     return (
         <div className="slide form">
             <Header />
+
+            <MyButton text="Hola Pickzen" icon={icons.heartFill}/>
 
             <FormFields showErrors={showErrors} fields={slideModel.getFields()} />
             
