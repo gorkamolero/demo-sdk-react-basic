@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './FormFields.css'
 import CustomHTML from "../CustomHTML/CustomHTML";
-import Utils from '../../utils/Utils'
 
 function FormFields({fields, showErrors}) {
     const getFieldValues = () => {
@@ -38,7 +37,7 @@ function FormFields({fields, showErrors}) {
                 </label>
             );
         } else if (type === 'select') {
-            const options = Utils.getMultiOptions(field.data.options)
+            const options = field.getOptions()
             el = (
                 <>
                     {title}

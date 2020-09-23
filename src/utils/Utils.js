@@ -54,18 +54,6 @@ class Utils {
             wait(30);
         }
     };
-
-    getMultiOptions(optionsAsString) {
-        const options = optionsAsString.split(';\n')
-            .map(
-                (opt) => opt.split(';')
-            ).map(
-                ([value, id]) => ({ id, value })
-            )
-
-        return options
-    }
-
 }
 
 export default new Utils()
