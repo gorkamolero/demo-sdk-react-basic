@@ -26,7 +26,6 @@ function FormFields({fields, showErrors}) {
 
     const fieldsComp = fields.map( (field,i) => {
         const type = field.getType();
-        console.log(field)
 
         const title = <CustomHTML className="title" html={field.getTitle()} />
 
@@ -51,7 +50,7 @@ function FormFields({fields, showErrors}) {
                 </>
             )
         } else if (type === 'radio-group') {
-            const options = Utils.getMultiOptions(field.data.options)
+            const options = field.getOptions()
             el = (
                 <>
                     {title}
