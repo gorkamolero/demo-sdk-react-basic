@@ -10,19 +10,26 @@ export const accent = {
   fontStyle: "normal",
   lineHeight: "20px",
 };
-export const body = {
-  fontFamily: "Inter",
-  fontSize: "16px",
+export const bodyLarge = {
+  fontFamily: "Averta",
+  fontSize: "24px",
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "24px",
 };
-export const bodyLarge = {
-  fontFamily: "Inter",
+export const bodySmall = {
+  fontFamily: "Averta",
   fontSize: "18px",
   fontWeight: 400,
   fontStyle: "normal",
-  lineHeight: "26px",
+  lineHeight: "24px",
+};
+export const bodySmallBold = {
+  fontFamily: "Averta",
+  fontSize: "18px",
+  fontWeight: 600,
+  fontStyle: "normal",
+  lineHeight: "24px",
 };
 export const heading = {
   fontFamily: "Inter",

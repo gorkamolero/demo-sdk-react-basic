@@ -5,7 +5,7 @@
 .__visly_scope_9cCvR1MveE_select-root .__visly_scope_9cCvR1MveE_select-button {
   overflow: hidden;
   height: 28px;
-  border-color: #d0d4d9;
+  border-color: #d9dae6;
   border-style: solid;
   background-color: #edeff2;
   padding-left: 6px;
@@ -20,7 +20,7 @@
 }
 .__visly_scope_9cCvR1MveE_select-root.__visly_default.__visly_state_hover
   .__visly_scope_9cCvR1MveE_select-button {
-  background-color: #d0d4d9;
+  background-color: #d9dae6;
 }
 .__visly_scope_9cCvR1MveE_select-root.__visly_default.__visly_state_focus
   .__visly_scope_9cCvR1MveE_select-button {
@@ -34,10 +34,10 @@
   box-sizing: border-box;
   overflow: hidden;
   color: #4a4c52;
-  font-family: Inter;
+  font-family: Averta;
   font-style: normal;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 24px;
   align-self: auto;
 }

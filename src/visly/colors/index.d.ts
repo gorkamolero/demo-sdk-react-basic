@@ -8,6 +8,8 @@ export const gray200: string;
 export const gray300: string;
 export const gray400: string;
 export const gray500: string;
+export const hbGreen: string;
+export const hbText: string;
 export const mint400: string;
 export const mint500: string;
 export const mint600: string;

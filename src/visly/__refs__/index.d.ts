@@ -9,6 +9,8 @@ export const color: {
   gray300: "b6b28ca8-f2fd-4289-b56e-d98eefcbfcf9";
   gray400: "3aef1344-5ee8-443f-9160-554f2bba1159";
   gray500: "c4166644-3768-4c22-a10b-e1c9b6d61b96";
+  hbGreen: "7d49e156-b73b-4263-a54c-4d33077452f2";
+  hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f";
   mint400: "2e800351-2272-4773-a849-66d9cc1dbba7";
   mint500: "32f153bc-91ca-4170-9823-f1d2cd61ce38";
   mint600: "3d698970-2b19-4497-bc20-da4de161a26f";
@@ -31,6 +33,11 @@ export const icon: {
   vislySelect: "562e1b22-bb85-483b-b4a0-52c23363fef5";
 };
 export const font: {
+  "Averta-Light": "95a4de1e-3925-4e2d-b6a6-78c9b1e33ef2";
+  "Averta-Regular": "21a3ef54-8ee9-43e8-9d26-9949ec8e82ad";
+  "Averta-Semibold": "673aac56-ba9d-4f5a-b06e-810d288b45f2";
+  "Averta-Bold": "6fa6f59d-cdff-4dee-9aeb-d35cb87d4c79";
+  "Averta-RegularItalic": "27f7c957-0d96-486c-bbdc-9d8f7b580d32";
   "Roboto-Bold": "d7d2c5b4-4c7b-4efb-9c21-0ef70f800be8";
   "Roboto-Medium": "925b1f14-e32f-4af1-b2ee-80132fd73b20";
   "Roboto-Regular": "c775fc02-e85e-4e5f-b67a-b62e4ed19fb9";
@@ -55,17 +62,21 @@ export const font: {
 };
 export const textstyle: {
   accent: "5a5b282c-fbe5-4efb-8163-9d8e2399991c";
-  body: "199b4f45-79d7-45f8-af30-5d9a0d539bcc";
   bodyLarge: "f44a4b6d-a6ec-4bbd-a6b5-46a55cba7085";
+  bodySmall: "199b4f45-79d7-45f8-af30-5d9a0d539bcc";
+  bodySmallBold: "c4d4eb62-5034-4b6e-990e-5e19d5c712af";
   heading: "356b1e56-5565-4a97-bb9f-d812d1c7c56e";
 };
-export const size: {};
+export const size: {
+  hbRadius: "8d9d0395-325f-4354-a240-b2f63f8edbb3";
+};
 export const shadow: {};
 export const component: {
   Avatar: "14c1309e-04d6-4426-b5bf-741031ceb68a";
   Button: "215624d8-a3e1-4139-928a-11eae36fd386";
   Checkbox: "12f2f79a-efe1-44b5-a6ea-94ebaac3ce59";
   CommentButton: "e8422644-7679-4a4b-a65e-50063492d6f1";
+  HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6";
   Input: "50e2110b-155c-4778-a63c-44c9c1c8b4f1";
   LikeButton: "132f9c60-5ba4-4590-8aeb-1e98bbc83328";
   MyButton: "ff139c4b-836a-413a-adba-d295ba0845af";

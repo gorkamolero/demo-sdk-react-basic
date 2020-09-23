@@ -120,6 +120,15 @@ export const CommentButton: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
+export const HbIconButton: {
+  (
+    props: {
+      text?: string;
+      onPress?: (event: PressEvent) => void;
+      HbIconButtonSelected?: boolean;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
 export const Input: {
   (
     props: {

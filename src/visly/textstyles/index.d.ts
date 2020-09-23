@@ -9,6 +9,7 @@ export interface TextStyle {
   lineHeight?: string;
 }
 export const accent: TextStyle;
-export const body: TextStyle;
 export const bodyLarge: TextStyle;
+export const bodySmall: TextStyle;
+export const bodySmallBold: TextStyle;
 export const heading: TextStyle;

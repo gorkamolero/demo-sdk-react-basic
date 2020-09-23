@@ -11,6 +11,7 @@ export const Avatar = require("./components/Avatar").default;
 export const Button = require("./components/Button").default;
 export const Checkbox = require("./components/Checkbox").default;
 export const CommentButton = require("./components/CommentButton").default;
+export const HbIconButton = require("./components/HbIconButton").default;
 export const Input = require("./components/Input").default;
 export const LikeButton = require("./components/LikeButton").default;
 export const MyButton = require("./components/MyButton").default;
