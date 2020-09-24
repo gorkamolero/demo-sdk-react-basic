@@ -1,15 +1,20 @@
 import React, {useContext} from 'react';
-import './ProgressBar.css'
+import { HbProgressBar, HbProgressStep } from "visly";
 import {SlideContext} from "../../context/SlideContext";
 
 const ProgressBar = () => {
     const {progress} = useContext(SlideContext);
 
     return (
-        <div className="progress-bar">
-            <div style={{width:progress+'%'}} className="status" />
-        </div>
-    )
+      <>
+        <HbProgressBar value={progress / 100} />
+        {/* Map Step progress */}
+        <HbProgressStep
+          stepTitle="Step"
+          HbProgressButton={<HbProgressStep.HbProgressButton />}
+        />
+      </>
+    );
 };
 
 export default ProgressBar;
