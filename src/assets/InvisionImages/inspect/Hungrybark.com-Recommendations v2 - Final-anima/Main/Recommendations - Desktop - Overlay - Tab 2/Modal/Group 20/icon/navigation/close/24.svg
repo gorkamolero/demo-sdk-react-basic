@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>31B416DE-3A09-4EFE-966D-18D94DDA58A1</title>
+    <defs>
+        <polygon id="path-1" points="7.0605 6 12 1.0605 10.9395 0 6 4.9395 1.0605 0 0 1.0605 4.9395 6 0 10.9395 1.0605 12 6 7.0605 10.9395 12 12 10.9395"></polygon>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Desktop---Overlay---Tab-2" transform="translate(-1089.000000, -148.000000)">
+            <g id="Modal" transform="translate(303.000000, 112.000000)">
+                <g id="Group-20" transform="translate(780.000000, 30.000000)">
+                    <g id="icon/navigation/close/24" transform="translate(6.000000, 6.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="icon-color" fill="#000000" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="128px" height="128px" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0D51C78A-C49E-4CA8-8DF6-DE3ACED42A8C</title>
+    <defs>
+        <filter x="-5.1%" y="-73.0%" width="110.1%" height="246.0%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="18" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.849755438   0 0 0 0 0.854885424   0 0 0 0 0.903504303  0 0 0 1 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M9,16 L11,16 L11,14 L9,14 L9,16 Z M10,0 C4.48,0 0,4.48 0,10 C0,15.52 4.48,20 10,20 C15.52,20 20,15.52 20,10 C20,4.48 15.52,0 10,0 Z M10,18 C5.59,18 2,14.41 2,10 C2,5.59 5.59,2 10,2 C14.41,2 18,5.59 18,10 C18,14.41 14.41,18 10,18 Z M10,4 C7.79,4 6,5.79 6,8 L8,8 C8,6.9 8.9,6 10,6 C11.1,6 12,6.9 12,8 C12,10 9,9.75 9,13 L11,13 C11,10.75 14,10.5 14,8 C14,5.79 12.21,4 10,4 Z" id="path-2"></path>
+    </defs>
+    <g id="Recommendations-Page-v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Desktop---Empty-State---One-Time" transform="translate(-954.000000, -2982.000000)">
+            <g id="Footer" filter="url(#filter-1)" transform="translate(0.000000, 2996.000000)">
+                <g id="Group-21-Copy" transform="translate(869.000000, 38.000000)">
+                    <g id="icon/action/help_outline_24px" transform="translate(139.000000, 2.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <g fill-rule="nonzero"></g>
+                        <g id="↳-Color" mask="url(#mask-3)" fill="#000000" fill-opacity="0.54">
+                            <g transform="translate(-2.000000, -2.000000)" id="Rectangle">
+                                <rect x="0" y="0" width="24" height="24"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

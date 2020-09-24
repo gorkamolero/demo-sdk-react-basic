@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="15px" viewBox="0 0 19 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>9DEF3379-DEAE-4614-88C0-5E2E98E2DF5D</title>
+    <defs>
+        <polygon id="path-1" points="11.25 0 10.1925 1.0575 15.8775 6.75 0 6.75 0 8.25 15.8775 8.25 10.1925 13.9425 11.25 15 18.75 7.5"></polygon>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Desktop---Overlay---Tab-1" transform="translate(-590.000000, -719.000000)">
+            <g id="Modal" transform="translate(303.000000, 112.000000)">
+                <g id="Group-11" transform="translate(60.000000, 466.000000)">
+                    <g id="Oval" transform="translate(0.000000, 42.000000)">
+                        <g id="meal-plan-arrow" transform="translate(216.000000, 86.000000)">
+                            <g id="chevron-right-icon" transform="translate(11.000000, 13.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="icon-color" fill="#1B1C24" xlink:href="#path-1"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

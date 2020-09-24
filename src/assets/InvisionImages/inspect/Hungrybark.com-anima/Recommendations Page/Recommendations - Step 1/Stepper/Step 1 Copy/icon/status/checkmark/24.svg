@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="76px" height="76px" viewBox="0 0 76 76" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
+    <title>855FA64D-BA46-4C8A-B4BE-8BA0E9151586</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-5.8%" y="-88.1%" width="111.6%" height="276.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="18" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.964705882   0 0 0 0 0.874509804   0 0 0 0 0.643137255  0 0 0 0.507375437 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M16.25,8.3 L15.2,7.25 L9.5,12.95 L6.8,10.25 L5.75,11.3 L9.5,15.05 L16.25,8.3 Z M11,0.5 C5.225,0.5 0.5,5.225 0.5,11 C0.5,16.775 5.225,21.5 11,21.5 C16.775,21.5 21.5,16.775 21.5,11 C21.5,5.225 16.775,0.5 11,0.5 Z M11,20 C6.05,20 2,15.95 2,11 C2,6.05 6.05,2 11,2 C15.95,2 20,6.05 20,11 C20,15.95 15.95,20 11,20 Z" id="path-2"></path>
+    </defs>
+    <g id="Recommendations-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.400000006">
+        <g id="Recommendations---Step-1" transform="translate(-832.000000, -129.000000)">
+            <g id="Stepper" filter="url(#filter-1)" transform="translate(90.000000, 123.000000)">
+                <g id="Step-1-Copy" transform="translate(466.000000, 10.000000)">
+                    <g id="icon/status/checkmark/24" transform="translate(303.000000, 21.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="icon-color" fill="#000000" xlink:href="#path-2"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

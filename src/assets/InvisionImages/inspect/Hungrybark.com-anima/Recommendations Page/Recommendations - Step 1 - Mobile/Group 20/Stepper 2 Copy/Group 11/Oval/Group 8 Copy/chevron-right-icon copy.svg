@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="15px" height="19px" viewBox="0 0 15 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
+    <title>016A8828-815F-44D1-AD6A-90030A07A64A</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="11.25 0 10.1925 1.0575 15.8775 6.75 0 6.75 0 8.25 15.8775 8.25 10.1925 13.9425 11.25 15 18.75 7.5"></polygon>
+    </defs>
+    <g id="Recommendations-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Step-1---Mobile" transform="translate(-152.000000, -2656.000000)">
+            <g id="Group-20" transform="translate(0.000000, 1983.000000)">
+                <g id="Stepper-2-Copy">
+                    <g id="Group-11" transform="translate(10.000000, 355.000000)">
+                        <g id="Oval">
+                            <g id="Group-8-Copy" transform="translate(150.000000, 327.000000) rotate(-270.000000) translate(-150.000000, -327.000000) translate(130.000000, 307.000000)">
+                                <g id="chevron-right-icon-copy" transform="translate(11.000000, 13.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="icon-color" fill="#1B1C24" xlink:href="#path-1"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>F395BE39-2B7F-4CB4-9139-576493325E40</title>
+    <defs>
+        <polygon id="path-1" points="8.6 16.6 4.4 12.4 3 13.8 8.6 19.4 20.6 7.4 19.2 6"></polygon>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Desktop-v2" transform="translate(-244.000000, -369.000000)">
+            <g id="Group-4" transform="translate(0.000000, 299.000000)">
+                <g id="Card" transform="translate(90.000000, 70.000000)">
+                    <g id="Group-8">
+                        <g id="checkmark-copy" transform="translate(122.000000, 0.000000)">
+                            <g id="icon/action/done_24px" transform="translate(32.000000, 0.000000)">
+                                <g id="Group-13">
+                                    <circle id="Oval-Copy-10" fill="#FFFFFF" cx="12" cy="12" r="12"></circle>
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="icon/action/done_24px" fill="#00AEAA" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

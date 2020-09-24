@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="22px" viewBox="0 0 22 22" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
+    <title>758B383E-A62E-4227-BE25-9C2B17C9490C</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M16.25,8.3 L15.2,7.25 L9.5,12.95 L6.8,10.25 L5.75,11.3 L9.5,15.05 L16.25,8.3 Z M11,0.5 C5.225,0.5 0.5,5.225 0.5,11 C0.5,16.775 5.225,21.5 11,21.5 C16.775,21.5 21.5,16.775 21.5,11 C21.5,5.225 16.775,0.5 11,0.5 Z M11,20 C6.05,20 2,15.95 2,11 C2,6.05 6.05,2 11,2 C15.95,2 20,6.05 20,11 C20,15.95 15.95,20 11,20 Z" id="path-1"></path>
+    </defs>
+    <g id="HungryBark---Product-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-Page---Tablet" transform="translate(-130.000000, -3308.000000)">
+            <g id="Reviews" transform="translate(40.000000, 2474.000000)">
+                <g id="Group-21-Copy" transform="translate(0.000000, 790.000000)">
+                    <g id="Group-20">
+                        <g id="Verified" transform="translate(90.000000, 44.000000)">
+                            <g id="icon/status/checkmark/24-copy">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="icon-color" fill="#00AEAA" xlink:href="#path-1"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

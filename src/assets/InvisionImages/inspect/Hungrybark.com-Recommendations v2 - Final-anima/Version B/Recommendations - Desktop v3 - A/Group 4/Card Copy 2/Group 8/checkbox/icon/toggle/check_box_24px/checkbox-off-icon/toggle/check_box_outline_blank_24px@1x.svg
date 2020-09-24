@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>09796CDB-5D87-4ADF-8FDC-AB87D15E83D8@1x</title>
+    <defs>
+        <path d="M21.3333333,2.66666667 L21.3333333,21.3333333 L2.66666667,21.3333333 L2.66666667,2.66666667 L21.3333333,2.66666667 L21.3333333,2.66666667 Z M21.3333333,0 L2.66666667,0 C1.2,0 0,1.2 0,2.66666667 L0,21.3333333 C0,22.8 1.2,24 2.66666667,24 L21.3333333,24 C22.8,24 24,22.8 24,21.3333333 L24,2.66666667 C24,1.2 22.8,0 21.3333333,0 Z" id="path-1"></path>
+    </defs>
+    <g id="Version-B" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.800000012">
+        <g id="Recommendations---Desktop-v3---A" transform="translate(-824.000000, -715.000000)">
+            <g id="Group-4" transform="translate(0.000000, 299.000000)">
+                <g id="Card-Copy-2" transform="translate(730.000000, 94.000000)">
+                    <g id="Group-8">
+                        <g id="checkbox" transform="translate(94.000000, 322.000000)">
+                            <g id="icon/toggle/check_box_24px">
+                                <g id="checkbox-off">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="icon/toggle/check_box_outline_blank_24px" fill="#4D4A45" fill-rule="nonzero" xlink:href="#path-1"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

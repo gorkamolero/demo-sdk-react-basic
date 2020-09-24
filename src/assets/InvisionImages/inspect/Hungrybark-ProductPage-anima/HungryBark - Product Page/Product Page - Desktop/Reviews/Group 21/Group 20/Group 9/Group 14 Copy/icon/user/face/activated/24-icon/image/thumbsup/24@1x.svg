@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="22px" height="21px" viewBox="0 0 22 21" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>0A15E924-AF4D-4F70-B9B8-D1EE9AE6A286@1x</title>
+    <defs>
+        <path d="M18.5,7.25 L14,7.25 L14,3.5 C14.0855952,2.68109141 13.7971449,1.86727582 13.2149345,1.28506546 C12.6327242,0.7028551 11.8189086,0.414404808 11,0.5 L9.8204375,0.5 C9.29367287,0.500479753 8.83782787,0.866545982 8.7236375,1.380785 L8.7111875,1.467785 L8.0315,6.2253425 L5.34863,10.25 L0.5,10.25 L0.5,20.75 L14.75,20.75 C20.32886,20.75 21.5,17.4870575 21.5,14.75 L21.5,10.25 C21.5855952,9.43109141 21.2971449,8.61727582 20.7149345,8.03506546 C20.1327242,7.4528551 19.3189086,7.16440481 18.5,7.25 Z M5,19.25 L2,19.25 L2,11.75 L5,11.75 L5,19.25 Z M20,14.75 C20,17.819945 18.3315425,19.25 14.75,19.25 L6.5,19.25 L6.5,11.2270475 L9.4685,6.7746575 L10.0463825,2.7272 L10.1503925,2 L11,2 C12.0795875,2 12.5,2.4204125 12.5,3.5 L12.5,8.75 L18.5,8.75 C19.5795875,8.75 20,9.1704125 20,10.25 L20,14.75 Z" id="path-1"></path>
+    </defs>
+    <g id="HungryBark---Product-Page" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Product-Page---Desktop" transform="translate(-1310.000000, -3160.000000)">
+            <g id="Reviews" transform="translate(90.000000, 2450.000000)">
+                <g id="Group-21" transform="translate(0.000000, 460.000000)">
+                    <g id="Group-20">
+                        <g id="Group-9" transform="translate(1027.000000, 248.000000)">
+                            <g id="Group-14-Copy" transform="translate(192.000000, 0.000000)">
+                                <g id="icon/user/face/activated/24" transform="translate(12.000000, 12.500000) scale(1, -1) translate(-12.000000, -12.500000) translate(1.000000, 2.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#path-1"></use>
+                                    </mask>
+                                    <use id="icon-color" fill="#000000" xlink:href="#path-1"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

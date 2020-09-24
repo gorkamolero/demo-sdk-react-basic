@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1349px" height="648px" viewBox="0 0 1349 648" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>2CE12957-5140-4F14-AF0A-8AD379826D29@1x</title>
+    <defs>
+        <path d="M914.122807,16.3861619 C1372.77483,87.4270164 1519.22002,318.22254 1374.19672,523.111471 C1310.4525,613.16931 1043.12578,664.790532 688.086494,643.046456 C504.630211,631.810833 236.965925,642.612911 78.9886417,523.111471 C-26.3295472,443.443845 -26.3295472,329.838763 78.9886417,182.296224 C329.976734,24.3289461 608.354789,-30.9744078 914.122807,16.3861619 Z" id="path-1"></path>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Mix-ins-Offer---Desktop" transform="translate(-91.000000, -992.000000)">
+            <g id="Stepper-2-Copy" transform="translate(0.000000, 756.000000)">
+                <g id="Group-6" transform="translate(91.000000, 236.000000)">
+                    <g id="Group-4">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="Path" fill="#FFFFFF" transform="translate(714.000000, 324.000000) scale(-1, 1) translate(-714.000000, -324.000000) " xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

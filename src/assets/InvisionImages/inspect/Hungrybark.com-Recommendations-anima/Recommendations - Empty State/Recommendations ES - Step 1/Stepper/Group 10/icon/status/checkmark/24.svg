@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="88px" height="88px" viewBox="0 0 88 88" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
+    <title>DAAB04D6-03CC-4E21-8EF4-1DCD18BE8888</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <filter x="-5.8%" y="-88.1%" width="111.6%" height="276.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="18" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.964705882   0 0 0 0 0.874509804   0 0 0 0 0.643137255  0 0 0 0.507375437 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <circle id="path-2" cx="11" cy="11" r="10.5"></circle>
+        <polygon id="path-4" points="9.5 15.125 5.75 11.375 6.9425 10.25 9.5 12.7625 15.0575 7.25 16.25 8.435"></polygon>
+    </defs>
+    <g id="Recommendations---Empty-State" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations-ES---Step-1" transform="translate(-400.000000, -123.000000)">
+            <g id="Stepper" filter="url(#filter-1)" transform="translate(90.000000, 123.000000)">
+                <g id="Group-10">
+                    <g id="icon/status/checkmark/24" transform="translate(343.000000, 31.000000)">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="icon-color" fill="#00AEAA" xlink:href="#path-2"></use>
+                        <mask id="mask-5" fill="white">
+                            <use xlink:href="#path-4"></use>
+                        </mask>
+                        <use id="icon-color" fill="#FFFFFF" xlink:href="#path-4"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

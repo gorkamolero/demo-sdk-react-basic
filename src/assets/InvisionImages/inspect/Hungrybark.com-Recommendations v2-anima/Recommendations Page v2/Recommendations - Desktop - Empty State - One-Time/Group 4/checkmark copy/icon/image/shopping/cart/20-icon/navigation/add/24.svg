@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="14px" height="14px" viewBox="0 0 14 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>B43CE093-FAB3-4BC7-9611-A43D3F5A76BB</title>
+    <defs>
+        <polygon id="path-1" points="7.75 6.25 7.75 0.25 6.25 0.25 6.25 6.25 0.25 6.25 0.25 7.75 6.25 7.75 6.25 13.75 7.75 13.75 7.75 7.75 13.75 7.75 13.75 6.25"></polygon>
+    </defs>
+    <g id="Recommendations-Page-v2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations---Desktop---Empty-State---One-Time" transform="translate(-553.000000, -386.000000)">
+            <g id="Group-4" transform="translate(0.000000, 299.000000)">
+                <g id="checkmark-copy" transform="translate(536.000000, 70.000000)">
+                    <g id="icon/image/shopping/cart/20" transform="translate(17.000000, 17.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="icon-color" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

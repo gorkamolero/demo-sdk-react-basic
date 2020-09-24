@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="9px" viewBox="0 0 16 9" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 61 (101010) - https://sketch.com -->
+    <title>11AA90E2-292E-444A-84E1-9CC9EA38C64E</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <polygon id="path-1" points="8 9.5 0.5 2 1.5605 0.9395 8 7.379 14.4395 0.9395 15.5 2"></polygon>
+    </defs>
+    <g id="Express-Checkout" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Express-Checkout---Main---Meal-plan" transform="translate(-1203.000000, -3400.000000)">
+            <g id="Section" transform="translate(90.000000, 2204.000000)">
+                <g id="Content" transform="translate(38.000000, 910.000000)">
+                    <g id="Group-11-Copy-3" transform="translate(408.000000, 258.000000)">
+                        <g id="icon/navigation/chevron/down/24" transform="translate(667.000000, 27.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="icon-color" fill="#000000" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

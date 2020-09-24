@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="24px" viewBox="0 0 19 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>802A795D-4707-47F0-94D2-7F68011DF450</title>
+    <defs>
+        <polygon id="path-1" points="13.5 0 12.231 1.269 19.053 8.1 0 8.1 0 9.9 19.053 9.9 12.231 16.731 13.5 18 22.5 9"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="HB-HomePage---Tablet" transform="translate(-375.000000, -1078.000000)">
+            <g id="Steps" transform="translate(40.000000, 614.000000)">
+                <g id="Arrow" transform="translate(320.000000, 451.000000)">
+                    <g id="chevron-right-icon" transform="translate(24.600000, 24.600000) rotate(-270.000000) translate(-24.600000, -24.600000) translate(13.200000, 15.600000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <use id="icon-color" fill="#1B1C24" xlink:href="#path-1"></use>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
