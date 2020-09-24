@@ -9,6 +9,9 @@ export const color = {
   gray300: "b6b28ca8-f2fd-4289-b56e-d98eefcbfcf9",
   gray400: "3aef1344-5ee8-443f-9160-554f2bba1159",
   gray500: "c4166644-3768-4c22-a10b-e1c9b6d61b96",
+  hbBrown: "917b7d0c-65f2-47ee-b15b-420c68bdaaff",
+  hbGold: "778906c6-af65-4ef6-a7b0-984241bdab0d",
+  hbGray300: "ea0b17ad-46e6-4fb0-b203-ebf9b2ef9fa2",
   hbGreen: "7d49e156-b73b-4263-a54c-4d33077452f2",
   hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f",
   mint400: "2e800351-2272-4773-a849-66d9cc1dbba7",
@@ -22,6 +25,7 @@ export const color = {
   white: "1a46fecf-73b1-44d3-88f8-69ef863d110a",
 };
 export const icon = {
+  hbLogo: "484f50c4-87c8-402b-9f17-7ea3998e9f29",
   heart: "873969b2-f5fd-49f3-96aa-45f9515bff85",
   heartFill: "72d60e6c-6c0f-47f3-ba45-a6a42cf6250e",
   message: "c960c1cc-f05b-4842-972b-c497154e2e5b",
@@ -66,22 +70,28 @@ export const textstyle = {
   bodySmall: "199b4f45-79d7-45f8-af30-5d9a0d539bcc",
   bodySmallBold: "c4d4eb62-5034-4b6e-990e-5e19d5c712af",
   heading: "356b1e56-5565-4a97-bb9f-d812d1c7c56e",
+  menuHeading: "f443df73-1d17-492f-b96e-2b841095cf42",
 };
 export const size = {
   hbRadius: "8d9d0395-325f-4354-a240-b2f63f8edbb3",
 };
-export const shadow = {};
+export const shadow = {
+  hbGoldenShadow: "7d0f11a6-68b3-4421-bf5f-cfde39b1c126",
+};
 export const component = {
   Avatar: "14c1309e-04d6-4426-b5bf-741031ceb68a",
   Button: "215624d8-a3e1-4139-928a-11eae36fd386",
   Checkbox: "12f2f79a-efe1-44b5-a6ea-94ebaac3ce59",
   CommentButton: "e8422644-7679-4a4b-a65e-50063492d6f1",
+  HbHeader: "450b24de-2d5b-490f-b8e3-54a9b4a71bc4",
   HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6",
+  HbLogo: "178b94b1-16c1-4db1-a333-70d00d2d5610",
+  HbProgressBar: "ff100d40-b155-4f07-a439-72672d3869a4",
+  HbProgressButton: "9dd98517-1292-40d0-9105-4078b37c75ef",
+  HbProgressStep: "3428d832-bf59-4c7f-82c3-188150a259ad",
   Input: "50e2110b-155c-4778-a63c-44c9c1c8b4f1",
   LikeButton: "132f9c60-5ba4-4590-8aeb-1e98bbc83328",
-  MyButton: "ff139c4b-836a-413a-adba-d295ba0845af",
   Radio: "e99b2c94-0602-42df-b146-28e8b7e747ca",
-  ReshareButton: "1f775434-5b55-49f3-8ea9-9fcee4c6f463",
   Segmented: "b1be7efc-2508-4c36-92d1-ddbb567eba4c",
   Select: "45b37cde-13b4-4c47-ad5e-7ce42f64a2b8",
   SocialPost: "02f43c6d-09cb-4b9d-ab56-184f635e9ee3",

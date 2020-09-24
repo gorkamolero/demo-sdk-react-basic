@@ -13,3 +13,4 @@ export const bodyLarge: TextStyle;
 export const bodySmall: TextStyle;
 export const bodySmallBold: TextStyle;
 export const heading: TextStyle;
+export const menuHeading: TextStyle;

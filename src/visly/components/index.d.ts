@@ -120,6 +120,14 @@ export const CommentButton: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
+export const HbHeader: {
+  (
+    props: {
+      HbLogo?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbLogo: typeof HbLogo;
+};
 export const HbIconButton: {
   (
     props: {
@@ -128,6 +136,33 @@ export const HbIconButton: {
       HbIconButtonSelected?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
+};
+export const HbLogo: {
+  (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbProgressBar: {
+  (
+    props: {
+      value?: number;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbProgressButton: {
+  (
+    props: {
+      onPress?: (event: PressEvent) => void;
+      HbProgressButtonActive?: boolean;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbProgressStep: {
+  (
+    props: {
+      stepTitle?: string;
+      HbProgressButton?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbProgressButton: typeof HbProgressButton;
 };
 export const Input: {
   (
@@ -149,27 +184,8 @@ export const LikeButton: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
-export const MyButton: {
-  (
-    props: {
-      text?: string;
-      icon?: string;
-      onPress?: (event: PressEvent) => void;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-};
 export const Radio: {
   (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
-};
-export const ReshareButton: {
-  (
-    props: {
-      text?: string;
-      icon?: string;
-      onChange?: (checked: boolean) => void;
-      checked?: boolean;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
 };
 export const Segmented: {
   (
@@ -234,7 +250,6 @@ export const SocialPost: {
   ShareButton: {
     (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
   };
-  ReshareButton: typeof ReshareButton;
   LikeButton: typeof LikeButton;
   CommentButton: typeof CommentButton;
   Avatar: typeof Avatar;

@@ -16,7 +16,6 @@ import {
   TextPrimitive,
   ContainerPrimitive,
 } from "./_internal_primitives";
-import ReshareButtonComposite, { ReshareButtonContext } from "./ReshareButton";
 import LikeButtonComposite, { LikeButtonContext } from "./LikeButton";
 import CommentButtonComposite, { CommentButtonContext } from "./CommentButton";
 import AvatarComposite, { AvatarContext } from "./Avatar";
@@ -226,25 +225,9 @@ function SocialPost(_props) {
                       {props.CommentButton}
                     </CommentButtonContext.Provider>
                   ),
-                  props.ReshareButton === undefined ? (
-                    <ReshareButtonComposite
-                      key={"FCGS5zXokx"}
-                      {...getCompositeDefaultProps("FCGS5zXokx")}
-                      className="__visly_reset __visly_scope_NA7dQZBwWp_FCGS5zXokx"
-                    />
-                  ) : (
-                    <ReshareButtonContext.Provider
-                      key="FCGS5zXokx-provider"
-                      value={{
-                        key: "FCGS5zXokx",
-                        className:
-                          "__visly_reset __visly_scope_NA7dQZBwWp_FCGS5zXokx",
-                        ...getCompositeDefaultProps("FCGS5zXokx"),
-                      }}
-                    >
-                      {props.ReshareButton}
-                    </ReshareButtonContext.Provider>
-                  ),
+                  props.ReshareButton === undefined
+                    ? null
+                    : props.ReshareButton,
                   props.LikeButton === undefined ? (
                     <LikeButtonComposite
                       key={"F9TMVU8PAe"}
@@ -279,7 +262,6 @@ function SocialPost(_props) {
   );
 }
 
-SocialPost.ReshareButton = ReshareButtonComposite;
 SocialPost.LikeButton = LikeButtonComposite;
 SocialPost.CommentButton = CommentButtonComposite;
 SocialPost.Avatar = AvatarComposite;

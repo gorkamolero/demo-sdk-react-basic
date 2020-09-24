@@ -38,3 +38,10 @@ export const heading = {
   fontStyle: "normal",
   lineHeight: "26px",
 };
+export const menuHeading = {
+  fontFamily: "Averta",
+  fontSize: "14px",
+  fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "1",
+};
