@@ -1,0 +1,13 @@
+diff --git a/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js b/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
+index ebd93d7..f377643 100644
+--- a/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
++++ b/node_modules/react-scripts/scripts/utils/verifyTypeScriptSetup.js
+@@ -26,7 +26,7 @@ function writeJson(fileName, object) {
+ 
+ function verifyNoTypeScript() {
+   const typescriptFiles = globby(
+-    ['**/*.(ts|tsx)', '!**/node_modules', '!**/*.d.ts'],
++    ['**/*.(ts|tsx)', '!**/node_modules', '!**/*.d.ts', '!**/visly'],
+     { cwd: paths.appSrc }
+   );
+   if (typescriptFiles.length > 0) {
