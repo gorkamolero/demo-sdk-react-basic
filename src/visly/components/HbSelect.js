@@ -50,6 +50,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "HbUnselected",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -79,6 +84,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "HbUnselected",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -86,6 +96,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "medium", "large", "super"],
+  },
+  {
+    type: "boolean",
+    propName: "HbUnselected",
   },
 ];
 
@@ -151,6 +165,10 @@ HbSelect.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "medium", "large", "super"],
+  },
+  {
+    name: "HbUnselected",
+    type: "variant",
   },
 ];
 

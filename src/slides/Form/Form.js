@@ -18,7 +18,7 @@ function Form() {
 
     return (
       <FlexBox column center>
-        <FormFields validate={slideModel.validate} showErrors={showErrors} fields={slideModel.getFields()} />
+        <FormFields showErrors={showErrors} fields={slideModel.getFields()} />
 
         <Navigation next={next} />
       </FlexBox>

@@ -307,6 +307,7 @@ export const HbSelect: {
       selected?: string;
       onSelect: (value: string) => void;
       size?: "small" | "medium" | "large" | "super";
+      HbUnselected?: boolean;
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

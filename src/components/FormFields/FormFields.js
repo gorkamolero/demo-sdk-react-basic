@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from "react";
 import './FormFields.css'
 import CustomHTML from "../CustomHTML/CustomHTML";
 import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint } from "visly";
 import { FlexBox } from "react-styled-flex";
+import { SlideContext } from "../../context/SlideContext";
+
 
 const HbFormElement = ({children}) => {
     return (
@@ -13,11 +15,14 @@ const HbFormElement = ({children}) => {
 }
 
 function FormFields({fields, showErrors, validate}) {
+    const { slideModel } = useContext(SlideContext);
     const size = useBreakpoint("small", ["large", "large", "super"]);
 
     const getFieldValues = React.useCallback(() => fields.map(field => field.getValue()), [fields])
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
+
+    console.log('YOLO', fields)
 
     const onChangeHandler = (event, field) => {
         const type = field.getType()
@@ -27,13 +32,15 @@ function FormFields({fields, showErrors, validate}) {
         } else if (["select", "text", "radio-group", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
+
+            // TODO: implementar método para desvalidar 
         } else {
             field.setValue(event.target.value);
         }
 
         setFieldValues(getFieldValues());
         
-        if (field.getValue()) validate();
+        if (field.getValue()) slideModel.validate();
     };
 
     const getFieldErrorClass = (field) => {
@@ -44,7 +51,7 @@ function FormFields({fields, showErrors, validate}) {
         const type = field.getType();
         const meta = field.getMeta();
         
-        const title = !meta.hideTitle && field.getTitle() ? <CustomHTML className="title" html={field.getTitle()} /> : null
+        const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={field.getTitle()} /> : null
 
         let el;
         if (type==='checkbox') {
@@ -66,13 +73,12 @@ function FormFields({fields, showErrors, validate}) {
             el = Input(field, title, onChangeHandler, size)
         }
 
-        if (meta.follows) {
-        //   console.log(fields.find((f) => f.id === meta.follows));
-          console.log(fields.find((f) => f.id === meta.follows).isValid());
-        }
-
         // If this fields follows another which is not valid:
-        if (meta.follows && !fields.find(f => f.id === meta.follows).isValid()) return null
+        if (meta.follows) {
+          const master = fields.find((f) => f.id === meta.follows);
+          // console.log(field.getTitle(), fields.find((f) => f.id === meta.follows));
+          if (!master.isValid() || master.getValue() == 0) return null; // eslint-disable-line eqeqeq
+        }
 
         // Else
         return (
@@ -115,12 +121,15 @@ const Select = (field, title, onChangeHandler, size) => {
           setSelected(selected);
           onChangeHandler(selected.value, field);
         }}
+        HbUnselected={selected.value == 0} // eslint-disable-line eqeqeq
         selected={selected.value}
         label={selected.label}
         size={size}
       >
         {options.map((o) => {
-          return <HbSelect.Option key={o.value} value={o.value} label={o.label} />;
+          return (
+            <HbSelect.Option key={o.value} value={o.value} label={o.label} />
+          );
         })}
       </HbSelect>
     </>
