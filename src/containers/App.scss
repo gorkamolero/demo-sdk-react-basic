@@ -46,3 +46,13 @@ button:hover {
     cursor: pointer;
     background-color: #f9f9f9;
 }
+
+input::placeholder {
+    font-weight: lighter;
+}
+
+input {
+    margin: 0;
+}
+
+label[class*="radio-group-button"], button[type="button"] { cursor: pointer !important; }

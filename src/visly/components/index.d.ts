@@ -120,25 +120,135 @@ export const CommentButton: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
+export const HbButton: {
+  (
+    props: {
+      text?: string;
+      onPress?: (event: PressEvent) => void;
+      variant?: "contained";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbButtonGroup: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbCircleIcon: {
+  (
+    props: {
+      icon?: string;
+      HbYellowIcon?: boolean;
+      size?: "small";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbContainer: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbContent: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbFirstSlideFooter: {
+  (
+    props: {
+      size?: "medium" | "large";
+      HbFooterRectangle?: React.ReactNode;
+      HbFooterRectangle1?: React.ReactNode;
+      HbFooterRectangle2?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbFooterRectangle: typeof HbFooterRectangle;
+  HbFooterRectangle1: typeof HbFooterRectangle;
+  HbFooterRectangle2: typeof HbFooterRectangle;
+};
+export const HbFooterRectangle: {
+  (
+    props: {
+      icon?: string;
+      title?: string;
+      subtitle?: string;
+      size?: "medium" | "large";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbFormElement: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
 export const HbHeader: {
   (
     props: {
+      bg?: string;
+      slideDescription?: string;
+      title?: string;
+      textSlot?: string;
+      extraImage?: string;
+      extraImageT?: string;
+      HbTablet?: boolean;
+      HbMobile?: boolean;
+      size?: "small" | "large" | "medium";
+      HbCircleIcon?: React.ReactNode;
+      HbProgress?: React.ReactNode;
       HbLogo?: React.ReactNode;
+      HbProgressMobile?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
+  HbCircleIcon: typeof HbCircleIcon;
+  HbProgress: typeof HbProgress;
   HbLogo: typeof HbLogo;
+  HbProgressMobile: typeof HbProgress;
 };
 export const HbIconButton: {
   (
     props: {
       text?: string;
+      icon?: string;
       onPress?: (event: PressEvent) => void;
       HbIconButtonSelected?: boolean;
+      size?: "small";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbInput: {
+  (
+    props: {
+      placeholder?: string;
+      value?: string;
+      onChange?: (value: string) => void;
+      inputRef?: React.Ref<HTMLInputElement>;
+      size?: "small" | "medium" | "large" | "super";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
 export const HbLogo: {
-  (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
+  (
+    props: {
+      size?: "small";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbProgress: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+      HbProgressBar?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbProgressBar: typeof HbProgressBar;
 };
 export const HbProgressBar: {
   (
@@ -152,6 +262,7 @@ export const HbProgressButton: {
     props: {
       onPress?: (event: PressEvent) => void;
       HbProgressButtonActive?: boolean;
+      HbProgressButtonEmpty?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
@@ -159,10 +270,55 @@ export const HbProgressStep: {
   (
     props: {
       stepTitle?: string;
-      HbProgressButton?: React.ReactNode;
+      HbActiveStep?: boolean;
+      HbFutureStep?: boolean;
+      size?: "small" | "medium";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-  HbProgressButton: typeof HbProgressButton;
+};
+export const HbRadio: {
+  (
+    props: {
+      value?: string;
+      onChange: (value: string) => void;
+      ariaLabel?: string;
+      HbRadioColumn?: boolean;
+      size?: "small" | "medium" | "large" | "super";
+      children?: React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  Button: {
+    (
+      props: {
+        title?: string;
+        icon?: string;
+        value?: string;
+        selected?: boolean;
+        fullWidth?: boolean;
+        size?: "small" | "mediu";
+      } & CommonProps<HTMLDivElement>
+    ): JSX.Element;
+  };
+};
+export const HbSelect: {
+  (
+    props: {
+      label?: string;
+      selected?: string;
+      onSelect: (value: string) => void;
+      size?: "small" | "medium" | "large" | "super";
+      children?: React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  Option: {
+    (
+      props: {
+        label?: string;
+        value: string;
+        selected?: boolean;
+      } & CommonProps<HTMLDivElement>
+    ): JSX.Element;
+  };
 };
 export const Input: {
   (
@@ -183,9 +339,6 @@ export const LikeButton: {
       checked?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-};
-export const Radio: {
-  (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const Segmented: {
   (
@@ -225,34 +378,13 @@ export const Select: {
     ): JSX.Element;
   };
 };
-export const SocialPost: {
+export const TeStO: {
   (
     props: {
-      attachment?: React.ReactNode | React.ReactNode[];
-      name?: string;
-      handle?: string;
-      date?: string;
-      text?: string;
-      ReshareButton?: React.ReactNode;
-      LikeButton?: React.ReactNode;
-      CommentButton?: React.ReactNode;
-      Avatar?: React.ReactNode;
-      ShareButton?: React.ReactNode;
+      HbIconButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-  Image: {
-    (
-      props: {
-        imageSrc?: string;
-      } & CommonProps<HTMLDivElement>
-    ): JSX.Element;
-  };
-  ShareButton: {
-    (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
-  };
-  LikeButton: typeof LikeButton;
-  CommentButton: typeof CommentButton;
-  Avatar: typeof Avatar;
+  HbIconButton: typeof HbIconButton;
 };
 export const Toggle: {
   (

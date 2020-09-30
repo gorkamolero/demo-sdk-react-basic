@@ -21,6 +21,11 @@ const styles = [
     propName: "HbProgressButtonActive",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "HbProgressButtonEmpty",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -33,12 +38,21 @@ const defaultPropValues = [
     propName: "HbProgressButtonActive",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "HbProgressButtonEmpty",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbProgressButtonActive",
+  },
+  {
+    type: "boolean",
+    propName: "HbProgressButtonEmpty",
   },
 ];
 
@@ -72,6 +86,10 @@ function HbProgressButton(_props) {
 HbProgressButton.__variants = [
   {
     name: "HbProgressButtonActive",
+    type: "variant",
+  },
+  {
+    name: "HbProgressButtonEmpty",
     type: "variant",
   },
 ];

@@ -10,34 +10,95 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { RootPrimitive, TextPrimitive } from "./_internal_primitives";
-import HbProgressButtonComposite, {
-  HbProgressButtonContext,
-} from "./HbProgressButton";
+import {
+  RootPrimitive,
+  TextPrimitive,
+  ContainerPrimitive,
+} from "./_internal_primitives";
 
 const styles = [
   {
     type: "default",
     layers: {
-      LBFyBTbXXd: {
+      "9kNRN8qWcz": {
         none: {
           text: "Step",
         },
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "HbActiveStep",
+    layers: {},
+  },
+  {
+    type: "boolean",
+    propName: "HbFutureStep",
+    layers: {},
+  },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+      {
+        propValue: "medium",
+        layers: {},
+      },
+    ],
+  },
 ];
 
 const defaultPropValues = [
   {
     type: "default",
-    layers: {
-      "7PiDDbURMp": {},
-    },
+    layers: {},
+  },
+  {
+    type: "boolean",
+    propName: "HbActiveStep",
+    layers: {},
+  },
+  {
+    type: "boolean",
+    propName: "HbFutureStep",
+    layers: {},
+  },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+      {
+        propValue: "medium",
+        layers: {},
+      },
+    ],
   },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "HbActiveStep",
+  },
+  {
+    type: "boolean",
+    propName: "HbFutureStep",
+  },
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small", "medium"],
+  },
+];
 
 export const HbProgressStepContext = createContext(null);
 
@@ -57,44 +118,56 @@ function HbProgressStep(_props) {
       internal={{
         styles: styles,
         layerId: "E1DeTUQrkS",
-        scope: "7Sa8f1s9gz",
+        scope: "VDZamdUPev",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => [
-        <TextPrimitive
-          className={"__visly_reset __visly_scope_7Sa8f1s9gz_LBFyBTbXXd"}
-          key={"LBFyBTbXXd"}
-          text={
-            exists(props.stepTitle)
-              ? props.stepTitle
-              : getStyle("LBFyBTbXXd", "text")
-          }
-        />,
-        props.HbProgressButton === undefined ? (
-          <HbProgressButtonComposite
-            key={"7PiDDbURMp"}
-            {...getCompositeDefaultProps("7PiDDbURMp")}
-            className="__visly_reset __visly_scope_7Sa8f1s9gz_7PiDDbURMp"
-          />
-        ) : (
-          <HbProgressButtonContext.Provider
-            key="7PiDDbURMp-provider"
-            value={{
-              key: "7PiDDbURMp",
-              className: "__visly_reset __visly_scope_7Sa8f1s9gz_7PiDDbURMp",
-              ...getCompositeDefaultProps("7PiDDbURMp"),
-            }}
+      {(getStyle) => (
+        <>
+          <ContainerPrimitive
+            className={"__visly_reset __visly_scope_VDZamdUPev_ND1GG14HkM"}
+            key={"ND1GG14HkM"}
+            addSpacing={false}
           >
-            {props.HbProgressButton}
-          </HbProgressButtonContext.Provider>
-        ),
-      ]}
+            {
+              <TextPrimitive
+                className={"__visly_reset __visly_scope_VDZamdUPev_9kNRN8qWcz"}
+                key={"9kNRN8qWcz"}
+                text={
+                  exists(props.stepTitle)
+                    ? props.stepTitle
+                    : getStyle("9kNRN8qWcz", "text")
+                }
+              />
+            }
+          </ContainerPrimitive>
+          <ContainerPrimitive
+            className={"__visly_reset __visly_scope_VDZamdUPev_T9iA7HLyzJ"}
+            key={"T9iA7HLyzJ"}
+            addSpacing={false}
+          >
+            {null}
+          </ContainerPrimitive>
+        </>
+      )}
     </RootPrimitive>
   );
 }
 
-HbProgressStep.HbProgressButton = HbProgressButtonComposite;
-HbProgressStep.__variants = [];
+HbProgressStep.__variants = [
+  {
+    name: "HbActiveStep",
+    type: "variant",
+  },
+  {
+    name: "HbFutureStep",
+    type: "variant",
+  },
+  {
+    name: "size",
+    type: "group",
+    variants: ["small", "medium"],
+  },
+];
 
 export default HbProgressStep;

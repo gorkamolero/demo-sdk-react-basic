@@ -5,8 +5,8 @@
   -webkit-user-select: none;
   -khtml-user-select: none;
   -moz-user-select: none;
-  width: 192px;
-  height: 88px;
+  min-width: 192px;
+  min-height: 88px;
   border-color: #d9dae6;
   border-style: solid;
   background-color: rgba(0, 0, 0, 0);
@@ -67,4 +67,23 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_size-small.__visly_state_none {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  padding: 10px 24px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_size-small.__visly_state_none
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_size-small.__visly_state_none
+  .__visly_scope_RK1ajYQDzn_8CLRfG5L7n {
+  width: 40px;
+  height: 40px;
 }

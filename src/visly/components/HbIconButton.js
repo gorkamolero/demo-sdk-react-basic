@@ -40,6 +40,22 @@ const styles = [
     propName: "HbIconButtonSelected",
     layers: {},
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {
+          "8CLRfG5L7n": {
+            none: {
+              src: require("../assets/3421457c-3753-4949-b709-b4d47224a029.svg"),
+            },
+          },
+        },
+      },
+    ],
+  },
 ];
 
 const defaultPropValues = [
@@ -52,12 +68,27 @@ const defaultPropValues = [
     propName: "HbIconButtonSelected",
     layers: {},
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+    ],
+  },
 ];
 
 const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbIconButtonSelected",
+  },
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small"],
   },
 ];
 
@@ -89,7 +120,9 @@ function HbIconButton(_props) {
             className={"__visly_reset __visly_scope_RK1ajYQDzn_8CLRfG5L7n"}
             key={"8CLRfG5L7n"}
             useMask={getStyle("8CLRfG5L7n", "useMask")}
-            src={getStyle("8CLRfG5L7n", "src")}
+            src={
+              exists(props.icon) ? props.icon : getStyle("8CLRfG5L7n", "src")
+            }
           />
           <SpacerPrimitive
             className={"__visly_reset __visly_scope_RK1ajYQDzn_9UVDautth7"}
@@ -112,6 +145,11 @@ HbIconButton.__variants = [
   {
     name: "HbIconButtonSelected",
     type: "variant",
+  },
+  {
+    name: "size",
+    type: "group",
+    variants: ["small"],
   },
 ];
 

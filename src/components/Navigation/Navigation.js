@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
+import { HbButtonGroup, HbButton } from "visly";
 
 function Navigation({back, next, restart}) {
     const {nav} = useContext(SlideContext);
@@ -11,13 +12,31 @@ function Navigation({back, next, restart}) {
     restart = restart || nav.restart;
 
     return (
-        <div className="navigation">
-            <button disabled={!nav.canBack} onClick={back}>Back</button>
+      <HbButtonGroup>
+        {nav.canBack && (
+          <HbButton
+            text="Go back"
+            disabled={!nav.canBack}
+            onPress={() => back()}
+          />
+        )}
 
-            {nav.canRestart?<button onClick={restart}>Restart</button>:null}
+        {nav.canRestart && (
+          <HbButton
+            text="Restart"
+            disabled={!nav.canRestart}
+            onPress={() => restart()}
+          />
+        )}
 
-            <button disabled={!nav.canNext} onClick={next}>Next</button>
-        </div>
+        {nav.canNext && (
+          <HbButton
+            text="Continue"
+            disabled={!nav.canNext}
+            onPress={() => next()}
+          />
+        )}
+      </HbButtonGroup>
     );
 }
 

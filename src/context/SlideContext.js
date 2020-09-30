@@ -10,6 +10,7 @@ const SlideContextProvider = ({children}) => {
     const [slideModel, setSlideModel] = useState(null);
     const [nav, setNav] = useState({canBack:false, canNext:false});
     const [progress, setProgress] = useState(0);
+    const [progressBar, setProgressBar] = useState({})
 
     useEffect(() => {
         // Mounted
@@ -17,6 +18,8 @@ const SlideContextProvider = ({children}) => {
             if (Engine) {
                 EngineRef.current = Engine;
                 Engine.load(cfg.code, cfg.server, {memo:false}).then(() => {
+                    let progressBar = Engine.getProgressBar()
+                    setProgressBar(progressBar)
                     displayCurrentSlide();
                 }).catch((error) => {
                     console.error(error);
@@ -63,7 +66,7 @@ const SlideContextProvider = ({children}) => {
         <SlideContext.Provider value={{
             Engine:EngineRef.current,
             slideModel, displayCurrentSlide,
-            progress,
+            progress, progressBar,
             nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart}
         }}>
             {slideModel?children:null}

@@ -1,9 +1,8 @@
 import React, { useContext, useState } from 'react';
-import { SlideContext } from '../../context/SlideContext';
+import { FlexBox } from "react-styled-flex";
+import { SlideContext } from "../../context/SlideContext";
 import FormFields from "../../components/FormFields/FormFields";
 import Navigation from '../../components/Navigation/Navigation'
-import Header from "../../components/Header/Header";
-import './Form.css'
 
 function Form() {
     const { slideModel, nav } = useContext(SlideContext);
@@ -18,13 +17,11 @@ function Form() {
     };
 
     return (
-      <div className="slide form">
-        <Header />
-
-        <FormFields showErrors={showErrors} fields={slideModel.getFields()} />
+      <FlexBox column center>
+        <FormFields validate={slideModel.validate} showErrors={showErrors} fields={slideModel.getFields()} />
 
         <Navigation next={next} />
-      </div>
+      </FlexBox>
     );
 }
 

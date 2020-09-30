@@ -24,6 +24,22 @@ const styles = [
       },
     },
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {
+          FLHNXYLopv: {
+            none: {
+              src: require("../assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
+            },
+          },
+        },
+      },
+    ],
+  },
 ];
 
 const defaultPropValues = [
@@ -31,9 +47,25 @@ const defaultPropValues = [
     type: "default",
     layers: {},
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+    ],
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small"],
+  },
+];
 
 export const HbLogoContext = createContext(null);
 
@@ -69,6 +101,12 @@ function HbLogo(_props) {
   );
 }
 
-HbLogo.__variants = [];
+HbLogo.__variants = [
+  {
+    name: "size",
+    type: "group",
+    variants: ["small"],
+  },
+];
 
 export default HbLogo;

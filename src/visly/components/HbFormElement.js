@@ -3,14 +3,13 @@
 /* eslint-disable */
 import "../textstyles/fonts.css";
 import "./reset.css";
-import "./SocialPost.Image.css";
+import "./HbFormElement.css";
 import React, { createContext, useContext } from "react";
 import {
-  exists,
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { RootPrimitive, ImagePrimitive } from "./_internal_primitives";
+import { RootPrimitive, ContainerPrimitive } from "./_internal_primitives";
 
 const styles = [
   {
@@ -28,10 +27,10 @@ const defaultPropValues = [
 
 const variantPropTypes = [];
 
-export const ImageContext = createContext(null);
+export const HbFormElementContext = createContext(null);
 
-function Image(_props) {
-  const defaults = useContext(ImageContext);
+function HbFormElement(_props) {
+  const defaults = useContext(HbFormElementContext);
   const props = { ...defaults, ..._props };
   const activeVariants = findSetVariantProps(variantPropTypes, props);
   const getCompositeDefaultProps = makeCompositeDefaultProps(
@@ -41,31 +40,26 @@ function Image(_props) {
   return (
     <RootPrimitive
       {...props}
-      key="NfxRNjDcRr"
+      key="GFWFBVKofw"
       addSpacing={false}
       internal={{
         styles: styles,
-        layerId: "NfxRNjDcRr",
-        scope: "PaLZDRFNMV",
+        layerId: "GFWFBVKofw",
+        scope: "Va69G6HRMS",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => (
-        <ImagePrimitive
-          className={"__visly_reset __visly_scope_PaLZDRFNMV_EoT1a1rWD5"}
-          key={"EoT1a1rWD5"}
-          src={
-            exists(props.imageSrc)
-              ? props.imageSrc
-              : getStyle("EoT1a1rWD5", "src")
-          }
-          alt={getStyle("EoT1a1rWD5", "alternateText")}
-        />
-      )}
+      <ContainerPrimitive
+        key={"645zCMveCM"}
+        className={"__visly_reset __visly_scope_Va69G6HRMS_645zCMveCM"}
+        addSpacing={true}
+      >
+        {props.children}
+      </ContainerPrimitive>
     </RootPrimitive>
   );
 }
 
-Image.__variants = [];
+HbFormElement.__variants = [];
 
-export default Image;
+export default HbFormElement;

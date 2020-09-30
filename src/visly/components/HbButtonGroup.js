@@ -3,13 +3,13 @@
 /* eslint-disable */
 import "../textstyles/fonts.css";
 import "./reset.css";
-import "./Radio.css";
+import "./HbButtonGroup.css";
 import React, { createContext, useContext } from "react";
 import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { RootPrimitive } from "./_internal_primitives";
+import { RootPrimitive, ContainerPrimitive } from "./_internal_primitives";
 
 const styles = [
   {
@@ -27,10 +27,10 @@ const defaultPropValues = [
 
 const variantPropTypes = [];
 
-export const RadioContext = createContext(null);
+export const HbButtonGroupContext = createContext(null);
 
-function Radio(_props) {
-  const defaults = useContext(RadioContext);
+function HbButtonGroup(_props) {
+  const defaults = useContext(HbButtonGroupContext);
   const props = { ...defaults, ..._props };
   const activeVariants = findSetVariantProps(variantPropTypes, props);
   const getCompositeDefaultProps = makeCompositeDefaultProps(
@@ -40,20 +40,26 @@ function Radio(_props) {
   return (
     <RootPrimitive
       {...props}
-      key="XymjPmbr4f"
-      addSpacing={false}
+      key="7Juzb2Pfn4"
+      addSpacing={true}
       internal={{
         styles: styles,
-        layerId: "XymjPmbr4f",
-        scope: "Vr7F3w7Ssj",
+        layerId: "7Juzb2Pfn4",
+        scope: "5cGf1BQia4",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => null}
+      <ContainerPrimitive
+        key={"KYnFXgB8gr"}
+        className={"__visly_reset __visly_scope_5cGf1BQia4_KYnFXgB8gr"}
+        addSpacing={false}
+      >
+        {props.children}
+      </ContainerPrimitive>
     </RootPrimitive>
   );
 }
 
-Radio.__variants = [];
+HbButtonGroup.__variants = [];
 
-export default Radio;
+export default HbButtonGroup;

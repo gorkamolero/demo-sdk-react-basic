@@ -31,6 +31,20 @@ export const bodySmallBold = {
   fontStyle: "normal",
   lineHeight: "24px",
 };
+export const bodySmallMobile = {
+  fontFamily: "Averta",
+  fontSize: "16px",
+  fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "1",
+};
+export const headSmall = {
+  fontFamily: "Averta",
+  fontSize: "16px",
+  fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "20px",
+};
 export const heading = {
   fontFamily: "Inter",
   fontSize: "18px",
@@ -42,6 +56,34 @@ export const menuHeading = {
   fontFamily: "Averta",
   fontSize: "14px",
   fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "1",
+};
+export const menuHeadingTablet = {
+  fontFamily: "Averta",
+  fontSize: "12px",
+  fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "1",
+};
+export const superHeading = {
+  fontFamily: "Averta",
+  fontSize: "32px",
+  fontWeight: 700,
+  fontStyle: "normal",
+  lineHeight: "39px",
+};
+export const superHeadingMobile = {
+  fontFamily: "Averta",
+  fontSize: "22px",
+  fontWeight: 700,
+  fontStyle: "normal",
+  lineHeight: "30px",
+};
+export const superHeadingTablet = {
+  fontFamily: "Averta",
+  fontSize: "28px",
+  fontWeight: 700,
   fontStyle: "normal",
   lineHeight: "1",
 };
