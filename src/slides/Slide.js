@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
-import Utils from 'utils/Utils'
+import Utils from '../utils/Utils'
 import Cover from '../slides/Cover/Cover';
 import Filter from '../slides/Filter/Filter';
 import Info from '../slides/Info/Info';
@@ -9,7 +9,7 @@ import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { HbHeader, HbContainer, useBreakpoint } from "visly";
+import { HbHeader, HbContainer, useBreakpoint } from "../visly";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
