@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import {
   HbProgress,
   HbProgressStep,
-} from "visly";
+} from "../../visly";
 import { SlideContext } from "../../context/SlideContext";
 
 const ProgressBar = ({size}) => {
