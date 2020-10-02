@@ -68,6 +68,10 @@ const styles = [
         propValue: "medium",
         layers: {},
       },
+      {
+        propValue: "super",
+        layers: {},
+      },
     ],
   },
 ];
@@ -150,6 +154,15 @@ const defaultPropValues = [
           "9VxZfYB53B": {},
         },
       },
+      {
+        propValue: "super",
+        layers: {
+          Coy4GvRJN5: {},
+          B28tWsTkne: {},
+          DesmwGXXNp: {},
+          "9VxZfYB53B": {},
+        },
+      },
     ],
   },
 ];
@@ -166,7 +179,7 @@ const variantPropTypes = [
   {
     type: "enum",
     propName: "size",
-    propValues: ["small", "large", "medium"],
+    propValues: ["small", "large", "medium", "super"],
   },
 ];
 
@@ -447,7 +460,7 @@ HbHeader.__variants = [
   {
     name: "size",
     type: "group",
-    variants: ["small", "large", "medium"],
+    variants: ["small", "large", "medium", "super"],
   },
 ];
 

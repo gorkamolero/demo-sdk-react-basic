@@ -156,6 +156,7 @@ export const HbContent: {
   (
     props: {
       children?: React.ReactNode | React.ReactNode[];
+      customProp?: "small" | "medium" | "large" | "super";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
@@ -200,7 +201,7 @@ export const HbHeader: {
       extraImageT?: string;
       HbTablet?: boolean;
       HbMobile?: boolean;
-      size?: "small" | "large" | "medium";
+      size?: "small" | "large" | "medium" | "super";
       HbCircleIcon?: React.ReactNode;
       HbProgress?: React.ReactNode;
       HbLogo?: React.ReactNode;
@@ -211,6 +212,25 @@ export const HbHeader: {
   HbProgress: typeof HbProgress;
   HbLogo: typeof HbLogo;
   HbProgressMobile: typeof HbProgress;
+};
+export const HbHelper: {
+  (
+    props: {
+      selected?: string | string[] | Set<string>;
+      onSelect: (values: Set<string>) => void;
+      selectionMode?: "none" | "single" | "multiple";
+      children?: React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  Item: {
+    (
+      props: {
+        label?: string;
+        value: string;
+        selected?: boolean;
+      } & CommonProps<HTMLDivElement>
+    ): JSX.Element;
+  };
 };
 export const HbIconButton: {
   (
@@ -295,7 +315,7 @@ export const HbRadio: {
         value?: string;
         selected?: boolean;
         fullWidth?: boolean;
-        size?: "small" | "mediu";
+        size?: "small" | "medium";
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
@@ -306,8 +326,8 @@ export const HbSelect: {
       label?: string;
       selected?: string;
       onSelect: (value: string) => void;
-      size?: "small" | "medium" | "large" | "super";
       HbUnselected?: boolean;
+      size?: "small" | "medium" | "large" | "super";
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

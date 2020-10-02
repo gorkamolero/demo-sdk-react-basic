@@ -5,10 +5,11 @@
   width: 100%;
   border-color: #d9dae6;
   border-style: solid;
+  background-color: rgba(197, 197, 197, 0);
   align-items: center;
   transition: 150ms ease-in-out;
   border-width: 0 0 2px;
-  padding: 0;
+  padding: 0 0 2px;
 }
 .__visly_scope_JhYcCBQMX6_root.__visly_default.__visly_state_focus {
   border-color: #00aeaa;
@@ -24,6 +25,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 24px;
+  line-height: 14px;
   width: 100%;
   flex-grow: 1;
   flex-shrink: 1;

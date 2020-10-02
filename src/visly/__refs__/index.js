@@ -31,6 +31,7 @@ export const color = {
   white: "1a46fecf-73b1-44d3-88f8-69ef863d110a",
 };
 export const icon = {
+  hbChevronDown: "654fbce1-5cf6-4d4f-a86c-743bfeee64d8",
   hbDiscount: "5465e731-4834-4811-be34-34a4a31de8e8",
   hbFooterCustomNutrition: "eaebb328-5879-4908-ba3e-7a02026ed96e",
   hbFooterPremium: "00143776-fc5c-4ae3-9fa7-90e433ca7278",
@@ -110,6 +111,7 @@ export const component = {
   HbFooterRectangle: "b0b449d1-4f02-46cb-a650-9e074e93e7cd",
   HbFormElement: "e75e9894-8f00-4a05-ad61-93262f992296",
   HbHeader: "450b24de-2d5b-490f-b8e3-54a9b4a71bc4",
+  HbHelper: "cf215e28-e138-44bf-ac37-63dbd1d13f58",
   HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6",
   HbInput: "8f54961d-50f7-4b98-bd90-239f78c4b7bf",
   HbLogo: "178b94b1-16c1-4db1-a333-70d00d2d5610",

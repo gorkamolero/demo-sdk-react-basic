@@ -52,7 +52,7 @@ const PopoverInner = ({
   useModal();
   const { dialogProps } = useDialog({}, innerRef);
   return (
-    <FocusScope contain={containFocus} autoFocus={autoFocusFirst} restoreFocus>
+    <FocusScope contain={containFocus} autoFocus={autoFocusFirst}>
       <div
         {...mergeProps(overlayProps, dialogProps, positionProps, triggerProps, {
           className: "__visly_reset",

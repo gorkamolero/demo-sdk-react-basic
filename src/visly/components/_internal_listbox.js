@@ -50,7 +50,7 @@ function Option({ item, state }) {
 
 function ListboxItemPrimitiveImpl(props) {
   const ref = useRef();
-  const { isSelected, isFocused } = useContext(ItemContext);
+  const { isSelected, isFocused } = useContext(ItemContext) || {};
   const { style, testId, innerRef, values, vislyProps } = usePrimitive({
     ignoreFocusHandling: true,
     isFocusVisible: isFocused,

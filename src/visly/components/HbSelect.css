@@ -10,12 +10,12 @@
   border-bottom-width: 2px;
   padding-left: 20px;
   padding-right: 20px;
-  padding-bottom: 8px;
+  padding-bottom: 7px;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: center;
+  align-items: baseline;
   align-content: flex-start;
-  justify-content: space-between;
+  justify-content: center;
 }
 .__visly_scope_AaLudVhbjf_select-root.__visly_default.__visly_state_hover
   .__visly_scope_AaLudVhbjf_select-button {
@@ -49,6 +49,50 @@
   justify-content: flex-start;
   box-shadow: 0 5px 10px 5px rgba(0, 0, 0, 0.1);
 }
+.__visly_scope_AaLudVhbjf_select-root .__visly_scope_AaLudVhbjf_3VtGBBDCR3 {
+  display: block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  background-color: #242424;
+}
+.__visly_scope_AaLudVhbjf_select-root.__visly_default.__visly_state_hover
+  .__visly_scope_AaLudVhbjf_3VtGBBDCR3 {
+  background-color: #00aeaa;
+}
+.__visly_scope_AaLudVhbjf_select-root.__visly_default.__visly_state_pressed
+  .__visly_scope_AaLudVhbjf_3VtGBBDCR3 {
+  background-color: #00aeaa;
+  transform: rotate(180deg);
+}
+.__visly_scope_AaLudVhbjf_select-root .__visly_scope_AaLudVhbjf_KFFKrL54Ck {
+  align-self: stretch;
+  width: 20px;
+  height: unset;
+}
+.__visly_scope_AaLudVhbjf_select-root .__visly_scope_AaLudVhbjf_XBupFQrQKi,
+.__visly_scope_AaLudVhbjf_select-root .__visly_scope_AaLudVhbjf_Y1P6Hjm8D7 {
+  overflow: hidden;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.__visly_scope_AaLudVhbjf_select-root.__visly_HbUnselected.__visly_state_none
+  .__visly_scope_AaLudVhbjf_select-button {
+  align-items: baseline;
+}
+.__visly_scope_AaLudVhbjf_select-root.__visly_HbUnselected.__visly_state_none
+  .__visly_scope_AaLudVhbjf_select-button-text {
+  color: #242424;
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 18px;
+  opacity: 0.6;
+}
 .__visly_scope_AaLudVhbjf_select-root.__visly_size-small.__visly_state_none
   .__visly_scope_AaLudVhbjf_select-button-text {
   font-family: Averta;
@@ -56,8 +100,4 @@
   font-weight: 600;
   font-size: 18px;
   line-height: 20px;
-}
-.__visly_scope_AaLudVhbjf_select-root.__visly_HbUnselected.__visly_state_none
-  .__visly_scope_AaLudVhbjf_select-button-text {
-  color: #d9dae6;
 }

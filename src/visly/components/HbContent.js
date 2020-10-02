@@ -16,6 +16,28 @@ const styles = [
     type: "default",
     layers: {},
   },
+  {
+    type: "enum",
+    propName: "customProp",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+      {
+        propValue: "medium",
+        layers: {},
+      },
+      {
+        propValue: "large",
+        layers: {},
+      },
+      {
+        propValue: "super",
+        layers: {},
+      },
+    ],
+  },
 ];
 
 const defaultPropValues = [
@@ -23,9 +45,37 @@ const defaultPropValues = [
     type: "default",
     layers: {},
   },
+  {
+    type: "enum",
+    propName: "customProp",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+      {
+        propValue: "medium",
+        layers: {},
+      },
+      {
+        propValue: "large",
+        layers: {},
+      },
+      {
+        propValue: "super",
+        layers: {},
+      },
+    ],
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "enum",
+    propName: "customProp",
+    propValues: ["small", "medium", "large", "super"],
+  },
+];
 
 export const HbContentContext = createContext(null);
 
@@ -60,6 +110,12 @@ function HbContent(_props) {
   );
 }
 
-HbContent.__variants = [];
+HbContent.__variants = [
+  {
+    name: "customProp",
+    type: "group",
+    variants: ["small", "medium", "large", "super"],
+  },
+];
 
 export default HbContent;

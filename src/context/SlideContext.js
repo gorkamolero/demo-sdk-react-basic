@@ -67,7 +67,7 @@ const SlideContextProvider = ({children}) => {
             Engine:EngineRef.current,
             slideModel, displayCurrentSlide,
             progress, progressBar,
-            nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart}
+            nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart},
         }}>
             {slideModel?children:null}
         </SlideContext.Provider>

@@ -239,8 +239,12 @@ export function SelectRootImpl(props) {
     state,
     ref
   );
+  triggerProps.isDisabled = isDisabled;
   return (
-    <div className={className} style={{ ...style, display: "contents" }}>
+    <div
+      className={className}
+      style={{ ...style, display: renderInline ? "flex" : "contents" }}
+    >
       <HiddenSelect
         state={state}
         triggerRef={ref}
@@ -269,7 +273,7 @@ export function SelectRootImpl(props) {
 
 function SelectOptionRootImpl(props) {
   const ref = useRef();
-  const { isSelected, isFocused } = useContext(ItemContext);
+  const { isSelected, isFocused } = useContext(ItemContext) || {};
   const { style, testId, innerRef, values, vislyProps } = usePrimitive({
     ignoreFocusHandling: true,
     isFocusVisible: isFocused,

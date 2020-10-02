@@ -48,7 +48,7 @@ const styles = [
         layers: {},
       },
       {
-        propValue: "mediu",
+        propValue: "medium",
         layers: {},
       },
     ],
@@ -79,7 +79,7 @@ const defaultPropValues = [
         layers: {},
       },
       {
-        propValue: "mediu",
+        propValue: "medium",
         layers: {},
       },
     ],
@@ -98,7 +98,7 @@ const variantPropTypes = [
   {
     type: "enum",
     propName: "size",
-    propValues: ["small", "mediu"],
+    propValues: ["small", "medium"],
   },
 ];
 
@@ -173,7 +173,7 @@ Button.__variants = [
   {
     name: "size",
     type: "group",
-    variants: ["small", "mediu"],
+    variants: ["small", "medium"],
   },
 ];
 

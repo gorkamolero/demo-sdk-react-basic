@@ -10,7 +10,12 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { TextPrimitive } from "./_internal_primitives";
+import {
+  SpacerPrimitive,
+  TextPrimitive,
+  ContainerPrimitive,
+  IconPrimitive,
+} from "./_internal_primitives";
 import {
   SelectRoot,
   SelectOptionContainer,
@@ -26,7 +31,25 @@ const styles = [
           text: "Selected",
         },
       },
+      "3VtGBBDCR3": {
+        none: {
+          role: "img",
+          src: require("../assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg"),
+          useMask: true,
+        },
+        hover: {
+          useMask: true,
+        },
+        pressed: {
+          useMask: true,
+        },
+      },
     },
+  },
+  {
+    type: "boolean",
+    propName: "HbUnselected",
+    layers: {},
   },
   {
     type: "enum",
@@ -49,11 +72,6 @@ const styles = [
         layers: {},
       },
     ],
-  },
-  {
-    type: "boolean",
-    propName: "HbUnselected",
-    layers: {},
   },
 ];
 
@@ -63,6 +81,11 @@ const defaultPropValues = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "HbUnselected",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -84,22 +107,17 @@ const defaultPropValues = [
       },
     ],
   },
-  {
-    type: "boolean",
-    propName: "HbUnselected",
-    layers: {},
-  },
 ];
 
 const variantPropTypes = [
   {
+    type: "boolean",
+    propName: "HbUnselected",
+  },
+  {
     type: "enum",
     propName: "size",
     propValues: ["small", "medium", "large", "super"],
-  },
-  {
-    type: "boolean",
-    propName: "HbUnselected",
   },
 ];
 
@@ -131,19 +149,44 @@ function HbSelect(_props) {
             key="select-button"
             className="__visly_reset __visly_scope_AaLudVhbjf_select-button"
           >
-            {
-              <TextPrimitive
-                className={
-                  "__visly_reset __visly_scope_AaLudVhbjf_select-button-text"
-                }
-                key={"select-button-text"}
-                text={
-                  exists(props.label)
-                    ? props.label
-                    : getStyle("select-button-text", "text")
-                }
-              />
-            }
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_AaLudVhbjf_Y1P6Hjm8D7"}
+              key={"Y1P6Hjm8D7"}
+              addSpacing={false}
+            >
+              {null}
+            </ContainerPrimitive>
+            <TextPrimitive
+              className={
+                "__visly_reset __visly_scope_AaLudVhbjf_select-button-text"
+              }
+              key={"select-button-text"}
+              text={
+                exists(props.label)
+                  ? props.label
+                  : getStyle("select-button-text", "text")
+              }
+            />
+            <SpacerPrimitive
+              className={"__visly_reset __visly_scope_AaLudVhbjf_KFFKrL54Ck"}
+              key={"KFFKrL54Ck"}
+            />
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_AaLudVhbjf_XBupFQrQKi"}
+              key={"XBupFQrQKi"}
+              addSpacing={false}
+            >
+              {
+                <IconPrimitive
+                  className={
+                    "__visly_reset __visly_scope_AaLudVhbjf_3VtGBBDCR3"
+                  }
+                  key={"3VtGBBDCR3"}
+                  useMask={getStyle("3VtGBBDCR3", "useMask")}
+                  src={getStyle("3VtGBBDCR3", "src")}
+                />
+              }
+            </ContainerPrimitive>
           </SelectButton>
           <SelectOptionContainer
             key="select-menu"
@@ -162,13 +205,13 @@ function HbSelect(_props) {
 
 HbSelect.__variants = [
   {
+    name: "HbUnselected",
+    type: "variant",
+  },
+  {
     name: "size",
     type: "group",
     variants: ["small", "medium", "large", "super"],
-  },
-  {
-    name: "HbUnselected",
-    type: "variant",
   },
 ];
 
