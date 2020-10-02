@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint } from "visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 

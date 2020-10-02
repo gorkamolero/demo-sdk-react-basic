@@ -10,10 +10,10 @@ import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import { HbHeader, HbContainer, useBreakpoint } from "visly";
-import LargeBG from 'assets/images/svg-bg-large.svg'
-import MidBG from 'assets/images/svg-bg-medium.svg'
-import SmallBG from 'assets/images/svg-bg-small.svg'
-import Bowl from 'assets/images/Bowl.png'
+import LargeBG from '../assets/images/svg-bg-large.svg'
+import MidBG from '../assets/images/svg-bg-medium.svg'
+import SmallBG from '../assets/images/svg-bg-small.svg'
+import Bowl from '../assets/images/Bowl.png'
 
 const Slide = () => {
     const { slideModel } = useContext(SlideContext);
