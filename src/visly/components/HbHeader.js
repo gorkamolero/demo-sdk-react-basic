@@ -43,16 +43,6 @@ const styles = [
     },
   },
   {
-    type: "boolean",
-    propName: "HbTablet",
-    layers: {},
-  },
-  {
-    type: "boolean",
-    propName: "HbMobile",
-    layers: {},
-  },
-  {
     type: "enum",
     propName: "size",
     values: [
@@ -86,26 +76,6 @@ const defaultPropValues = [
           HbYellowIcon: true,
         },
       },
-      B28tWsTkne: {},
-      DesmwGXXNp: {},
-      "9VxZfYB53B": {},
-    },
-  },
-  {
-    type: "boolean",
-    propName: "HbTablet",
-    layers: {
-      Coy4GvRJN5: {},
-      B28tWsTkne: {},
-      DesmwGXXNp: {},
-      "9VxZfYB53B": {},
-    },
-  },
-  {
-    type: "boolean",
-    propName: "HbMobile",
-    layers: {
-      Coy4GvRJN5: {},
       B28tWsTkne: {},
       DesmwGXXNp: {},
       "9VxZfYB53B": {},
@@ -168,14 +138,6 @@ const defaultPropValues = [
 ];
 
 const variantPropTypes = [
-  {
-    type: "boolean",
-    propName: "HbTablet",
-  },
-  {
-    type: "boolean",
-    propName: "HbMobile",
-  },
   {
     type: "enum",
     propName: "size",
@@ -376,7 +338,7 @@ function HbHeader(_props) {
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_9XVkrqrLZt_Ajq15sbMPw"}
               key={"Ajq15sbMPw"}
-              addSpacing={true}
+              addSpacing={false}
             >
               <SpacerPrimitive
                 className={"__visly_reset __visly_scope_9XVkrqrLZt_AmuT4WgaTf"}
@@ -449,14 +411,6 @@ HbHeader.HbProgress = HbProgressComposite;
 HbHeader.HbLogo = HbLogoComposite;
 HbHeader.HbProgressMobile = HbProgressComposite;
 HbHeader.__variants = [
-  {
-    name: "HbTablet",
-    type: "variant",
-  },
-  {
-    name: "HbMobile",
-    type: "variant",
-  },
   {
     name: "size",
     type: "group",

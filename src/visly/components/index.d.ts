@@ -199,8 +199,6 @@ export const HbHeader: {
       textSlot?: string;
       extraImage?: string;
       extraImageT?: string;
-      HbTablet?: boolean;
-      HbMobile?: boolean;
       size?: "small" | "large" | "medium" | "super";
       HbCircleIcon?: React.ReactNode;
       HbProgress?: React.ReactNode;

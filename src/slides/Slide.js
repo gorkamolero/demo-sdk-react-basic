@@ -50,7 +50,9 @@ const Slide = () => {
           extraImageT={Bowl}
           size={size}
         />
-        <HbContainer>{getSlideView()}</HbContainer>
+        <main>
+          <HbContainer>{getSlideView()}</HbContainer>
+        </main>
       </FlexBox>
     );
 };
