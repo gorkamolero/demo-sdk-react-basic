@@ -12,6 +12,8 @@ const SlideContextProvider = ({children}) => {
     const [progress, setProgress] = useState(0);
     const [progressBar, setProgressBar] = useState({})
 
+    const [touched, setTouched] = React.useState(0)
+
     useEffect(() => {
         // Mounted
         Utils.waitForEngine((Engine)=>{
@@ -29,6 +31,10 @@ const SlideContextProvider = ({children}) => {
             }
         });
     }, []);
+
+    useEffect(() => {
+        console.log(slideModel)
+    })
 
     const displayCurrentSlide = () => {
         const Engine = EngineRef.current;
@@ -65,11 +71,13 @@ const SlideContextProvider = ({children}) => {
     return (
         <SlideContext.Provider value={{
             Engine:EngineRef.current,
+            interpolate: (txt) => txt.includes('%') ? EngineRef.current.interpolate(txt) : txt,
             slideModel, displayCurrentSlide,
             progress, progressBar,
             nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart},
+            touched, setTouched
         }}>
-            {slideModel?children:null}
+            {slideModel ? children : null}
         </SlideContext.Provider>
     )
 };

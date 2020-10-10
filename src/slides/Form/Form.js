@@ -5,22 +5,23 @@ import FormFields from "../../components/FormFields/FormFields";
 import Navigation from '../../components/Navigation/Navigation'
 
 function Form() {
-    const { slideModel, nav } = useContext(SlideContext);
+    const { slideModel, nav, touched } = useContext(SlideContext);
     const [showErrors, setShowErrors] = useState(false);
 
-    const next = () => {
-        if (slideModel.validate()) {
-            nav.next();
-        } else {
-            setShowErrors(true);
-        }
-    };
-
+    React.useEffect(() => {
+      // nav.back();
+      slideModel.validate()
+      if (slideModel.validate()) {
+      } else {
+        setShowErrors(true);
+      }
+    }, [touched])
+   
     return (
       <FlexBox column center>
         <FormFields showErrors={showErrors} fields={slideModel.getFields()} />
 
-        <Navigation next={next} />
+        <Navigation />
       </FlexBox>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useMemo } from 'react';
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
 import Utils from '../utils/Utils'
@@ -9,14 +9,15 @@ import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { HbHeader, HbContainer, useBreakpoint } from "../visly";
+import { HbHeader, useBreakpoint } from "../visly";
+import { HbContainer } from "../styles/StyledComps";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
 
 const Slide = () => {
-    const { slideModel } = useContext(SlideContext);
+    const { slideModel, interpolate } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
@@ -35,12 +36,15 @@ const Slide = () => {
         }
     };
 
+    const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel])
+    const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel])
+
     return (
       <FlexBox column center>
         <HbHeader
           TextSlot="20% Off"
-          title={Utils.stripHtml(slideModel.getTitle())}
-          slideDescription={Utils.stripHtml(slideModel.getSubtitle())}
+          title={title}
+          slideDescription={subtitle}
           HbLogo={<HbHeader.HbLogo />}
           HbProgress={<ProgressBar size={size} />}
           HbProgressMobile={<ProgressBar size={size} />}

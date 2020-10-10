@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useMemo, useEffect } from "react";
 import styled from 'styled-components';
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint } from "../../visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 
@@ -11,7 +11,7 @@ import { SlideContext } from "../../context/SlideContext";
 const HbFormElement = ({children, ...rest}) => {
     return (
         <FlexBox {...rest} alignItems="baseline">
-            {children}
+          {children}
         </FlexBox>
     )
 }
@@ -39,17 +39,20 @@ const HbSpace = styled.div`
 
 
 
-const Select = (field, title, onChangeHandler, size) => {
-  const options = React.useMemo(() => {
-    return field.getOptions().map((op) => ({ value: op.id, label: op.title }));
-  }, [field]);
+const Select = ({field, title, onChangeHandler, size}) => {
+  const options = field.getOptions().map((op) => ({ value: op.id, label: op.title }))
+
+  // const options = field.getOptions().map((op) => ({ value: op.id, label: op.title }))
 
   const meta = field.getMeta()
 
-  const [selected, setSelected] = React.useState(options[0]);
+  const [selected, setSelected] = React.useState(() => options[0]);
 
-  React.useEffect(() => onChangeHandler(selected.value, field), []); // eslint-disable-line react-hooks/exhaustive-deps
+  React.useEffect(() => {
+    onChangeHandler(selected.value, field)
+  }, [selected, field])
 
+  // React.useEffect(() => onChangeHandler(selected.value, field), [field, selected]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <FlexBox column alignItems="center" justifyContent="flex-start">
       {title}
@@ -77,12 +80,13 @@ const Select = (field, title, onChangeHandler, size) => {
   );
 };
 
-const Input = (field, title, onChangeHandler, size) => {
-  const [value, setValue] = useState(field.getValue());
+const Input = (props) => {
+  const {field, title, onChangeHandler, size} = props
+  const [value, setValue] = useState(() => field.getValue());
   const meta = field.getMeta();
 
   return (
-    <div>
+    <>
       {title}
       <HbInput
         value={value}
@@ -92,19 +96,24 @@ const Input = (field, title, onChangeHandler, size) => {
         }}
         placeholder={meta.placeholder || ""}
         size={size}
-      />
-    </div>
+        style={{ width: 'auto', margin: '0 10px' }}
+      >
+        { meta.units && <span>{meta.units}</span> }
+      </HbInput>
+    </>
   );
 };
 
-const RadioWithImages = (field, title, onChangeHandler, size) => {
-  const [selected, setSelected] = useState(field.getValue());
-  const options = field.getOptions();
+const RadioWithImages = ({field, title, onChangeHandler, size}) => {
+  const [selected, setSelected] = useState(() => field.getValue());
+  const options =  field.getOptions()
   const meta = field.getMeta();
+
+  console.log('YOLO', options)
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20 }}>{field.getTitle()}</label>}
+      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
 
       <HbRadio
         selected={selected}
@@ -121,7 +130,7 @@ const RadioWithImages = (field, title, onChangeHandler, size) => {
             fullWidth={!meta.row}
             value={id}
             title={title}
-            icon={icon}
+            icon={icons[icon]}
             size={size}
           />
         ))}
@@ -130,35 +139,10 @@ const RadioWithImages = (field, title, onChangeHandler, size) => {
   );
 };
 
-const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass, show = true}) => {
-  const [isExpanded, setExpanded] = useState(show);
-  const { Engine } = useContext(SlideContext)
-  
-  const type = field.getType();
-  const meta = field.getMeta();
-
-  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={field.getTitle()} /> : null
-
-  const interpolate = (txt) => txt.includes('%') ? Engine.interpolate(txt) : txt
-
-  React.useEffect(() => {
-    // If this fields follows another which is not valid:
-    if (meta.follows) {
-      const master = fields.find((f) => f.id === meta.follows);
-      // eslint-disable-next-line eqeqeq
-      if (!master.isValid() || master.getValue() == 0) {
-        setExpanded(false);
-      } else {
-        setExpanded(true)
-      }
-    }
-
-    // return () => setShowMe(false)
-  }, [meta, fields]);
-
-  let el;
+// For later
+const Checkbox = (type, ...props) => {
   if (type==='checkbox') {
-      el = (
+      /* Element = (
         <label>
           {title}
           <input
@@ -167,16 +151,55 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             onChange={(event) => onChangeHandler(event, field)}
           />
         </label>
-      );
-  } else if (type === 'select') {
-      el = Select(field, title, onChangeHandler, size)
-  } else if (type === 'radio-group') {
-      el = RadioWithImages(field, title, onChangeHandler, size)
-  } else {
-      el = Input(field, title, onChangeHandler, size)
-  }
+      ); */
+      return <h1>Hello</h1>
+  } return null
+}
 
-  // Else
+const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, show = true}) => {
+  const [isExpanded, setExpanded] = useState(show);
+  const {interpolate } = useContext(SlideContext)
+  const [customAfterText, setCustomAfterText] = React.useState(null)
+  
+  const type = field.getType();
+  const meta = field.getMeta();
+
+  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={interpolate(field.getTitle())} /> : null
+  
+  /* eslint-disable eqeqeq*/
+  React.useEffect(() => {
+    // If this fields follows another which is not valid:
+    
+    if (meta.follows) {
+      const master = fields.find((f) => f.id === meta.follows);
+      if (meta.sequence) {
+        setExpanded(false);
+
+        if (master.getValue() == 1) {
+          if (meta.sequenceNumber == 1) setExpanded(true)
+        } else if ((master.getValue() > 1 && master.getValue() > meta.sequenceNumber) || meta.sequenceNumber == 'end') {
+          setExpanded(true)
+        } 
+      } else {
+        setExpanded(true);
+      }
+
+      if (!master.isValid() || master.getValue() == 0) {
+        setExpanded(false);
+      }
+    }
+  }, [meta, fields]);
+
+  React.useEffect(() => {
+    if (meta.canSingular && field.getValue() == 1) {
+      setCustomAfterText(interpolate(meta.afterTxt.replace('s', '')))
+    }
+  }, [meta, field])
+  /* eslint-enable */
+
+  const afterTxt = meta.afterTxt ? customAfterText && field.getValue() == 1 ? customAfterText : meta.afterTxt : null // eslint-disable-line eqeqeq
+
+  const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
   return (
     <>
       {meta.newLine && <HbBreakLine className="newLine" />}
@@ -188,8 +211,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         mountOnEnter
       >
         <HbFormElement
-          key={i}
-          className={`${field.getType()} ${getFieldErrorClass(field)}`}
+          // className={`${field.getType()} ${getFieldErrorClass(field)}`}
+          className={`${field.getType()}`}
           // break={meta.newLine}
           style={{
             marginTop: 20,
@@ -204,6 +227,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         >
           {!meta.newLine && <HbSpace />}
 
+          {
+            meta.sequence && meta.sequenceText && fields[i - 1].getMeta().sequenceText
+          }
+
           {meta.beforeTxt && (
             <>
               {interpolate(meta.beforeTxt)}
@@ -211,7 +238,12 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             </>
           )}
 
-          {typeof el === "function" ? el() : el}
+          {
+            type === 'checkbox' ? (<h1>Hey</h1>)
+            : type === 'select' ? <Select {...inputProps} />
+            : type === 'radio-group' ? <RadioWithImages {...inputProps} />
+            : <Input {...inputProps} />
+          }
 
           {meta.afterTxt && (
             <>
@@ -225,13 +257,15 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   );
 }
 
-function FormFields({fields, showErrors, validate}) {
-    const { slideModel, interpolate } = useContext(SlideContext);
+function FormFields({ fields, showErrors }) {
+    const { slideModel, setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["large", "large", "super"]);
 
-    const getFieldValues = React.useCallback(() => fields.map(field => field.getValue()), [fields])
+    const getFieldValues = () => fields.map(field => field.getValue())
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
+    
+    console.log('Values', fieldValues)
 
     const onChangeHandler = (event, field) => {
         const type = field.getType()
@@ -249,29 +283,26 @@ function FormFields({fields, showErrors, validate}) {
 
         setFieldValues(getFieldValues());
         
-        if (field.getValue()) {
-          slideModel.validate();
-          console.log("Evaluating", slideModel);
-        }
+        setTouched(touched + 1);
     };
 
-    const getFieldErrorClass = (field) => {
+    /* const getFieldErrorClass = (field) => {
         return showErrors && !field.isValid()?'invalid':'';
-    };
+    }; */
 
     return (
       <HbContent style={size !== 'super' && { paddingTop: 80 }}>
-        <HbFormElement wrap justifyContent="center" flex>
+        <HbFormElement wrap justifyContent="center">
           {fields.map((field, i) => (
             <FormField
+              key={i}
               fieldValues={fieldValues}
               fields={fields}
-              getFieldErrorClass={getFieldErrorClass}
+              // getFieldErrorClass={getFieldErrorClass}
               onChangeHandler={onChangeHandler}
               size={size}
               field={field}
               i={i}
-              interpolate={interpolate}
             />
           ))}
         </HbFormElement>

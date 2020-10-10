@@ -11,7 +11,7 @@ function Navigation({back, next, restart}) {
   next = next || nav.next;
   restart = restart || nav.restart;
 
-  const isValid = slideModel.validate()
+  const isValid = slideModel.validate();
 
 
   if (!isValid) return null;
@@ -19,7 +19,8 @@ function Navigation({back, next, restart}) {
     <HbButtonGroup>
       {nav.canBack && (
         <HbButton
-          text="Go back"
+          text="Previous step"
+          variant="contained"
           disabled={!nav.canBack}
           onPress={() => back()}
         />
@@ -36,7 +37,7 @@ function Navigation({back, next, restart}) {
       {nav.canNext && (
         <HbButton
           text="Continue"
-          disabled={!nav.canNext}
+          // disabled={!nav.canNext}
           onPress={() => next()}
         />
       )}
