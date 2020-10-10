@@ -200,6 +200,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const afterTxt = meta.afterTxt ? customAfterText && field.getValue() == 1 ? customAfterText : meta.afterTxt : null // eslint-disable-line eqeqeq
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
+  
+  if (meta.hide) return null
   return (
     <>
       {meta.newLine && <HbBreakLine className="newLine" />}

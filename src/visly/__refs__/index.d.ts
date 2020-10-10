@@ -41,6 +41,12 @@ export const icon: {
   hbFooterCustomNutrition: "eaebb328-5879-4908-ba3e-7a02026ed96e";
   hbFooterPremium: "00143776-fc5c-4ae3-9fa7-90e433ca7278";
   hbFooterVetApproved: "666f1f42-7856-410d-a21d-6b44b737454e";
+  hbLikesBeef: "38ac9739-dfaf-4e2f-8e98-519a11e99d57";
+  hbLikesChicken: "a0cbe9cd-80c7-415a-84e2-7a8ec2bf82ef";
+  hbLikesDuck: "e8ad0b84-8528-448b-a3ef-b8e2d2a6306b";
+  hbLikesLamb: "6e025d8d-61bc-4aaa-ae10-b3a27108badd";
+  hbLikesSalmon: "bdd984bf-e2c4-44ce-bac4-c7739fbefb6e";
+  hbLikesTurkey: "116bc28d-365c-416a-a1ed-29be4e4fac74";
   hbLogo: "484f50c4-87c8-402b-9f17-7ea3998e9f29";
   hbLogoMobile: "c26bf768-6194-41b1-a4c5-981fbaa33611";
   hbMale: "c9c80f7e-39bc-43d8-b7d8-7d657cbb303d";
