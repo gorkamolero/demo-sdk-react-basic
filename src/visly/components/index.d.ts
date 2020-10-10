@@ -245,6 +245,7 @@ export const HbInput: {
   (
     props: {
       placeholder?: string;
+      children?: React.ReactNode | React.ReactNode[];
       value?: string;
       onChange?: (value: string) => void;
       inputRef?: React.Ref<HTMLInputElement>;

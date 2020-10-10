@@ -16,6 +16,7 @@ export const color: {
   hbGreen: "7d49e156-b73b-4263-a54c-4d33077452f2";
   hbGreenDark: "185e4d21-da2a-4c5d-8eed-213f8b391254";
   hbGreenTrans: "67964b35-a5bd-4b57-8df3-559dc7cea3db";
+  hbIcon: "66d5ee2a-9b04-47b5-a0b3-558bf6c0de60";
   hbPlaceholder: "49fc50a5-b9f9-4c6b-b955-1ad97af4211e";
   hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f";
   hbText2: "6534e7c4-97f7-4eb4-abda-82f4c9e9a97d";
@@ -31,13 +32,21 @@ export const color: {
   white: "1a46fecf-73b1-44d3-88f8-69ef863d110a";
 };
 export const icon: {
+  hbActivityActive: "04736f6d-3508-4b43-a810-6173d635309d";
+  hbActivityAthlete: "3de5fbdc-9c46-49f1-bb9d-92afb97d81b3";
+  hbActivityLazy: "b1214685-4aeb-46ca-95e6-2ee842c0228c";
   hbChevronDown: "654fbce1-5cf6-4d4f-a86c-743bfeee64d8";
   hbDiscount: "5465e731-4834-4811-be34-34a4a31de8e8";
+  hbFemale: "e94f856c-9e3f-472b-9594-d44c2135827c";
   hbFooterCustomNutrition: "eaebb328-5879-4908-ba3e-7a02026ed96e";
   hbFooterPremium: "00143776-fc5c-4ae3-9fa7-90e433ca7278";
   hbFooterVetApproved: "666f1f42-7856-410d-a21d-6b44b737454e";
   hbLogo: "484f50c4-87c8-402b-9f17-7ea3998e9f29";
   hbLogoMobile: "c26bf768-6194-41b1-a4c5-981fbaa33611";
+  hbMale: "c9c80f7e-39bc-43d8-b7d8-7d657cbb303d";
+  hbWeightIdeal: "89bcafc8-f431-40bb-9f97-6a7b2d39ee3c";
+  hbWeightObese: "1be88406-8c15-4f30-9db1-661e4be16185";
+  hbWeightThin: "a408e8ab-178e-4383-b4a4-132fc1726177";
   heart: "873969b2-f5fd-49f3-96aa-45f9515bff85";
   heartFill: "72d60e6c-6c0f-47f3-ba45-a6a42cf6250e";
   message: "c960c1cc-f05b-4842-972b-c497154e2e5b";

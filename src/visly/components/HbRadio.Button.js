@@ -12,9 +12,9 @@ import {
 } from "./_internal_utils";
 import {
   SpacerPrimitive,
-  ImagePrimitive,
   TextPrimitive,
   ContainerPrimitive,
+  IconPrimitive,
 } from "./_internal_primitives";
 import { RadioGroupButtonRoot } from "./_internal_radio_group";
 
@@ -25,6 +25,13 @@ const styles = [
       "6uiwQ5NcML": {
         none: {
           text: "Title",
+        },
+      },
+      PpaiPZQUUA: {
+        none: {
+          role: "img",
+          src: require("../assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
+          useMask: true,
         },
       },
     },
@@ -132,15 +139,15 @@ function Button(_props) {
             addSpacing={false}
           >
             {
-              <ImagePrimitive
-                className={"__visly_reset __visly_scope_5gQcVEwtx6_Ts1YV3Tn4s"}
-                key={"Ts1YV3Tn4s"}
+              <IconPrimitive
+                className={"__visly_reset __visly_scope_5gQcVEwtx6_PpaiPZQUUA"}
+                key={"PpaiPZQUUA"}
+                useMask={getStyle("PpaiPZQUUA", "useMask")}
                 src={
                   exists(props.icon)
                     ? props.icon
-                    : getStyle("Ts1YV3Tn4s", "src")
+                    : getStyle("PpaiPZQUUA", "src")
                 }
-                alt={getStyle("Ts1YV3Tn4s", "alternateText")}
               />
             }
           </ContainerPrimitive>

@@ -15,6 +15,7 @@ export const hbGray300: string;
 export const hbGreen: string;
 export const hbGreenDark: string;
 export const hbGreenTrans: string;
+export const hbIcon: string;
 export const hbPlaceholder: string;
 export const hbText: string;
 export const hbText2: string;

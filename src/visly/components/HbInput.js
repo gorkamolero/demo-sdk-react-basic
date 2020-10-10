@@ -10,6 +10,7 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
+import { ContainerPrimitive } from "./_internal_primitives";
 import { Root, InputPrimitive } from "./_internal_input";
 
 const styles = [
@@ -107,15 +108,24 @@ function HbInput(_props) {
       }}
     >
       {(getStyle) => (
-        <InputPrimitive
-          className={"__visly_reset __visly_scope_JhYcCBQMX6_input"}
-          key={"input"}
-          placeholder={
-            exists(props.placeholder)
-              ? props.placeholder
-              : getStyle("input", "placeholderText")
-          }
-        />
+        <>
+          <InputPrimitive
+            className={"__visly_reset __visly_scope_JhYcCBQMX6_input"}
+            key={"input"}
+            placeholder={
+              exists(props.placeholder)
+                ? props.placeholder
+                : getStyle("input", "placeholderText")
+            }
+          />
+          <ContainerPrimitive
+            key={"UHa5YtKvEG"}
+            className={"__visly_reset __visly_scope_JhYcCBQMX6_UHa5YtKvEG"}
+            addSpacing={false}
+          >
+            {props.children}
+          </ContainerPrimitive>
+        </>
       )}
     </Root>
   );

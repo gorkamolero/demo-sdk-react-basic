@@ -41,7 +41,7 @@ function HbButtonGroup(_props) {
     <RootPrimitive
       {...props}
       key="7Juzb2Pfn4"
-      addSpacing={true}
+      addSpacing={false}
       internal={{
         styles: styles,
         layerId: "7Juzb2Pfn4",
@@ -52,7 +52,7 @@ function HbButtonGroup(_props) {
       <ContainerPrimitive
         key={"KYnFXgB8gr"}
         className={"__visly_reset __visly_scope_5cGf1BQia4_KYnFXgB8gr"}
-        addSpacing={false}
+        addSpacing={true}
       >
         {props.children}
       </ContainerPrimitive>
