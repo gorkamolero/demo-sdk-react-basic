@@ -17,7 +17,8 @@ export const HbTitle = styled(CustomHTML)(props => ({
   ...(props.size && ['super', 'large'].includes(props.size) && textstyles.superHeading),
   ...(props.size && props.size === 'tablet' && textstyles.superHeadingTablet),
   ...(props.size && props.size === 'mobile' && textstyles.superHeadingMobile),
-  color: colors.hbBrown
+  color: colors.hbBrown,
+  '&:first-letter': { textTransform: 'uppercase' }
 }))
 
 export const HbSubtitle = styled(CustomHTML)(props => ({

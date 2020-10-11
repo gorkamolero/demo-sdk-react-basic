@@ -65,6 +65,12 @@ class Utils {
       },
       allowedIframeHostnames: ["www.youtube.com"],
     });
+
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0).toUpperCase() + s.slice(1)
+  }
+
 }
 
 export default new Utils()

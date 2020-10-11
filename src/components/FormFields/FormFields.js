@@ -1,9 +1,10 @@
 import React, { useState, useContext, useMemo, useEffect } from "react";
 import styled from 'styled-components';
+import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckbox } from "../../visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 
@@ -24,6 +25,13 @@ const HbHelperTxt = styled.small`
   margin-top: 10px;
   margin-bottom: 10px;
 `;
+
+const FlexLabel = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`
 
 const HbBreakLine = styled.div`
   flex-basis: 100%;
@@ -143,12 +151,13 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
 const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) => {
   const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
+  console.log('VALUES', values)
   const toggleValue = value => values.includes(value)
     ? setValues(values.filter(val => val !== value))
     : setValues([...values, value])
 
-  const options =  field.getOptions()
   const meta = field.getMeta();
+  const options = field.getOptions()
 
   /* eslint-disable */
   useEffect(() => onChangeHandler(values, field), [values])
@@ -157,22 +166,31 @@ const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) 
   return (
     <>
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
-      <FlexBox wrap justifyContent="center" gap="10px">
+      <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }}>
         {options.map(({ id, title, image: icon }) => {
+          if (meta.customUncheckBox && id === 'none') return null
           return (
-            <HbCheckbox
+            <HbCheckboxGroup
               checked={values.includes(id)}
               key={id}
               value={id}
-              HbIconButton={<HbCheckbox.HbIconButton onPress={() => {
+              HbIconButton={<HbCheckboxGroup.HbIconButton onPress={() => {
                 toggleValue(id)
-              }} text={title} icon={icons[icon]} />}
+              }} text={Utils.capitalize(title)} icon={icons[icon]} />}
               size={size}
               column={meta.buttonColumn}
             />
           )
         })}
       </FlexBox>
+      {
+        (meta.customUncheckBox) && (
+          <FlexLabel style={{ marginTop: 20 }} onClick={() => setValues([])}>
+            <HbCheckbox style={{ marginRight: 10 }} checked={values.length === 0} />
+            {Utils.capitalize([...options].slice(-1).pop().title)}
+          </FlexLabel>
+        )
+      }
     </>
   );
 };
@@ -202,7 +220,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const type = field.getType();
   const meta = field.getMeta();
 
-  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={interpolate(field.getTitle())} /> : null
+  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
@@ -271,7 +289,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
           {meta.beforeTxt && (
             <>
-              {interpolate(meta.beforeTxt)}
+              {Utils.capitalize(
+                interpolate(meta.beforeTxt)
+              )}
               <HbSpace />
             </>
           )}
@@ -288,7 +308,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           {meta.afterTxt && (
             <>
               <HbSpace />
-              {interpolate(customAfterText || meta.afterTxt )}
+              {Utils.capitalize(
+                interpolate(customAfterText || meta.afterTxt)
+              )}
             </>
           )}
         </HbFormElement>
