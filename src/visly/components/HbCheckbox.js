@@ -11,7 +11,6 @@ import {
 } from "./_internal_utils";
 import { IconPrimitive } from "./_internal_primitives";
 import { CheckboxRoot } from "./_internal_checkbox";
-import HbIconButtonComposite, { HbIconButtonContext } from "./HbIconButton";
 
 const styles = [
   {
@@ -29,27 +28,25 @@ const styles = [
   {
     type: "boolean",
     propName: "checked",
-    layers: {},
+    layers: {
+      checkmark: {
+        none: {
+          useMask: true,
+        },
+      },
+    },
   },
 ];
 
 const defaultPropValues = [
   {
     type: "default",
-    layers: {
-      HkvrZpwtE4: {},
-    },
+    layers: {},
   },
   {
     type: "boolean",
     propName: "checked",
-    layers: {
-      HkvrZpwtE4: {
-        none: {
-          HbIconButtonSelected: true,
-        },
-      },
-    },
+    layers: {},
   },
 ];
 
@@ -78,41 +75,22 @@ function HbCheckbox(_props) {
       internal={{
         styles: styles,
         layerId: "root",
-        scope: "JGvT8rY9BT",
+        scope: "3LiUQ4dVhC",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => [
+      {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_JGvT8rY9BT_checkmark"}
+          className={"__visly_reset __visly_scope_3LiUQ4dVhC_checkmark"}
           key={"checkmark"}
           useMask={getStyle("checkmark", "useMask")}
           src={getStyle("checkmark", "src")}
-        />,
-        props.HbIconButton === undefined ? (
-          <HbIconButtonComposite
-            key={"HkvrZpwtE4"}
-            {...getCompositeDefaultProps("HkvrZpwtE4")}
-            className="__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4"
-          />
-        ) : (
-          <HbIconButtonContext.Provider
-            key="HkvrZpwtE4-provider"
-            value={{
-              key: "HkvrZpwtE4",
-              className: "__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4",
-              ...getCompositeDefaultProps("HkvrZpwtE4"),
-            }}
-          >
-            {props.HbIconButton}
-          </HbIconButtonContext.Provider>
-        ),
-      ]}
+        />
+      )}
     </CheckboxRoot>
   );
 }
 
-HbCheckbox.HbIconButton = HbIconButtonComposite;
 HbCheckbox.__variants = [
   {
     name: "checked",

@@ -3,7 +3,7 @@
 /* eslint-disable */
 import "../textstyles/fonts.css";
 import "./reset.css";
-import "./Checkbox.css";
+import "./HbCheckboxGroup.css";
 import React, { createContext, useContext } from "react";
 import {
   findSetVariantProps,
@@ -11,6 +11,7 @@ import {
 } from "./_internal_utils";
 import { IconPrimitive } from "./_internal_primitives";
 import { CheckboxRoot } from "./_internal_checkbox";
+import HbIconButtonComposite, { HbIconButtonContext } from "./HbIconButton";
 
 const styles = [
   {
@@ -35,12 +36,24 @@ const styles = [
 const defaultPropValues = [
   {
     type: "default",
-    layers: {},
+    layers: {
+      HkvrZpwtE4: {
+        none: {
+          column: true,
+        },
+      },
+    },
   },
   {
     type: "boolean",
     propName: "checked",
-    layers: {},
+    layers: {
+      HkvrZpwtE4: {
+        none: {
+          HbIconButtonSelected: true,
+        },
+      },
+    },
   },
 ];
 
@@ -51,10 +64,10 @@ const variantPropTypes = [
   },
 ];
 
-export const CheckboxContext = createContext(null);
+export const HbCheckboxGroupContext = createContext(null);
 
-function Checkbox(_props) {
-  const defaults = useContext(CheckboxContext);
+function HbCheckboxGroup(_props) {
+  const defaults = useContext(HbCheckboxGroupContext);
   const props = { ...defaults, ..._props };
   const activeVariants = findSetVariantProps(variantPropTypes, props);
   const getCompositeDefaultProps = makeCompositeDefaultProps(
@@ -69,27 +82,46 @@ function Checkbox(_props) {
       internal={{
         styles: styles,
         layerId: "root",
-        scope: "3LiUQ4dVhC",
+        scope: "JGvT8rY9BT",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => (
+      {(getStyle) => [
         <IconPrimitive
-          className={"__visly_reset __visly_scope_3LiUQ4dVhC_checkmark"}
+          className={"__visly_reset __visly_scope_JGvT8rY9BT_checkmark"}
           key={"checkmark"}
           useMask={getStyle("checkmark", "useMask")}
           src={getStyle("checkmark", "src")}
-        />
-      )}
+        />,
+        props.HbIconButton === undefined ? (
+          <HbIconButtonComposite
+            key={"HkvrZpwtE4"}
+            {...getCompositeDefaultProps("HkvrZpwtE4")}
+            className="__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4"
+          />
+        ) : (
+          <HbIconButtonContext.Provider
+            key="HkvrZpwtE4-provider"
+            value={{
+              key: "HkvrZpwtE4",
+              className: "__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4",
+              ...getCompositeDefaultProps("HkvrZpwtE4"),
+            }}
+          >
+            {props.HbIconButton}
+          </HbIconButtonContext.Provider>
+        ),
+      ]}
     </CheckboxRoot>
   );
 }
 
-Checkbox.__variants = [
+HbCheckboxGroup.HbIconButton = HbIconButtonComposite;
+HbCheckboxGroup.__variants = [
   {
     name: "checked",
     type: "variant",
   },
 ];
 
-export default Checkbox;
+export default HbCheckboxGroup;

@@ -102,14 +102,6 @@ export const Button: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
-export const Checkbox: {
-  (
-    props: {
-      onChange?: (checked: boolean) => void;
-      checked?: boolean;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-};
 export const CommentButton: {
   (
     props: {
@@ -137,6 +129,14 @@ export const HbButtonGroup: {
   ): JSX.Element;
 };
 export const HbCheckbox: {
+  (
+    props: {
+      onChange?: (checked: boolean) => void;
+      checked?: boolean;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbCheckboxGroup: {
   (
     props: {
       onChange?: (checked: boolean) => void;
