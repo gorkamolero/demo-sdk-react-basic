@@ -1,10 +1,10 @@
 import React from 'react';
 
-function CustomHTML({html, className}) {
+function CustomHTML({html, className, ...rest}) {
     const sanitize = (html) => ({ __html: html });
 
     return (
-        <div className={className} dangerouslySetInnerHTML={sanitize(html)} />
+        <div {...rest} className={className} dangerouslySetInnerHTML={sanitize(html)} />
     );
 }
 

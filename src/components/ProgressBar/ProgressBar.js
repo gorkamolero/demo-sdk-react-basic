@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useMemo, useEffect } from "react";
 import {
   HbProgress,
   HbProgressStep,
@@ -9,10 +9,18 @@ const ProgressBar = ({size}) => {
   const { progress, progressBar, slideModel } = useContext(SlideContext);
 
   const [activeStep, setActiveStep] = React.useState({})
-  React.useEffect(() =>  {
+  
+  useEffect(() =>  {
     const el = progressBar.find((el) => el.slideId === slideModel.id);
     setActiveStep(el);
   }, [slideModel.id, progressBar])
+
+  const steps = useMemo(() => progressBar.map(step => step.slideId), [progressBar])
+
+  const pastSteps = useMemo(() => {
+    const active = steps.indexOf(activeStep.slideId)
+    return steps.slice(0, active)
+  }, [activeStep, steps])
 
   return (
     <HbProgress
@@ -23,9 +31,9 @@ const ProgressBar = ({size}) => {
         if (!title) return null;
         if (progressBar[i - 1] && progressBar[i-1].title === title) return null;
 
-        const isActiveStep = activeStep.slideId === slideId;
+        const isActiveStep = activeStep.slideId === slideId || activeStep.title === title;
         const isNextStep = progressBar.findIndex(el => el.id === activeStep.id) + 1 === i
-
+        const isPrevStep = pastSteps.includes(slideId)
 
         return (
           <HbProgressStep
@@ -34,6 +42,7 @@ const ProgressBar = ({size}) => {
             stepTitle={title}
             HbActiveStep={isActiveStep}
             HbFutureStep={!isActiveStep && !isNextStep}
+            HbPastStep={!isActiveStep && isPrevStep}
           ></HbProgressStep>
         );
       })}

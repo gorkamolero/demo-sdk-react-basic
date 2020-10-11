@@ -32,9 +32,9 @@ const SlideContextProvider = ({children}) => {
         });
     }, []);
 
-    useEffect(() => {
+    /* useEffect(() => {
         console.log(slideModel)
-    })
+    }) */
 
     const displayCurrentSlide = () => {
         const Engine = EngineRef.current;

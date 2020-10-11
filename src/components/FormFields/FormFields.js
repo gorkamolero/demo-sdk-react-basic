@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons } from "../../visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckbox } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 
@@ -48,9 +48,12 @@ const Select = ({field, title, onChangeHandler, size}) => {
 
   const [selected, setSelected] = React.useState(() => options[0]);
 
+  
+  /* eslint-disable*/
   React.useEffect(() => {
     onChangeHandler(selected.value, field)
   }, [selected, field])
+  /* eslint-enable */
 
   // React.useEffect(() => onChangeHandler(selected.value, field), [field, selected]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
@@ -109,12 +112,9 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   const options =  field.getOptions()
   const meta = field.getMeta();
 
-  console.log('YOLO', options)
-
   return (
     <>
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
-
       <HbRadio
         selected={selected}
         onSelect={(id) => {
@@ -123,6 +123,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
         }}
         HbRadioColumn={!meta.radioRow}
         size={size}
+        className="hbRadio"
       >
         {options.map(({ id, title, image: icon }) => (
           <HbRadio.Button
@@ -132,6 +133,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
             title={title}
             icon={icons[icon]}
             size={size}
+            column={meta.buttonColumn}
           />
         ))}
       </HbRadio>
@@ -139,10 +141,46 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   );
 };
 
-// For later
+const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) => {
+  const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
+  const toggleValue = value => values.includes(value)
+    ? setValues(values.filter(val => val !== value))
+    : setValues([...values, value])
+
+  const options =  field.getOptions()
+  const meta = field.getMeta();
+
+  /* eslint-disable */
+  useEffect(() => onChangeHandler(values, field), [values])
+  /* eslint-enable */
+  
+  return (
+    <>
+      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
+      <FlexBox wrap justifyContent="center" gap="10px">
+        {options.map(({ id, title, image: icon }) => {
+          return (
+            <HbCheckbox
+              checked={values.includes(id)}
+              key={id}
+              value={id}
+              HbIconButton={<HbCheckbox.HbIconButton onPress={() => {
+                toggleValue(id)
+              }} text={title} icon={icons[icon]} />}
+              size={size}
+              column={meta.buttonColumn}
+            />
+          )
+        })}
+      </FlexBox>
+    </>
+  );
+};
+
+/* // For later
 const Checkbox = (type, ...props) => {
   if (type==='checkbox') {
-      /* Element = (
+      Element = (
         <label>
           {title}
           <input
@@ -151,11 +189,11 @@ const Checkbox = (type, ...props) => {
             onChange={(event) => onChangeHandler(event, field)}
           />
         </label>
-      ); */
+      );
       return <h1>Hello</h1>
   } return null
 }
-
+ */
 const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, show = true}) => {
   const [isExpanded, setExpanded] = useState(show);
   const {interpolate } = useContext(SlideContext)
@@ -194,10 +232,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
     if (meta.canSingular && field.getValue() == 1) {
       setCustomAfterText(interpolate(meta.afterTxt.replace('s', '')))
     }
-  }, [meta, field])
+  }, [meta, field, interpolate])
   /* eslint-enable */
-
-  const afterTxt = meta.afterTxt ? customAfterText && field.getValue() == 1 ? customAfterText : meta.afterTxt : null // eslint-disable-line eqeqeq
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
   
@@ -243,14 +279,16 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           {
             type === 'checkbox' ? (<h1>Hey</h1>)
             : type === 'select' ? <Select {...inputProps} />
-            : type === 'radio-group' ? <RadioWithImages {...inputProps} />
+            : type === 'radio-group' ?
+              field.data.multiple ? <CheckboxWithImages fieldValues={fieldValues} {...inputProps} />
+              : <RadioWithImages {...inputProps} />
             : <Input {...inputProps} />
           }
 
           {meta.afterTxt && (
             <>
               <HbSpace />
-              {interpolate(meta.afterTxt)}
+              {interpolate(customAfterText || meta.afterTxt )}
             </>
           )}
         </HbFormElement>
@@ -260,14 +298,14 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 }
 
 function FormFields({ fields, showErrors }) {
-    const { slideModel, setTouched, touched } = useContext(SlideContext);
+    const { setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["large", "large", "super"]);
 
     const getFieldValues = () => fields.map(field => field.getValue())
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
     
-    console.log('Values', fieldValues)
+    // console.log('Values', fieldValues)
 
     const onChangeHandler = (event, field) => {
         const type = field.getType()

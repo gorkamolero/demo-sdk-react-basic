@@ -86,6 +86,8 @@
 
     --noResultsStep3: url(https://s3-eu-west-1.amazonaws.com/eq-static/upload/1825/quiz/4868/sDvKdn4z03C.jpg?ts=1580071007045) bottom right no-repeat;
     --noResultsStep3Size: 608px 597px;
+
+    --spacing: 10px;
 }
 
 $fontPath: '../fonts/AvertaStd/';
@@ -134,3 +136,12 @@ body {
       line-height: 18px;
   }
 }
+
+.HbHeader {
+    text-align: center;
+}
+
+div[role="radiogroup"] {
+    flex-wrap: wrap;
+}
+label[class*="radio-group-button"] { margin-bottom: var(--spacing); }

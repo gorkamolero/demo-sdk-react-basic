@@ -10,17 +10,16 @@ import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
 import { HbHeader, useBreakpoint } from "../visly";
-import { HbContainer } from "../styles/StyledComps";
+import { HbContainer, HbTitle, HbSubtitle } from "../styles/StyledComps";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
 
 const Slide = () => {
-    const { slideModel, interpolate } = useContext(SlideContext);
+    const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
-
 
     if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
 
@@ -36,15 +35,20 @@ const Slide = () => {
         }
     };
 
-    const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel])
-    const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel])
+
+    const slideTitle = progressBar.find(step => step.slideId === slideModel.getId()).title
+    console.log('YOOO', slideTitle);
+    const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
+    const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
 
     return (
       <FlexBox column center>
         <HbHeader
-          TextSlot="20% Off"
-          title={title}
-          slideDescription={subtitle}
+          className="HbHeader"
+          TitleSlot={<HbTitle size={size} className="title" html={title} />}
+          
+          SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+          
           HbLogo={<HbHeader.HbLogo />}
           HbProgress={<ProgressBar size={size} />}
           HbProgressMobile={<ProgressBar size={size} />}
@@ -53,6 +57,8 @@ const Slide = () => {
           extraImage={Bowl}
           extraImageT={Bowl}
           size={size}
+          discount="20% Off"
+          ShowImage={slideTitle === 'Profile'}
         />
         <main>
           <HbContainer>{getSlideView()}</HbContainer>

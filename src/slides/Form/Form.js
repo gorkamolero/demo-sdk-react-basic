@@ -5,7 +5,8 @@ import FormFields from "../../components/FormFields/FormFields";
 import Navigation from '../../components/Navigation/Navigation'
 
 function Form() {
-    const { slideModel, nav, touched } = useContext(SlideContext);
+    // const { slideModel, nav, touched } = useContext(SlideContext);
+    const { slideModel, touched } = useContext(SlideContext);
     const [showErrors, setShowErrors] = useState(false);
 
     React.useEffect(() => {
@@ -15,7 +16,7 @@ function Form() {
       } else {
         setShowErrors(true);
       }
-    }, [touched])
+    }, [touched, slideModel])
    
     return (
       <FlexBox column center>
