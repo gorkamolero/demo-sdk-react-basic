@@ -41,6 +41,11 @@ const styles = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "column",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -69,6 +74,11 @@ const defaultPropValues = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "column",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -84,6 +94,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbIconButtonSelected",
+  },
+  {
+    type: "boolean",
+    propName: "column",
   },
   {
     type: "enum",
@@ -144,6 +158,10 @@ function HbIconButton(_props) {
 HbIconButton.__variants = [
   {
     name: "HbIconButtonSelected",
+    type: "variant",
+  },
+  {
+    name: "column",
     type: "variant",
   },
   {

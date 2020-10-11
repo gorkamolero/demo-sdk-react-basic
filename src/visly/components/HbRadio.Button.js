@@ -60,6 +60,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "column",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -91,6 +96,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "column",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -106,6 +116,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "medium"],
+  },
+  {
+    type: "boolean",
+    propName: "column",
   },
 ];
 
@@ -181,6 +195,10 @@ Button.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "medium"],
+  },
+  {
+    name: "column",
+    type: "variant",
   },
 ];
 

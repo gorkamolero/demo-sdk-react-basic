@@ -34,39 +34,10 @@
   height: 100%;
   background-size: cover;
 }
-.__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_8C5qrVbUXX {
-  display: block;
-  box-sizing: border-box;
-  overflow: hidden;
-  color: #242424;
-  text-align: center;
-  white-space: normal;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 24px;
-  flex-shrink: 1;
-  opacity: 0.8;
-}
 .__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_JttkhPdb2e {
   align-self: stretch;
   width: unset;
   height: 20px;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_DmAQ8urY88 {
-  display: block;
-  box-sizing: border-box;
-  overflow: hidden;
-  color: #623b2a;
-  text-align: center;
-  white-space: normal;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 39px;
-  flex-shrink: 1;
 }
 .__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_2RwNh3KRbg {
   overflow: hidden;
@@ -180,6 +151,7 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
+  display: none;
   top: auto;
   right: auto;
   bottom: 0;
@@ -264,31 +236,25 @@
   height: 10px;
   display: none;
 }
+.__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_7hnTiRDRyn,
+.__visly_scope_9XVkrqrLZt_MPFekVRp85 .__visly_scope_9XVkrqrLZt_VTKN5tHTts {
+  overflow: hidden;
+  box-sizing: border-box;
+  align-self: center;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  align-content: flex-start;
+  justify-content: center;
+}
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-small.__visly_state_none
   .__visly_scope_9XVkrqrLZt_7zMWCZsd7M {
   height: 110.00000000000001%;
 }
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-small.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_8C5qrVbUXX {
-  text-align: start;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-small.__visly_state_none
   .__visly_scope_9XVkrqrLZt_JttkhPdb2e {
   width: unset;
   height: 10px;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-small.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_DmAQ8urY88 {
-  text-align: start;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 22px;
-  line-height: 30px;
 }
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-small.__visly_state_none
   .__visly_scope_9XVkrqrLZt_2RwNh3KRbg {
@@ -438,19 +404,6 @@
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-large.__visly_state_none
   .__visly_scope_9XVkrqrLZt_7zMWCZsd7M {
   height: 130%;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-large.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_8C5qrVbUXX {
-  text-align: center;
-  max-width: 60%;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-large.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_DmAQ8urY88 {
-  text-align: center;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
 }
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-large.__visly_state_none
   .__visly_scope_9XVkrqrLZt_2RwNh3KRbg {
@@ -605,18 +558,6 @@
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-medium.__visly_state_none
   .__visly_scope_9XVkrqrLZt_7zMWCZsd7M {
   height: 132%;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-medium.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_8C5qrVbUXX {
-  text-align: start;
-}
-.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-medium.__visly_state_none
-  .__visly_scope_9XVkrqrLZt_DmAQ8urY88 {
-  text-align: start;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 700;
-  font-size: 28px;
 }
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-medium.__visly_state_none
   .__visly_scope_9XVkrqrLZt_2RwNh3KRbg {
@@ -774,4 +715,12 @@
 .__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_size-super.__visly_state_none
   .__visly_scope_9XVkrqrLZt_B28tWsTkne {
   max-width: 50%;
+}
+.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_ShowImage.__visly_state_none
+  .__visly_scope_9XVkrqrLZt_5dTrnoEMCT {
+  display: flex;
+}
+.__visly_scope_9XVkrqrLZt_MPFekVRp85.__visly_ShowImage.__visly_state_none
+  .__visly_scope_9XVkrqrLZt_kUjGG71oGb {
+  display: none;
 }

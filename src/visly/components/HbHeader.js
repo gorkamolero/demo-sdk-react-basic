@@ -25,16 +25,6 @@ const styles = [
   {
     type: "default",
     layers: {
-      "8C5qrVbUXX": {
-        none: {
-          text: "Slide description",
-        },
-      },
-      DmAQ8urY88: {
-        none: {
-          text: "Title",
-        },
-      },
       WVr4DnUAPt: {
         none: {
           text: "20% Off",
@@ -63,6 +53,11 @@ const styles = [
         layers: {},
       },
     ],
+  },
+  {
+    type: "boolean",
+    propName: "ShowImage",
+    layers: {},
   },
 ];
 
@@ -135,6 +130,16 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "ShowImage",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
 ];
 
 const variantPropTypes = [
@@ -142,6 +147,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "large", "medium", "super"],
+  },
+  {
+    type: "boolean",
+    propName: "ShowImage",
   },
 ];
 
@@ -349,33 +358,29 @@ function HbHeader(_props) {
                 key={"2RwNh3KRbg"}
                 addSpacing={false}
               >
-                <TextPrimitive
+                <ContainerPrimitive
+                  key={"VTKN5tHTts"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_DmAQ8urY88"
+                    "__visly_reset __visly_scope_9XVkrqrLZt_VTKN5tHTts"
                   }
-                  key={"DmAQ8urY88"}
-                  text={
-                    exists(props.title)
-                      ? props.title
-                      : getStyle("DmAQ8urY88", "text")
+                  addSpacing={false}
+                >
+                  {props.TitleSlot}
+                </ContainerPrimitive>
+                <ContainerPrimitive
+                  key={"7hnTiRDRyn"}
+                  className={
+                    "__visly_reset __visly_scope_9XVkrqrLZt_7hnTiRDRyn"
                   }
-                />
+                  addSpacing={false}
+                >
+                  {props.SubtitleSlot}
+                </ContainerPrimitive>
                 <SpacerPrimitive
                   className={
                     "__visly_reset __visly_scope_9XVkrqrLZt_JttkhPdb2e"
                   }
                   key={"JttkhPdb2e"}
-                />
-                <TextPrimitive
-                  className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_8C5qrVbUXX"
-                  }
-                  key={"8C5qrVbUXX"}
-                  text={
-                    exists(props.slideDescription)
-                      ? props.slideDescription
-                      : getStyle("8C5qrVbUXX", "text")
-                  }
                 />
               </ContainerPrimitive>
               <ContainerPrimitive
@@ -415,6 +420,10 @@ HbHeader.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "large", "medium", "super"],
+  },
+  {
+    name: "ShowImage",
+    type: "variant",
   },
 ];
 

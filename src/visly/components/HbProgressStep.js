@@ -38,6 +38,11 @@ const styles = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "HbPastStep",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -69,6 +74,11 @@ const defaultPropValues = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "HbPastStep",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -92,6 +102,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbFutureStep",
+  },
+  {
+    type: "boolean",
+    propName: "HbPastStep",
   },
   {
     type: "enum",
@@ -161,6 +175,10 @@ HbProgressStep.__variants = [
   },
   {
     name: "HbFutureStep",
+    type: "variant",
+  },
+  {
+    name: "HbPastStep",
     type: "variant",
   },
   {

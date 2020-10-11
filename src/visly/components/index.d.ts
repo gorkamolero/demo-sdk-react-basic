@@ -136,6 +136,16 @@ export const HbButtonGroup: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
+export const HbCheckbox: {
+  (
+    props: {
+      onChange?: (checked: boolean) => void;
+      checked?: boolean;
+      HbIconButton?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbIconButton: typeof HbIconButton;
+};
 export const HbCircleIcon: {
   (
     props: {
@@ -194,12 +204,13 @@ export const HbHeader: {
   (
     props: {
       bg?: string;
-      slideDescription?: string;
-      title?: string;
       textSlot?: string;
       extraImage?: string;
       extraImageT?: string;
+      TitleSlot?: React.ReactNode | React.ReactNode[];
+      SubtitleSlot?: React.ReactNode | React.ReactNode[];
       size?: "small" | "large" | "medium" | "super";
+      ShowImage?: boolean;
       HbCircleIcon?: React.ReactNode;
       HbProgress?: React.ReactNode;
       HbLogo?: React.ReactNode;
@@ -237,6 +248,7 @@ export const HbIconButton: {
       icon?: string;
       onPress?: (event: PressEvent) => void;
       HbIconButtonSelected?: boolean;
+      column?: boolean;
       size?: "small";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
@@ -291,6 +303,7 @@ export const HbProgressStep: {
       stepTitle?: string;
       HbActiveStep?: boolean;
       HbFutureStep?: boolean;
+      HbPastStep?: boolean;
       size?: "small" | "medium";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
@@ -315,6 +328,7 @@ export const HbRadio: {
         selected?: boolean;
         fullWidth?: boolean;
         size?: "small" | "medium";
+        column?: boolean;
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
@@ -339,6 +353,13 @@ export const HbSelect: {
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
+};
+export const HbTitle: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
 };
 export const Input: {
   (
@@ -397,14 +418,6 @@ export const Select: {
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
-};
-export const TeStO: {
-  (
-    props: {
-      HbIconButton?: React.ReactNode;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-  HbIconButton: typeof HbIconButton;
 };
 export const Toggle: {
   (
