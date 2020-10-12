@@ -37,7 +37,6 @@ const Slide = () => {
 
 
     const slideTitle = progressBar.find(step => step.slideId === slideModel.getId()).title
-    console.log('YOOO', slideTitle);
     const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
     const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
 

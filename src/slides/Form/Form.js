@@ -5,7 +5,7 @@ import FormFields from "../../components/FormFields/FormFields";
 import Navigation from '../../components/Navigation/Navigation'
 
 function Form() {
-    // const { slideModel, nav, touched } = useContext(SlideContext);
+    // const { nav } = useContext(SlideContext);
     const { slideModel, touched } = useContext(SlideContext);
     const [showErrors, setShowErrors] = useState(false);
 

@@ -4,7 +4,7 @@ import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox } from "../../visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 
@@ -50,8 +50,6 @@ const HbSpace = styled.div`
 const Select = ({field, title, onChangeHandler, size}) => {
   const options = field.getOptions().map((op) => ({ value: op.id, label: op.title }))
 
-  // const options = field.getOptions().map((op) => ({ value: op.id, label: op.title }))
-
   const meta = field.getMeta()
 
   const [selected, setSelected] = React.useState(() => options[0]);
@@ -63,7 +61,6 @@ const Select = ({field, title, onChangeHandler, size}) => {
   }, [selected, field])
   /* eslint-enable */
 
-  // React.useEffect(() => onChangeHandler(selected.value, field), [field, selected]); // eslint-disable-line react-hooks/exhaustive-deps
   return (
     <FlexBox column alignItems="center" justifyContent="flex-start">
       {title}
@@ -91,8 +88,75 @@ const Select = ({field, title, onChangeHandler, size}) => {
   );
 };
 
-const Input = (props) => {
-  const {field, title, onChangeHandler, size} = props
+const SelectMulti = ({field, title, onChangeHandler, size}) => {
+  const options = field.getOptions().map(
+    (op) => ({ value: op.id, label: op.title })
+  )
+
+  const meta = field.getMeta()
+
+  const [selected, setSelected] = React.useState([]);
+  console.log(selected)
+
+  return (
+    <FlexBox  gap={20} column alignItems="center" justifyContent="flex-start">
+      {title}
+
+      {
+        selected.length > 0 && (
+          <FlexBox gap={10}>
+            {selected.map((o, i) => (
+              <CSSTransition
+                in={true}
+                timeout={200}
+                classNames="collapse-after"
+                unmountOnExit
+                mountOnEnter
+                key={o.label + i}
+              >
+                <HbTag
+                  tagText={o.label}
+                  HbOnlyIconButton={
+                    <HbTag.HbOnlyIconButton
+                      onPress={() => setSelected(selected.filter(o2 => o2.value !== o.value))}
+                    />}
+                />
+              </CSSTransition>
+            ))}
+          </FlexBox>
+        )
+      }
+
+      <HbSelect
+        onSelect={(option) => {
+          const unselectable = ['0', ...selected.map(o => o.value)]
+          console.log(unselectable)
+          const newOptionSelected = options.find((op) => op.value === option);
+
+
+          if (!unselectable.includes(newOptionSelected.value)) {
+            setSelected(selected.concat(newOptionSelected));
+            onChangeHandler(selected.concat(newOptionSelected), field)
+          }
+        }}
+        HbUnselected={true}
+        // selected={selected.value}
+        label={options.find(op => op.value == 0).label || ''} // eslint-disable-line eqeqeq
+        size={size}
+      >
+        {options.map((o, i) => {
+          return (
+            <HbSelect.Option key={o.value + i} value={o.value} label={o.label} />
+          );
+        })}
+      </HbSelect>
+
+      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
+    </FlexBox>
+  );
+};
+
+const Input = ({field, title, onChangeHandler, size}) => {
   const [value, setValue] = useState(() => field.getValue());
   const meta = field.getMeta();
 
@@ -151,7 +215,6 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
 const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) => {
   const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
-  console.log('VALUES', values)
   const toggleValue = value => values.includes(value)
     ? setValues(values.filter(val => val !== value))
     : setValues([...values, value])
@@ -164,7 +227,7 @@ const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) 
   /* eslint-enable */
   
   return (
-    <>
+    <FlexBox column align="center">
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
       <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }}>
         {options.map(({ id, title, image: icon }) => {
@@ -174,9 +237,16 @@ const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) 
               checked={values.includes(id)}
               key={id}
               value={id}
-              HbIconButton={<HbCheckboxGroup.HbIconButton onPress={() => {
-                toggleValue(id)
-              }} text={Utils.capitalize(title)} icon={icons[icon]} />}
+              HbIconButton={
+                <HbCheckboxGroup.HbIconButton
+                  onPress={() => {
+                    toggleValue(id)
+                  }}
+                  text={title}
+                  icon={icons[icon]}
+                  noIcon={meta.noIcons}
+                />
+              }
               size={size}
               column={meta.buttonColumn}
             />
@@ -191,7 +261,7 @@ const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) 
           </FlexLabel>
         )
       }
-    </>
+    </FlexBox>
   );
 };
 
@@ -289,16 +359,15 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
           {meta.beforeTxt && (
             <>
-              {Utils.capitalize(
-                interpolate(meta.beforeTxt)
-              )}
+              {interpolate(meta.beforeTxt)}
               <HbSpace />
             </>
           )}
 
           {
             type === 'checkbox' ? (<h1>Hey</h1>)
-            : type === 'select' ? <Select {...inputProps} />
+            : type === 'select' && !meta.multiple ? <Select {...inputProps} />
+            : type === 'select' && meta.multiple ? <SelectMulti {...inputProps} />
             : type === 'radio-group' ?
               field.data.multiple ? <CheckboxWithImages fieldValues={fieldValues} {...inputProps} />
               : <RadioWithImages {...inputProps} />
@@ -308,9 +377,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           {meta.afterTxt && (
             <>
               <HbSpace />
-              {Utils.capitalize(
-                interpolate(customAfterText || meta.afterTxt)
-              )}
+              {interpolate(customAfterText || meta.afterTxt)}
             </>
           )}
         </HbFormElement>
@@ -337,10 +404,8 @@ function FormFields({ fields, showErrors }) {
         } else if (["select", "text", "radio-group", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
-
-            // TODO: implementar método para desvalidar 
         } else {
-            field.setValue(event.target.value);
+          field.setValue(event);
         }
 
         setFieldValues(getFieldValues());
