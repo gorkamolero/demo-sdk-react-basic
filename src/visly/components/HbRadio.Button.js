@@ -65,6 +65,11 @@ const styles = [
     propName: "column",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -101,6 +106,11 @@ const defaultPropValues = [
     propName: "column",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -120,6 +130,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "column",
+  },
+  {
+    type: "boolean",
+    propName: "noIcon",
   },
 ];
 
@@ -198,6 +212,10 @@ Button.__variants = [
   },
   {
     name: "column",
+    type: "variant",
+  },
+  {
+    name: "noIcon",
     type: "variant",
   },
 ];

@@ -12,6 +12,7 @@ export const color: {
   hbBeige: "7b930783-dd66-44dc-9396-d94147d0c2d2";
   hbBrown: "917b7d0c-65f2-47ee-b15b-420c68bdaaff";
   hbGold: "778906c6-af65-4ef6-a7b0-984241bdab0d";
+  hbGray100: "855dc846-88ce-463f-8ce7-e3aaf070efda";
   hbGray300: "ea0b17ad-46e6-4fb0-b203-ebf9b2ef9fa2";
   hbGreen: "7d49e156-b73b-4263-a54c-4d33077452f2";
   hbGreenDark: "185e4d21-da2a-4c5d-8eed-213f8b391254";
@@ -36,6 +37,7 @@ export const icon: {
   hbActivityAthlete: "3de5fbdc-9c46-49f1-bb9d-92afb97d81b3";
   hbActivityLazy: "b1214685-4aeb-46ca-95e6-2ee842c0228c";
   hbChevronDown: "654fbce1-5cf6-4d4f-a86c-743bfeee64d8";
+  hbClose: "3daf44a3-9008-499c-aa9f-cf4afb8c2fc6";
   hbDiscount: "5465e731-4834-4811-be34-34a4a31de8e8";
   hbFemale: "e94f856c-9e3f-472b-9594-d44c2135827c";
   hbFooterCustomNutrition: "eaebb328-5879-4908-ba3e-7a02026ed96e";
@@ -131,12 +133,14 @@ export const component: {
   HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6";
   HbInput: "8f54961d-50f7-4b98-bd90-239f78c4b7bf";
   HbLogo: "178b94b1-16c1-4db1-a333-70d00d2d5610";
+  HbOnlyIconButton: "9bf2fbb4-fc0b-4e47-8d70-19385366b994";
   HbProgress: "217de0fb-2e4c-40a5-90a4-8689b05c0719";
   HbProgressBar: "ff100d40-b155-4f07-a439-72672d3869a4";
   HbProgressButton: "9dd98517-1292-40d0-9105-4078b37c75ef";
   HbProgressStep: "e480e321-bf00-46ea-8a0d-57ab13be6f38";
   HbRadio: "f239a6bc-035e-4201-8a5f-e374a8434ff3";
   HbSelect: "4d8a0f8b-6df2-43cd-b03e-7387816fd1c3";
+  HbTag: "c34bf8ae-7ee2-4f04-b7f5-c83b3ccf53d3";
   HbTitle: "75f2a5fe-c5f3-46a0-9779-b06b5686bd95";
   Input: "50e2110b-155c-4778-a63c-44c9c1c8b4f1";
   LikeButton: "132f9c60-5ba4-4590-8aeb-1e98bbc83328";

@@ -5,6 +5,7 @@ export const hbActivityActive = require("../assets/ccea071c-ea6f-420c-ae77-97c98
 export const hbActivityAthlete = require("../assets/e7ceb85d-3a5e-4f0b-874e-894db4786a77.svg");
 export const hbActivityLazy = require("../assets/c95ce908-5e59-45ba-b14f-882f777ab5b4.svg");
 export const hbChevronDown = require("../assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg");
+export const hbClose = require("../assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg");
 export const hbDiscount = require("../assets/6c09c43b-abd0-4776-8845-1535cdff712b.svg");
 export const hbFemale = require("../assets/846d74d9-d068-4e7e-89bd-1fd401ba1b0a.png");
 export const hbFooterCustomNutrition = require("../assets/3421457c-3753-4949-b709-b4d47224a029.svg");

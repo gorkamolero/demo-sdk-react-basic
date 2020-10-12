@@ -11,6 +11,7 @@ export const gray500: string;
 export const hbBeige: string;
 export const hbBrown: string;
 export const hbGold: string;
+export const hbGray100: string;
 export const hbGray300: string;
 export const hbGreen: string;
 export const hbGreenDark: string;

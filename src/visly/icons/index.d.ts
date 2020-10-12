@@ -5,6 +5,7 @@ export const hbActivityActive: string;
 export const hbActivityAthlete: string;
 export const hbActivityLazy: string;
 export const hbChevronDown: string;
+export const hbClose: string;
 export const hbDiscount: string;
 export const hbFemale: string;
 export const hbFooterCustomNutrition: string;

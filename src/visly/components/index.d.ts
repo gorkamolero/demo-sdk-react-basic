@@ -250,6 +250,7 @@ export const HbIconButton: {
       HbIconButtonSelected?: boolean;
       column?: boolean;
       size?: "small";
+      noIcon?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
@@ -269,6 +270,13 @@ export const HbLogo: {
   (
     props: {
       size?: "small";
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbOnlyIconButton: {
+  (
+    props: {
+      onPress?: (event: PressEvent) => void;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
@@ -329,6 +337,7 @@ export const HbRadio: {
         fullWidth?: boolean;
         size?: "small" | "medium";
         column?: boolean;
+        noIcon?: boolean;
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
@@ -353,6 +362,15 @@ export const HbSelect: {
       } & CommonProps<HTMLDivElement>
     ): JSX.Element;
   };
+};
+export const HbTag: {
+  (
+    props: {
+      tagText?: string;
+      HbOnlyIconButton?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbOnlyIconButton: typeof HbOnlyIconButton;
 };
 export const HbTitle: {
   (

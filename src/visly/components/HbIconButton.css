@@ -45,6 +45,15 @@
   .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
   color: #00aeaa;
 }
+.__visly_scope_RK1ajYQDzn_root.__visly_default.__visly_state_pressed
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+}
 .__visly_scope_RK1ajYQDzn_root.__visly_default.__visly_state_focus
   .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
   font-family: Averta;
@@ -81,7 +90,17 @@
   font-size: 18px;
   line-height: 24px;
 }
+.__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_hover
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+}
 .__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_focus
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH,
+.__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_pressed
   .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
   font-family: Averta;
   font-style: normal;
@@ -125,4 +144,36 @@
   .__visly_scope_RK1ajYQDzn_8CLRfG5L7n {
   width: 40px;
   height: 40px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_noIcon.__visly_state_none {
+  min-width: 0;
+  min-height: 0;
+  border-style: solid;
+  background-color: #f8f8f8;
+  border-width: 2px;
+  padding: 15px 20px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_noIcon.__visly_state_pressed
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_noIcon.__visly_state_focus
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 24px;
+  text-transform: capitalize;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_noIcon.__visly_state_none
+  .__visly_scope_RK1ajYQDzn_8CLRfG5L7n,
+.__visly_scope_RK1ajYQDzn_root.__visly_noIcon.__visly_state_none
+  .__visly_scope_RK1ajYQDzn_9UVDautth7 {
+  display: none;
 }

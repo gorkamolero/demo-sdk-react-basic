@@ -61,6 +61,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -88,6 +93,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -103,6 +113,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small"],
+  },
+  {
+    type: "boolean",
+    propName: "noIcon",
   },
 ];
 
@@ -168,6 +182,10 @@ HbIconButton.__variants = [
     name: "size",
     type: "group",
     variants: ["small"],
+  },
+  {
+    name: "noIcon",
+    type: "variant",
   },
 ];
 
