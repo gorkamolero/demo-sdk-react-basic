@@ -78,7 +78,7 @@ const Select = ({field, title, onChangeHandler, size}) => {
       >
         {options.map((o) => {
           return (
-            <HbSelect.Option key={o.value} value={o.value} label={o.label} />
+            <HbSelect.Option disabled={o.value == 0} key={o.value} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
           );
         })}
       </HbSelect>
