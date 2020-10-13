@@ -58,7 +58,7 @@ const Select = ({field, title, onChangeHandler, size}) => {
   /* eslint-disable*/
   React.useEffect(() => {
     onChangeHandler(selected.value, field)
-  }, [selected, field])
+  }, [selected, field], onChangeHandler)
   /* eslint-enable */
 
   return (
@@ -79,74 +79,6 @@ const Select = ({field, title, onChangeHandler, size}) => {
         {options.map((o) => {
           return (
             <HbSelect.Option disabled={o.value == 0} key={o.value} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
-          );
-        })}
-      </HbSelect>
-
-      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
-    </FlexBox>
-  );
-};
-
-const SelectMulti = ({field, title, onChangeHandler, size}) => {
-  const options = field.getOptions().map(
-    (op) => ({ value: op.id, label: op.title })
-  )
-
-  const meta = field.getMeta()
-
-  const [selected, setSelected] = React.useState([]);
-  console.log(selected)
-
-  return (
-    <FlexBox  gap={20} column alignItems="center" justifyContent="flex-start">
-      {title}
-
-      {
-        selected.length > 0 && (
-          <FlexBox gap={10}>
-            {selected.map((o, i) => (
-              <CSSTransition
-                in={true}
-                timeout={200}
-                classNames="collapse-after"
-                unmountOnExit
-                mountOnEnter
-                key={o.label + i}
-              >
-                <HbTag
-                  tagText={o.label}
-                  HbOnlyIconButton={
-                    <HbTag.HbOnlyIconButton
-                      onPress={() => setSelected(selected.filter(o2 => o2.value !== o.value))}
-                    />}
-                />
-              </CSSTransition>
-            ))}
-          </FlexBox>
-        )
-      }
-
-      <HbSelect
-        onSelect={(option) => {
-          const unselectable = ['0', ...selected.map(o => o.value)]
-          console.log(unselectable)
-          const newOptionSelected = options.find((op) => op.value === option);
-
-
-          if (!unselectable.includes(newOptionSelected.value)) {
-            setSelected(selected.concat(newOptionSelected));
-            onChangeHandler(selected.concat(newOptionSelected), field)
-          }
-        }}
-        HbUnselected={true}
-        // selected={selected.value}
-        label={options.find(op => op.value == 0).label || ''} // eslint-disable-line eqeqeq
-        size={size}
-      >
-        {options.map((o, i) => {
-          return (
-            <HbSelect.Option key={o.value + i} value={o.value} label={o.label} />
           );
         })}
       </HbSelect>
@@ -213,7 +145,72 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   );
 };
 
-const CheckboxWithImages = ({field, title, fieldValues, onChangeHandler, size}) => {
+const SelectMulti = ({field, title, onChangeHandler, size}) => {
+  const meta = field.getMeta()
+  const options = field.getOptions().map(
+    (op) => ({ value: op.id, label: op.title })
+  )
+
+  const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
+  const toggleSelected = value => selected.includes(value)
+    ? setSelected(selected.filter(val => val !== value))
+    : setSelected([...selected, value])
+
+  /* eslint-disable */
+  useEffect(() => onChangeHandler(selected, field), [selected])
+  /* eslint-enable */
+
+  const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
+
+  return (
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
+      {title}
+
+      {
+        selected.length > 0 && (
+          <FlexBox gap={10}>
+            {selected.map((o, i) => (
+              <CSSTransition
+                in={true}
+                timeout={200}
+                classNames="collapse-after"
+                unmountOnExit
+                mountOnEnter
+                key={o + i}
+              >
+                <HbTag
+                  tagText={options.find(op => op.value === o).label}
+                  HbOnlyIconButton={
+                    <HbTag.HbOnlyIconButton
+                      onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
+                    />}
+                />
+              </CSSTransition>
+            ))}
+          </FlexBox>
+        )
+      }
+
+      <HbSelect
+        onSelect={(option) => toggleSelected(option)}
+        HbUnselected={true}
+        // selected={selected.value}
+        label={label}
+        size={size}
+      >
+        {options.map((o, i) => {
+          return (
+            <HbSelect.Option key={o.value + i} value={o.value} label={o.label} />
+          );
+        })}
+      </HbSelect>
+
+      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
+    </FlexBox>
+  );
+};
+
+const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
   const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
   const toggleValue = value => values.includes(value)
     ? setValues(values.filter(val => val !== value))
@@ -292,6 +289,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
+  console.log(fieldValues)
+
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
     // If this fields follows another which is not valid:
@@ -310,11 +309,24 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         setExpanded(true);
       }
 
+      if (meta.onlyShowIfFollowsAnswer) {
+        console.log('ERROR', master.getValue())
+        // ERROR: Doesn't update!
+        setExpanded(false)
+
+        if (
+          fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
+          || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
+        ) {
+          setExpanded(true)
+        }
+      }
+
       if (!master.isValid() || master.getValue() == 0) {
         setExpanded(false);
       }
     }
-  }, [meta, fields]);
+  }, [meta, fields, field, fieldValues]);
 
   React.useEffect(() => {
     if (meta.canSingular && field.getValue() == 1) {
@@ -336,6 +348,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         unmountOnExit
         mountOnEnter
       >
+        <>
         <HbFormElement
           // className={`${field.getType()} ${getFieldErrorClass(field)}`}
           className={`${field.getType()}`}
@@ -365,13 +378,41 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           )}
 
           {
-            type === 'checkbox' ? (<h1>Hey</h1>)
-            : type === 'select' && !meta.multiple ? <Select {...inputProps} />
-            : type === 'select' && meta.multiple ? <SelectMulti {...inputProps} />
-            : type === 'radio-group' ?
-              field.data.multiple ? <CheckboxWithImages fieldValues={fieldValues} {...inputProps} />
-              : <RadioWithImages {...inputProps} />
-            : <Input {...inputProps} />
+            type === 'checkbox' && (<h1>Hey</h1>)
+          }
+
+          {
+            type === 'select' && (
+              <>
+                {
+                  meta.multiple ? <SelectMulti {...inputProps} />
+                  : <Select {...inputProps} />
+                }
+              </>
+            )
+          }
+          {
+            type === 'radio-group' && (
+              <>
+                {
+                  field.data.multiple ? (
+                    <>
+                      {
+                        (meta.tags) && <SelectMulti {...inputProps} />
+                      }
+                      {
+                        (meta.images || meta.noIcons) && <CheckboxGroup fieldValues={fieldValues} {...inputProps} />
+                      }
+                    </>
+                  ) : <RadioWithImages {...inputProps} />
+                }
+              </>
+            )
+          }
+          {
+            !['checkbox', 'select', 'radio-group'].includes(type) && (
+              <Input {...inputProps} />
+            )
           }
 
           {meta.afterTxt && (
@@ -380,7 +421,16 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
               {interpolate(customAfterText || meta.afterTxt)}
             </>
           )}
+
+          
         </HbFormElement>
+
+        {meta.afterLine && (
+          <small>
+            {interpolate(meta.afterLine)}
+          </small>
+        )}
+        </>
       </CSSTransition>
     </>
   );
