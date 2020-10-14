@@ -8,6 +8,8 @@ import { SlideContext } from "../../context/SlideContext";
 const ProgressBar = ({size}) => {
   const { progress, progressBar, slideModel } = useContext(SlideContext);
 
+  // console.log(progress, progressBar)
+
   const [activeStep, setActiveStep] = React.useState({})
   
   useEffect(() =>  {
@@ -18,8 +20,10 @@ const ProgressBar = ({size}) => {
   const steps = useMemo(() => progressBar.map(step => step.slideId), [progressBar])
 
   const pastSteps = useMemo(() => {
-    const active = steps.indexOf(activeStep.slideId)
-    return steps.slice(0, active)
+    if (activeStep) {
+      const active = steps.indexOf(activeStep.slideId)
+      return steps.slice(0, active)
+    } else return null
   }, [activeStep, steps])
 
   return (

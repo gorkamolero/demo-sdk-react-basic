@@ -42,23 +42,27 @@ const Slide = () => {
 
     return (
       <FlexBox column center>
-        <HbHeader
-          className="HbHeader"
-          TitleSlot={<HbTitle size={size} className="title" html={title} />}
-          
-          SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
-          
-          HbLogo={<HbHeader.HbLogo />}
-          HbProgress={<ProgressBar size={size} />}
-          HbProgressMobile={<ProgressBar size={size} />}
-          HbCircleIcon={<HbHeader.HbCircleIcon />}
-          bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
-          extraImage={Bowl}
-          extraImageT={Bowl}
-          size={size}
-          discount="20% Off"
-          ShowImage={slideTitle === 'Profile'}
-        />
+        {
+          slideModel.getType() === 'End' || (
+            <HbHeader
+              className="HbHeader"
+              TitleSlot={<HbTitle size={size} className="title" html={title} />}
+              
+              SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+              
+              HbLogo={<HbHeader.HbLogo />}
+              HbProgress={<ProgressBar size={size} />}
+              HbProgressMobile={<ProgressBar size={size} />}
+              HbCircleIcon={<HbHeader.HbCircleIcon />}
+              bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
+              extraImage={Bowl}
+              extraImageT={Bowl}
+              size={size}
+              discount="20% Off"
+              ShowImage={slideTitle === 'Profile'}
+            />
+          )
+        }
         <main>
           <HbContainer>{getSlideView()}</HbContainer>
         </main>
