@@ -58,6 +58,14 @@ const styles = [
         propValue: "medium",
         layers: {},
       },
+      {
+        propValue: "large",
+        layers: {},
+      },
+      {
+        propValue: "super",
+        layers: {},
+      },
     ],
   },
   {
@@ -99,6 +107,14 @@ const defaultPropValues = [
         propValue: "medium",
         layers: {},
       },
+      {
+        propValue: "large",
+        layers: {},
+      },
+      {
+        propValue: "super",
+        layers: {},
+      },
     ],
   },
   {
@@ -125,7 +141,7 @@ const variantPropTypes = [
   {
     type: "enum",
     propName: "size",
-    propValues: ["small", "medium"],
+    propValues: ["small", "medium", "large", "super"],
   },
   {
     type: "boolean",
@@ -208,7 +224,7 @@ Button.__variants = [
   {
     name: "size",
     type: "group",
-    variants: ["small", "medium"],
+    variants: ["small", "medium", "large", "super"],
   },
   {
     name: "column",

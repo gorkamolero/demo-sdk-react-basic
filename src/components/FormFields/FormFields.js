@@ -109,7 +109,12 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
     return opts
   })
 
-  const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
+  const [selected, setSelected] = React.useState(() => {
+    let val = field.getValue()
+    if (!val) return []
+    if (typeof val === 'string') val = [val]
+    return val
+  });
 
   const toggleSelected = value => selected.includes(value)
     ? setSelected(selected.filter(val => val !== value))
@@ -200,7 +205,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => {
@@ -297,7 +302,7 @@ const Checkbox = (type, ...props) => {
 }
  */
 const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null}) => {
-  const [isExpanded, setExpanded] = useState(field.isHidden() || true);
+  const [isExpanded, setExpanded] = useState(field.isHidden() || false);
   const {slideModel, interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
 
@@ -348,13 +353,16 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   }, [meta, fields, field, fieldValues, slideModel]);
 
+  /* eslint-enable */
+
+  /* eslint-disable eqeqeq*/
   useEffect(() => {
     if (meta.canSingular && field.getValue() == 1) {
       setCustomAfterText(interpolate(meta.afterTxt.replace('s', '')))
+    } else {
+      setCustomAfterText(meta.afterTxt)
     }
-  }, [meta, field, interpolate])
-
-  /* eslint-enable */
+  }, [meta, setCustomAfterText, interpolate, field])
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
   

@@ -17,7 +17,6 @@ function Form() {
     React.useEffect(() => {
       slideModel.validate()
 
-      console.log(slideModel.validate())
       if (slideModel.validate()) {
       } else {
         setShowErrors(true);

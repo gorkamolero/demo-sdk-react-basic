@@ -271,7 +271,7 @@ export const HbProgressStep: {
     HbActiveStep?: boolean;
     HbFutureStep?: boolean;
     HbPastStep?: boolean;
-    size?: "small" | "medium";
+    size?: "small" | "medium" | "large" | "super";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbRadio: {
@@ -290,7 +290,7 @@ export const HbRadio: {
       value?: string;
       selected?: boolean;
       fullWidth?: boolean;
-      size?: "small" | "medium";
+      size?: "small" | "medium" | "large" | "super";
       column?: boolean;
       noIcon?: boolean;
     } & CommonProps<HTMLDivElement>): JSX.Element;

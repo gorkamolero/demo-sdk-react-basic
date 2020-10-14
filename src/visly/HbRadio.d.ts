@@ -106,7 +106,7 @@ export const HbRadio: {
         value?: string;
         selected?: boolean;
         fullWidth?: boolean;
-        size?: "small" | "medium";
+        size?: "small" | "medium" | "large" | "super";
         column?: boolean;
         noIcon?: boolean;
       } & CommonProps<HTMLDivElement>
