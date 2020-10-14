@@ -106,7 +106,6 @@ const Select = ({field, title, onChangeHandler, size}) => {
   const [options] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
-
     if (field.getValue()) {
       console.log('FIRST', field.getValue())
       console.log(options, options.find(op => op.value === field.getValue()))
