@@ -308,28 +308,33 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
-    // If this fields follows another which is not valid:
-    
     if (meta.follows) {
       const master = fields.find((f) => f.id === meta.follows);
       if (meta.sequence) {
         // setExpanded(false);
         field.setHidden(true)
+        slideModel.validate()
 
         if (master.getValue() == 1) {
-          if (meta.sequenceNumber == 1) field.setHidden(false)
+          if (meta.sequenceNumber == 1) {
+            field.setHidden(false)
+            slideModel.validate()
+          }
         } else if ((master.getValue() > 1 && master.getValue() > meta.sequenceNumber) || meta.sequenceNumber == 'end') {
           // setExpanded(true)
           field.setHidden(false)
+          slideModel.validate()
         } 
       } else {
         // setExpanded(true);
         field.setHidden(false)
+        slideModel.validate()
       }
 
       if (meta.onlyShowIfFollowsAnswer) {
         // console.log('ERROR', master.getValue())
         field.setHidden(true)
+        slideModel.validate()
 
         if (
           fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
@@ -337,18 +342,20 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         ) {
           // setExpanded(true)
           field.setHidden(false)
+          slideModel.validate()
         }
       }
 
       if (!master.isValid() || master.getValue() == 0) {
         // setExpanded(false);
         field.setHidden(true)
+        slideModel.validate()
       }
     }
 
     setExpanded(!field.isHidden())
     slideModel.validate()
-    
+
   }, [meta, fields, field, fieldValues, slideModel]);
 
   React.useEffect(() => {
