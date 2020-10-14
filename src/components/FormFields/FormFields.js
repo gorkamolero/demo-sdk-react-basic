@@ -279,9 +279,9 @@ const Checkbox = (type, ...props) => {
   } return null
 }
  */
-const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, show = true}) => {
-  const [isExpanded, setExpanded] = useState(show);
-  const {interpolate } = useContext(SlideContext)
+const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null}) => {
+  const [isExpanded, setExpanded] = useState(field.isHidden() || true);
+  const {interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
   
   const type = field.getType();
@@ -289,7 +289,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
-  console.log(fieldValues)
+  // console.log(fieldValues)
 
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
@@ -298,34 +298,40 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
     if (meta.follows) {
       const master = fields.find((f) => f.id === meta.follows);
       if (meta.sequence) {
-        setExpanded(false);
+        // setExpanded(false);
+        field.setHidden(true)
 
         if (master.getValue() == 1) {
-          if (meta.sequenceNumber == 1) setExpanded(true)
+          if (meta.sequenceNumber == 1) field.setHidden(false)
         } else if ((master.getValue() > 1 && master.getValue() > meta.sequenceNumber) || meta.sequenceNumber == 'end') {
-          setExpanded(true)
+          // setExpanded(true)
+          field.setHidden(false)
         } 
       } else {
-        setExpanded(true);
+        // setExpanded(true);
+        field.setHidden(false)
       }
 
       if (meta.onlyShowIfFollowsAnswer) {
         console.log('ERROR', master.getValue())
-        // ERROR: Doesn't update!
-        setExpanded(false)
+        field.setHidden(true)
 
         if (
           fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
           || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
         ) {
-          setExpanded(true)
+          // setExpanded(true)
+          field.setHidden(false)
         }
       }
 
       if (!master.isValid() || master.getValue() == 0) {
-        setExpanded(false);
+        // setExpanded(false);
+        field.setHidden(true)
       }
     }
+
+    setExpanded(!field.isHidden())
   }, [meta, fields, field, fieldValues]);
 
   React.useEffect(() => {
@@ -351,7 +357,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         <>
         <HbFormElement
           // className={`${field.getType()} ${getFieldErrorClass(field)}`}
-          className={`${field.getType()}`}
+          className={`${field.getType()} hidden-${field.isHidden()}`}
           // break={meta.newLine}
           style={{
             marginTop: 20,
