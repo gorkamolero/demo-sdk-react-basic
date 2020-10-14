@@ -156,7 +156,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const meta = field.getMeta()
 
-  const [options, setOptions] = useState(() => {
+  const [options] = useState(() => {
     const opts = field.getOptions().map(
       (op) => ({ value: op.id, label: op.title })
     )
@@ -295,18 +295,17 @@ const Checkbox = (type, ...props) => {
  */
 const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null}) => {
   const [isExpanded, setExpanded] = useState(field.isHidden() || true);
-  const {interpolate} = useContext(SlideContext)
+  const {slideModel, interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
 
   // const anim = useSpring({opacity: 1, color: 'red'})
   
   const type = field.getType();
   const meta = field.getMeta();
+  const multiple = (field.isMultiple && field.isMultiple()) || false;
 
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
-  console.log(fieldValues)
-
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
     // If this fields follows another which is not valid:
@@ -348,7 +347,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
     }
 
     setExpanded(!field.isHidden())
-  }, [meta, fields, field, fieldValues]);
+    slideModel.validate()
+    
+  }, [meta, fields, field, fieldValues, slideModel]);
 
   React.useEffect(() => {
     if (meta.canSingular && field.getValue() == 1) {
@@ -415,7 +416,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             type === 'radio-group' && (
               <>
                 {
-                  field.data.multiple ? (
+                  multiple ? (
                     <>
                       {
                         (meta.tags) && <SelectMulti {...inputProps} />
