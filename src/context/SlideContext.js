@@ -23,6 +23,8 @@ const SlideContextProvider = ({children}) => {
                     let progressBar = Engine.getProgressBar()
                     setProgressBar(progressBar)
                     displayCurrentSlide();
+
+                    window.Engine = Engine
                 }).catch((error) => {
                     console.error(error);
                 });
