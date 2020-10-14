@@ -12,7 +12,7 @@ function Navigation({back, next, restart}) {
   next = next || nav.next;
   restart = restart || nav.restart;
 
-  const isValid = slideModel.validate();
+  const isValid = slideModel.validate ? slideModel.validate() : false;
 
   return (
     <HbButtonGroup>

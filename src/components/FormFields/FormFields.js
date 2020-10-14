@@ -54,7 +54,7 @@ const Select = ({field, title, onChangeHandler, size}) => {
   const meta = field.getMeta()
 
   const [selected, setSelected] = React.useState(() => {
-    if (meta.default) return { value: 0, label: meta.default }
+    if (meta.default) return { value: "0", label: meta.default }
     else return options[0]
   });
   
@@ -74,19 +74,93 @@ const Select = ({field, title, onChangeHandler, size}) => {
           setSelected(selected);
           onChangeHandler(selected.value, field);
         }}
-        HbUnselected={selected.value == 0} // eslint-disable-line eqeqeq
+        HbUnselected={selected.value === "0"} // eslint-disable-line eqeqeq
         selected={selected.value}
         label={selected.label}
         size={size}
       >
         {
           meta.default && (
-            <HbSelect.Option selected value={0} label={meta.default} />
+            <HbSelect.Option selected value="0" label={meta.default} />
           )
         }
         {options.map((o) => {
           return (
-            <HbSelect.Option disabled={o.value == 0} key={o.value + o.label} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
+            <HbSelect.Option disabled={o.value === "0"} key={o.value + o.label} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
+          );
+        })}
+      </HbSelect>
+
+      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
+    </FlexBox>
+  );
+};
+
+const SelectMulti = ({field, title, onChangeHandler, size}) => {
+  const meta = field.getMeta()
+
+  const [options] = useState(() => {
+    let opts = field.getOptions()
+    if (typeof field.getOptions === 'string') opts = opts.split(',')
+    opts = opts.map(
+      (op) => ({ value: op.id, label: op.title })
+    )
+    // if (meta.default) opts.unshift({ value: 0, label: meta.default })
+    return opts
+  })
+
+  const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
+
+  const toggleSelected = value => selected.includes(value)
+    ? setSelected(selected.filter(val => val !== value))
+    : setSelected([...selected, value])
+
+  /* eslint-disable */
+  useEffect(() => onChangeHandler(selected, field), [selected])
+  /* eslint-enable */
+
+  // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
+
+  console.log('YOLO', selected)
+  return (
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
+      {title}
+
+      {
+        selected.length > 0 && (
+          <FlexBox gap={10}>
+            {selected.map((o, i) => (
+              <CSSTransition
+                in={true}
+                timeout={200}
+                classNames="collapse-after"
+                unmountOnExit
+                mountOnEnter
+                key={o + i}
+              >
+                <HbTag
+                  tagText={options.find(op => op.value === o).label}
+                  HbOnlyIconButton={
+                    <HbTag.HbOnlyIconButton
+                      onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
+                    />}
+                />
+              </CSSTransition>
+            ))}
+          </FlexBox>
+        )
+      }
+
+      <HbSelect
+        onSelect={(option) => toggleSelected(option)}
+        HbUnselected={true}
+        // selected={selected.value}
+        label={meta.default && meta.default}
+        size={size}
+      >
+        {options.map((o, i) => {
+          return (
+            <HbSelect.Option disabled={o.value === "0"} key={o.value + i} value={o.value} label={o.label} />
           );
         })}
       </HbSelect>
@@ -150,77 +224,6 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
         ))}
       </HbRadio>
     </>
-  );
-};
-
-const SelectMulti = ({field, title, onChangeHandler, size}) => {
-  const meta = field.getMeta()
-
-  const [options] = useState(() => {
-    const opts = field.getOptions().map(
-      (op) => ({ value: op.id, label: op.title })
-    )
-    // if (meta.default) opts.unshift({ value: 0, label: meta.default })
-    return opts
-  })
-
-  const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
-
-  const toggleSelected = value => selected.includes(value)
-    ? setSelected(selected.filter(val => val !== value))
-    : setSelected([...selected, value])
-
-  /* eslint-disable */
-  useEffect(() => onChangeHandler(selected, field), [selected])
-  /* eslint-enable */
-
-  // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
-
-  return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
-      {title}
-
-      {
-        selected.length > 0 && (
-          <FlexBox gap={10}>
-            {selected.map((o, i) => (
-              <CSSTransition
-                in={true}
-                timeout={200}
-                classNames="collapse-after"
-                unmountOnExit
-                mountOnEnter
-                key={o + i}
-              >
-                <HbTag
-                  tagText={options.find(op => op.value === o).label}
-                  HbOnlyIconButton={
-                    <HbTag.HbOnlyIconButton
-                      onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
-                    />}
-                />
-              </CSSTransition>
-            ))}
-          </FlexBox>
-        )
-      }
-
-      <HbSelect
-        onSelect={(option) => toggleSelected(option)}
-        HbUnselected={true}
-        // selected={selected.value}
-        label={meta.default && meta.default}
-        size={size}
-      >
-        {options.map((o, i) => {
-          return (
-            <HbSelect.Option disabled={o.value === 0} key={o.value + i} value={o.value} label={o.label} />
-          );
-        })}
-      </HbSelect>
-
-      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
-    </FlexBox>
   );
 };
 
@@ -337,7 +340,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       }
 
       if (!master.isValid() || master.getValue() == 0) {
-        field.setHidden(true)
+        // field.setHidden(true)
       }
     }
 
