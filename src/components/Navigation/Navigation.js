@@ -15,40 +15,50 @@ function Navigation({back, next, restart}) {
   const isValid = slideModel.validate();
 
   return (
-    <CSSTransition
-      in={isValid}
-      timeout={200}
-      classNames="collapse-after"
-      unmountOnExit
-      mountOnEnter
-    >
-      <HbButtonGroup>
-        {nav.canBack && (
-            <HbButton
-              text="Previous step"
-              variant="contained"
-              disabled={!nav.canBack}
-              onPress={() => back()}
-            />
-        )}
-
-        {nav.canRestart && (
-          <HbButton
-            text="Restart"
-            disabled={!nav.canRestart}
-            onPress={() => restart()}
-          />
-        )}
-
-        {nav.canNext && (
-          <HbButton
-            text="Continue"
-            // disabled={!nav.canNext}
-            onPress={() => next()}
-          />
-        )}
-      </HbButtonGroup>
-    </CSSTransition>
+    <HbButtonGroup>
+      <CSSTransition
+        in={nav.canBack}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <HbButton
+          text="Previous step"
+          variant="contained"
+          disabled={!nav.canBack}
+          onPress={() => back()}
+        />
+      </CSSTransition>
+      
+      <CSSTransition
+        in={nav.canRestart}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <HbButton
+          text="Restart"
+          disabled={!nav.canRestart}
+          onPress={() => restart()}
+        />
+      </CSSTransition>
+      
+      <CSSTransition
+        in={isValid && nav.canNext}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <HbButton
+          text="Continue"
+          disabled={!nav.canNext}
+          onPress={() => next()}
+        />
+      </CSSTransition>
+    </HbButtonGroup>
   );
 }
 

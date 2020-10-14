@@ -1,4 +1,5 @@
 import React, { useState, useContext, useMemo, useEffect } from "react";
+// import {useSpring, animated} from 'react-spring';
 import styled from 'styled-components';
 import Utils from '../../utils/Utils'
 import './FormFields.css';
@@ -11,9 +12,9 @@ import { SlideContext } from "../../context/SlideContext";
 
 const HbFormElement = ({children, ...rest}) => {
     return (
-        <FlexBox {...rest} alignItems="baseline">
-          {children}
-        </FlexBox>
+      <FlexBox {...rest} alignItems="baseline">
+        {children}
+      </FlexBox>
     )
 }
 
@@ -48,12 +49,14 @@ const HbSpace = styled.div`
 
 
 const Select = ({field, title, onChangeHandler, size}) => {
-  const options = field.getOptions().map((op) => ({ value: op.id, label: op.title }))
+  const [options] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
 
   const meta = field.getMeta()
 
-  const [selected, setSelected] = React.useState(() => options[0]);
-
+  const [selected, setSelected] = React.useState(() => {
+    if (meta.default) return { value: 0, label: meta.default }
+    else return options[0]
+  });
   
   /* eslint-disable*/
   React.useEffect(() => {
@@ -76,9 +79,14 @@ const Select = ({field, title, onChangeHandler, size}) => {
         label={selected.label}
         size={size}
       >
+        {
+          meta.default && (
+            <HbSelect.Option selected value={0} label={meta.default} />
+          )
+        }
         {options.map((o) => {
           return (
-            <HbSelect.Option disabled={o.value == 0} key={o.value} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
+            <HbSelect.Option disabled={o.value == 0} key={o.value + o.label} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
           );
         })}
       </HbSelect>
@@ -147,11 +155,17 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
 const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const meta = field.getMeta()
-  const options = field.getOptions().map(
-    (op) => ({ value: op.id, label: op.title })
-  )
+
+  const [options, setOptions] = useState(() => {
+    const opts = field.getOptions().map(
+      (op) => ({ value: op.id, label: op.title })
+    )
+    // if (meta.default) opts.unshift({ value: 0, label: meta.default })
+    return opts
+  })
 
   const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
+
   const toggleSelected = value => selected.includes(value)
     ? setSelected(selected.filter(val => val !== value))
     : setSelected([...selected, value])
@@ -160,7 +174,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   useEffect(() => onChangeHandler(selected, field), [selected])
   /* eslint-enable */
 
-  const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
+  // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
     <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
@@ -195,12 +209,12 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
         onSelect={(option) => toggleSelected(option)}
         HbUnselected={true}
         // selected={selected.value}
-        label={label}
+        label={meta.default && meta.default}
         size={size}
       >
         {options.map((o, i) => {
           return (
-            <HbSelect.Option key={o.value + i} value={o.value} label={o.label} />
+            <HbSelect.Option disabled={o.value === 0} key={o.value + i} value={o.value} label={o.label} />
           );
         })}
       </HbSelect>
@@ -283,13 +297,15 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const [isExpanded, setExpanded] = useState(field.isHidden() || true);
   const {interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
+
+  // const anim = useSpring({opacity: 1, color: 'red'})
   
   const type = field.getType();
   const meta = field.getMeta();
 
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
-  // console.log(fieldValues)
+  console.log(fieldValues)
 
   /* eslint-disable eqeqeq*/
   React.useEffect(() => {
@@ -313,7 +329,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       }
 
       if (meta.onlyShowIfFollowsAnswer) {
-        console.log('ERROR', master.getValue())
+        // console.log('ERROR', master.getValue())
         field.setHidden(true)
 
         if (
@@ -354,10 +370,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         unmountOnExit
         mountOnEnter
       >
-        <>
         <HbFormElement
-          // className={`${field.getType()} ${getFieldErrorClass(field)}`}
-          className={`${field.getType()} hidden-${field.isHidden()}`}
+          className={`${field.getType()} ${getFieldErrorClass(field)}`}
           // break={meta.newLine}
           style={{
             marginTop: 20,
@@ -427,17 +441,14 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
               {interpolate(customAfterText || meta.afterTxt)}
             </>
           )}
-
-          
         </HbFormElement>
-
-        {meta.afterLine && (
-          <small>
-            {interpolate(meta.afterLine)}
-          </small>
-        )}
-        </>
       </CSSTransition>
+
+      {meta.afterLine && (
+        <small>
+          {interpolate(meta.afterLine)}
+        </small>
+      )}
     </>
   );
 }
@@ -469,9 +480,9 @@ function FormFields({ fields, showErrors }) {
         setTouched(touched + 1);
     };
 
-    /* const getFieldErrorClass = (field) => {
+    const getFieldErrorClass = (field) => {
         return showErrors && !field.isValid()?'invalid':'';
-    }; */
+    };
 
     return (
       <HbContent style={size !== 'super' && { paddingTop: 80 }}>
@@ -481,7 +492,7 @@ function FormFields({ fields, showErrors }) {
               key={i}
               fieldValues={fieldValues}
               fields={fields}
-              // getFieldErrorClass={getFieldErrorClass}
+              getFieldErrorClass={getFieldErrorClass}
               onChangeHandler={onChangeHandler}
               size={size}
               field={field}
