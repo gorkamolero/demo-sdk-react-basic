@@ -307,7 +307,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
   
   /* eslint-disable eqeqeq*/
-  React.useEffect(() => {
+  useEffect(() => {
     if (meta.follows) {
       const master = fields.find((f) => f.id === meta.follows);
       if (meta.sequence) {
@@ -358,11 +358,13 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   }, [meta, fields, field, fieldValues, slideModel]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (meta.canSingular && field.getValue() == 1) {
       setCustomAfterText(interpolate(meta.afterTxt.replace('s', '')))
     }
   }, [meta, field, interpolate])
+
+  useEffect(() => slideModel.validate(), [])
   /* eslint-enable */
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
