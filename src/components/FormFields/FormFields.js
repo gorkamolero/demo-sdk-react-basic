@@ -158,7 +158,6 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
-  console.log('YOLO', selected)
   return (
     <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
       {title}
@@ -235,15 +234,16 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   const options =  field.getOptions()
   const meta = field.getMeta();
 
+  /* eslint-disable */
+  useEffect(() => onChangeHandler(selected, field), [selected])
+  /* eslint-enable */
+
   return (
     <>
       {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
-        onSelect={(id) => {
-          onChangeHandler(id, field);
-          setSelected(id);
-        }}
+        onSelect={(id) => setSelected(id)}
         HbRadioColumn={!meta.radioRow}
         size={size}
         className="hbRadio"
@@ -376,8 +376,12 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         }
       }
 
-      if (!master.isValid() || master.getValue() == 0) {
-        // field.setHidden(true)
+      if (!master.isValid() || !master.getValue()) {
+        field.setHidden(true)
+      }
+
+      if (master.isValid() || master.getValue()) {
+        field.setHidden(false)
       }
     }
 
