@@ -12,7 +12,9 @@ function Navigation({back, next, restart}) {
   next = next || nav.next;
   restart = restart || nav.restart;
 
+  // const isValid = slideModel.validate ? slideModel.validate() : false;
   const isValid = slideModel.validate ? slideModel.validate() : false;
+  const isBlocked = slideModel.id === 112
 
   return (
     <HbButtonGroup>
@@ -53,8 +55,8 @@ function Navigation({back, next, restart}) {
         mountOnEnter
       >
         <HbButton
-          text="Continue"
-          disabled={!nav.canNext}
+          text={isBlocked ? 'Coming soon' : 'Continue'}
+          disabled={!nav.canNext || isBlocked}
           onPress={() => next()}
         />
       </CSSTransition>
