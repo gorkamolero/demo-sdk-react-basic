@@ -5,7 +5,7 @@ import Header from "../../components/Header/Header";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
 import Scene from '../../assets/video/lava.webm';
-import VideoPop from 'react-video-pop';
+// import VideoPop from 'react-video-pop';
 
 function End() {
     const { slideModel } = useContext(SlideContext);
@@ -21,7 +21,7 @@ function End() {
 
     return (
         <div className="slide end">
-            <VideoPop Src={Scene} mute={true} autoplay={true}   root="video-root" ratio={{w:16,h:9}} />
+            {/* <VideoPop Src={Scene} mute={true} autoplay={true}   root="video-root" ratio={{w:16,h:9}} /> */}
 
             {results?(
                 <>
