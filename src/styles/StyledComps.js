@@ -15,8 +15,14 @@ export const HbContainer = styled.section`
 
 export const HbTitle = styled(CustomHTML)(props => ({
   ...(props.size && ['super', 'large'].includes(props.size) && textstyles.superHeading),
-  ...(props.size && props.size === 'tablet' && textstyles.superHeadingTablet),
-  ...(props.size && props.size === 'mobile' && textstyles.superHeadingMobile),
+  ...(props.size && props.size === 'tablet' && {
+    ...textstyles.superHeadingTablet,
+    textAlign: 'left',
+  }),
+  ...(props.size && props.size === 'mobile' && {
+    ...textstyles.superHeadingMobile,
+    textAlign: 'left',
+  }),
   color: colors.hbBrown,
   '&:first-letter': { textTransform: 'uppercase' }
 }))
