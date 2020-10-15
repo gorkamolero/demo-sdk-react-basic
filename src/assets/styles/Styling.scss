@@ -112,6 +112,10 @@
 }
 
 $fontPath: "../fonts/AvertaStd/";
+$small: "480px";
+$medium: "768px";
+$large: "1024px";
+$super: "1200px";
 
 @font-face {
   font-family: "Averta Std";
@@ -165,6 +169,14 @@ body {
 div[role="radiogroup"] {
   flex-wrap: wrap;
 }
+.hbRadio {
+  @media (max-width: $small) {
+    [class*="spacing"] {
+      display: none;
+    }
+  }
+}
+
 label[class*="radio-group-button"] {
   margin-bottom: var(--spacing);
 }

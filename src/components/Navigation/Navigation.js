@@ -18,6 +18,8 @@ function Navigation({back, next, restart}) {
   const isValid = slideModel.validate ? slideModel.validate() : false;
   const isBlocked = false
 
+  // nav.back()
+
   return (
     <HbButtonGroup>
       <CSSTransition
@@ -36,20 +38,6 @@ function Navigation({back, next, restart}) {
       </CSSTransition>
       
       <CSSTransition
-        in={nav.canRestart}
-        timeout={200}
-        classNames="collapse-after"
-        unmountOnExit
-        mountOnEnter
-      >
-        <HbButton
-          text="Restart"
-          disabled={!nav.canRestart}
-          onPress={() => restart()}
-        />
-      </CSSTransition>
-      
-      <CSSTransition
         in={isValid && nav.canNext}
         timeout={200}
         classNames="collapse-after"
@@ -60,6 +48,20 @@ function Navigation({back, next, restart}) {
           text={isBlocked ? 'Coming soon' : 'Continue'}
           disabled={!nav.canNext || isBlocked}
           onPress={() => next()}
+        />
+      </CSSTransition>
+      
+      <CSSTransition
+        in={nav.canRestart}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <HbButton
+          text="Restart"
+          disabled={!nav.canRestart}
+          onPress={() => restart()}
         />
       </CSSTransition>
     </HbButtonGroup>

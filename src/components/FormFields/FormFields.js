@@ -419,10 +419,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       >
         <HbFormElement
           className={`${field.getType()} ${getFieldErrorClass(field)}`}
-          // break={meta.newLine}
           style={{
-            marginTop: 20,
-            marginBottom: 20,
+            marginTop: size === 'small' ? 10 : 20,
+            marginBottom: size === 'small' ? 10 : 20,
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
             ...(meta.column && { alignItems: "center" }),
