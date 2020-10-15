@@ -362,26 +362,28 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         } 
       } else {
         field.setHidden(false)
-      }
 
-      if (meta.onlyShowIfFollowsAnswer) {
-        // console.log('ERROR', master.getValue())
-        field.setHidden(true)
+        if (meta.onlyShowIfFollowsAnswer) {
+          // console.log('ERROR', master.getValue())
+          field.setHidden(true)
 
-        if (
-          fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
-          || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
-        ) {
-          field.setHidden(false)
+          if (
+            fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
+            || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
+          ) {
+            field.setHidden(false)
+          }
         }
       }
 
-      if (!master.isValid() || !master.getValue()) {
-        field.setHidden(true)
-      }
+      if (!meta.sequence && !meta.onlyShowIfFollowsAnswer) {
+        if (!master.isValid() || !master.getValue()) {
+          field.setHidden(true)
+        }
 
-      if (master.isValid() || master.getValue()) {
-        field.setHidden(false)
+        if (master.isValid() || master.getValue()) {
+          field.setHidden(false)
+        }
       }
     }
 
