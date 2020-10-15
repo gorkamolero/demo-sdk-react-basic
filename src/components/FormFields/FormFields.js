@@ -135,6 +135,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const [options] = useState(() => {
     let opts = field.getOptions()
+    console.log('HEYA', opts)
     if (typeof field.getOptions === 'string') opts = opts.split(',')
     opts = opts.map(
       (op) => ({ value: op.id, label: op.title })
@@ -167,7 +168,9 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
       {
         selected.length > 0 && (
           <FlexBox gap={10}>
-            {selected.map((o, i) => (
+            {selected.map((o, i) => {
+              const op = options.find(op => op.value === o)
+              return (
               <CSSTransition
                 in={true}
                 timeout={200}
@@ -177,14 +180,15 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                 key={o + i}
               >
                 <HbTag
-                  tagText={options.find(op => op.value === o).label}
+                  tagText={op && op.label? op.label : op}
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
                     />}
                 />
               </CSSTransition>
-            ))}
+            )
+            })}
           </FlexBox>
         )
       }
