@@ -91,6 +91,7 @@ export const HbProgressBar: {
   (
     props: {
       value?: number;
+      golden?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

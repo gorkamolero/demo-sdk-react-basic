@@ -7,17 +7,10 @@ import Navigation from '../../components/Navigation/Navigation'
 function Form() {
     const { slideModel, touched } = useContext(SlideContext);
     const [showErrors, setShowErrors] = useState(false);
-
     
-
-    /* // NAVIGATE BACK ON ERROR
-    const { nav } = useContext(SlideContext);
-    React.useEffect(() => nav.back(), [nav]) */
-
     React.useEffect(() => {
       slideModel.validate()
 
-      console.log(slideModel.validate())
       if (slideModel.validate()) {
       } else {
         setShowErrors(true);

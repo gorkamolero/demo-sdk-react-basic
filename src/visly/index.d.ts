@@ -158,7 +158,7 @@ export const HbContent: {
 };
 export const HbFirstSlideFooter: {
   (props: {
-    size?: "medium" | "large";
+    size?: "medium" | "large" | "small";
     HbFooterRectangle?: React.ReactNode;
     HbFooterRectangle1?: React.ReactNode;
     HbFooterRectangle2?: React.ReactNode;
@@ -256,6 +256,7 @@ export const HbProgress: {
 export const HbProgressBar: {
   (props: {
     value?: number;
+    golden?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbProgressButton: {
@@ -271,7 +272,7 @@ export const HbProgressStep: {
     HbActiveStep?: boolean;
     HbFutureStep?: boolean;
     HbPastStep?: boolean;
-    size?: "small" | "medium";
+    size?: "small" | "medium" | "large" | "super";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbRadio: {
@@ -290,7 +291,7 @@ export const HbRadio: {
       value?: string;
       selected?: boolean;
       fullWidth?: boolean;
-      size?: "small" | "medium";
+      size?: "small" | "medium" | "large" | "super";
       column?: boolean;
       noIcon?: boolean;
     } & CommonProps<HTMLDivElement>): JSX.Element;

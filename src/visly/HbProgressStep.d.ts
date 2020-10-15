@@ -94,7 +94,7 @@ export const HbProgressStep: {
       HbActiveStep?: boolean;
       HbFutureStep?: boolean;
       HbPastStep?: boolean;
-      size?: "small" | "medium";
+      size?: "small" | "medium" | "large" | "super";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

@@ -5,10 +5,10 @@ import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
+import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, colors, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
-
+import ReactSelect from 'react-select'
 
 const HbFormElement = ({children, ...rest}) => {
     return (
@@ -46,55 +46,89 @@ const HbSpace = styled.div`
 `;
 
 
+const SelectStyles = {
+  control: (provided, state) => ({
+    ...provided,
+    boxShadow: 'none',
+    borderColor: 'none',
+    borderRadius: 0,
+    border: 0,
+    borderBottom: `2px solid ${colors.hbGray300}`,
+    paddingLeft: 20,
+    '&:hover': {
+      borderColor: colors.hbGreen
+    }
+  }),
+  menu: (provided, state) => ({
+    ...provided,
+    minWidth: '100%',
+    width: 'auto',
+    borderRadius: 0,
+  }),
+  indicatorSeparator: () => ({ display: 'none' }),
+  menuList: (provided) => ({
+    ...provided,
+    padding: 0
+  }),
+  valueContainer: provided => ({
+    ...provided,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    padding: '0 !important',
+  }),
+  singleValue: (provided, state) => ({
+    ...provided,
+    transform: 'none',
+    top: 'auto',
+    position: 'static',
+    overflow: 'visible',
+    fontWeight: 'bold',
+    color: colors.hbGreen
+  }),
+  placeholder: (provided, state) => ({
+    ...provided,
+    transform: 'none',
+    top: 'auto',
+    position: 'static'
+  }),
+  container: (provided, state) => ({
+    ...provided,
+    minWidth: state.selectProps.min ? 60 : 150
+  })
+}
 
+const Icon = ({ innerRef, innerProps }) => (
+  <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
+);
 
 const Select = ({field, title, onChangeHandler, size}) => {
   const [options] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
-
   const meta = field.getMeta()
-
   const [selected, setSelected] = React.useState(() => {
-    if (meta.default) return { value: "0", label: meta.default }
-    else return options[0]
+
+    if (meta.defaultValue) {
+      return options[0]
+    }
+
+    if (field.getValue()) {
+      return options.find(op => op.value === field.getValue())
+    }
   });
-  
   /* eslint-disable*/
   React.useEffect(() => {
-    onChangeHandler(selected.value, field)
-  }, [selected, field], onChangeHandler)
+    if (selected) onChangeHandler(selected.value, field)
+  }, [selected, field])
   /* eslint-enable */
 
   return (
     <FlexBox column alignItems="center" justifyContent="flex-start">
       {title}
 
-      <HbSelect
-        onSelect={(option) => {
-          const selected = options.find((op) => op.value === option);
-          setSelected(selected);
-          onChangeHandler(selected.value, field);
-        }}
-        HbUnselected={selected.value === "0"} // eslint-disable-line eqeqeq
-        selected={selected.value}
-        label={selected.label}
-        size={size}
-      >
-        {
-          meta.default && (
-            <HbSelect.Option selected value="0" label={meta.default} />
-          )
-        }
-        {options.map((o) => {
-          return (
-            <HbSelect.Option disabled={o.value === "0"} key={o.value + o.label} value={o.value} label={o.label} /> // eslint-disable-line eqeqeq
-          );
-        })}
-      </HbSelect>
-
-      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
+      <ReactSelect onChange={setSelected} defaultValue={selected} isSearchable={true} placeholder={meta.default || 'Select...'} options={options} styles={SelectStyles} components={{ DropdownIndicator: Icon }}  min={meta.minSelect || false} />
     </FlexBox>
-  );
-};
+  )
+}
 
 const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const meta = field.getMeta()
@@ -109,7 +143,12 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
     return opts
   })
 
-  const [selected, setSelected] = React.useState(() => field.getValue() ? field.getValue() : []);
+  const [selected, setSelected] = React.useState(() => {
+    let val = field.getValue()
+    if (!val) return []
+    if (typeof val === 'string') val = [val]
+    return val
+  });
 
   const toggleSelected = value => selected.includes(value)
     ? setSelected(selected.filter(val => val !== value))
@@ -121,7 +160,6 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
-  console.log('YOLO', selected)
   return (
     <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
       {title}
@@ -198,15 +236,16 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   const options =  field.getOptions()
   const meta = field.getMeta();
 
+  /* eslint-disable */
+  useEffect(() => onChangeHandler(selected, field), [selected])
+  /* eslint-enable */
+
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
-        onSelect={(id) => {
-          onChangeHandler(id, field);
-          setSelected(id);
-        }}
+        onSelect={(id) => setSelected(id)}
         HbRadioColumn={!meta.radioRow}
         size={size}
         className="hbRadio"
@@ -297,7 +336,7 @@ const Checkbox = (type, ...props) => {
 }
  */
 const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null}) => {
-  const [isExpanded, setExpanded] = useState(field.isHidden() || true);
+  const [isExpanded, setExpanded] = useState(field.isHidden() || false);
   const {slideModel, interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
 
@@ -307,7 +346,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const meta = field.getMeta();
   const multiple = (field.isMultiple && field.isMultiple()) || false;
 
-  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
+  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(field.getTitle())} /> : null
   
   /* eslint-disable eqeqeq*/
   useEffect(() => {
@@ -325,22 +364,28 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         } 
       } else {
         field.setHidden(false)
-      }
 
-      if (meta.onlyShowIfFollowsAnswer) {
-        // console.log('ERROR', master.getValue())
-        field.setHidden(true)
+        if (meta.onlyShowIfFollowsAnswer) {
+          // console.log('ERROR', master.getValue())
+          field.setHidden(true)
 
-        if (
-          fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
-          || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
-        ) {
-          field.setHidden(false)
+          if (
+            fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
+            || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
+          ) {
+            field.setHidden(false)
+          }
         }
       }
 
-      if (!master.isValid() || master.getValue() == 0) {
-        // field.setHidden(true)
+      if (!meta.sequence && !meta.onlyShowIfFollowsAnswer) {
+        if (!master.isValid() || !master.getValue()) {
+          field.setHidden(true)
+        }
+
+        if (master.isValid() || master.getValue()) {
+          field.setHidden(false)
+        }
       }
     }
 
@@ -348,13 +393,16 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   }, [meta, fields, field, fieldValues, slideModel]);
 
+  /* eslint-enable */
+
+  /* eslint-disable eqeqeq*/
   useEffect(() => {
     if (meta.canSingular && field.getValue() == 1) {
       setCustomAfterText(interpolate(meta.afterTxt.replace('s', '')))
+    } else {
+      setCustomAfterText(meta.afterTxt)
     }
-  }, [meta, field, interpolate])
-
-  /* eslint-enable */
+  }, [meta, setCustomAfterText, interpolate, field])
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
   
@@ -371,10 +419,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       >
         <HbFormElement
           className={`${field.getType()} ${getFieldErrorClass(field)}`}
-          // break={meta.newLine}
           style={{
-            marginTop: 20,
-            marginBottom: 20,
+            marginTop: size === 'small' ? 10 : 20,
+            marginBottom: size === 'small' ? 10 : 20,
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
             ...(meta.column && { alignItems: "center" }),
@@ -396,20 +443,18 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             </>
           )}
 
-          {
-            type === 'checkbox' && (<h1>Hey</h1>)
-          }
+          { type === 'checkbox' && (<h1>Hey</h1>) }
 
-          {
-            type === 'select' && (
-              <>
-                {
-                  meta.multiple ? <SelectMulti {...inputProps} />
-                  : <Select {...inputProps} />
-                }
-              </>
-            )
-          }
+          { type === 'select' && <Select {...inputProps} />}
+          {/*
+            <>
+              {
+                meta.multiple ? <SelectMulti {...inputProps} />
+                : <Select2 {...inputProps} />
+              }
+            </>
+          */}
+          
           {
             type === 'radio-group' && (
               <>
