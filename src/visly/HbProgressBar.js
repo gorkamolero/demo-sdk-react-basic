@@ -23,6 +23,11 @@ const styles = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "golden",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -30,9 +35,19 @@ const defaultPropValues = [
     type: "default",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "golden",
+    layers: {},
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "golden",
+  },
+];
 
 export const HbProgressBarContext = createContext(null);
 
@@ -69,6 +84,11 @@ function HbProgressBar(_props) {
   );
 }
 
-HbProgressBar.__variants = [];
+HbProgressBar.__variants = [
+  {
+    name: "golden",
+    type: "variant",
+  },
+];
 
 export default HbProgressBar;

@@ -87,11 +87,14 @@ export interface CommonProps<T extends HTMLElement> {
   onBlur?: React.FocusEventHandler<T>;
   onBlurCapture?: React.FocusEventHandler<T>;
 }
-export const HbProgressBar: {
+export const HbLoadingScreen: {
   (
     props: {
-      value?: number;
-      golden?: boolean;
+      children?: React.ReactNode | React.ReactNode[];
+      HbProgressBar?: React.ReactNode;
+      HbFirstSlideFooter?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
+  HbProgressBar: typeof HbProgressBar;
+  HbFirstSlideFooter: typeof HbFirstSlideFooter;
 };

@@ -346,7 +346,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const meta = field.getMeta();
   const multiple = (field.isMultiple && field.isMultiple()) || false;
 
-  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(interpolate(field.getTitle()))} /> : null
+  const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(field.getTitle())} /> : null
   
   /* eslint-disable eqeqeq*/
   useEffect(() => {

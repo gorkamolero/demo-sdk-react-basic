@@ -90,7 +90,7 @@ export interface CommonProps<T extends HTMLElement> {
 export const HbFirstSlideFooter: {
   (
     props: {
-      size?: "medium" | "large";
+      size?: "medium" | "large" | "small";
       HbFooterRectangle?: React.ReactNode;
       HbFooterRectangle1?: React.ReactNode;
       HbFooterRectangle2?: React.ReactNode;

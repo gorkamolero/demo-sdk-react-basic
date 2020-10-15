@@ -110,6 +110,7 @@ export const textstyle: {
 };
 export const size: {
   hbRadius: "8d9d0395-325f-4354-a240-b2f63f8edbb3";
+  logoSize: "14208d1c-1701-42cf-b028-9c51cd6fa0a9";
 };
 export const shadow: {
   hbGoldenShadow: "7d0f11a6-68b3-4421-bf5f-cfde39b1c126";
@@ -132,6 +133,7 @@ export const component: {
   HbHelper: "cf215e28-e138-44bf-ac37-63dbd1d13f58";
   HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6";
   HbInput: "8f54961d-50f7-4b98-bd90-239f78c4b7bf";
+  "Pages/HbLoadingScreen": "0cb21f9c-340e-46dc-97cb-464ccd0b0b6b";
   HbLogo: "178b94b1-16c1-4db1-a333-70d00d2d5610";
   HbOnlyIconButton: "9bf2fbb4-fc0b-4e47-8d70-19385366b994";
   HbProgress: "217de0fb-2e4c-40a5-90a4-8689b05c0719";

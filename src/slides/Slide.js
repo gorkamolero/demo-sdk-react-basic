@@ -20,8 +20,11 @@ const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
+    
 
-    if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
+    React.useEffect(() => {
+      if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
+    }, [slideModel])
 
     const getSlideView = () => {
         switch (slideModel.getType()) {
@@ -36,14 +39,15 @@ const Slide = () => {
     };
 
 
-    const slideTitle = progressBar.find(step => step.slideId === slideModel.getId()).title
+    const slideTitle = useMemo(() => progressBar.find(step => step.slideId === slideModel.getId()).title, [slideModel, progressBar])
     const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
     const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
+    const type = useMemo(() => slideModel.getType(), [slideModel])
 
     return (
       <FlexBox column center>
         {
-          slideModel.getType() === 'End' || (
+          type === 'End' || (
             <HbHeader
               className="HbHeader"
               TitleSlot={<HbTitle size={size} className="title" html={title} />}
@@ -69,5 +73,7 @@ const Slide = () => {
       </FlexBox>
     );
 };
+
+Slide.whyDidYouRender = true
 
 export default Slide

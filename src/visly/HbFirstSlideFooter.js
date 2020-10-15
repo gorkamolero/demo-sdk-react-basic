@@ -31,6 +31,10 @@ const styles = [
         propValue: "large",
         layers: {},
       },
+      {
+        propValue: "small",
+        layers: {},
+      },
     ],
   },
 ];
@@ -106,6 +110,14 @@ const defaultPropValues = [
           },
         },
       },
+      {
+        propValue: "small",
+        layers: {
+          TNW5v7g5Qv: {},
+          SV2fibrpk9: {},
+          "4Lgg4oSHk1": {},
+        },
+      },
     ],
   },
 ];
@@ -114,7 +126,7 @@ const variantPropTypes = [
   {
     type: "enum",
     propName: "size",
-    propValues: ["medium", "large"],
+    propValues: ["medium", "large", "small"],
   },
 ];
 
@@ -207,7 +219,7 @@ HbFirstSlideFooter.__variants = [
   {
     name: "size",
     type: "group",
-    variants: ["medium", "large"],
+    variants: ["medium", "large", "small"],
   },
 ];
 
