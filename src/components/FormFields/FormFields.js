@@ -489,7 +489,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       </CSSTransition>
 
       {meta.afterLine && (
-        <small>
+        <small style={{ marginBottom: 20 }}>
           {interpolate(meta.afterLine)}
         </small>
       )}
