@@ -135,6 +135,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const [options] = useState(() => {
     let opts = field.getOptions()
+    console.log('HEYA', opts)
     if (typeof field.getOptions === 'string') opts = opts.split(',')
     opts = opts.map(
       (op) => ({ value: op.id, label: op.title })
@@ -167,7 +168,9 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
       {
         selected.length > 0 && (
           <FlexBox gap={10}>
-            {selected.map((o, i) => (
+            {selected.map((o, i) => {
+              const op = options.find(op => op.value === o)
+              return (
               <CSSTransition
                 in={true}
                 timeout={200}
@@ -177,14 +180,15 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                 key={o + i}
               >
                 <HbTag
-                  tagText={options.find(op => op.value === o).label}
+                  tagText={op && op.label? op.label : op}
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
                     />}
                 />
               </CSSTransition>
-            ))}
+            )
+            })}
           </FlexBox>
         )
       }
@@ -341,11 +345,12 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   const [customAfterText, setCustomAfterText] = React.useState(null)
 
   // const anim = useSpring({opacity: 1, color: 'red'})
-  
+
   const type = field.getType();
   const meta = field.getMeta();
   const multiple = (field.isMultiple && field.isMultiple()) || false;
 
+  // TODO: bug interpolate
   const title = meta.showTitle && field.getTitle() ? <CustomHTML className="title" html={Utils.capitalize(field.getTitle())} /> : null
   
   /* eslint-disable eqeqeq*/
@@ -406,17 +411,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
   const inputProps = useMemo(() => ({field, title, onChangeHandler, size}), [field, title, onChangeHandler, size])
   
-  if (meta.hide) return null
+  if (meta.hide || !isExpanded) return null
   return (
     <>
       {meta.newLine && <HbBreakLine className="newLine" />}
-      <CSSTransition
-        in={isExpanded}
-        timeout={200}
-        classNames="collapse"
-        unmountOnExit
-        mountOnEnter
-      >
         <HbFormElement
           className={`${field.getType()} ${getFieldErrorClass(field)}`}
           style={{
@@ -486,7 +484,6 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             </>
           )}
         </HbFormElement>
-      </CSSTransition>
 
       {meta.afterLine && (
         <small style={{ marginBottom: 20 }}>

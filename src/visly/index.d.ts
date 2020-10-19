@@ -124,6 +124,13 @@ export const HbButtonGroup: {
     children?: React.ReactNode | React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
+export const HbButtonWithIcon: {
+  (props: {
+    text?: string;
+    onPress?: (event: PressEvent) => void;
+    variant?: "contained";
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
 export const HbCheckbox: {
   (props: {
     onChange?: (checked: boolean) => void;
@@ -188,8 +195,10 @@ export const HbHeader: {
     extraImageT?: string;
     TitleSlot?: React.ReactNode | React.ReactNode[];
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
-    size?: "small" | "large" | "medium" | "super";
+    ExtraChildren?: React.ReactNode | React.ReactNode[];
     ShowImage?: boolean;
+    NoWave?: boolean;
+    size?: "small" | "large" | "medium" | "super";
     HbCircleIcon?: React.ReactNode;
     HbProgress?: React.ReactNode;
     HbLogo?: React.ReactNode;

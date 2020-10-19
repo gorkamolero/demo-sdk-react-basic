@@ -109,6 +109,11 @@
   --noResultsStep3Size: 608px 597px;
 
   --spacing: 10px;
+  --negative-spacing: -10px;
+}
+
+main {
+  width: 100%;
 }
 
 $fontPath: "../fonts/AvertaStd/";
@@ -196,4 +201,18 @@ small {
 }
 .title {
   line-height: normal;
+}
+
+.slider {
+  @media (min-width: $medium) {
+    padding-left: calc(100% / 12 * 1);
+  }
+}
+
+.slider-frame {
+  // padding: 40px 20px !important;
+}
+
+.slide-End {
+  margin-bottom: 100px;
 }

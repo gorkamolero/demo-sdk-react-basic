@@ -1,42 +1,38 @@
-import React, { useState, useContext } from 'react';
-import { SlideContext } from '../../context/SlideContext';
-import Result from '../../components/Result/Result'
-import Header from "../../components/Header/Header";
+import React, { useState } from 'react';
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
-import Scene from '../../assets/video/lava.webm';
-// import VideoPop from 'react-video-pop';
+import Loading from 'components/Loading';
+import Products from './partials/Products'
+import Features from './partials/Features'
+import Testimonials from './partials/Testimonials'
+import Video from './partials/Video'
+import { Footer } from '../../styles/StyledComps'
 
 function End() {
-    const { slideModel } = useContext(SlideContext);
-    const [results, setResults] = useState(null);
-
-    if (!results) {
-        slideModel.getResults().then( (results) => {
-            setResults(results.map( result =>  <Result key={result.getId()} value={result} /> ));
-        }).catch( (reason) => {
-            console.error(reason);
-        })
-    }
+    // const [loading, setLoading] = useState(false)
+    // No loading for dev
+    const [loading, setLoading] = useState(true)
 
     return (
-        <div className="slide end">
-            {/* <VideoPop Src={Scene} mute={true} autoplay={true}   root="video-root" ratio={{w:16,h:9}} /> */}
+        <>
+            {
+                loading && (
+                    <Loading setLoading={setLoading} timing={1000} outTiming={2500} />
+                )
+            }
 
-            {results?(
-                <>
-                    <Header />
+            {<Video />}
 
-                    <div className="results">
-                        {results}
-                    </div>
+            <Products />
 
-                    <Navigation />
-                </>
-            ):(
-                <div className="loading">Loading ...</div>
-            )}
-        </div>
+            <Navigation />
+
+            <Features />
+
+            <Testimonials />
+
+            <Footer />
+        </>
     );
 
 }

@@ -1,12 +1,28 @@
 import React, { useState, useEffect } from 'react'
-import { SlideContext } from '../context/SlideContext';
 import styled from 'styled-components';
-import { FlexBox } from "react-styled-flex";
 import { HbLoadingScreen } from "../visly/Pages";
 import { useBreakpoint } from "../visly";
 import Loading1 from '../assets/images/loading1.png'
 import Loading2 from '../assets/images/loading2.png'
 
+function useDelayUnmount(isMounted: boolean, delayTime: number) {
+    const [ shouldRender, setShouldRender ] = useState(false);
+
+    useEffect(() => {
+        let timeoutId: number;
+        if (isMounted && !shouldRender) {
+            setShouldRender(true);
+        }
+        else if(!isMounted && shouldRender) {
+            timeoutId = setTimeout(
+                () => setShouldRender(false), 
+                delayTime
+            );
+        }
+        return () => clearTimeout(timeoutId);
+    }, [isMounted, delayTime, shouldRender]);
+    return shouldRender;
+}
 
 const Loaders = [
   Loading1,
@@ -36,7 +52,11 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 3000 }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
-
+  const [ isMounted, setIsMounted ] = useState(true);
+  
+  const shouldRenderChild = useDelayUnmount(isMounted, 100);
+  const mountedStyle = {opacity: 1, transform: 'translateY(0)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
+  const unmountedStyle = {opacity: 0, transform: 'translateY(-10%)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
   
   // Rotate images
   useEffect(() => {
@@ -55,7 +75,7 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 3000 }) => {
   
   // Rotate progress
   useEffect(() => {
-    let min = 0, max = 100, step = 20, now = 0;
+    let min = 0, step = 20, now = 0;
 
     const interval = setInterval(() => {
         now += Math.floor(Math.random() * step) + min  ;
@@ -72,24 +92,30 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 3000 }) => {
     setTimeout(() => {
       setProgress(100)
       setTimeout(() => {
+        setIsMounted(!isMounted);
         setLoading(false)
-      }, 200)
+      }, timing)
     }, outTiming);
-  }, [])
+  })
   
   return (
-    <LoadingScreen
-      HbProgressBar={<HbLoadingScreen.HbProgressBar value={progress / 100} />}
-      HbFirstSlideFooter={
-        <HbLoadingScreen.HbFirstSlideFooter
-          size={size}
-        />
-      }
-      className="HbLoadingScreen"
-      text="We are creating Oscar's custom plan"
-    >
-      <Img src={Loaders[rotation]} />
-    </LoadingScreen>
+    <>
+      {shouldRenderChild && (
+        <LoadingScreen
+          style={isMounted ? mountedStyle : unmountedStyle}
+          HbProgressBar={<HbLoadingScreen.HbProgressBar value={progress / 100} />}
+          HbFirstSlideFooter={
+            <HbLoadingScreen.HbFirstSlideFooter
+              size={size}
+            />
+          }
+          className="HbLoadingScreen"
+          text="We are creating Oscar's custom plan"
+        >
+          <Img src={Loaders[rotation]} />
+        </LoadingScreen>
+      )}
+    </>
   );
 }
  

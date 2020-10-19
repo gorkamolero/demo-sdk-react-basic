@@ -98,3 +98,13 @@ export const HbLoadingScreen: {
   HbProgressBar: typeof HbProgressBar;
   HbFirstSlideFooter: typeof HbFirstSlideFooter;
 };
+export const HbSection: {
+  (
+    props: {
+      children?: React.ReactNode | React.ReactNode[];
+      title?: string;
+      noMaxWidth?: boolean;
+      padded?: boolean;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};

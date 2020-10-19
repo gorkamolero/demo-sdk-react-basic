@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import CustomHTML from "../components/CustomHTML/CustomHTML";
 import { textstyles, colors } from "../visly";
+import Curve from '../assets/images/curve-separator.svg'
+import CurveLight from '../assets/images/curve-separator-white.svg'
+import { HbEndFooter } from '../visly/Compounds'
 
 export const HbContainer = styled.section`
   width: 100%;
@@ -30,5 +33,37 @@ export const HbTitle = styled(CustomHTML)(props => ({
 export const HbSubtitle = styled(CustomHTML)(props => ({
   ...(props.size !== 'mobile' ? textstyles.bodySmall : textstyles.bodySmallMobile),
   color: colors.hbText,
-  opacity: '80%'
+  opacity: '80%',
 }))
+
+export const Wave = styled.div`
+  height: 45px; 
+  width: 100%;
+  background: white url(${Curve}) center center no-repeat;
+  ${props => props.light && `
+    background: transparent url(${CurveLight}) center center no-repeat;
+  `}
+  ${props => props.invert && `
+    transform: rotate(180deg);
+    &:first-of-type { margin-bottom: 40px !important; }
+    &:last-of-type { margin-top: 40px !important; }
+  `}
+  background-size: 100%;
+
+`
+
+export const WaveContainer = styled.section`
+  width: 100vw;
+  padding: 0;
+  background: ${props => props.light ? colors.hbGray120: colors.hbGray150};
+  ${props => props.invert && `transform: rotate(180deg);`}
+  & > * {
+    padding: 0 !important;
+    margin: 0 auto;
+  }
+`
+
+export const Footer = styled(HbEndFooter)`
+  position: fixed;
+  bottom: 0;
+`

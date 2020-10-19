@@ -1,33 +1,22 @@
-import React, { useContext, useMemo, useState } from 'react';
+import React, { useContext, useMemo } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
 import { HbButtonGroup, HbButton } from "../../visly";
 import { CSSTransition } from "react-transition-group";
-import Loading from 'components/Loading';
 
 function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
-  const [loading, setLoading] = useState(false)
 
   // Allow handlers override
   back = back || nav.back;
   next = next || nav.next;
-  restart = restart || nav.restart;
+  restart = restart || nav.restart;  
 
   const nextSlideIsEndSlide = useMemo(() => {
     const me = progressBar.find((el) => el.slideId === slideModel.id);
     const next = progressBar[progressBar.indexOf(me) + 1]
     return (next.slideId === 'end')
   }, [progressBar, slideModel])
-
-  console.log('IS NEXT', nextSlideIsEndSlide)
-
-  // Could evaluate if next screen has a loader fe
-  const navNext = () => {
-    if (nextSlideIsEndSlide) setLoading(true)
-
-    if (!loading) next()
-  }
 
   // nav.back()
 
@@ -37,11 +26,6 @@ function Navigation({back, next, restart}) {
 
   return (
     <>
-      {
-        loading && (
-          <Loading setLoading={setLoading} timing={1000} outTiming={3000} />
-        )
-      }
       <HbButtonGroup>
         <CSSTransition
           in={nav.canBack}
@@ -82,7 +66,7 @@ function Navigation({back, next, restart}) {
           <HbButton
             text={isBlocked ? 'Coming soon' : nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
             disabled={!nav.canNext || isBlocked || !isValid}
-            onPress={navNext}
+            onPress={next}
           />
         </CSSTransition>
       </HbButtonGroup>

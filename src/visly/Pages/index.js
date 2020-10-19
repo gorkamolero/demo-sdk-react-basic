@@ -2,3 +2,4 @@
 /* tslint:disable */
 /* eslint-disable */
 export const HbLoadingScreen = require("./HbLoadingScreen").default;
+export const HbSection = require("./HbSection").default;
