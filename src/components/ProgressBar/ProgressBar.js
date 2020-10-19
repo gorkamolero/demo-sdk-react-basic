@@ -13,9 +13,14 @@ const ProgressBar = ({size}) => {
   const [activeStep, setActiveStep] = React.useState({})
   
   useEffect(() =>  {
-    const el = progressBar.find((el) => el.slideId === slideModel.id);
+    let el
+    if (slideModel.getType() === 'End') {
+      el = progressBar.find((el) => el.slideId === 'end');
+    } else {
+      el = progressBar.find((el) => el.slideId === slideModel.id);
+    }
     setActiveStep(el);
-  }, [slideModel.id, progressBar])
+  }, [slideModel, progressBar])
 
   const steps = useMemo(() => progressBar.map(step => step.slideId), [progressBar])
 

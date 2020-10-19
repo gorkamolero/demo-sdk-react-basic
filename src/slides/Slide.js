@@ -24,7 +24,7 @@ const Slide = () => {
 
     React.useEffect(() => {
       if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
-    }, [slideModel])
+    }, [slideModel, slideId])
 
     const getSlideView = () => {
         switch (slideModel.getType()) {
@@ -44,31 +44,30 @@ const Slide = () => {
     const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
     const type = useMemo(() => slideModel.getType(), [slideModel])
 
+    const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
+
     return (
-      <FlexBox column center>
-        {
-          type === 'End' || (
-            <HbHeader
-              className="HbHeader"
-              TitleSlot={<HbTitle size={size} className="title" html={title} />}
-              
-              SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
-              
-              HbLogo={<HbHeader.HbLogo />}
-              HbProgress={<ProgressBar size={size} />}
-              HbProgressMobile={<ProgressBar size={size} />}
-              HbCircleIcon={<HbHeader.HbCircleIcon />}
-              bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
-              extraImage={Bowl}
-              extraImageT={Bowl}
-              size={size}
-              discount="20% Off"
-              ShowImage={slideTitle === 'Profile'}
-            />
-          )
-        }
-        <main>
-          <HbContainer>{getSlideView()}</HbContainer>
+      <FlexBox column center className={`slide-${type}`}>
+        <HbHeader
+          className="HbHeader"
+          TitleSlot={<HbTitle size={size} className="title" html={title} />}
+          
+          SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+          
+          HbLogo={<HbHeader.HbLogo />}
+          HbProgress={<ProgressBar size={size} />}
+          HbProgressMobile={<ProgressBar size={size} />}
+          HbCircleIcon={<HbHeader.HbCircleIcon />}
+          bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
+          extraImage={Bowl}
+          extraImageT={Bowl}
+          size={size}
+          discount="20% Off"
+          ShowImage={slideTitle === 'Profile'}
+          NoWave={ slideModel.getType() === 'End' }
+        />
+        <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Container alignItems="center" column>{getSlideView()}</Container>
         </main>
       </FlexBox>
     );

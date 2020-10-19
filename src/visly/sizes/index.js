@@ -7,3 +7,6 @@ export const dimensions = {
 export const radius = {
   hbRadius: "4px",
 };
+export const spacing = {
+  hbFooterSize: "100px",
+};

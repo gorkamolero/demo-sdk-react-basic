@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>E2D7E923-0B61-4A5A-8553-EF9438383770</title>
+    <defs>
+        <circle id="path-1" cx="9" cy="9" r="8.75"></circle>
+        <polygon id="path-3" points="7.75 12.4375 4.625 9.3125 5.61875 8.375 7.75 10.46875 12.38125 5.875 13.375 6.8625"></polygon>
+    </defs>
+    <g id="Version-B" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations-v4---A" transform="translate(-243.000000, -2588.000000)">
+            <g id="Group-6" transform="translate(0.000000, 2335.000000)">
+                <g id="Group-11">
+                    <g id="testimonial" transform="translate(90.000000, 195.000000)">
+                        <g id="Group-3" transform="translate(30.000000, 56.000000)">
+                            <g id="icon/status/checkmark-filled/20" transform="translate(123.000000, 2.000000)">
+                                <mask id="mask-2" fill="white">
+                                    <use xlink:href="#path-1"></use>
+                                </mask>
+                                <use id="icon-color" fill="#5EB2E6" xlink:href="#path-1"></use>
+                                <mask id="mask-4" fill="white">
+                                    <use xlink:href="#path-3"></use>
+                                </mask>
+                                <use id="icon-color" fill="#FFFFFF" xlink:href="#path-3"></use>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

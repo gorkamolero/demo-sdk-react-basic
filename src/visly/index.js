@@ -12,6 +12,7 @@ export const Button = require("./Button").default;
 export const CommentButton = require("./CommentButton").default;
 export const HbButton = require("./HbButton").default;
 export const HbButtonGroup = require("./HbButtonGroup").default;
+export const HbButtonWithIcon = require("./HbButtonWithIcon").default;
 export const HbCheckbox = require("./HbCheckbox").default;
 export const HbCheckboxGroup = require("./HbCheckboxGroup").default;
 export const HbCircleIcon = require("./HbCircleIcon").default;

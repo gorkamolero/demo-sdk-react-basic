@@ -96,8 +96,10 @@ export const HbHeader: {
       extraImageT?: string;
       TitleSlot?: React.ReactNode | React.ReactNode[];
       SubtitleSlot?: React.ReactNode | React.ReactNode[];
-      size?: "small" | "large" | "medium" | "super";
+      ExtraChildren?: React.ReactNode | React.ReactNode[];
       ShowImage?: boolean;
+      NoWave?: boolean;
+      size?: "small" | "large" | "medium" | "super";
       HbCircleIcon?: React.ReactNode;
       HbProgress?: React.ReactNode;
       HbLogo?: React.ReactNode;

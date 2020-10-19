@@ -33,6 +33,16 @@ const styles = [
     },
   },
   {
+    type: "boolean",
+    propName: "ShowImage",
+    layers: {},
+  },
+  {
+    type: "boolean",
+    propName: "NoWave",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -54,11 +64,6 @@ const styles = [
       },
     ],
   },
-  {
-    type: "boolean",
-    propName: "ShowImage",
-    layers: {},
-  },
 ];
 
 const defaultPropValues = [
@@ -71,6 +76,26 @@ const defaultPropValues = [
           HbYellowIcon: true,
         },
       },
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
+  {
+    type: "boolean",
+    propName: "ShowImage",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
+  {
+    type: "boolean",
+    propName: "NoWave",
+    layers: {
+      Coy4GvRJN5: {},
       B28tWsTkne: {},
       DesmwGXXNp: {},
       "9VxZfYB53B": {},
@@ -130,27 +155,21 @@ const defaultPropValues = [
       },
     ],
   },
-  {
-    type: "boolean",
-    propName: "ShowImage",
-    layers: {
-      Coy4GvRJN5: {},
-      B28tWsTkne: {},
-      DesmwGXXNp: {},
-      "9VxZfYB53B": {},
-    },
-  },
 ];
 
 const variantPropTypes = [
   {
-    type: "enum",
-    propName: "size",
-    propValues: ["small", "large", "medium", "super"],
+    type: "boolean",
+    propName: "ShowImage",
   },
   {
     type: "boolean",
-    propName: "ShowImage",
+    propName: "NoWave",
+  },
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small", "large", "medium", "super"],
   },
 ];
 
@@ -356,7 +375,7 @@ function HbHeader(_props) {
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_9XVkrqrLZt_2RwNh3KRbg"}
                 key={"2RwNh3KRbg"}
-                addSpacing={false}
+                addSpacing={true}
               >
                 <ContainerPrimitive
                   key={"VTKN5tHTts"}
@@ -404,6 +423,13 @@ function HbHeader(_props) {
                 }
               </ContainerPrimitive>
             </ContainerPrimitive>
+            <ContainerPrimitive
+              key={"47pCh1HY9f"}
+              className={"__visly_reset __visly_scope_9XVkrqrLZt_47pCh1HY9f"}
+              addSpacing={false}
+            >
+              {props.ExtraChildren}
+            </ContainerPrimitive>
           </ContainerPrimitive>
         </>
       )}
@@ -417,13 +443,17 @@ HbHeader.HbLogo = HbLogoComposite;
 HbHeader.HbProgressMobile = HbProgressComposite;
 HbHeader.__variants = [
   {
+    name: "ShowImage",
+    type: "variant",
+  },
+  {
+    name: "NoWave",
+    type: "variant",
+  },
+  {
     name: "size",
     type: "group",
     variants: ["small", "large", "medium", "super"],
-  },
-  {
-    name: "ShowImage",
-    type: "variant",
   },
 ];
 

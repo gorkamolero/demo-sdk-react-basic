@@ -7,3 +7,6 @@ export const dimensions: {
 export const radius: {
   hbRadius: string;
 };
+export const spacing: {
+  hbFooterSize: string;
+};
