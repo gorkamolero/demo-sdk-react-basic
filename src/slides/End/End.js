@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
-import Loading from 'components/Loading';
+import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
