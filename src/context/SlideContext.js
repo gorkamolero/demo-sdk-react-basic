@@ -52,7 +52,7 @@ const SlideContextProvider = ({children}) => {
 
         setNav( {canBack, canNext, backLabel, nextLabel, canRestart});
 
-        setProgress(Engine.getProgress(true, true));
+        setProgress(Engine.getProgress(false, true));
     };
 
     const next = () => {
