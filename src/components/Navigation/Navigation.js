@@ -65,7 +65,7 @@ function Navigation({back, next, restart}) {
         >
           <HbButton
             text={isBlocked ? 'Coming soon' : nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
-            disabled={!nav.canNext || isBlocked || !isValid}
+            disabled={!nav.canNext || isBlocked || !isValid || nextSlideIsEndSlide}
             onPress={next}
           />
         </CSSTransition>
