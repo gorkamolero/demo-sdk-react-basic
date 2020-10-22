@@ -9,9 +9,8 @@ import Video from './partials/Video'
 import { Footer } from '../../styles/StyledComps'
 
 function End() {
-    // const [loading, setLoading] = useState(false)
     // No loading for dev
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
 
     return (
         <>

@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useState } from 'react';
+import { SlideContext } from "../../../context/SlideContext";
 import { FlexBox } from "react-styled-flex";
-import { HbSection } from 'visly/Pages'
-import { useBreakpoint } from 'visly'
-import { HbTestimonial } from 'visly/Compounds'
+import { HbSection } from '../../../visly/Pages'
+import { useBreakpoint } from '../../../visly'
+import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
 import styled from 'styled-components';
 import { WaveContainer, Wave } from '../../../styles/StyledComps'
@@ -63,6 +64,26 @@ const Section = styled(HbSection)`
 `
 
 const Testimonials = () => {
+  const { getDatasheet } = useContext(SlideContext)
+
+  const [ testimonials, setTestimonials ] = useState([])
+
+  React.useEffect(() => {
+    const getTestimonials = async () => {
+      try {
+        const testimonials = await getDatasheet(['1XaJ9jNcSLz'])
+        setTestimonials(testimonials)
+      } catch(err) {
+        console.error(err)
+      }
+    }
+
+    getTestimonials()
+  }, [getDatasheet])
+
+  console.log('YOLO', testimonials)
+
+  
   const size = useBreakpoint("small", ["medium", "large", "large"]);
   const settings = {
     slidesToShow: size === 'large' ? 3 : size === 'medium' ? 2 : 1,
