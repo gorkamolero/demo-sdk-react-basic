@@ -25,6 +25,7 @@ export const hbSkyBlue = "rgba(94,178,230,1)";
 export const hbText = "rgba(36,36,36,1)";
 export const hbText2 = "rgba(27,28,36,1)";
 export const hbYellow = "rgba(246,223,164,1)";
+export const hbYellowText = "rgba(215,155,25,1)";
 export const mint400 = "rgba(0,193,159,1)";
 export const mint500 = "rgba(0,137,123,1)";
 export const mint600 = "rgba(0,99,91,1)";

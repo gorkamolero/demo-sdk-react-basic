@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>DDD56B6B-2A7D-4390-B8BD-73588AE9EAC5</title>
+    <defs>
+        <polygon id="path-1" points="8 0 6.59 1.41 12.17 7 0 7 0 9 12.17 9 6.59 14.59 8 16 16 8"></polygon>
+    </defs>
+    <g id="Main" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Recommendations-v5---A" transform="translate(-1385.000000, -3485.000000)">
+            <g id="Section-Copy-2" transform="translate(0.000000, 3017.000000)">
+                <g id="Group-9" transform="translate(1369.000000, 452.000000)">
+                    <g id="next-ic" transform="translate(16.000000, 16.000000)">
+                        <mask id="mask-2" fill="white">
+                            <use xlink:href="#path-1"></use>
+                        </mask>
+                        <g id="icon/navigation/arrow_forward_24px" fill-rule="nonzero"></g>
+                        <g id="↳-Color" mask="url(#mask-2)" fill="#FFFFFF">
+                            <g transform="translate(-4.000000, -4.000000)" id="Rectangle-13">
+                                <rect x="0" y="0" width="24" height="24"></rect>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

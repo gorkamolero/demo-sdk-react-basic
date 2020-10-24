@@ -196,6 +196,7 @@ export const HbHeader: {
     TitleSlot?: React.ReactNode | React.ReactNode[];
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
     ExtraChildren?: React.ReactNode | React.ReactNode[];
+    textSlot1?: string;
     ShowImage?: boolean;
     NoWave?: boolean;
     size?: "small" | "large" | "medium" | "super";
@@ -322,6 +323,23 @@ export const HbSelect: {
       selected?: boolean;
     } & CommonProps<HTMLDivElement>): JSX.Element;
   };
+};
+export const HbSliderArrow: {
+  (props: {
+    reverse?: boolean;
+    Component?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  Component: {
+    (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
+  };
+};
+export const HbSliderArrowButton: {
+  (props: {
+    onPress?: (event: PressEvent) => void;
+    reverse?: boolean;
+    HbSliderArrow?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  HbSliderArrow: typeof HbSliderArrow;
 };
 export const HbTag: {
   (props: {

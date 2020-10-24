@@ -58,7 +58,7 @@ export function Root(props) {
     </label>
   );
 }
-export function InputPrimitive(props) {
+export function TextFieldPrimitive(props) {
   const { onFocus, onBlur, onChange, inputRef, value, disabled } = useContext(
     Context
   );

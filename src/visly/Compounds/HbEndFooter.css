@@ -72,7 +72,7 @@
   display: block;
   box-sizing: border-box;
   overflow: hidden;
-  color: #242424;
+  color: #623b2a;
   text-align: start;
   white-space: normal;
   font-family: Averta;
@@ -86,7 +86,7 @@
   display: block;
   box-sizing: border-box;
   overflow: hidden;
-  color: #242424;
+  color: #623b2a;
   text-align: start;
   white-space: normal;
   font-family: Averta;
@@ -125,7 +125,7 @@
   display: block;
   box-sizing: border-box;
   overflow: visible;
-  color: #242424;
+  color: #623b2a;
   text-align: start;
   white-space: normal;
   font-family: Averta;
@@ -139,19 +139,19 @@
   box-sizing: border-box;
   width: 16px;
   height: 16px;
-  background-color: #000;
-  transform: scale(5, 5);
+  background-color: #623b2a;
+  transform: scale(4, 4);
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_GMQGJ3oWuC {
   display: block;
   box-sizing: border-box;
   overflow: hidden;
-  color: #242424;
+  color: #623b2a;
   text-align: start;
   white-space: normal;
   font-family: Averta;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 36px;
   line-height: 44px;
   flex-shrink: 1;

@@ -25,6 +25,7 @@ export const hbSkyBlue: string;
 export const hbText: string;
 export const hbText2: string;
 export const hbYellow: string;
+export const hbYellowText: string;
 export const mint400: string;
 export const mint500: string;
 export const mint600: string;

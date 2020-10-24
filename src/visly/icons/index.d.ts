@@ -5,6 +5,7 @@ export const arrowRight: string;
 export const hbActivityActive: string;
 export const hbActivityAthlete: string;
 export const hbActivityLazy: string;
+export const hbArrowForward: string;
 export const hbChevronDown: string;
 export const hbClose: string;
 export const hbDiscount: string;

@@ -5,6 +5,7 @@ export const arrowRight = require("../assets/d335cc69-ef1c-4fab-a477-d420f754e05
 export const hbActivityActive = require("../assets/ccea071c-ea6f-420c-ae77-97c980ca65df.svg");
 export const hbActivityAthlete = require("../assets/e7ceb85d-3a5e-4f0b-874e-894db4786a77.svg");
 export const hbActivityLazy = require("../assets/c95ce908-5e59-45ba-b14f-882f777ab5b4.svg");
+export const hbArrowForward = require("../assets/ce16c0b7-38b6-43fe-b6de-f496af3224ba.svg");
 export const hbChevronDown = require("../assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg");
 export const hbClose = require("../assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg");
 export const hbDiscount = require("../assets/6c09c43b-abd0-4776-8845-1535cdff712b.svg");

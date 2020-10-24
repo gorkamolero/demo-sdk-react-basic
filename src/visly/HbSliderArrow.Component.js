@@ -3,25 +3,18 @@
 /* eslint-disable */
 import "./textstyles/fonts.css";
 import "./reset.css";
-import "./Input.css";
+import "./HbSliderArrow.Component.css";
 import React, { createContext, useContext } from "react";
 import {
-  exists,
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { Root, TextFieldPrimitive } from "./_internal_text_field";
+import { RootPrimitive } from "./_internal_primitives";
 
 const styles = [
   {
     type: "default",
-    layers: {
-      input: {
-        none: {
-          placeholderText: "Placeholder",
-        },
-      },
-    },
+    layers: {},
   },
 ];
 
@@ -34,10 +27,10 @@ const defaultPropValues = [
 
 const variantPropTypes = [];
 
-export const InputContext = createContext(null);
+export const ComponentContext = createContext(null);
 
-function Input(_props) {
-  const defaults = useContext(InputContext);
+function Component(_props) {
+  const defaults = useContext(ComponentContext);
   const props = { ...defaults, ..._props };
   const activeVariants = findSetVariantProps(variantPropTypes, props);
   const getCompositeDefaultProps = makeCompositeDefaultProps(
@@ -45,32 +38,22 @@ function Input(_props) {
     activeVariants
   );
   return (
-    <Root
+    <RootPrimitive
       {...props}
-      key="root"
+      key="FRuVrYXRms"
       addSpacing={false}
       internal={{
         styles: styles,
-        layerId: "root",
-        scope: "AzHv2NByua",
+        layerId: "FRuVrYXRms",
+        scope: "8UoqdCFHYq",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => (
-        <TextFieldPrimitive
-          className={"__visly_reset __visly_scope_AzHv2NByua_input"}
-          key={"input"}
-          placeholder={
-            exists(props.placeholder)
-              ? props.placeholder
-              : getStyle("input", "placeholderText")
-          }
-        />
-      )}
-    </Root>
+      {(getStyle) => null}
+    </RootPrimitive>
   );
 }
 
-Input.__variants = [];
+Component.__variants = [];
 
-export default Input;
+export default Component;

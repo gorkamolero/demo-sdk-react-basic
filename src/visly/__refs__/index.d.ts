@@ -26,6 +26,7 @@ export const color: {
   hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f";
   hbText2: "6534e7c4-97f7-4eb4-abda-82f4c9e9a97d";
   hbYellow: "e07f1511-9b1a-404c-9b33-f6e28314ea12";
+  hbYellowText: "91a32430-9c34-4484-9162-81cc16020b52";
   mint400: "2e800351-2272-4773-a849-66d9cc1dbba7";
   mint500: "32f153bc-91ca-4170-9823-f1d2cd61ce38";
   mint600: "3d698970-2b19-4497-bc20-da4de161a26f";
@@ -41,6 +42,7 @@ export const icon: {
   hbActivityActive: "04736f6d-3508-4b43-a810-6173d635309d";
   hbActivityAthlete: "3de5fbdc-9c46-49f1-bb9d-92afb97d81b3";
   hbActivityLazy: "b1214685-4aeb-46ca-95e6-2ee842c0228c";
+  hbArrowForward: "1da51982-2f1e-437c-98ae-9ebac5d230ab";
   hbChevronDown: "654fbce1-5cf6-4d4f-a86c-743bfeee64d8";
   hbClose: "3daf44a3-9008-499c-aa9f-cf4afb8c2fc6";
   hbDiscount: "5465e731-4834-4811-be34-34a4a31de8e8";
@@ -100,6 +102,7 @@ export const font: {
   "Inter-SemiBoldItalic": "47fa28fd-8c21-4716-b4ff-5338824b33ef";
   "Inter-ThinItalic": "485e0fcf-ba64-4390-b6d0-92057cc52529";
   "Inter-Thin": "f8cd0728-b297-4161-94c2-5ba185d1e09a";
+  "FilsonPro-Bold": "03431daa-dc73-407e-a9d0-fc3817a1ddc2";
 };
 export const textstyle: {
   accent: "5a5b282c-fbe5-4efb-8163-9d8e2399991c";
@@ -161,6 +164,8 @@ export const component: {
   HbRadio: "f239a6bc-035e-4201-8a5f-e374a8434ff3";
   "Pages/HbSection": "ea572aaf-da38-47fc-ac20-390251ba4184";
   HbSelect: "4d8a0f8b-6df2-43cd-b03e-7387816fd1c3";
+  HbSliderArrow: "a08e309b-3b76-4776-8c78-ae425627f109";
+  HbSliderArrowButton: "4676eee6-d833-449d-add7-8763ce711387";
   HbTag: "c34bf8ae-7ee2-4f04-b7f5-c83b3ccf53d3";
   "Compounds/HbTestimonial": "ec54f290-0db3-4d07-bfcf-5f8d76bfcaf8";
   HbTitle: "75f2a5fe-c5f3-46a0-9779-b06b5686bd95";

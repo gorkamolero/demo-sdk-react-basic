@@ -87,66 +87,6 @@ export interface CommonProps<T extends HTMLElement> {
   onBlur?: React.FocusEventHandler<T>;
   onBlurCapture?: React.FocusEventHandler<T>;
 }
-export const HbEndFooter: {
-  (
-    props: {
-      HbButtonWithIcon?: React.ReactNode;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-  HbButtonWithIcon: typeof HbButtonWithIcon;
-};
-export const HbFeature: {
-  (
-    props: {
-      imageSrc?: string;
-      HbFeatureItem?: React.ReactNode;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-  HbFeatureItem: typeof HbFeatureItem;
-};
-export const HbFeatureInvert: {
-  (
-    props: {
-      imageSrc?: string;
-      HbFeatureItem?: React.ReactNode;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-  HbFeatureItem: typeof HbFeatureItem;
-};
-export const HbFeatureItem: {
-  (
-    props: {
-      title?: string;
-      text?: string;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-};
-export const HbProduct: {
-  (
-    props: {
-      title?: string;
-      description?: string;
-      extra?: string;
-      imageSrc?: string;
-      details?: React.ReactNode | React.ReactNode[];
-      addLabel?: string;
-      order?: string;
-      type?: string;
-      price?: string;
-      HbCheckbox?: React.ReactNode;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
-  HbCheckbox: typeof HbCheckbox;
-};
-export const HbTestimonial: {
-  (
-    props: {
-      title?: string;
-      client?: string;
-      text?: string;
-      stars?: React.ReactNode | React.ReactNode[];
-      imageSrc?: string;
-      dog?: string;
-    } & CommonProps<HTMLDivElement>
-  ): JSX.Element;
+export const Component: {
+  (props: {} & CommonProps<HTMLDivElement>): JSX.Element;
 };

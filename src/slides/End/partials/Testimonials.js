@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { SlideContext } from "../../../context/SlideContext";
 import { FlexBox } from "react-styled-flex";
 import { HbSection } from '../../../visly/Pages'
-import { useBreakpoint } from '../../../visly'
+import { colors, useBreakpoint, HbSliderArrow } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
 import styled from 'styled-components';
@@ -87,11 +87,17 @@ const Testimonials = () => {
   const size = useBreakpoint("small", ["medium", "large", "large"]);
   const settings = {
     slidesToShow: size === 'large' ? 3 : size === 'medium' ? 2 : 1,
-    renderCenterLeftControls: () => null,
-    renderCenterRightControls: () => null,
+    renderCenterLeftControls: ({ previousSlide }) => <HbSliderArrow reverse onClick={ previousSlide }/>,
+    renderCenterRightControls: ({nextSlide}) => <HbSliderArrow onClick={ nextSlide } />,
     framePadding: '20px 0 80px',
     cellSpacing: 10,
-    frameOverflow: 'visible'
+    frameOverflow: 'visible',
+    defaultControlsConfig: {
+      pagingDotsStyle: {
+        fill: colors.hbBrown,
+      },
+      pagingDotsClassName: "pagingDots"
+    }
   };
   
   return (
