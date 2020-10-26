@@ -59,6 +59,11 @@ const styles = [
           text: "$19,99",
         },
       },
+      GZwM8i3ySP: {
+        none: {
+          text: "$19,99",
+        },
+      },
     },
   },
 ];
@@ -142,19 +147,24 @@ function HbProduct(_props) {
               key={"G19QPyqmt5"}
               addSpacing={true}
             >
-              {
-                <TextPrimitive
-                  className={
-                    "__visly_reset __visly_scope_F2wQruQTHP_8PrsR7o63t"
-                  }
-                  key={"8PrsR7o63t"}
-                  text={
-                    exists(props.price)
-                      ? props.price
-                      : getStyle("8PrsR7o63t", "text")
-                  }
-                />
-              }
+              <TextPrimitive
+                className={"__visly_reset __visly_scope_F2wQruQTHP_8PrsR7o63t"}
+                key={"8PrsR7o63t"}
+                text={
+                  exists(props.priceOriginal)
+                    ? props.priceOriginal
+                    : getStyle("8PrsR7o63t", "text")
+                }
+              />
+              <TextPrimitive
+                className={"__visly_reset __visly_scope_F2wQruQTHP_GZwM8i3ySP"}
+                key={"GZwM8i3ySP"}
+                text={
+                  exists(props.priceFinal)
+                    ? props.priceFinal
+                    : getStyle("GZwM8i3ySP", "text")
+                }
+              />
             </ContainerPrimitive>
           </ContainerPrimitive>
           <ContainerPrimitive
@@ -220,6 +230,10 @@ function HbProduct(_props) {
                 />
               </ContainerPrimitive>
             </ContainerPrimitive>
+            <SpacerPrimitive
+              className={"__visly_reset __visly_scope_F2wQruQTHP_JLos9DaYE8"}
+              key={"JLos9DaYE8"}
+            />
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_F2wQruQTHP_N3yQYTcaWV"}
               key={"N3yQYTcaWV"}
@@ -233,6 +247,10 @@ function HbProduct(_props) {
                     ? props.description
                     : getStyle("72EEoP6Shu", "text")
                 }
+              />
+              <SpacerPrimitive
+                className={"__visly_reset __visly_scope_F2wQruQTHP_7MAZ8igM5Q"}
+                key={"7MAZ8igM5Q"}
               />
               <ContainerPrimitive
                 key={"KVQd13HGDM"}

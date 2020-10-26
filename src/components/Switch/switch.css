@@ -1,0 +1,123 @@
+.switch {
+  position: relative;
+  display: block;
+  vertical-align: top;
+  max-width: 260px;
+  height: 54px;
+  padding: 0px;
+  margin: 0 -10px 0 -10px;
+  background-color: #fff;
+  border-radius: 34px;
+  cursor: pointer;
+  box-sizing: content-box;
+  border: none;
+  width: 100%;
+}
+
+.switch-input {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  box-sizing: content-box;
+}
+
+.switch-label {
+  position: relative;
+  display: block;
+  height: inherit;
+  font-size: 10px;
+  text-transform: uppercase;
+  background: #ffffff;
+  border-radius: inherit;
+  box-sizing: content-box;
+}
+
+.switch-label:before,
+.switch-label:after {
+  position: absolute;
+  top: 50%;
+  margin-top: -0.5em;
+  line-height: 1;
+  -webkit-transition: inherit;
+  -moz-transition: inherit;
+  -o-transition: inherit;
+  transition: inherit;
+  box-sizing: content-box;
+}
+
+.switch-label::before {
+  content: attr(data-off);
+  right: -6px;
+  color: #1b1c24;
+  width: 116px;
+  height: 15px;
+  font-size: 11px;
+  line-height: 15px;
+  text-transform: capitalize;
+  top: 46.6%;
+}
+
+.switch-label::after {
+  content: attr(data-on);
+  color: #1b1c24;
+  width: 145px;
+  height: 18px;
+  font-size: 11px;
+  line-height: 18px;
+  text-transform: capitalize;
+  top: 44%;
+  text-align: left;
+  left: 7px;
+}
+
+.switch-input:checked ~ .switch-label {
+  background: #ffffff;
+}
+
+.switch-input:checked ~ .switch-label:before {
+  opacity: 0;
+}
+
+.switch-input:checked ~ .switch-label:after {
+  opacity: 1;
+}
+
+.switch-handle {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 145px;
+  height: 54px;
+  background-color: #623b2a;
+  border-radius: 34px;
+}
+
+.switch-handle::before {
+  content: attr(data-dynamic);
+  position: absolute;
+  top: 35%;
+  left: -3%;
+  width: 154px;
+  height: 14px;
+  background: transparent;
+  font-size: 12px;
+  text-align: center;
+  line-height: 15px;
+  color: #fff;
+  font-weight: normal;
+}
+
+.switch-input:checked ~ .switch-handle {
+  left: 123px;
+  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+} /* Transition
+    ========================== */
+
+.switch-label,
+.switch-handle {
+  transition: All 0.3s ease;
+  -webkit-transition: All 0.3s ease;
+  -moz-transition: All 0.3s ease;
+  -o-transition: All 0.3s ease;
+}

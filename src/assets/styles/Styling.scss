@@ -22,9 +22,9 @@
 
   --hbTextColor: #242424;
 
-  --fontFamily: "Averta Std", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
-    "Helvetica Neue", sans-serif;
+  --fontFamily: 'Averta Std', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+    'Helvetica Neue', sans-serif;
 
   --toolTipArrow: url(https://s3-eu-west-1.amazonaws.com/eq-static/upload/1825/quiz/4868/WCMTRyUnPlG.png?ts=1580065295036)
     center center no-repeat;
@@ -116,43 +116,43 @@ main {
   width: 100%;
 }
 
-$fontPath: "../fonts/AvertaStd/";
-$small: "480px";
-$medium: "768px";
-$large: "1024px";
-$super: "1200px";
+$fontPath: '../fonts/AvertaStd/';
+$small: '480px';
+$medium: '768px';
+$large: '1024px';
+$super: '1200px';
 
 @font-face {
-  font-family: "Averta Std";
-  src: url("#{$fontPath}Averta-Semibold.otf") format("opentype");
+  font-family: 'Averta Std';
+  src: url('#{$fontPath}Averta-Semibold.otf') format('opentype');
   font-weight: 600;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Averta Std";
-  src: url("#{$fontPath}Averta-Bold.otf") format("opentype");
+  font-family: 'Averta Std';
+  src: url('#{$fontPath}Averta-Bold.otf') format('opentype');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Averta Std";
-  src: url("#{$fontPath}Averta-Regular.otf") format("opentype");
+  font-family: 'Averta Std';
+  src: url('#{$fontPath}Averta-Regular.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Averta Std";
-  src: url("#{$fontPath}Averta-RegularItalic.otf") format("opentype");
+  font-family: 'Averta Std';
+  src: url('#{$fontPath}Averta-RegularItalic.otf') format('opentype');
   font-weight: normal;
   font-style: italic;
 }
 
 @font-face {
-  font-family: "Averta Std";
-  src: url("#{$fontPath}Averta-Regular.otf") format("opentype");
+  font-family: 'Averta Std';
+  src: url('#{$fontPath}Averta-Regular.otf') format('opentype');
   font-weight: lighter;
   font-style: normal;
 }
@@ -171,21 +171,21 @@ body {
   text-align: center;
 }
 
-div[role="radiogroup"] {
+div[role='radiogroup'] {
   flex-wrap: wrap;
 }
 .hbRadio {
   @media (max-width: $small) {
-    [class*="spacing"] {
+    [class*='spacing'] {
       display: none;
     }
   }
 }
 
-label[class*="radio-group-button"] {
+label[class*='radio-group-button'] {
   margin-bottom: var(--spacing);
 }
-ul[role*="listbox"] {
+ul[role*='listbox'] {
   width: auto !important;
 }
 small {
@@ -219,4 +219,35 @@ small {
 
 .paging-dot {
   transform: scale(2.4);
+}
+
+.ReactModal__Overlay {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 150ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open {
+  opacity: 1;
+  transform: translateX(0px);
+}
+
+.ReactModal__Overlay--before-close {
+  opacity: 0;
+  transform: translateX(-100px);
+}
+
+.wave div[style] {
+  mask-size: cover !important;
+}
+
+.slideAnimate {
+  transition: all 1200ms;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.HbHeader {
+  z-index: 2;
 }

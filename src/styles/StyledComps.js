@@ -32,7 +32,7 @@ export const HbTitle = styled(CustomHTML)(props => ({
 
 export const HbSubtitle = styled(CustomHTML)(props => ({
   ...(props.size !== 'mobile' ? textstyles.bodySmall : textstyles.bodySmallMobile),
-  color: colors.hbText,
+  color: colors.hbBrown,
   opacity: '80%',
 }))
 

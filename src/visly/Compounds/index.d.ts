@@ -128,15 +128,40 @@ export const HbProduct: {
       description?: string;
       extra?: string;
       imageSrc?: string;
-      details?: React.ReactNode | React.ReactNode[];
       addLabel?: string;
       order?: string;
       type?: string;
-      price?: string;
+      priceOriginal?: string;
+      priceFinal?: string;
+      details?: React.ReactNode | React.ReactNode[];
       HbCheckbox?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbCheckbox: typeof HbCheckbox;
+};
+export const HbProductEmpty: {
+  (
+    props: {
+      textAndLink?: string;
+      details?: React.ReactNode | React.ReactNode[];
+      order?: string;
+      type?: string;
+      oops?: string;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+};
+export const HbResults: {
+  (
+    props: {
+      description?: string;
+      verylongname?: string;
+      ImageSlot?: React.ReactNode | React.ReactNode[];
+      description1?: string;
+      children?: React.ReactNode | React.ReactNode[];
+      HbButton?: React.ReactNode;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
+  HbButton: typeof HbButton;
 };
 export const HbTestimonial: {
   (

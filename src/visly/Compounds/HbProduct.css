@@ -52,8 +52,11 @@
 }
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_4ZpyWfeCAG {
   overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
   flex-direction: column;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
@@ -75,10 +78,11 @@
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_RP3xHanS5S {
   overflow: hidden;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
+  padding: 0 0 10px;
 }
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_Rf5PVhWzGL {
   overflow: hidden;
@@ -107,15 +111,6 @@
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_N3yQYTcaWV {
   overflow: hidden;
   flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: flex-start;
-  justify-content: flex-start;
-}
-.__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_KVQd13HGDM {
-  overflow: hidden;
-  box-sizing: border-box;
-  flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
   align-content: flex-start;
@@ -246,11 +241,11 @@
   color: #623b2a;
   text-align: start;
   white-space: normal;
-  font-family: Averta;
+  font-family: Filson Pro;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 22px;
   flex-shrink: 1;
   opacity: 1;
 }
@@ -287,9 +282,44 @@
   white-space: normal;
   font-family: Averta;
   font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: line-through;
+  flex-shrink: 1;
+  opacity: 1;
+}
+.__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_GZwM8i3ySP {
+  display: block;
+  box-sizing: border-box;
+  overflow: hidden;
+  color: #623b2a;
+  text-align: start;
+  white-space: normal;
+  font-family: Averta;
+  font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
   flex-shrink: 1;
   opacity: 1;
+}
+.__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_JLos9DaYE8 {
+  align-self: stretch;
+  width: unset;
+  height: 10px;
+}
+.__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_KVQd13HGDM {
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: flex-start;
+}
+.__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_7MAZ8igM5Q {
+  align-self: stretch;
+  width: unset;
+  height: 10px;
 }

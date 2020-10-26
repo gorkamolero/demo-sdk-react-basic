@@ -12,6 +12,7 @@ export const hbBeige: string;
 export const hbBrown: string;
 export const hbBrownDim: string;
 export const hbGold: string;
+export const hbGoldLight: string;
 export const hbGray100: string;
 export const hbGray120: string;
 export const hbGray150: string;

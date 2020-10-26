@@ -94,11 +94,12 @@ export const HbProduct: {
       description?: string;
       extra?: string;
       imageSrc?: string;
-      details?: React.ReactNode | React.ReactNode[];
       addLabel?: string;
       order?: string;
       type?: string;
-      price?: string;
+      priceOriginal?: string;
+      priceFinal?: string;
+      details?: React.ReactNode | React.ReactNode[];
       HbCheckbox?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

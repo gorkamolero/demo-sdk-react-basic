@@ -152,6 +152,12 @@ export const HbCircleIcon: {
     size?: "small";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
+export const HbCloseModal: {
+  (props: {
+    onChange?: (checked: boolean) => void;
+    checked?: boolean;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
 export const HbContainer: {
   (props: {
     children?: React.ReactNode | React.ReactNode[];
@@ -246,6 +252,12 @@ export const HbInput: {
     size?: "small" | "medium" | "large" | "super";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
+export const HbLinkButton: {
+  (props: {
+    text?: string;
+    onPress?: (event: PressEvent) => void;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
 export const HbLogo: {
   (props: {
     size?: "small";
@@ -254,6 +266,18 @@ export const HbLogo: {
 export const HbOnlyIconButton: {
   (props: {
     onPress?: (event: PressEvent) => void;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbPopover: {
+  (props: {
+    triggerRef: React.RefObject<any>;
+    placement?: 'bottom start' | 'bottom right' | 'bottom start' | 'bottom end' | 'top' | 'top left' | 'top right' | 'top start' | 'top end' | 'left' | 'left top' | 'left bottom' | 'start' | 'start top' | 'start bottom' | 'right' | 'right top' | 'right bottom' | 'end' | 'end top' | 'end bottom';
+    offset?: number;
+    crossOffset?: number;
+    autoFocusFirst?: boolean;
+    containFocus?: number;
+    isOpen: boolean;
+    onShouldClose?: () => void;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbProgress: {
@@ -307,6 +331,13 @@ export const HbRadio: {
     } & CommonProps<HTMLDivElement>): JSX.Element;
   };
 };
+export const HbResultsSwitch: {
+  (props: {
+    handlelabel?: string;
+    rightLabel?: string;
+    leftLabel?: string;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
 export const HbSelect: {
   (props: {
     label?: string;
@@ -341,6 +372,21 @@ export const HbSliderArrowButton: {
   } & CommonProps<HTMLDivElement>): JSX.Element;
   HbSliderArrow: typeof HbSliderArrow;
 };
+export const HbTabs: {
+  (props: {
+    selected?: string;
+    onSelect: (value: string) => void;
+    ariaLabel?: string;
+    children?: React.ReactNode[];
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  Button: {
+    (props: {
+      text?: string;
+      value?: string;
+      selected?: boolean;
+    } & CommonProps<HTMLDivElement>): JSX.Element;
+  };
+};
 export const HbTag: {
   (props: {
     tagText?: string;
@@ -351,6 +397,13 @@ export const HbTag: {
 export const HbTitle: {
   (props: {
     children?: React.ReactNode | React.ReactNode[];
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbWave: {
+  (props: {
+    double?: boolean;
+    invert?: boolean;
+    dark?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const Input: {

@@ -29,6 +29,12 @@
     src: url('../assets/eee0a81f-e120-4d81-87e3-6402b6915f9c.otf') format('truetype');
 }
 @font-face {
+    font-family: 'Filson Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url('../assets/f64b8911-4159-4588-8f85-57cf1d8840f5.ttf') format('truetype');
+}
+@font-face {
     font-family: 'Visly Roboto';
     font-style: normal;
     font-weight: 700;
@@ -153,10 +159,4 @@
     font-style: normal;
     font-weight: 100;
     src: url('../assets/8dc92bc2-2093-4247-9683-3ad3f62c1f0d.otf') format('truetype');
-}
-@font-face {
-    font-family: 'Filson Pro';
-    font-style: normal;
-    font-weight: 700;
-    src: url('../assets/f64b8911-4159-4588-8f85-57cf1d8840f5.ttf') format('truetype');
 }

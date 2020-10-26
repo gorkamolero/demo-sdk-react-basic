@@ -12,6 +12,7 @@ export const hbBeige = "rgba(253,250,244,1)";
 export const hbBrown = "rgba(98,59,42,1)";
 export const hbBrownDim = "rgba(77,74,69,1)";
 export const hbGold = "rgba(213,155,43,1)";
+export const hbGoldLight = "rgba(249,245,232,1)";
 export const hbGray100 = "rgba(248,248,248,1)";
 export const hbGray120 = "rgba(243,243,243,1)";
 export const hbGray150 = "rgba(227,227,227,1)";

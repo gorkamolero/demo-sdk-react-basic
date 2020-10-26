@@ -2,11 +2,10 @@ import React, { useContext, useState } from 'react';
 import { SlideContext } from "../../../context/SlideContext";
 import { FlexBox } from "react-styled-flex";
 import { HbSection } from '../../../visly/Pages'
-import { colors, useBreakpoint, HbSliderArrow } from '../../../visly'
+import { HbWave, colors, useBreakpoint, HbSliderArrow } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
-import styled from 'styled-components';
-import { WaveContainer, Wave } from '../../../styles/StyledComps'
+// import styled from 'styled-components';
 
 const TESTIMONIALS = [
   {
@@ -59,9 +58,9 @@ const TESTIMONIALS = [
   },
 ]
 
-const Section = styled(HbSection)`
+/* const Section = styled(HbSection)`
   *:focus { outline: none; }
-`
+` */
 
 const Testimonials = () => {
   const { getDatasheet } = useContext(SlideContext)
@@ -101,27 +100,32 @@ const Testimonials = () => {
   };
   
   return (
-    <WaveContainer light style={{ paddingBottom: 40 }}>
-      <Wave light invert />
-      <Section noMaxWidth={true} title="See what other dog parents like you are saying" style={{ paddingBottom: 20 }}>
-        <Carousel {...settings}>
-          {
-            TESTIMONIALS.map(testimonial => (
-                <HbTestimonial
-                  key={testimonial.client}
-                  style={{ outline: 'none', border: 'none' }}
-                  title={testimonial.title}
-                  client={testimonial.client}
-                  text={testimonial.text}
-                  stars={<FlexBox gap={5}>
-                    {Array(testimonial.rating).fill().map(() => <span aria-label="rating-star" role="img">⭐️</span>)}
-                  </FlexBox>}
-                />
-            ))
-          }
-        </Carousel>
-      </Section>
-    </WaveContainer>
+    <HbSection
+      noMaxWidth
+      waveslot1={<HbWave style={{ transform: 'scaleX(-1)' }} dark />}
+      column
+      alignItems="center"
+      className="wave"
+      title="What Dog Owners Like You Are Saying"
+      style={{ backgroundColor: colors.hbYellow, paddingBottom: 20, overflow: 'hidden' }}
+    >
+      <Carousel {...settings}>
+        {
+          TESTIMONIALS.map(testimonial => (
+              <HbTestimonial
+                key={testimonial.client}
+                style={{ outline: 'none', border: 'none' }}
+                title={testimonial.title}
+                client={testimonial.client}
+                text={testimonial.text}
+                stars={<FlexBox gap={5}>
+                  {Array(testimonial.rating).fill().map(() => <span aria-label="rating-star" role="img">⭐️</span>)}
+                </FlexBox>}
+              />
+          ))
+        }
+      </Carousel>
+    </HbSection>
   );
 }
  

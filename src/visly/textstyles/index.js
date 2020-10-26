@@ -83,11 +83,11 @@ export const menuHeadingTablet = {
   textTransform: "uppercase",
 };
 export const superHeading = {
-  fontFamily: "Averta",
-  fontSize: "32px",
+  fontFamily: "Filson Pro",
+  fontSize: "36px",
   fontWeight: 700,
   fontStyle: "normal",
-  lineHeight: "39px",
+  lineHeight: "48px",
 };
 export const superHeadingMobile = {
   fontFamily: "Averta",
