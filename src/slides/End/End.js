@@ -15,10 +15,10 @@ function End() {
     const [data, setData] = useState(null)
 
     useEffect(() => {
-        setData({
-            hungry: window.hungry,
-            ctrl: window.pickzen.ctrl
-        })
+        // setData({
+        //     hungry: window.hungry,
+        //     ctrl: window.pickzen.ctrl
+        // })
     }, [])
 
     console.log(data)
