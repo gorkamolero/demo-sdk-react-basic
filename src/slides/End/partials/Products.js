@@ -85,14 +85,14 @@ const Products = ({
       title=""
       style={{ backgroundColor: colors.hbGoldLight }}
     >
-      <FlexBox gap={20}>
+      <FlexBox gap={'2%'}>
         {results.map((result, i) => {
           return (
             <HbProduct
               key={result.id}
               imageSrc={result.image}
               order={i + 1}
-              style={{ flex: 1 }}
+              style={{ flexBasis: '20%' }}
               title={result.title}
               priceOriginal={ subscription ? '$' + result.price : '' }
               priceFinal={`$${getPrice(result.price)}`}
@@ -107,7 +107,7 @@ const Products = ({
           ) 
         } )}
         <HbResults
-          style={{ flex: 1 }}
+          style={{ flexBasis: '20%' }}
           description="Small batch cooked at lower temperatures and made with real chicken and turkey, added probiotics and natural ingredients"
           verylongname="Averylongname’s Plan"
           description1="Your 4 week plan will be billed at the discounted price of $45.36 every 4 weeks. That’s only $1.62/day. No commitment. Modify, swap or cancel anytime."
