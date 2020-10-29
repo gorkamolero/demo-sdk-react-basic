@@ -10,9 +10,9 @@ import ProductModal from './ProductModal'
 
 
 const ProductType = {
-  0: 'Supplement',
-  1: 'Mix-in',
-  2: 'Meal'
+  1: 'Supplement',
+  2: 'Mix-in',
+  3: 'Meal'
 }
 
 const Products = ({
@@ -91,13 +91,13 @@ const Products = ({
             <HbProduct
               key={result.id}
               imageSrc={result.image}
-              order={i}
+              order={i + 1}
               style={{ flex: 1 }}
               title={result.title}
               priceOriginal={ subscription ? '$' + result.price : '' }
               priceFinal={`$${getPrice(result.price)}`}
               description={result.description}
-              addLabel={result.cta}
+              addLabel={selectedResults.includes(result) ? 'Added' : `Add ${ProductType[i + 1]}` }
               type={ProductType[i]}
               details={<HbLinkButton text="See details" href="#" onPress={showModal}>See details</HbLinkButton>}
               HbCheckbox={<HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />} 
