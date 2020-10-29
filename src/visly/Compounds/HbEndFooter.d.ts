@@ -90,6 +90,9 @@ export interface CommonProps<T extends HTMLElement> {
 export const HbEndFooter: {
   (
     props: {
+      priceOriginal?: string;
+      priceFinal?: string;
+      total?: string;
       HbButtonWithIcon?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

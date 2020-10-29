@@ -5,58 +5,6 @@ import { HbSection } from '../../../visly/Pages'
 import { HbWave, colors, useBreakpoint, HbSliderArrow } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
-// import styled from 'styled-components';
-
-const TESTIMONIALS = [
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-  {
-    rating: 5,
-    client: 'Mary Wilkerson',
-    title: 'So far, so good!',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
-  },
-]
 
 /* const Section = styled(HbSection)`
   *:focus { outline: none; }
@@ -68,9 +16,12 @@ const Testimonials = () => {
   const [ testimonials, setTestimonials ] = useState([])
 
   React.useEffect(() => {
+    const id = '1XaJ9jNcSLz'
     const getTestimonials = async () => {
       try {
-        const testimonials = await getDatasheet(['1XaJ9jNcSLz'])
+        let testimonials = await getDatasheet([{id}])
+        console.log(testimonials)
+        testimonials = testimonials.result[id]
         setTestimonials(testimonials)
       } catch(err) {
         console.error(err)
@@ -79,8 +30,6 @@ const Testimonials = () => {
 
     getTestimonials()
   }, [getDatasheet])
-
-  console.log('YOLO', testimonials)
 
   
   const size = useBreakpoint("small", ["medium", "large", "large"]);
@@ -111,7 +60,7 @@ const Testimonials = () => {
     >
       <Carousel {...settings}>
         {
-          TESTIMONIALS.map(testimonial => (
+          testimonials.map(testimonial => (
               <HbTestimonial
                 key={testimonial.client}
                 style={{ outline: 'none', border: 'none' }}
