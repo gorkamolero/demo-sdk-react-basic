@@ -30,6 +30,11 @@ const styles = [
           text: "20% Off",
         },
       },
+      GJpwns7nhj: {
+        none: {
+          text: "$50+ Ships Free",
+        },
+      },
     },
   },
   {
@@ -315,17 +320,36 @@ function HbHeader(_props) {
                       }
                       key={"4vbMB4cs8F"}
                     />,
-                    <TextPrimitive
+                    <ContainerPrimitive
                       className={
-                        "__visly_reset __visly_scope_9XVkrqrLZt_WVr4DnUAPt"
+                        "__visly_reset __visly_scope_9XVkrqrLZt_8Y3DCw5uX1"
                       }
-                      key={"WVr4DnUAPt"}
-                      text={
-                        exists(props.textSlot)
-                          ? props.textSlot
-                          : getStyle("WVr4DnUAPt", "text")
-                      }
-                    />,
+                      key={"8Y3DCw5uX1"}
+                      addSpacing={false}
+                    >
+                      <TextPrimitive
+                        className={
+                          "__visly_reset __visly_scope_9XVkrqrLZt_WVr4DnUAPt"
+                        }
+                        key={"WVr4DnUAPt"}
+                        text={
+                          exists(props.textSlot)
+                            ? props.textSlot
+                            : getStyle("WVr4DnUAPt", "text")
+                        }
+                      />
+                      <TextPrimitive
+                        className={
+                          "__visly_reset __visly_scope_9XVkrqrLZt_GJpwns7nhj"
+                        }
+                        key={"GJpwns7nhj"}
+                        text={
+                          exists(props.textSlot1)
+                            ? props.textSlot1
+                            : getStyle("GJpwns7nhj", "text")
+                        }
+                      />
+                    </ContainerPrimitive>,
                   ]}
                 </ContainerPrimitive>,
               ]}

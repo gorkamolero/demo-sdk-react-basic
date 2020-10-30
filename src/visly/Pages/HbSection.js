@@ -12,6 +12,7 @@ import {
 } from "../_internal_utils";
 import {
   RootPrimitive,
+  ImagePrimitive,
   TextPrimitive,
   ContainerPrimitive,
 } from "../_internal_primitives";
@@ -22,7 +23,7 @@ const styles = [
     layers: {
       S2bhe8BS6y: {
         none: {
-          text: "Smarter, Healthier Dog Food",
+          text: "",
         },
       },
     },
@@ -35,6 +36,11 @@ const styles = [
   {
     type: "boolean",
     propName: "padded",
+    layers: {},
+  },
+  {
+    type: "boolean",
+    propName: "withImage",
     layers: {},
   },
 ];
@@ -54,6 +60,11 @@ const defaultPropValues = [
     propName: "padded",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "withImage",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -64,6 +75,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "padded",
+  },
+  {
+    type: "boolean",
+    propName: "withImage",
   },
 ];
 
@@ -90,36 +105,74 @@ function HbSection(_props) {
       }}
     >
       {(getStyle) => (
-        <ContainerPrimitive
-          className={"__visly_reset __visly_scope_VwNHqxyyTR_5xuTSehGki"}
-          key={"5xuTSehGki"}
-          addSpacing={false}
-        >
+        <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_VwNHqxyyTR_R8m6dsU8Qu"}
-            key={"R8m6dsU8Qu"}
+            key={"LmccNjQnKs"}
+            className={"__visly_reset __visly_scope_VwNHqxyyTR_LmccNjQnKs"}
             addSpacing={false}
           >
-            {
-              <TextPrimitive
-                className={"__visly_reset __visly_scope_VwNHqxyyTR_S2bhe8BS6y"}
-                key={"S2bhe8BS6y"}
-                text={
-                  exists(props.title)
-                    ? props.title
-                    : getStyle("S2bhe8BS6y", "text")
-                }
-              />
-            }
+            {props.waveslot1}
           </ContainerPrimitive>
           <ContainerPrimitive
-            key={"DUtcPCxYVN"}
-            className={"__visly_reset __visly_scope_VwNHqxyyTR_DUtcPCxYVN"}
+            className={"__visly_reset __visly_scope_VwNHqxyyTR_5xuTSehGki"}
+            key={"5xuTSehGki"}
             addSpacing={false}
           >
-            {props.children}
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_VwNHqxyyTR_ATetp6636S"}
+              key={"ATetp6636S"}
+              addSpacing={false}
+            >
+              {
+                <ImagePrimitive
+                  className={
+                    "__visly_reset __visly_scope_VwNHqxyyTR_9NLaSWxu1C"
+                  }
+                  key={"9NLaSWxu1C"}
+                  src={
+                    exists(props.imageSrc)
+                      ? props.imageSrc
+                      : getStyle("9NLaSWxu1C", "src")
+                  }
+                  alt={getStyle("9NLaSWxu1C", "alternateText")}
+                />
+              }
+            </ContainerPrimitive>
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_VwNHqxyyTR_R8m6dsU8Qu"}
+              key={"R8m6dsU8Qu"}
+              addSpacing={false}
+            >
+              {
+                <TextPrimitive
+                  className={
+                    "__visly_reset __visly_scope_VwNHqxyyTR_S2bhe8BS6y"
+                  }
+                  key={"S2bhe8BS6y"}
+                  text={
+                    exists(props.title)
+                      ? props.title
+                      : getStyle("S2bhe8BS6y", "text")
+                  }
+                />
+              }
+            </ContainerPrimitive>
+            <ContainerPrimitive
+              key={"DUtcPCxYVN"}
+              className={"__visly_reset __visly_scope_VwNHqxyyTR_DUtcPCxYVN"}
+              addSpacing={false}
+            >
+              {props.children}
+            </ContainerPrimitive>
           </ContainerPrimitive>
-        </ContainerPrimitive>
+          <ContainerPrimitive
+            key={"C9ydbVQ2rK"}
+            className={"__visly_reset __visly_scope_VwNHqxyyTR_C9ydbVQ2rK"}
+            addSpacing={false}
+          >
+            {props.waveslot2}
+          </ContainerPrimitive>
+        </>
       )}
     </RootPrimitive>
   );
@@ -132,6 +185,10 @@ HbSection.__variants = [
   },
   {
     name: "padded",
+    type: "variant",
+  },
+  {
+    name: "withImage",
     type: "variant",
   },
 ];

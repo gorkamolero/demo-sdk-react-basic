@@ -74,6 +74,7 @@ const SlideContextProvider = ({children}) => {
         <SlideContext.Provider value={{
             Engine:EngineRef.current,
             interpolate: (txt) => txt.includes('%') ? EngineRef.current.interpolate(txt) : txt,
+            getDatasheet: (ids) => EngineRef.current.getDatasheets(ids),
             slideModel, displayCurrentSlide,
             progress, progressBar,
             nav:{canBack:nav.canBack, canNext:nav.canNext, canRestart:nav.canRestart, backLabel:nav.backLabel, nextLabel:nav.nextLabel, back, next, restart},

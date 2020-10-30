@@ -7,6 +7,8 @@ import { CSSTransition } from "react-transition-group";
 function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
 
+  // nav.next()
+
   // Allow handlers override
   back = back || nav.back;
   next = next || nav.next;

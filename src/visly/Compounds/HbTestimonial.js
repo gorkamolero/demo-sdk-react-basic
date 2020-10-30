@@ -13,6 +13,7 @@ import {
 import {
   RootPrimitive,
   SpacerPrimitive,
+  ImagePrimitive,
   TextPrimitive,
   ContainerPrimitive,
   IconPrimitive,
@@ -45,6 +46,16 @@ const styles = [
           useMask: true,
         },
       },
+      S3tYE3vzFu: {
+        none: {
+          text: "Verified",
+        },
+      },
+      QDNh14WQhk: {
+        none: {
+          text: "Breed: Sharpei  -  Age: 2  -  Pickiness: Very Picky",
+        },
+      },
     },
   },
 ];
@@ -72,7 +83,7 @@ function HbTestimonial(_props) {
     <RootPrimitive
       {...props}
       key="TEMvSpZsq9"
-      addSpacing={true}
+      addSpacing={false}
       internal={{
         styles: styles,
         layerId: "TEMvSpZsq9",
@@ -83,45 +94,119 @@ function HbTestimonial(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            key={"JcvuhRskdz"}
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_JcvuhRskdz"}
+            className={"__visly_reset __visly_scope_WBdVWKo3g2_V1dKWcVmPd"}
+            key={"V1dKWcVmPd"}
             addSpacing={false}
           >
-            {props.stars}
+            {
+              <ContainerPrimitive
+                className={"__visly_reset __visly_scope_WBdVWKo3g2_HSyBqwCpTj"}
+                key={"HSyBqwCpTj"}
+                addSpacing={false}
+              >
+                {null}
+              </ContainerPrimitive>
+            }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_KoxVNRDdjs"}
-            key={"KoxVNRDdjs"}
-            addSpacing={false}
+            className={"__visly_reset __visly_scope_WBdVWKo3g2_ThBPq1AmgT"}
+            key={"ThBPq1AmgT"}
+            addSpacing={true}
           >
-            <TextPrimitive
-              className={"__visly_reset __visly_scope_WBdVWKo3g2_GfQQK2QSw7"}
-              key={"GfQQK2QSw7"}
-              text={
-                exists(props.client)
-                  ? props.client
-                  : getStyle("GfQQK2QSw7", "text")
-              }
-            />
-            <SpacerPrimitive
-              className={"__visly_reset __visly_scope_WBdVWKo3g2_KdmQLnbq1R"}
-              key={"KdmQLnbq1R"}
-            />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_WBdVWKo3g2_BPYvu5nk1j"}
-              key={"BPYvu5nk1j"}
+              className={"__visly_reset __visly_scope_WBdVWKo3g2_BQWSpmyRhj"}
+              key={"BQWSpmyRhj"}
               addSpacing={false}
             >
               {
-                <IconPrimitive
+                <ImagePrimitive
                   className={
-                    "__visly_reset __visly_scope_WBdVWKo3g2_Jp3AYaDT1R"
+                    "__visly_reset __visly_scope_WBdVWKo3g2_G5WjNJdjcw"
                   }
-                  key={"Jp3AYaDT1R"}
-                  useMask={getStyle("Jp3AYaDT1R", "useMask")}
-                  src={getStyle("Jp3AYaDT1R", "src")}
+                  key={"G5WjNJdjcw"}
+                  src={
+                    exists(props.imageSrc)
+                      ? props.imageSrc
+                      : getStyle("G5WjNJdjcw", "src")
+                  }
+                  alt={getStyle("G5WjNJdjcw", "alternateText")}
                 />
               }
+            </ContainerPrimitive>
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_WBdVWKo3g2_SN3g8tmrW6"}
+              key={"SN3g8tmrW6"}
+              addSpacing={false}
+            >
+              <ContainerPrimitive
+                key={"JcvuhRskdz"}
+                className={"__visly_reset __visly_scope_WBdVWKo3g2_JcvuhRskdz"}
+                addSpacing={false}
+              >
+                {props.stars}
+              </ContainerPrimitive>
+              <ContainerPrimitive
+                className={"__visly_reset __visly_scope_WBdVWKo3g2_KoxVNRDdjs"}
+                key={"KoxVNRDdjs"}
+                addSpacing={false}
+              >
+                <TextPrimitive
+                  className={
+                    "__visly_reset __visly_scope_WBdVWKo3g2_GfQQK2QSw7"
+                  }
+                  key={"GfQQK2QSw7"}
+                  text={
+                    exists(props.client)
+                      ? props.client
+                      : getStyle("GfQQK2QSw7", "text")
+                  }
+                />
+                <SpacerPrimitive
+                  className={
+                    "__visly_reset __visly_scope_WBdVWKo3g2_KdmQLnbq1R"
+                  }
+                  key={"KdmQLnbq1R"}
+                />
+                <ContainerPrimitive
+                  className={
+                    "__visly_reset __visly_scope_WBdVWKo3g2_PoN3rEr5Aa"
+                  }
+                  key={"PoN3rEr5Aa"}
+                  addSpacing={false}
+                >
+                  <ContainerPrimitive
+                    className={
+                      "__visly_reset __visly_scope_WBdVWKo3g2_BPYvu5nk1j"
+                    }
+                    key={"BPYvu5nk1j"}
+                    addSpacing={false}
+                  >
+                    {
+                      <IconPrimitive
+                        className={
+                          "__visly_reset __visly_scope_WBdVWKo3g2_Jp3AYaDT1R"
+                        }
+                        key={"Jp3AYaDT1R"}
+                        useMask={getStyle("Jp3AYaDT1R", "useMask")}
+                        src={getStyle("Jp3AYaDT1R", "src")}
+                      />
+                    }
+                  </ContainerPrimitive>
+                  <SpacerPrimitive
+                    className={
+                      "__visly_reset __visly_scope_WBdVWKo3g2_PdZSAibW47"
+                    }
+                    key={"PdZSAibW47"}
+                  />
+                  <TextPrimitive
+                    className={
+                      "__visly_reset __visly_scope_WBdVWKo3g2_S3tYE3vzFu"
+                    }
+                    key={"S3tYE3vzFu"}
+                    text={getStyle("S3tYE3vzFu", "text")}
+                  />
+                </ContainerPrimitive>
+              </ContainerPrimitive>
             </ContainerPrimitive>
           </ContainerPrimitive>
           <SpacerPrimitive
@@ -134,6 +219,21 @@ function HbTestimonial(_props) {
             text={
               exists(props.title) ? props.title : getStyle("LLAN2HR72H", "text")
             }
+          />
+          <SpacerPrimitive
+            className={"__visly_reset __visly_scope_WBdVWKo3g2_KTFD4vqNwH"}
+            key={"KTFD4vqNwH"}
+          />
+          <TextPrimitive
+            className={"__visly_reset __visly_scope_WBdVWKo3g2_QDNh14WQhk"}
+            key={"QDNh14WQhk"}
+            text={
+              exists(props.dog) ? props.dog : getStyle("QDNh14WQhk", "text")
+            }
+          />
+          <SpacerPrimitive
+            className={"__visly_reset __visly_scope_WBdVWKo3g2_7Sh4tYJVoL"}
+            key={"7Sh4tYJVoL"}
           />
           <TextPrimitive
             className={"__visly_reset __visly_scope_WBdVWKo3g2_72EEoP6Shu"}

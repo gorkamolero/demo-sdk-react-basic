@@ -6,6 +6,7 @@ import "../reset.css";
 import "./HbEndFooter.css";
 import React, { createContext, useContext } from "react";
 import {
+  exists,
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "../_internal_utils";
@@ -105,17 +106,29 @@ function HbEndFooter(_props) {
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"}
               key={"XXvgsKKhsZ"}
-              text={getStyle("XXvgsKKhsZ", "text")}
+              text={
+                exists(props.total)
+                  ? props.total
+                  : getStyle("XXvgsKKhsZ", "text")
+              }
             />
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_96PHAUg8AY"}
               key={"96PHAUg8AY"}
-              text={getStyle("96PHAUg8AY", "text")}
+              text={
+                exists(props.priceOriginal)
+                  ? props.priceOriginal
+                  : getStyle("96PHAUg8AY", "text")
+              }
             />
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"}
               key={"GMQGJ3oWuC"}
-              text={getStyle("GMQGJ3oWuC", "text")}
+              text={
+                exists(props.priceFinal)
+                  ? props.priceFinal
+                  : getStyle("GMQGJ3oWuC", "text")
+              }
             />
           </ContainerPrimitive>
           <ContainerPrimitive

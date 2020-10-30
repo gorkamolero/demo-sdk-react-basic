@@ -103,8 +103,12 @@ export const HbSection: {
     props: {
       children?: React.ReactNode | React.ReactNode[];
       title?: string;
+      waveslot1?: React.ReactNode | React.ReactNode[];
+      waveslot2?: React.ReactNode | React.ReactNode[];
+      imageSrc?: string;
       noMaxWidth?: boolean;
       padded?: boolean;
+      withImage?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

@@ -94,6 +94,8 @@ export const HbTestimonial: {
       client?: string;
       text?: string;
       stars?: React.ReactNode | React.ReactNode[];
+      imageSrc?: string;
+      dog?: string;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

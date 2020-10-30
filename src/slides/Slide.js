@@ -1,4 +1,5 @@
 import React, { useContext, useState, useMemo } from 'react';
+import { ModalProvider } from "react-modal-hook";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
 import Utils from '../utils/Utils'
@@ -16,28 +17,34 @@ import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
 
+const SlideView = ({slideModel}) => {
+  const type = useMemo(() => slideModel.getType(), [slideModel])
+
+  return (
+    <>
+      {
+        {
+          'Cover':  <Cover />,
+          'Filter':<Filter />,
+          'Info':<Info />,
+          'Feedback':<Feedback />,
+          'Form':<Form />,
+          'End':<End />,
+        }[type]
+      }
+    </>
+  )
+}
+
 const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
-    
+
 
     React.useEffect(() => {
       if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
     }, [slideModel, slideId])
-
-    const getSlideView = () => {
-        switch (slideModel.getType()) {
-            case 'Cover': return <Cover />;
-            case 'Filter': return <Filter />;
-            case 'Info': return <Info />;
-            case 'Feedback': return <Feedback />;
-            case 'Form': return <Form />;
-            case 'End': return <End />;
-            default: return null;
-        }
-    };
-
 
     const slideTitle = useMemo(() => progressBar.find(step => step.slideId === slideModel.getId()).title, [slideModel, progressBar])
     const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
@@ -47,29 +54,32 @@ const Slide = () => {
     const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
 
     return (
-      <FlexBox column center className={`slide-${type}`}>
-        <HbHeader
-          className="HbHeader"
-          TitleSlot={<HbTitle size={size} className="title" html={title} />}
-          
-          SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
-          
-          HbLogo={<HbHeader.HbLogo />}
-          HbProgress={<ProgressBar size={size} />}
-          HbProgressMobile={<ProgressBar size={size} />}
-          HbCircleIcon={<HbHeader.HbCircleIcon />}
-          bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
-          extraImage={Bowl}
-          extraImageT={Bowl}
-          size={size}
-          discount="20% Off"
-          ShowImage={slideTitle === 'Profile'}
-          NoWave={ slideModel.getType() === 'End' }
-        />
-        <main style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-          <Container alignItems="center" column>{getSlideView()}</Container>
-        </main>
-      </FlexBox>
+      <ModalProvider>
+        <FlexBox column center className={`slide-${type} animate`}>
+          <HbHeader
+            className="HbHeader"
+            TitleSlot={<HbTitle size={size} className="title" html={title} />}
+            
+            SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+            HbLogo={<HbHeader.HbLogo />}
+            HbProgress={<ProgressBar size={size} />}
+            HbProgressMobile={<ProgressBar size={size} />}
+            HbCircleIcon={<HbHeader.HbCircleIcon />}
+            bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
+            extraImage={Bowl}
+            extraImageT={Bowl}
+            size={size}
+            discount="20% Off"
+            ShowImage={slideTitle === 'Profile'}
+            NoWave={ slideModel.getType() === 'End' }
+          />
+            <FlexBox is="main" column alignItems="center" style={{ }}>
+              <Container style={{ width: '100%', position: 'relative' }} alignItems="center" column>
+                <SlideView slideModel={slideModel} />
+              </Container>
+            </FlexBox>
+        </FlexBox>
+      </ModalProvider>
     );
 };
 

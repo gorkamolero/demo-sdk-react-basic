@@ -10,7 +10,7 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { Root, InputPrimitive } from "./_internal_input";
+import { Root, TextFieldPrimitive } from "./_internal_text_field";
 
 const styles = [
   {
@@ -57,7 +57,7 @@ function Input(_props) {
       }}
     >
       {(getStyle) => (
-        <InputPrimitive
+        <TextFieldPrimitive
           className={"__visly_reset __visly_scope_AzHv2NByua_input"}
           key={"input"}
           placeholder={

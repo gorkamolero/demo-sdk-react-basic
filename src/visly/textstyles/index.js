@@ -72,6 +72,7 @@ export const menuHeading = {
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "1",
+  textTransform: "uppercase",
 };
 export const menuHeadingTablet = {
   fontFamily: "Averta",
@@ -79,13 +80,14 @@ export const menuHeadingTablet = {
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "1",
+  textTransform: "uppercase",
 };
 export const superHeading = {
-  fontFamily: "Averta",
-  fontSize: "32px",
+  fontFamily: "Filson Pro",
+  fontSize: "36px",
   fontWeight: 700,
   fontStyle: "normal",
-  lineHeight: "39px",
+  lineHeight: "48px",
 };
 export const superHeadingMobile = {
   fontFamily: "Averta",

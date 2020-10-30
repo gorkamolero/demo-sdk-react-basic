@@ -97,6 +97,7 @@ export const HbHeader: {
       TitleSlot?: React.ReactNode | React.ReactNode[];
       SubtitleSlot?: React.ReactNode | React.ReactNode[];
       ExtraChildren?: React.ReactNode | React.ReactNode[];
+      textSlot1?: string;
       ShowImage?: boolean;
       NoWave?: boolean;
       size?: "small" | "large" | "medium" | "super";

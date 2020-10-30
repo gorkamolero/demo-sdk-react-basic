@@ -11,7 +11,7 @@ import {
   makeCompositeDefaultProps,
 } from "./_internal_utils";
 import { ContainerPrimitive } from "./_internal_primitives";
-import { Root, InputPrimitive } from "./_internal_input";
+import { Root, TextFieldPrimitive } from "./_internal_text_field";
 
 const styles = [
   {
@@ -109,7 +109,7 @@ function HbInput(_props) {
     >
       {(getStyle) => (
         <>
-          <InputPrimitive
+          <TextFieldPrimitive
             className={"__visly_reset __visly_scope_JhYcCBQMX6_input"}
             key={"input"}
             placeholder={
