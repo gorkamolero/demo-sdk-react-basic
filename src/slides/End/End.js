@@ -10,28 +10,41 @@ import { Footer } from '../../styles/StyledComps';
 
 function End() {
     // No loading for dev
+    const end = window.hungry.end;
+    const dog = {
+        name:end.dogName,
+        weight:end.dogWeight
+    };
+
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState(null)
+    const [products, setProducts] = useState({
+        kibble:end.kibble,
+        supplement:end.supplement,
+        mixin:end.mixin
+    });
+
     const [selectedResults, setSelectedResults] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const [subscription, setSubscription] = useState(true)
-    
-    useEffect(() => {
-        setData({
-            hungry: window.hungry,
-            ctrl: window.pickzen.ctrl
-        })
-    }, [])
-
-    useEffect(() => console.log(data), [data])
 
     const subscribeMultiplier = subscription ? 0.8 : 1
     const getPrice = (price) => Math.round((price * subscribeMultiplier) * 100) / 100
     const totalProducts = selectedResults.length
 
     const continueToCheckout = () => {
-
         console.log('Going to checkout with :' + JSON.stringify(selectedResults))
+    }
+
+    const getTexts = () => {
+        let trialText = end.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice*0.8));
+        let afterTrialText = end.texts.plan.afterTrialText.replace('[PRICE]',getPrice(totalPrice*0.9)).replace('[PRICEPERDAY]',getPrice(totalPrice*0.9/28)).replace('[SHIPPING]',end.getShippingText(totalPrice));
+
+        return {
+            plan:{
+                trial:trialText,
+                afterTrial:afterTrialText
+            }
+        }
     }
 
     return (
@@ -44,7 +57,7 @@ function End() {
 
             {/* {<Video />} */}
 
-            <Products totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+            <Products products={products} dog={dog} goals={end.goals} texts={getTexts()} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
 
             <Navigation />
 
