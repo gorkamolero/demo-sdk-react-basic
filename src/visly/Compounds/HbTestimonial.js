@@ -42,7 +42,7 @@ const styles = [
       Jp3AYaDT1R: {
         none: {
           role: "img",
-          src: require("../assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
+          icon: require("../assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
       },
@@ -97,12 +97,14 @@ function HbTestimonial(_props) {
             className={"__visly_reset __visly_scope_WBdVWKo3g2_V1dKWcVmPd"}
             key={"V1dKWcVmPd"}
             addSpacing={false}
+            element={getStyle("V1dKWcVmPd", "htmlElement")}
           >
             {
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_WBdVWKo3g2_HSyBqwCpTj"}
                 key={"HSyBqwCpTj"}
                 addSpacing={false}
+                element={getStyle("HSyBqwCpTj", "htmlElement")}
               >
                 {null}
               </ContainerPrimitive>
@@ -112,11 +114,13 @@ function HbTestimonial(_props) {
             className={"__visly_reset __visly_scope_WBdVWKo3g2_ThBPq1AmgT"}
             key={"ThBPq1AmgT"}
             addSpacing={true}
+            element={getStyle("ThBPq1AmgT", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_WBdVWKo3g2_BQWSpmyRhj"}
               key={"BQWSpmyRhj"}
               addSpacing={false}
+              element={getStyle("BQWSpmyRhj", "htmlElement")}
             >
               {
                 <ImagePrimitive
@@ -137,6 +141,7 @@ function HbTestimonial(_props) {
               className={"__visly_reset __visly_scope_WBdVWKo3g2_SN3g8tmrW6"}
               key={"SN3g8tmrW6"}
               addSpacing={false}
+              element={getStyle("SN3g8tmrW6", "htmlElement")}
             >
               <ContainerPrimitive
                 key={"JcvuhRskdz"}
@@ -149,6 +154,7 @@ function HbTestimonial(_props) {
                 className={"__visly_reset __visly_scope_WBdVWKo3g2_KoxVNRDdjs"}
                 key={"KoxVNRDdjs"}
                 addSpacing={false}
+                element={getStyle("KoxVNRDdjs", "htmlElement")}
               >
                 <TextPrimitive
                   className={
@@ -160,6 +166,7 @@ function HbTestimonial(_props) {
                       ? props.client
                       : getStyle("GfQQK2QSw7", "text")
                   }
+                  element={getStyle("GfQQK2QSw7", "htmlElement")}
                 />
                 <SpacerPrimitive
                   className={
@@ -173,6 +180,7 @@ function HbTestimonial(_props) {
                   }
                   key={"PoN3rEr5Aa"}
                   addSpacing={false}
+                  element={getStyle("PoN3rEr5Aa", "htmlElement")}
                 >
                   <ContainerPrimitive
                     className={
@@ -180,6 +188,7 @@ function HbTestimonial(_props) {
                     }
                     key={"BPYvu5nk1j"}
                     addSpacing={false}
+                    element={getStyle("BPYvu5nk1j", "htmlElement")}
                   >
                     {
                       <IconPrimitive
@@ -188,7 +197,7 @@ function HbTestimonial(_props) {
                         }
                         key={"Jp3AYaDT1R"}
                         useMask={getStyle("Jp3AYaDT1R", "useMask")}
-                        src={getStyle("Jp3AYaDT1R", "src")}
+                        src={getStyle("Jp3AYaDT1R", "icon")}
                       />
                     }
                   </ContainerPrimitive>
@@ -204,6 +213,7 @@ function HbTestimonial(_props) {
                     }
                     key={"S3tYE3vzFu"}
                     text={getStyle("S3tYE3vzFu", "text")}
+                    element={getStyle("S3tYE3vzFu", "htmlElement")}
                   />
                 </ContainerPrimitive>
               </ContainerPrimitive>
@@ -219,6 +229,7 @@ function HbTestimonial(_props) {
             text={
               exists(props.title) ? props.title : getStyle("LLAN2HR72H", "text")
             }
+            element={getStyle("LLAN2HR72H", "htmlElement")}
           />
           <SpacerPrimitive
             className={"__visly_reset __visly_scope_WBdVWKo3g2_KTFD4vqNwH"}
@@ -230,6 +241,7 @@ function HbTestimonial(_props) {
             text={
               exists(props.dog) ? props.dog : getStyle("QDNh14WQhk", "text")
             }
+            element={getStyle("QDNh14WQhk", "htmlElement")}
           />
           <SpacerPrimitive
             className={"__visly_reset __visly_scope_WBdVWKo3g2_7Sh4tYJVoL"}
@@ -241,6 +253,7 @@ function HbTestimonial(_props) {
             text={
               exists(props.text) ? props.text : getStyle("72EEoP6Shu", "text")
             }
+            element={getStyle("72EEoP6Shu", "htmlElement")}
           />
         </>
       )}

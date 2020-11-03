@@ -29,7 +29,7 @@ const styles = [
       YLowiHcxUk: {
         none: {
           role: "img",
-          src: require("./assets/335f3298-73c2-4b49-87f0-bdd5380a4035@1x.svg"),
+          icon: require("./assets/335f3298-73c2-4b49-87f0-bdd5380a4035@1x.svg"),
           useMask: true,
         },
         hover: {
@@ -44,7 +44,7 @@ const styles = [
     layers: {
       YLowiHcxUk: {
         none: {
-          src: require("./assets/fd204fbe-52a7-4ca8-becd-8a04ae285d64@1x.svg"),
+          icon: require("./assets/fd204fbe-52a7-4ca8-becd-8a04ae285d64@1x.svg"),
           useMask: true,
         },
       },
@@ -100,7 +100,7 @@ function LikeButton(_props) {
             key={"YLowiHcxUk"}
             useMask={getStyle("YLowiHcxUk", "useMask")}
             src={
-              exists(props.icon) ? props.icon : getStyle("YLowiHcxUk", "src")
+              exists(props.icon) ? props.icon : getStyle("YLowiHcxUk", "icon")
             }
           />
           <SpacerPrimitive
@@ -113,6 +113,7 @@ function LikeButton(_props) {
             text={
               exists(props.text) ? props.text : getStyle("336oAbe272", "text")
             }
+            element={getStyle("336oAbe272", "htmlElement")}
           />
         </>
       )}

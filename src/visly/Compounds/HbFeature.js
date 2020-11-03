@@ -65,6 +65,7 @@ function HbFeature(_props) {
           className={"__visly_reset __visly_scope_YFVkV4MrSq_KxhjEmTBpq"}
           key={"KxhjEmTBpq"}
           addSpacing={false}
+          element={getStyle("KxhjEmTBpq", "htmlElement")}
         >
           {
             <ImagePrimitive

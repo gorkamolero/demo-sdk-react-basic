@@ -19,6 +19,7 @@
   --introBgColor: #f3f3f3;
   --golden: #d59b2b;
   --lightRed: #ef8f7a;
+  --hbYellow: #f6dfa4;
 
   --hbTextColor: #242424;
 
@@ -250,4 +251,8 @@ small {
 
 .HbHeader {
   z-index: 2;
+}
+
+.tippy-tooltip.light-theme [x-circle] {
+  background-color: var(--hbYellow) !important;
 }

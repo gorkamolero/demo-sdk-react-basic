@@ -41,7 +41,7 @@ const styles = [
       WhwzT2jENf: {
         none: {
           role: "img",
-          src: require("../assets/b5e18a86-70b3-4310-9998-74fd8910ec42.svg"),
+          icon: require("../assets/b5e18a86-70b3-4310-9998-74fd8910ec42.svg"),
           useMask: true,
         },
       },
@@ -91,12 +91,14 @@ function HbProductEmpty(_props) {
             className={"__visly_reset __visly_scope_GVHshrcqto_DA8Xa72aFn"}
             key={"DA8Xa72aFn"}
             addSpacing={true}
+            element={getStyle("DA8Xa72aFn", "htmlElement")}
           >
             {
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_GVHshrcqto_WRyAaE5y9d"}
                 key={"WRyAaE5y9d"}
                 addSpacing={true}
+                element={getStyle("WRyAaE5y9d", "htmlElement")}
               >
                 <ContainerPrimitive
                   className={
@@ -104,6 +106,7 @@ function HbProductEmpty(_props) {
                   }
                   key={"Um5F7YdKHX"}
                   addSpacing={false}
+                  element={getStyle("Um5F7YdKHX", "htmlElement")}
                 >
                   {
                     <TextPrimitive
@@ -116,6 +119,7 @@ function HbProductEmpty(_props) {
                           ? props.order
                           : getStyle("21QeGg8jho", "text")
                       }
+                      element={getStyle("21QeGg8jho", "htmlElement")}
                     />
                   }
                 </ContainerPrimitive>
@@ -129,6 +133,7 @@ function HbProductEmpty(_props) {
                       ? props.type
                       : getStyle("HM7QLqsybb", "text")
                   }
+                  element={getStyle("HM7QLqsybb", "htmlElement")}
                 />
               </ContainerPrimitive>
             }
@@ -137,11 +142,13 @@ function HbProductEmpty(_props) {
             className={"__visly_reset __visly_scope_GVHshrcqto_UdYVCcCaqY"}
             key={"UdYVCcCaqY"}
             addSpacing={false}
+            element={getStyle("UdYVCcCaqY", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_GVHshrcqto_CTQf35YXup"}
               key={"CTQf35YXup"}
               addSpacing={false}
+              element={getStyle("CTQf35YXup", "htmlElement")}
             >
               {
                 <IconPrimitive
@@ -150,7 +157,7 @@ function HbProductEmpty(_props) {
                   }
                   key={"WhwzT2jENf"}
                   useMask={getStyle("WhwzT2jENf", "useMask")}
-                  src={getStyle("WhwzT2jENf", "src")}
+                  src={getStyle("WhwzT2jENf", "icon")}
                 />
               }
             </ContainerPrimitive>
@@ -162,6 +169,7 @@ function HbProductEmpty(_props) {
               className={"__visly_reset __visly_scope_GVHshrcqto_N3yQYTcaWV"}
               key={"N3yQYTcaWV"}
               addSpacing={false}
+              element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
               <TextPrimitive
                 className={"__visly_reset __visly_scope_GVHshrcqto_8C3DGxh663"}
@@ -171,6 +179,7 @@ function HbProductEmpty(_props) {
                     ? props.oops
                     : getStyle("8C3DGxh663", "text")
                 }
+                element={getStyle("8C3DGxh663", "htmlElement")}
               />
               <SpacerPrimitive
                 className={"__visly_reset __visly_scope_GVHshrcqto_X6tktLxhFT"}
@@ -184,6 +193,7 @@ function HbProductEmpty(_props) {
                     ? props.textAndLink
                     : getStyle("72EEoP6Shu", "text")
                 }
+                element={getStyle("72EEoP6Shu", "htmlElement")}
               />
               <ContainerPrimitive
                 key={"KVQd13HGDM"}

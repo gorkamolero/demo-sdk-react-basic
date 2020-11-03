@@ -206,6 +206,7 @@ function HbHeader(_props) {
             className={"__visly_reset __visly_scope_9XVkrqrLZt_7zMWCZsd7M"}
             key={"7zMWCZsd7M"}
             addSpacing={false}
+            element={getStyle("7zMWCZsd7M", "htmlElement")}
           >
             {
               <ImagePrimitive
@@ -222,11 +223,13 @@ function HbHeader(_props) {
             className={"__visly_reset __visly_scope_9XVkrqrLZt_47pNJ4CTVs"}
             key={"47pNJ4CTVs"}
             addSpacing={true}
+            element={getStyle("47pNJ4CTVs", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_9XVkrqrLZt_5dTrnoEMCT"}
               key={"5dTrnoEMCT"}
               addSpacing={true}
+              element={getStyle("5dTrnoEMCT", "htmlElement")}
             >
               {
                 <ImagePrimitive
@@ -247,6 +250,7 @@ function HbHeader(_props) {
               className={"__visly_reset __visly_scope_9XVkrqrLZt_BvQJi9KfB1"}
               key={"BvQJi9KfB1"}
               addSpacing={true}
+              element={getStyle("BvQJi9KfB1", "htmlElement")}
             >
               {[
                 props.HbLogo === undefined ? (
@@ -293,6 +297,7 @@ function HbHeader(_props) {
                   }
                   key={"UG6YPtbpZv"}
                   addSpacing={false}
+                  element={getStyle("UG6YPtbpZv", "htmlElement")}
                 >
                   {[
                     props.HbCircleIcon === undefined ? (
@@ -326,6 +331,7 @@ function HbHeader(_props) {
                       }
                       key={"8Y3DCw5uX1"}
                       addSpacing={false}
+                      element={getStyle("8Y3DCw5uX1", "htmlElement")}
                     >
                       <TextPrimitive
                         className={
@@ -337,6 +343,7 @@ function HbHeader(_props) {
                             ? props.textSlot
                             : getStyle("WVr4DnUAPt", "text")
                         }
+                        element={getStyle("WVr4DnUAPt", "htmlElement")}
                       />
                       <TextPrimitive
                         className={
@@ -348,6 +355,7 @@ function HbHeader(_props) {
                             ? props.textSlot1
                             : getStyle("GJpwns7nhj", "text")
                         }
+                        element={getStyle("GJpwns7nhj", "htmlElement")}
                       />
                     </ContainerPrimitive>,
                   ]}
@@ -362,6 +370,7 @@ function HbHeader(_props) {
               className={"__visly_reset __visly_scope_9XVkrqrLZt_DXVbq46P3D"}
               key={"DXVbq46P3D"}
               addSpacing={false}
+              element={getStyle("DXVbq46P3D", "htmlElement")}
             >
               {props.HbProgressMobile === undefined ? (
                 <HbProgressComposite
@@ -391,6 +400,7 @@ function HbHeader(_props) {
               className={"__visly_reset __visly_scope_9XVkrqrLZt_Ajq15sbMPw"}
               key={"Ajq15sbMPw"}
               addSpacing={false}
+              element={getStyle("Ajq15sbMPw", "htmlElement")}
             >
               <SpacerPrimitive
                 className={"__visly_reset __visly_scope_9XVkrqrLZt_AmuT4WgaTf"}
@@ -400,6 +410,7 @@ function HbHeader(_props) {
                 className={"__visly_reset __visly_scope_9XVkrqrLZt_2RwNh3KRbg"}
                 key={"2RwNh3KRbg"}
                 addSpacing={true}
+                element={getStyle("2RwNh3KRbg", "htmlElement")}
               >
                 <ContainerPrimitive
                   key={"VTKN5tHTts"}
@@ -430,6 +441,7 @@ function HbHeader(_props) {
                 className={"__visly_reset __visly_scope_9XVkrqrLZt_kUjGG71oGb"}
                 key={"kUjGG71oGb"}
                 addSpacing={false}
+                element={getStyle("kUjGG71oGb", "htmlElement")}
               >
                 {
                   <ImagePrimitive

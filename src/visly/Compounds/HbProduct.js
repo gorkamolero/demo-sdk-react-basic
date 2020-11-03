@@ -28,12 +28,6 @@ const styles = [
           text: "Chicken, Turkey + Brown Rice",
         },
       },
-      "72EEoP6Shu": {
-        none: {
-          text:
-            "Small batch cooked at lower temperatures and made with real chicken and turkey, added probiotics and natural ingredients",
-        },
-      },
       RZSy2TdbWe: {
         none: {
           text: "14lbs",
@@ -107,16 +101,19 @@ function HbProduct(_props) {
             className={"__visly_reset __visly_scope_F2wQruQTHP_DA8Xa72aFn"}
             key={"DA8Xa72aFn"}
             addSpacing={true}
+            element={getStyle("DA8Xa72aFn", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_F2wQruQTHP_WRyAaE5y9d"}
               key={"WRyAaE5y9d"}
               addSpacing={true}
+              element={getStyle("WRyAaE5y9d", "htmlElement")}
             >
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_F2wQruQTHP_Um5F7YdKHX"}
                 key={"Um5F7YdKHX"}
                 addSpacing={false}
+                element={getStyle("Um5F7YdKHX", "htmlElement")}
               >
                 {
                   <TextPrimitive
@@ -129,6 +126,7 @@ function HbProduct(_props) {
                         ? props.order
                         : getStyle("21QeGg8jho", "text")
                     }
+                    element={getStyle("21QeGg8jho", "htmlElement")}
                   />
                 }
               </ContainerPrimitive>
@@ -140,12 +138,14 @@ function HbProduct(_props) {
                     ? props.type
                     : getStyle("HM7QLqsybb", "text")
                 }
+                element={getStyle("HM7QLqsybb", "htmlElement")}
               />
             </ContainerPrimitive>
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_F2wQruQTHP_G19QPyqmt5"}
               key={"G19QPyqmt5"}
               addSpacing={true}
+              element={getStyle("G19QPyqmt5", "htmlElement")}
             >
               <TextPrimitive
                 className={"__visly_reset __visly_scope_F2wQruQTHP_8PrsR7o63t"}
@@ -155,6 +155,7 @@ function HbProduct(_props) {
                     ? props.priceOriginal
                     : getStyle("8PrsR7o63t", "text")
                 }
+                element={getStyle("8PrsR7o63t", "htmlElement")}
               />
               <TextPrimitive
                 className={"__visly_reset __visly_scope_F2wQruQTHP_GZwM8i3ySP"}
@@ -164,6 +165,7 @@ function HbProduct(_props) {
                     ? props.priceFinal
                     : getStyle("GZwM8i3ySP", "text")
                 }
+                element={getStyle("GZwM8i3ySP", "htmlElement")}
               />
             </ContainerPrimitive>
           </ContainerPrimitive>
@@ -171,16 +173,19 @@ function HbProduct(_props) {
             className={"__visly_reset __visly_scope_F2wQruQTHP_UdYVCcCaqY"}
             key={"UdYVCcCaqY"}
             addSpacing={false}
+            element={getStyle("UdYVCcCaqY", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_F2wQruQTHP_RP3xHanS5S"}
               key={"RP3xHanS5S"}
               addSpacing={false}
+              element={getStyle("RP3xHanS5S", "htmlElement")}
             >
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_F2wQruQTHP_Rf5PVhWzGL"}
                 key={"Rf5PVhWzGL"}
                 addSpacing={false}
+                element={getStyle("Rf5PVhWzGL", "htmlElement")}
               >
                 {
                   <ImagePrimitive
@@ -205,6 +210,7 @@ function HbProduct(_props) {
                 className={"__visly_reset __visly_scope_F2wQruQTHP_4ZpyWfeCAG"}
                 key={"4ZpyWfeCAG"}
                 addSpacing={false}
+                element={getStyle("4ZpyWfeCAG", "htmlElement")}
               >
                 <TextPrimitive
                   className={
@@ -216,6 +222,7 @@ function HbProduct(_props) {
                       ? props.title
                       : getStyle("LLAN2HR72H", "text")
                   }
+                  element={getStyle("LLAN2HR72H", "htmlElement")}
                 />
                 <TextPrimitive
                   className={
@@ -227,6 +234,7 @@ function HbProduct(_props) {
                       ? props.extra
                       : getStyle("RZSy2TdbWe", "text")
                   }
+                  element={getStyle("RZSy2TdbWe", "htmlElement")}
                 />
               </ContainerPrimitive>
             </ContainerPrimitive>
@@ -238,16 +246,15 @@ function HbProduct(_props) {
               className={"__visly_reset __visly_scope_F2wQruQTHP_N3yQYTcaWV"}
               key={"N3yQYTcaWV"}
               addSpacing={false}
+              element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
-              <TextPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_72EEoP6Shu"}
-                key={"72EEoP6Shu"}
-                text={
-                  exists(props.description)
-                    ? props.description
-                    : getStyle("72EEoP6Shu", "text")
-                }
-              />
+              <ContainerPrimitive
+                key={"UDKtwaHFzP"}
+                className={"__visly_reset __visly_scope_F2wQruQTHP_UDKtwaHFzP"}
+                addSpacing={false}
+              >
+                {props.DescriptionHtml}
+              </ContainerPrimitive>
               <SpacerPrimitive
                 className={"__visly_reset __visly_scope_F2wQruQTHP_7MAZ8igM5Q"}
                 key={"7MAZ8igM5Q"}
@@ -265,6 +272,7 @@ function HbProduct(_props) {
             className={"__visly_reset __visly_scope_F2wQruQTHP_6xWxhWEy3g"}
             key={"6xWxhWEy3g"}
             addSpacing={false}
+            element={getStyle("6xWxhWEy3g", "htmlElement")}
           >
             {[
               props.HbCheckbox === undefined ? (
@@ -298,6 +306,7 @@ function HbProduct(_props) {
                     ? props.addLabel
                     : getStyle("LJa2rjC9ev", "text")
                 }
+                element={getStyle("LJa2rjC9ev", "htmlElement")}
               />,
             ]}
           </ContainerPrimitive>

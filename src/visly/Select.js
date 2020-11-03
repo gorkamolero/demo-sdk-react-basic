@@ -33,7 +33,7 @@ const styles = [
       "2pmEsZq6Nc": {
         none: {
           role: "img",
-          src: require("./assets/c6f11592-eb2a-4697-9b7c-6c7c31b99f89@1x.svg"),
+          icon: require("./assets/c6f11592-eb2a-4697-9b7c-6c7c31b99f89@1x.svg"),
           useMask: true,
         },
       },
@@ -88,6 +88,7 @@ function Select(_props) {
                   ? props.label
                   : getStyle("select-button-text", "text")
               }
+              element={getStyle("select-button-text", "htmlElement")}
             />
             <SpacerPrimitive
               className={"__visly_reset __visly_scope_9cCvR1MveE_XD9syCR31b"}
@@ -97,7 +98,7 @@ function Select(_props) {
               className={"__visly_reset __visly_scope_9cCvR1MveE_2pmEsZq6Nc"}
               key={"2pmEsZq6Nc"}
               useMask={getStyle("2pmEsZq6Nc", "useMask")}
-              src={getStyle("2pmEsZq6Nc", "src")}
+              src={getStyle("2pmEsZq6Nc", "icon")}
             />
           </SelectButton>
           <SelectOptionContainer

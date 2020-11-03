@@ -19,7 +19,7 @@ const styles = [
       "5dbE92sXAG": {
         none: {
           role: "img",
-          src: require("./assets/6c09c43b-abd0-4776-8845-1535cdff712b.svg"),
+          icon: require("./assets/6c09c43b-abd0-4776-8845-1535cdff712b.svg"),
           useMask: true,
         },
       },
@@ -103,7 +103,7 @@ function HbCircleIcon(_props) {
           className={"__visly_reset __visly_scope_CyFbGY3R7m_5dbE92sXAG"}
           key={"5dbE92sXAG"}
           useMask={getStyle("5dbE92sXAG", "useMask")}
-          src={exists(props.icon) ? props.icon : getStyle("5dbE92sXAG", "src")}
+          src={exists(props.icon) ? props.icon : getStyle("5dbE92sXAG", "icon")}
         />
       )}
     </RootPrimitive>

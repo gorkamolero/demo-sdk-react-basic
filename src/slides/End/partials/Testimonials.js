@@ -68,7 +68,7 @@ const Testimonials = () => {
                 client={testimonial.client}
                 text={testimonial.text}
                 stars={<FlexBox gap={5}>
-                  {Array(testimonial.rating).fill().map(() => <span aria-label="rating-star" role="img">⭐️</span>)}
+                  {Array(testimonial.rating).fill().map((i) => <span key={i} aria-label="rating-star" role="img">⭐️</span>)}
                 </FlexBox>}
               />
           ))

@@ -61,6 +61,7 @@ function HbPopover(_props) {
           className={"__visly_reset __visly_scope_VMTpFDHeuv_2nxKs2aETh"}
           key={"2nxKs2aETh"}
           text={getStyle("2nxKs2aETh", "text")}
+          element={getStyle("2nxKs2aETh", "htmlElement")}
         />
       )}
     </PopoverRoot>

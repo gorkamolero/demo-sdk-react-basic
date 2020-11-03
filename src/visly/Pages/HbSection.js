@@ -117,11 +117,13 @@ function HbSection(_props) {
             className={"__visly_reset __visly_scope_VwNHqxyyTR_5xuTSehGki"}
             key={"5xuTSehGki"}
             addSpacing={false}
+            element={getStyle("5xuTSehGki", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_VwNHqxyyTR_ATetp6636S"}
               key={"ATetp6636S"}
               addSpacing={false}
+              element={getStyle("ATetp6636S", "htmlElement")}
             >
               {
                 <ImagePrimitive
@@ -142,6 +144,7 @@ function HbSection(_props) {
               className={"__visly_reset __visly_scope_VwNHqxyyTR_R8m6dsU8Qu"}
               key={"R8m6dsU8Qu"}
               addSpacing={false}
+              element={getStyle("R8m6dsU8Qu", "htmlElement")}
             >
               {
                 <TextPrimitive
@@ -154,6 +157,7 @@ function HbSection(_props) {
                       ? props.title
                       : getStyle("S2bhe8BS6y", "text")
                   }
+                  element={getStyle("S2bhe8BS6y", "htmlElement")}
                 />
               }
             </ContainerPrimitive>

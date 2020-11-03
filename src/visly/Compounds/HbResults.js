@@ -15,6 +15,7 @@ import {
   SpacerPrimitive,
   TextPrimitive,
   ContainerPrimitive,
+  IconPrimitive,
 } from "../_internal_primitives";
 import HbButtonComposite, { HbButtonContext } from "../HbButton";
 
@@ -49,6 +50,29 @@ const styles = [
             "Your 4 week plan will be billed at the discounted price of $45.36 every 4 weeks. That’s only $1.62/day. No commitment. Modify, swap or cancel anytime.",
         },
       },
+      PyjEEck4UC: {
+        none: {
+          role: "img",
+          icon: require("../assets/30e3cbc9-e9aa-470f-b855-a46ead2e3c56.svg"),
+          useMask: true,
+        },
+      },
+      MCawwQFVkV: {
+        none: {
+          text: "Save 20% today if you choose to subscribe.",
+        },
+      },
+    },
+  },
+  {
+    type: "boolean",
+    propName: "trialOff",
+    layers: {
+      PyjEEck4UC: {
+        none: {
+          useMask: true,
+        },
+      },
     },
   },
 ];
@@ -64,9 +88,21 @@ const defaultPropValues = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "trialOff",
+    layers: {
+      NnntHPR8KU: {},
+    },
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "trialOff",
+  },
+];
 
 export const HbResultsContext = createContext(null);
 
@@ -96,11 +132,13 @@ function HbResults(_props) {
             className={"__visly_reset __visly_scope_GBUFXK8ScG_DA8Xa72aFn"}
             key={"DA8Xa72aFn"}
             addSpacing={true}
+            element={getStyle("DA8Xa72aFn", "htmlElement")}
           >
             <ContainerPrimitive
               className={"__visly_reset __visly_scope_GBUFXK8ScG_WRyAaE5y9d"}
               key={"WRyAaE5y9d"}
               addSpacing={true}
+              element={getStyle("WRyAaE5y9d", "htmlElement")}
             >
               {
                 <TextPrimitive
@@ -113,6 +151,7 @@ function HbResults(_props) {
                       ? props.verylongname
                       : getStyle("HM7QLqsybb", "text")
                   }
+                  element={getStyle("HM7QLqsybb", "htmlElement")}
                 />
               }
             </ContainerPrimitive>
@@ -120,6 +159,7 @@ function HbResults(_props) {
               className={"__visly_reset __visly_scope_GBUFXK8ScG_G19QPyqmt5"}
               key={"G19QPyqmt5"}
               addSpacing={true}
+              element={getStyle("G19QPyqmt5", "htmlElement")}
             >
               {
                 <ContainerPrimitive
@@ -138,6 +178,7 @@ function HbResults(_props) {
             className={"__visly_reset __visly_scope_GBUFXK8ScG_UdYVCcCaqY"}
             key={"UdYVCcCaqY"}
             addSpacing={false}
+            element={getStyle("UdYVCcCaqY", "htmlElement")}
           >
             <ContainerPrimitive
               key={"7XCbQ9FX7m"}
@@ -154,20 +195,23 @@ function HbResults(_props) {
               className={"__visly_reset __visly_scope_GBUFXK8ScG_N3yQYTcaWV"}
               key={"N3yQYTcaWV"}
               addSpacing={true}
+              element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
               <TextPrimitive
                 className={"__visly_reset __visly_scope_GBUFXK8ScG_TSKydwWpV5"}
                 key={"TSKydwWpV5"}
                 text={getStyle("TSKydwWpV5", "text")}
+                element={getStyle("TSKydwWpV5", "htmlElement")}
               />
               <TextPrimitive
                 className={"__visly_reset __visly_scope_GBUFXK8ScG_72EEoP6Shu"}
                 key={"72EEoP6Shu"}
                 text={
-                  exists(props.description)
-                    ? props.description
+                  exists(props.trial)
+                    ? props.trial
                     : getStyle("72EEoP6Shu", "text")
                 }
+                element={getStyle("72EEoP6Shu", "htmlElement")}
               />
               <SpacerPrimitive
                 className={"__visly_reset __visly_scope_GBUFXK8ScG_GTNJNAq2jj"}
@@ -177,15 +221,51 @@ function HbResults(_props) {
                 className={"__visly_reset __visly_scope_GBUFXK8ScG_Xdq8EgbVmd"}
                 key={"Xdq8EgbVmd"}
                 text={getStyle("Xdq8EgbVmd", "text")}
+                element={getStyle("Xdq8EgbVmd", "htmlElement")}
               />
               <TextPrimitive
                 className={"__visly_reset __visly_scope_GBUFXK8ScG_8sMkGDxBq1"}
                 key={"8sMkGDxBq1"}
                 text={
-                  exists(props.description1)
-                    ? props.description1
+                  exists(props.afterTrial)
+                    ? props.afterTrial
                     : getStyle("8sMkGDxBq1", "text")
                 }
+                element={getStyle("8sMkGDxBq1", "htmlElement")}
+              />
+            </ContainerPrimitive>
+            <ContainerPrimitive
+              className={"__visly_reset __visly_scope_GBUFXK8ScG_S7T37kknMS"}
+              key={"S7T37kknMS"}
+              addSpacing={false}
+              element={getStyle("S7T37kknMS", "htmlElement")}
+            >
+              <ContainerPrimitive
+                className={"__visly_reset __visly_scope_GBUFXK8ScG_93EMydgdsv"}
+                key={"93EMydgdsv"}
+                addSpacing={false}
+                element={getStyle("93EMydgdsv", "htmlElement")}
+              >
+                {
+                  <IconPrimitive
+                    className={
+                      "__visly_reset __visly_scope_GBUFXK8ScG_PyjEEck4UC"
+                    }
+                    key={"PyjEEck4UC"}
+                    useMask={getStyle("PyjEEck4UC", "useMask")}
+                    src={getStyle("PyjEEck4UC", "icon")}
+                  />
+                }
+              </ContainerPrimitive>
+              <SpacerPrimitive
+                className={"__visly_reset __visly_scope_GBUFXK8ScG_MLHN6nHhMa"}
+                key={"MLHN6nHhMa"}
+              />
+              <TextPrimitive
+                className={"__visly_reset __visly_scope_GBUFXK8ScG_MCawwQFVkV"}
+                key={"MCawwQFVkV"}
+                text={getStyle("MCawwQFVkV", "text")}
+                element={getStyle("MCawwQFVkV", "htmlElement")}
               />
             </ContainerPrimitive>
           </ContainerPrimitive>
@@ -193,6 +273,7 @@ function HbResults(_props) {
             className={"__visly_reset __visly_scope_GBUFXK8ScG_6xWxhWEy3g"}
             key={"6xWxhWEy3g"}
             addSpacing={false}
+            element={getStyle("6xWxhWEy3g", "htmlElement")}
           >
             {props.HbButton === undefined ? (
               <HbButtonComposite
@@ -221,6 +302,11 @@ function HbResults(_props) {
 }
 
 HbResults.HbButton = HbButtonComposite;
-HbResults.__variants = [];
+HbResults.__variants = [
+  {
+    name: "trialOff",
+    type: "variant",
+  },
+];
 
 export default HbResults;

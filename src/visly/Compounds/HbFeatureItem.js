@@ -75,11 +75,13 @@ function HbFeatureItem(_props) {
             text={
               exists(props.title) ? props.title : getStyle("WMJS8iYUM2", "text")
             }
+            element={getStyle("WMJS8iYUM2", "htmlElement")}
           />
           <ContainerPrimitive
             className={"__visly_reset __visly_scope_2nqE2sA12b_Gwzj8Sp6Nq"}
             key={"Gwzj8Sp6Nq"}
             addSpacing={false}
+            element={getStyle("Gwzj8Sp6Nq", "htmlElement")}
           >
             {null}
           </ContainerPrimitive>
@@ -93,6 +95,7 @@ function HbFeatureItem(_props) {
             text={
               exists(props.text) ? props.text : getStyle("QpvH3usWxS", "text")
             }
+            element={getStyle("QpvH3usWxS", "htmlElement")}
           />
         </>
       )}

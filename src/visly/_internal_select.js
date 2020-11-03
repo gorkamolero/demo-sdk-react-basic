@@ -7,8 +7,10 @@ import React, {
   useRef,
   useState,
   useLayoutEffect,
+  useMemo,
 } from "react";
 import {
+  ListLayout,
   mergeProps,
   HiddenSelect,
   useSelectState,
@@ -16,8 +18,10 @@ import {
   useButton,
   useListBox,
   useOption,
-  DismissButton,
   useFocusRing,
+  Virtualizer,
+  VirtualizerItem,
+  DismissButton,
 } from "@visly/core";
 import { combineRef, exists, renderChildren } from "./_internal_utils";
 import { usePrimitive } from "./_internal_usePrimitive";
@@ -36,6 +40,7 @@ export const SelectContext = createContext({
   vislyProps: {},
   menuProps: {},
   state: null,
+  layout: null,
   renderInline: false,
   rootClassName: "",
   triggerMeasureRef: null,
@@ -83,25 +88,42 @@ function SelectOptionContainerImpl(props) {
   ) : null;
 }
 
+function useListBoxLayout(state) {
+  const layout = useMemo(
+    () =>
+      new ListLayout({
+        estimatedRowHeight: 0,
+        padding: 0,
+      }),
+    []
+  );
+  layout.collection = state.collection;
+  layout.disabledKeys = state.disabledKeys;
+  return layout;
+}
+
 function _SelectOptionContainer(props) {
   const {
     menuProps,
     state,
+    layout,
     renderInline,
     triggerRef,
     rootClassName,
   } = useContext(SelectContext);
-  const ref = useRef(null);
+  const listboxRef = useRef(null);
   const { listBoxProps } = useListBox(
     {
-      children: [],
-      autoFocus: "first",
+      ...menuProps,
+      autoFocus: true,
       disallowEmptySelection: true,
       "aria-label": exists(state.selectedKey) ? state.selectedKey : "none",
       id: menuProps.id,
+      isVirtualized: true,
+      keyboardDelegate: layout,
     },
     state,
-    ref
+    listboxRef
   );
   const gravityOffset = 10;
   const [buttonWidth, setButtonWidth] = useState(null);
@@ -112,10 +134,20 @@ function _SelectOptionContainer(props) {
     }
   }, [triggerRef, state.selectedKey]);
 
+  const renderWrapper = (parent, reusableView) => {
+    return (
+      <VirtualizerItem
+        key={reusableView.key}
+        reusableView={reusableView}
+        parent={parent}
+      />
+    );
+  };
+
   if (renderInline) {
     return (
       <ul
-        ref={combineRef(ref, props.measureRef)}
+        ref={combineRef(listboxRef, props.measureRef)}
         className={props.className}
         style={{
           marginTop: gravityOffset,
@@ -136,7 +168,7 @@ function _SelectOptionContainer(props) {
 
   return (
     <Popover
-      scrollRef={ref}
+      scrollRef={listboxRef}
       triggerRef={triggerRef}
       isOpen={state.isOpen}
       containFocus
@@ -154,9 +186,16 @@ function _SelectOptionContainer(props) {
             {props.cssStyles}
           </style>
         ) : null}
-        <ul
+
+        <Virtualizer
           {...mergeProps(listBoxProps, menuProps)}
-          ref={combineRef(ref, props.measureRef)}
+          ref={listboxRef}
+          layout={layout}
+          collection={state.collection}
+          sizeToFit="height"
+          scrollDirection="vertical"
+          renderWrapper={renderWrapper}
+          focusedKey={state.selectionManager.focusedKey}
           className={props.className}
           style={{
             marginTop: gravityOffset,
@@ -169,17 +208,18 @@ function _SelectOptionContainer(props) {
               : {}),
           }}
         >
-          {[...state.collection].map((item) => (
-            <Option key={item.key} item={item} state={state} />
-          ))}
-        </ul>
+          {(_type, item) => {
+            return <Option key={item.key} item={item} />;
+          }}
+        </Virtualizer>
       </div>
       <DismissButton onDismiss={() => state.close()} />
     </Popover>
   );
 }
 
-function Option({ item, state }) {
+function Option({ item }) {
+  const { state } = useContext(SelectContext);
   const ref = useRef();
   const isDisabled = state.disabledKeys.has(item.key);
   const isSelected = state.selectionManager.isSelected(item.key);
@@ -191,6 +231,7 @@ function Option({ item, state }) {
       shouldSelectOnPressUp: true,
       shouldFocusOnHover: true,
       "aria-label": item.key,
+      isVirtualized: true,
     },
     state,
     ref
@@ -228,6 +269,7 @@ export function SelectRootImpl(props) {
     label: "Select",
     isDisabled,
   });
+  const layout = useListBoxLayout(state);
   const { triggerProps, menuProps } = useSelect(
     {
       children: items,
@@ -235,6 +277,7 @@ export function SelectRootImpl(props) {
       onSelectionChange: onSelect,
       "aria-label": "Select",
       shouldFlip: true,
+      keyboardDelegate: layout,
     },
     state,
     ref
@@ -261,6 +304,7 @@ export function SelectRootImpl(props) {
           vislyProps: other,
           testId,
           state,
+          layout,
           menuProps,
           rootClassName: className,
         }}

@@ -79,6 +79,7 @@ function Option(_props) {
           text={
             exists(props.label) ? props.label : getStyle("Tas2nBSZkf", "text")
           }
+          element={getStyle("Tas2nBSZkf", "htmlElement")}
         />
       )}
     </SelectOptionRoot>

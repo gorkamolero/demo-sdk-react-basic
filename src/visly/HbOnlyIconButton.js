@@ -19,7 +19,7 @@ const styles = [
       BCvLM6xQoX: {
         none: {
           role: "img",
-          src: require("./assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg"),
+          icon: require("./assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg"),
           useMask: true,
         },
       },
@@ -63,7 +63,7 @@ function HbOnlyIconButton(_props) {
           className={"__visly_reset __visly_scope_LFvSjwFotj_BCvLM6xQoX"}
           key={"BCvLM6xQoX"}
           useMask={getStyle("BCvLM6xQoX", "useMask")}
-          src={getStyle("BCvLM6xQoX", "src")}
+          src={getStyle("BCvLM6xQoX", "icon")}
         />
       )}
     </ButtonRoot>

@@ -67,3 +67,10 @@ export const Footer = styled(HbEndFooter)`
   position: fixed;
   bottom: 0;
 `
+
+export const Tip = styled.div(props => ({
+  backgroundColor: colors.hbYellow,
+  color: colors.hbBrown,
+  padding: 10, borderRadius: 4
+}))
+

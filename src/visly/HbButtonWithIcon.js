@@ -25,7 +25,7 @@ const styles = [
       "21mnkDJ1UQ": {
         none: {
           role: "img",
-          src: require("./assets/d335cc69-ef1c-4fab-a477-d420f754e056.svg"),
+          icon: require("./assets/d335cc69-ef1c-4fab-a477-d420f754e056.svg"),
           useMask: true,
         },
       },
@@ -104,12 +104,13 @@ function HbButtonWithIcon(_props) {
             text={
               exists(props.text) ? props.text : getStyle("QrGpru5iuK", "text")
             }
+            element={getStyle("QrGpru5iuK", "htmlElement")}
           />
           <IconPrimitive
             className={"__visly_reset __visly_scope_PZuf8HbDvD_21mnkDJ1UQ"}
             key={"21mnkDJ1UQ"}
             useMask={getStyle("21mnkDJ1UQ", "useMask")}
-            src={getStyle("21mnkDJ1UQ", "src")}
+            src={getStyle("21mnkDJ1UQ", "icon")}
           />
         </>
       )}

@@ -39,6 +39,7 @@ export const color = {
   white: "1a46fecf-73b1-44d3-88f8-69ef863d110a",
 };
 export const icon = {
+  afterTrialArrow: "c09fe3f3-e0fe-472d-9183-1cef3c7793ec",
   arrowRight: "d3f7af56-6dfa-46f9-ae00-549017913694",
   hbActivityActive: "04736f6d-3508-4b43-a810-6173d635309d",
   hbActivityAthlete: "3de5fbdc-9c46-49f1-bb9d-92afb97d81b3",
@@ -54,6 +55,7 @@ export const icon = {
   hbFooterPremium: "00143776-fc5c-4ae3-9fa7-90e433ca7278",
   hbFooterVetApproved: "666f1f42-7856-410d-a21d-6b44b737454e",
   hbHelp: "014eb0cb-24c5-4088-8b90-8c7ed2cd7167",
+  hbHelp2: "210db193-8725-4ddd-950c-2709dc00c0d0",
   hbLikesBeef: "38ac9739-dfaf-4e2f-8e98-519a11e99d57",
   hbLikesChicken: "a0cbe9cd-80c7-415a-84e2-7a8ec2bf82ef",
   hbLikesDuck: "e8ad0b84-8528-448b-a3ef-b8e2d2a6306b",

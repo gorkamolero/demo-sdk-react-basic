@@ -65,13 +65,16 @@ function Toggle(_props) {
         activeVariants: activeVariants,
       }}
     >
-      <ContainerPrimitive
-        className={"__visly_reset __visly_scope_RQNciNfRqs_toggle"}
-        key={"toggle"}
-        addSpacing={false}
-      >
-        {null}
-      </ContainerPrimitive>
+      {(getStyle) => (
+        <ContainerPrimitive
+          className={"__visly_reset __visly_scope_RQNciNfRqs_toggle"}
+          key={"toggle"}
+          addSpacing={false}
+          element={getStyle("toggle", "htmlElement")}
+        >
+          {null}
+        </ContainerPrimitive>
+      )}
     </CheckboxRoot>
   );
 }

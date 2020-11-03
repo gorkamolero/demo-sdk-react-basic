@@ -99,7 +99,6 @@ export function ListboxPrimitiveImpl(props) {
   });
   const { listBoxProps } = useListBox(
     {
-      children: items,
       disallowEmptySelection: false,
       selectedKeys: selected,
       onSelectionChange: onSelect,

@@ -29,7 +29,7 @@ const styles = [
       "8CLRfG5L7n": {
         none: {
           role: "img",
-          src: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
+          icon: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
       },
@@ -54,7 +54,7 @@ const styles = [
         layers: {
           "8CLRfG5L7n": {
             none: {
-              src: require("./assets/3421457c-3753-4949-b709-b4d47224a029.svg"),
+              icon: require("./assets/3421457c-3753-4949-b709-b4d47224a029.svg"),
             },
           },
         },
@@ -149,7 +149,7 @@ function HbIconButton(_props) {
             key={"8CLRfG5L7n"}
             useMask={getStyle("8CLRfG5L7n", "useMask")}
             src={
-              exists(props.icon) ? props.icon : getStyle("8CLRfG5L7n", "src")
+              exists(props.icon) ? props.icon : getStyle("8CLRfG5L7n", "icon")
             }
           />
           <SpacerPrimitive
@@ -162,6 +162,7 @@ function HbIconButton(_props) {
             text={
               exists(props.text) ? props.text : getStyle("2raK7yRvmH", "text")
             }
+            element={getStyle("2raK7yRvmH", "htmlElement")}
           />
         </>
       )}

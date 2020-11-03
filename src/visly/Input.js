@@ -18,7 +18,7 @@ const styles = [
     layers: {
       input: {
         none: {
-          placeholderText: "Placeholder",
+          "placeholder-text": "Placeholder",
         },
       },
     },
@@ -63,7 +63,7 @@ function Input(_props) {
           placeholder={
             exists(props.placeholder)
               ? props.placeholder
-              : getStyle("input", "placeholderText")
+              : getStyle("input", "placeholder-text")
           }
         />
       )}

@@ -25,7 +25,7 @@ const styles = [
       Mo7rGSicAa: {
         none: {
           role: "img",
-          src: require("./assets/dbe16c81-bff3-4c34-a2cf-276c5ce67996.png"),
+          icon: require("./assets/dbe16c81-bff3-4c34-a2cf-276c5ce67996.png"),
           useMask: true,
         },
       },
@@ -115,7 +115,7 @@ function HbFooterRectangle(_props) {
             key={"Mo7rGSicAa"}
             useMask={getStyle("Mo7rGSicAa", "useMask")}
             src={
-              exists(props.icon) ? props.icon : getStyle("Mo7rGSicAa", "src")
+              exists(props.icon) ? props.icon : getStyle("Mo7rGSicAa", "icon")
             }
           />
           <SpacerPrimitive
@@ -126,6 +126,7 @@ function HbFooterRectangle(_props) {
             className={"__visly_reset __visly_scope_Npa8kPzTtv_CD54kq73jf"}
             key={"CD54kq73jf"}
             addSpacing={false}
+            element={getStyle("CD54kq73jf", "htmlElement")}
           >
             <TextPrimitive
               className={"__visly_reset __visly_scope_Npa8kPzTtv_TtJg39uXYB"}
@@ -135,6 +136,7 @@ function HbFooterRectangle(_props) {
                   ? props.title
                   : getStyle("TtJg39uXYB", "text")
               }
+              element={getStyle("TtJg39uXYB", "htmlElement")}
             />
             <SpacerPrimitive
               className={"__visly_reset __visly_scope_Npa8kPzTtv_genqiGNMDt"}
@@ -148,6 +150,7 @@ function HbFooterRectangle(_props) {
                   ? props.subtitle
                   : getStyle("7pDuFKyB8H", "text")
               }
+              element={getStyle("7pDuFKyB8H", "htmlElement")}
             />
           </ContainerPrimitive>
         </>

@@ -19,7 +19,7 @@ const styles = [
       Pu3J7F2Y9P: {
         none: {
           role: "img",
-          src: require("./assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg"),
+          icon: require("./assets/cf60e26b-cb28-4b08-9866-ddf51237300e.svg"),
           useMask: true,
         },
       },
@@ -78,7 +78,7 @@ function HbCloseModal(_props) {
           className={"__visly_reset __visly_scope_YSH61WCwjS_Pu3J7F2Y9P"}
           key={"Pu3J7F2Y9P"}
           useMask={getStyle("Pu3J7F2Y9P", "useMask")}
-          src={getStyle("Pu3J7F2Y9P", "src")}
+          src={getStyle("Pu3J7F2Y9P", "icon")}
         />
       )}
     </ToggleButtonRoot>

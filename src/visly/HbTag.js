@@ -74,6 +74,7 @@ function HbTag(_props) {
               ? props.tagText
               : getStyle("XJDGMLiSr8", "text")
           }
+          element={getStyle("XJDGMLiSr8", "htmlElement")}
         />,
         <SpacerPrimitive
           className={"__visly_reset __visly_scope_R7jV18AV1o_MQ47jJXDie"}

@@ -64,6 +64,7 @@ function HbLinkButton(_props) {
           text={
             exists(props.text) ? props.text : getStyle("WVxTDumfT8", "text")
           }
+          element={getStyle("WVxTDumfT8", "htmlElement")}
         />
       )}
     </ButtonRoot>

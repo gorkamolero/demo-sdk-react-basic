@@ -93,8 +93,11 @@ export const HbEndFooter: {
       priceOriginal?: string;
       priceFinal?: string;
       total?: string;
+      HelpSlot?: React.ReactNode | React.ReactNode[];
       HbButtonWithIcon?: React.ReactNode;
+      HbLinkButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbButtonWithIcon: typeof HbButtonWithIcon;
+  HbLinkButton: typeof HbLinkButton;
 };

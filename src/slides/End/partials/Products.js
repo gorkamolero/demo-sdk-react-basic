@@ -1,12 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import { FlexBox } from "react-styled-flex";
-import { SlideContext } from '../../../context/SlideContext';
-import { HbWave, colors, HbLinkButton } from '../../../visly'
+import { HbWave, colors, HbLinkButton, textstyles } from '../../../visly'
 import { HbSection } from '../../../visly/Pages'
-import { HbProduct, HbResults } from '../../../visly/Compounds'
+import { HbProduct, HbProductEmpty, HbResults } from '../../../visly/Compounds'
 import Switch from '../../../components/Switch'
 import { useModal } from "react-modal-hook"
 import ProductModal from './ProductModal'
+import CustomHTML from '../../../components/CustomHTML/CustomHTML';
 
 
 const ProductType = {
@@ -16,20 +16,19 @@ const ProductType = {
 }
 
 const Products = ({
-                      style,
-                      selectedResults,
-                      setSelectedResults,
-                      subscription,
-                      setSubscription,
-                      setTotalPrice,
-                      getPrice,
-                      continueToCheckout,
-                      products,
-                      dog,
-                      goals,
-                      texts
-                  }) => {
-
+    style,
+    selectedResults,
+    setSelectedResults,
+    subscription,
+    setSubscription,
+    setTotalPrice,
+    getPrice,
+    continueToCheckout,
+    products,
+    dog,
+    goals,
+    texts
+}) => {
 
     const [results, setResults] = useState(null);
     const [modalData, setModalData] = useState(null);
@@ -43,12 +42,14 @@ const Products = ({
 
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
-    }, []);
+    }, [products.kibble, products.supplement, products.mixin]);
 
 
     useEffect(() => {
         setTotalPrice(
-            selectedResults.length > 0 ? selectedResults.map(({price}) => price).reduce((a, b) => a + b) : 0
+            Math.round((
+                selectedResults.length > 0 ? selectedResults.map(({price}) => price).reduce((a, b) => a + b) : 0
+            ) * 100) / 100
         )
     }, [subscription, selectedResults, setTotalPrice])
 
@@ -71,32 +72,48 @@ const Products = ({
             style={{ backgroundColor: colors.hbGoldLight}}
         >
             <FlexBox gap={'2%'}>
-                {results.map((result, i) => {
-                    return (
-                        result?<HbProduct
-                            key={i}
-                            imageSrc={result.images[result.selectedImage]}
-                            order={i + 1}
-                            style={{ flexBasis: '20%' }}
-                            title={result.title}
-                            priceOriginal={ subscription ? '$' + result.price : '' }
-                            priceFinal={`$${getPrice(result.price)}`}
-                            description={result.description}
-                            addLabel={selectedResults.includes(result) ? 'Added' : `Add ${ProductType[i]}` }
-                            type={ProductType[i]}
-                            details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(result) }>See details</HbLinkButton>}
-                            HbCheckbox={<HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />}
-                        >
-                        </HbProduct>:null
-                    )
-                } )}
+                {
+                    results.map((result, i) => (
+                        <>
+                            {
+                                result ? (
+                                    <HbProduct
+                                        key={i}
+                                        imageSrc={result.images[result.selectedImage]}
+                                        order={i + 1}
+                                        title={result.title}
+                                        priceOriginal={ subscription ? '$' + result.price : '' }
+                                        priceFinal={`$${getPrice(result.price)}`}
+                                        DescriptionHtml={
+                                            <CustomHTML style={{
+                                                ...textstyles.hbFeatureText,
+                                                color: colors.hbBrown
+                                            }} html={result.description} />
+                                        }
+                                        addLabel={selectedResults.includes(result) ? 'Added' : `Add ${ProductType[i]}` }
+                                        type={ProductType[i]}
+                                        details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(result) }>See details</HbLinkButton>}
+                                        HbCheckbox={
+                                            <HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />
+                                        }
+                                        style={{ width: '25%' }}
+                                    />
+                                ) : <HbProductEmpty
+                                        type={ProductType[i]}
+                                        style={{ width: '25%', minHeight: '60vh' }}
+                                    />
+                            }
+                        </>
+                    ))
+                }
 
                 <HbResults
-                    style={{ flexBasis: '20%' }}
-                    description={texts.plan.trial}
+                    style={{ width: '25%' }}
+                    trial={texts.plan.trial}
                     verylongname={`${dog.name}’s Plan`}
-                    description1={texts.plan.afterTrial}
+                    afterTrial={texts.plan.afterTrial}
                     HbButton={<HbResults.HbButton onPress={continueToCheckout} />}
+                    trialOff={!subscription}
                     children={<Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                 />
             </FlexBox>

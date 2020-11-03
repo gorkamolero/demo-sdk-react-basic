@@ -83,6 +83,7 @@ function Button(_props) {
               ? props.text
               : getStyle("segmented-control-button-text", "text")
           }
+          element={getStyle("segmented-control-button-text", "htmlElement")}
         />
       )}
     </RadioGroupButtonRoot>

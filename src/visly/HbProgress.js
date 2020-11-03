@@ -75,6 +75,7 @@ function HbProgress(_props) {
           className={"__visly_reset __visly_scope_58sVdZPWz3_9C7DRr8xaT"}
           key={"9C7DRr8xaT"}
           addSpacing={false}
+          element={getStyle("9C7DRr8xaT", "htmlElement")}
         >
           {
             <ContainerPrimitive

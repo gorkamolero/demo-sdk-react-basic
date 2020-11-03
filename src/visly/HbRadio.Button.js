@@ -30,7 +30,7 @@ const styles = [
       PpaiPZQUUA: {
         none: {
           role: "img",
-          src: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
+          icon: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
           useMask: true,
         },
       },
@@ -181,6 +181,7 @@ function Button(_props) {
             className={"__visly_reset __visly_scope_5gQcVEwtx6_DfPB1k7cBG"}
             key={"DfPB1k7cBG"}
             addSpacing={false}
+            element={getStyle("DfPB1k7cBG", "htmlElement")}
           >
             {
               <IconPrimitive
@@ -190,7 +191,7 @@ function Button(_props) {
                 src={
                   exists(props.icon)
                     ? props.icon
-                    : getStyle("PpaiPZQUUA", "src")
+                    : getStyle("PpaiPZQUUA", "icon")
                 }
               />
             }
@@ -205,6 +206,7 @@ function Button(_props) {
             text={
               exists(props.title) ? props.title : getStyle("6uiwQ5NcML", "text")
             }
+            element={getStyle("6uiwQ5NcML", "htmlElement")}
           />
         </>
       )}

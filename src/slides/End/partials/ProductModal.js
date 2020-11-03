@@ -32,7 +32,7 @@ const getGoalColum = function(goals, min, max) {
 };
 
 const getTabs = (product, dog, goals) => {
-    if (product.type=='kibble') {
+    if (product.type === 'kibble') {
         return (
             <Tabs>
                     <HbTabs>
@@ -195,7 +195,7 @@ const getTabs = (product, dog, goals) => {
                     </Panel>
                 </Tabs>
         )
-    } else if (product.type=='chews') {
+    } else if (product.type === 'chews') {
         return (
             <Tabs>
                 <HbTabs>
@@ -231,7 +231,7 @@ const getTabs = (product, dog, goals) => {
                 </Panel>
             </Tabs>
         )
-    } else if (product.type=='mixin') {
+    } else if (product.type === 'mixin') {
         return (
             <Tabs>
                 <HbTabs>

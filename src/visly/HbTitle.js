@@ -65,6 +65,7 @@ function HbTitle(_props) {
             className={"__visly_reset __visly_scope_FZkfHq6MCA_tkWWpRpjf3"}
             key={"tkWWpRpjf3"}
             text={getStyle("tkWWpRpjf3", "text")}
+            element={getStyle("tkWWpRpjf3", "htmlElement")}
           />
           <ContainerPrimitive
             key={"DxEPUaudXV"}

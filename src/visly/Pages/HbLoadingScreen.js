@@ -26,7 +26,7 @@ const styles = [
       TF559DqWXE: {
         none: {
           role: "img",
-          src: require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
+          icon: require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
           useMask: true,
         },
       },
@@ -78,12 +78,14 @@ function HbLoadingScreen(_props) {
             className={"__visly_reset __visly_scope_2Zvr78cate_6MBJoo4gou"}
             key={"6MBJoo4gou"}
             addSpacing={false}
+            element={getStyle("6MBJoo4gou", "htmlElement")}
           >
             {[
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_2Zvr78cate_Lw4AuqLvRj"}
                 key={"Lw4AuqLvRj"}
                 addSpacing={false}
+                element={getStyle("Lw4AuqLvRj", "htmlElement")}
               >
                 {
                   <ContainerPrimitive
@@ -92,6 +94,7 @@ function HbLoadingScreen(_props) {
                     }
                     key={"9NuKFcPxSx"}
                     addSpacing={false}
+                    element={getStyle("9NuKFcPxSx", "htmlElement")}
                   >
                     {
                       <IconPrimitive
@@ -100,7 +103,7 @@ function HbLoadingScreen(_props) {
                         }
                         key={"TF559DqWXE"}
                         useMask={getStyle("TF559DqWXE", "useMask")}
-                        src={getStyle("TF559DqWXE", "src")}
+                        src={getStyle("TF559DqWXE", "icon")}
                       />
                     }
                   </ContainerPrimitive>
@@ -131,6 +134,7 @@ function HbLoadingScreen(_props) {
             className={"__visly_reset __visly_scope_2Zvr78cate_5QBpZXrySw"}
             key={"5QBpZXrySw"}
             addSpacing={false}
+            element={getStyle("5QBpZXrySw", "htmlElement")}
           >
             {
               <ContainerPrimitive
@@ -146,6 +150,7 @@ function HbLoadingScreen(_props) {
             className={"__visly_reset __visly_scope_2Zvr78cate_PWRTy8cZVP"}
             key={"PWRTy8cZVP"}
             addSpacing={false}
+            element={getStyle("PWRTy8cZVP", "htmlElement")}
           >
             {props.HbFirstSlideFooter === undefined ? (
               <HbFirstSlideFooterComposite

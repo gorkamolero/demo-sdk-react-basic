@@ -64,6 +64,7 @@ function Button(_props) {
           text={
             exists(props.text) ? props.text : getStyle("HxPKbCp77g", "text")
           }
+          element={getStyle("HxPKbCp77g", "htmlElement")}
         />
       )}
     </ButtonRoot>

@@ -158,6 +158,7 @@ function HbProgressStep(_props) {
             className={"__visly_reset __visly_scope_VDZamdUPev_ND1GG14HkM"}
             key={"ND1GG14HkM"}
             addSpacing={false}
+            element={getStyle("ND1GG14HkM", "htmlElement")}
           >
             {
               <TextPrimitive
@@ -168,6 +169,7 @@ function HbProgressStep(_props) {
                     ? props.stepTitle
                     : getStyle("9kNRN8qWcz", "text")
                 }
+                element={getStyle("9kNRN8qWcz", "htmlElement")}
               />
             }
           </ContainerPrimitive>
@@ -175,6 +177,7 @@ function HbProgressStep(_props) {
             className={"__visly_reset __visly_scope_VDZamdUPev_T9iA7HLyzJ"}
             key={"T9iA7HLyzJ"}
             addSpacing={false}
+            element={getStyle("T9iA7HLyzJ", "htmlElement")}
           >
             {null}
           </ContainerPrimitive>

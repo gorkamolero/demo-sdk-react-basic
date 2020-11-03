@@ -79,6 +79,7 @@ function Item(_props) {
           text={
             exists(props.label) ? props.label : getStyle("4WQusUCHUn", "text")
           }
+          element={getStyle("4WQusUCHUn", "htmlElement")}
         />
       )}
     </ListboxItemPrimitive>

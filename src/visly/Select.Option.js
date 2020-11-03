@@ -79,6 +79,7 @@ function Option(_props) {
           text={
             exists(props.label) ? props.label : getStyle("DJFgdVooE8", "text")
           }
+          element={getStyle("DJFgdVooE8", "htmlElement")}
         />
       )}
     </SelectOptionRoot>

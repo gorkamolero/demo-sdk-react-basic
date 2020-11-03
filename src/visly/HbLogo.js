@@ -18,7 +18,7 @@ const styles = [
       FLHNXYLopv: {
         none: {
           role: "img",
-          src: require("./assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
+          icon: require("./assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
           useMask: true,
         },
       },
@@ -33,7 +33,7 @@ const styles = [
         layers: {
           FLHNXYLopv: {
             none: {
-              src: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
+              icon: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
             },
           },
         },
@@ -94,7 +94,7 @@ function HbLogo(_props) {
           className={"__visly_reset __visly_scope_3udiZxmptc_FLHNXYLopv"}
           key={"FLHNXYLopv"}
           useMask={getStyle("FLHNXYLopv", "useMask")}
-          src={getStyle("FLHNXYLopv", "src")}
+          src={getStyle("FLHNXYLopv", "icon")}
         />
       )}
     </RootPrimitive>

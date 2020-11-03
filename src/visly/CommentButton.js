@@ -29,7 +29,7 @@ const styles = [
       YLowiHcxUk: {
         none: {
           role: "img",
-          src: require("./assets/c960c1cc-f05b-4842-972b-c497154e2e5b@1x.svg"),
+          icon: require("./assets/c960c1cc-f05b-4842-972b-c497154e2e5b@1x.svg"),
           useMask: true,
         },
         hover: {
@@ -99,7 +99,7 @@ function CommentButton(_props) {
             key={"YLowiHcxUk"}
             useMask={getStyle("YLowiHcxUk", "useMask")}
             src={
-              exists(props.icon) ? props.icon : getStyle("YLowiHcxUk", "src")
+              exists(props.icon) ? props.icon : getStyle("YLowiHcxUk", "icon")
             }
           />
           <SpacerPrimitive
@@ -112,6 +112,7 @@ function CommentButton(_props) {
             text={
               exists(props.text) ? props.text : getStyle("336oAbe272", "text")
             }
+            element={getStyle("336oAbe272", "htmlElement")}
           />
         </>
       )}

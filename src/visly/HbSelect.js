@@ -34,7 +34,7 @@ const styles = [
       "3VtGBBDCR3": {
         none: {
           role: "img",
-          src: require("./assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg"),
+          icon: require("./assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg"),
           useMask: true,
         },
         hover: {
@@ -153,6 +153,7 @@ function HbSelect(_props) {
               className={"__visly_reset __visly_scope_AaLudVhbjf_Y1P6Hjm8D7"}
               key={"Y1P6Hjm8D7"}
               addSpacing={false}
+              element={getStyle("Y1P6Hjm8D7", "htmlElement")}
             >
               {null}
             </ContainerPrimitive>
@@ -166,6 +167,7 @@ function HbSelect(_props) {
                   ? props.label
                   : getStyle("select-button-text", "text")
               }
+              element={getStyle("select-button-text", "htmlElement")}
             />
             <SpacerPrimitive
               className={"__visly_reset __visly_scope_AaLudVhbjf_KFFKrL54Ck"}
@@ -175,6 +177,7 @@ function HbSelect(_props) {
               className={"__visly_reset __visly_scope_AaLudVhbjf_XBupFQrQKi"}
               key={"XBupFQrQKi"}
               addSpacing={false}
+              element={getStyle("XBupFQrQKi", "htmlElement")}
             >
               {
                 <IconPrimitive
@@ -183,7 +186,7 @@ function HbSelect(_props) {
                   }
                   key={"3VtGBBDCR3"}
                   useMask={getStyle("3VtGBBDCR3", "useMask")}
-                  src={getStyle("3VtGBBDCR3", "src")}
+                  src={getStyle("3VtGBBDCR3", "icon")}
                 />
               }
             </ContainerPrimitive>

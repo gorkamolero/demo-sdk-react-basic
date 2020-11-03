@@ -9557,6 +9557,11 @@ popmotion@9.0.0-rc.20:
     style-value-types "^3.1.9"
     tslib "^1.10.0"
 
+popper.js@^1.11.1:
+  version "1.16.1"
+  resolved "https://registry.yarnpkg.com/popper.js/-/popper.js-1.16.1.tgz#2a223cb3dc7b6213d740e40372be40de43e65b1b"
+  integrity sha512-Wb4p1J4zyFTbM+u6WuO4XstYx4Ky9Cewe4DWrel7B0w6VVICvPwdOpotjzcf6eD8TsckVnIMNONQyPIUFOUbCQ==
+
 portfinder@^1.0.26:
   version "1.0.28"
   resolved "https://registry.yarnpkg.com/portfinder/-/portfinder-1.0.28.tgz#67c4622852bd5374dd1dd900f779f53462fac778"
@@ -10718,6 +10723,13 @@ react-styled-flex@^1.0.19:
   version "1.0.19"
   resolved "https://registry.yarnpkg.com/react-styled-flex/-/react-styled-flex-1.0.19.tgz#629c9b50221504269289a00677aeb1f24074dd3b"
   integrity sha512-D3to/smyB0vokW9EPF9bVR/Rq9o/eVY7NLpuZuv1ofG0twVxpc4RMqmHqzqXoeUNOmYnTakVln5TSUP6qHtpCg==
+
+react-tippy@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/react-tippy/-/react-tippy-1.4.0.tgz#e8a8b4085ec985e5c94fe128918b733b588a1465"
+  integrity sha512-r/hM5XK9Ztr2ZY7IWKuRmISTlUPS/R6ddz6PO2EuxCgW+4JBcGZRPU06XcVPRDCOIiio8ryBQFrXMhFMhsuaHA==
+  dependencies:
+    popper.js "^1.11.1"
 
 react-transition-group@^4.3.0, react-transition-group@^4.4.1:
   version "4.4.1"

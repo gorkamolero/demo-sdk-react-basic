@@ -93,10 +93,13 @@ export const HbEndFooter: {
       priceOriginal?: string;
       priceFinal?: string;
       total?: string;
+      HelpSlot?: React.ReactNode | React.ReactNode[];
       HbButtonWithIcon?: React.ReactNode;
+      HbLinkButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbButtonWithIcon: typeof HbButtonWithIcon;
+  HbLinkButton: typeof HbLinkButton;
 };
 export const HbFeature: {
   (
@@ -128,7 +131,6 @@ export const HbProduct: {
   (
     props: {
       title?: string;
-      description?: string;
       extra?: string;
       imageSrc?: string;
       addLabel?: string;
@@ -137,6 +139,7 @@ export const HbProduct: {
       priceOriginal?: string;
       priceFinal?: string;
       details?: React.ReactNode | React.ReactNode[];
+      DescriptionHtml?: React.ReactNode | React.ReactNode[];
       HbCheckbox?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
@@ -156,11 +159,12 @@ export const HbProductEmpty: {
 export const HbResults: {
   (
     props: {
-      description?: string;
+      trial?: string;
       verylongname?: string;
       ImageSlot?: React.ReactNode | React.ReactNode[];
-      description1?: string;
+      afterTrial?: string;
       children?: React.ReactNode | React.ReactNode[];
+      trialOff?: boolean;
       HbButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

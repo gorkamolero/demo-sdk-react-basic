@@ -76,6 +76,7 @@ function HbResultsSwitch(_props) {
             className={"__visly_reset __visly_scope_G6soLsaE7f_Q3GAzF4SsV"}
             key={"Q3GAzF4SsV"}
             addSpacing={false}
+            element={getStyle("Q3GAzF4SsV", "htmlElement")}
           >
             {
               <TextPrimitive
@@ -86,6 +87,7 @@ function HbResultsSwitch(_props) {
                     ? props.leftLabel
                     : getStyle("ErMskujkgf", "text")
                 }
+                element={getStyle("ErMskujkgf", "htmlElement")}
               />
             }
           </ContainerPrimitive>
@@ -93,6 +95,7 @@ function HbResultsSwitch(_props) {
             className={"__visly_reset __visly_scope_G6soLsaE7f_8Yk4zNDXLG"}
             key={"8Yk4zNDXLG"}
             addSpacing={false}
+            element={getStyle("8Yk4zNDXLG", "htmlElement")}
           >
             {
               <TextPrimitive
@@ -103,6 +106,7 @@ function HbResultsSwitch(_props) {
                     ? props.rightLabel
                     : getStyle("HDw8QKzs7p", "text")
                 }
+                element={getStyle("HDw8QKzs7p", "htmlElement")}
               />
             }
           </ContainerPrimitive>
@@ -110,6 +114,7 @@ function HbResultsSwitch(_props) {
             className={"__visly_reset __visly_scope_G6soLsaE7f_M7AaCsm4Ka"}
             key={"M7AaCsm4Ka"}
             addSpacing={false}
+            element={getStyle("M7AaCsm4Ka", "htmlElement")}
           >
             {
               <TextPrimitive
@@ -120,6 +125,7 @@ function HbResultsSwitch(_props) {
                     ? props.handlelabel
                     : getStyle("UkdzqfKtpo", "text")
                 }
+                element={getStyle("UkdzqfKtpo", "htmlElement")}
               />
             }
           </ContainerPrimitive>

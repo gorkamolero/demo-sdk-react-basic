@@ -87,6 +87,7 @@ function HbFeatureInvert(_props) {
           className={"__visly_reset __visly_scope_SPtN2tvqGr_KxhjEmTBpq"}
           key={"KxhjEmTBpq"}
           addSpacing={false}
+          element={getStyle("KxhjEmTBpq", "htmlElement")}
         >
           {
             <ImagePrimitive

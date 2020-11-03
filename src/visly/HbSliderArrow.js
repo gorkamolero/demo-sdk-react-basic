@@ -23,7 +23,7 @@ const styles = [
       DXgkmLvzSZ: {
         none: {
           role: "img",
-          src: require("./assets/ce16c0b7-38b6-43fe-b6de-f496af3224ba.svg"),
+          icon: require("./assets/ce16c0b7-38b6-43fe-b6de-f496af3224ba.svg"),
           useMask: true,
         },
       },
@@ -82,6 +82,7 @@ function HbSliderArrow(_props) {
           className={"__visly_reset __visly_scope_LputxAZgVY_Mp3GmRbnWS"}
           key={"Mp3GmRbnWS"}
           addSpacing={false}
+          element={getStyle("Mp3GmRbnWS", "htmlElement")}
         >
           {[
             props.Component === undefined ? (
@@ -93,7 +94,7 @@ function HbSliderArrow(_props) {
               className={"__visly_reset __visly_scope_LputxAZgVY_DXgkmLvzSZ"}
               key={"DXgkmLvzSZ"}
               useMask={getStyle("DXgkmLvzSZ", "useMask")}
-              src={getStyle("DXgkmLvzSZ", "src")}
+              src={getStyle("DXgkmLvzSZ", "icon")}
             />,
           ]}
         </ContainerPrimitive>

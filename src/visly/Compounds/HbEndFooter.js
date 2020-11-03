@@ -14,11 +14,11 @@ import {
   RootPrimitive,
   TextPrimitive,
   ContainerPrimitive,
-  IconPrimitive,
 } from "../_internal_primitives";
 import HbButtonWithIconComposite, {
   HbButtonWithIconContext,
 } from "../HbButtonWithIcon";
+import HbLinkButtonComposite, { HbLinkButtonContext } from "../HbLinkButton";
 
 const styles = [
   {
@@ -32,18 +32,6 @@ const styles = [
       "96PHAUg8AY": {
         none: {
           text: "$19.99",
-        },
-      },
-      F89H3sVLrt: {
-        none: {
-          text: "Add Another Dog",
-        },
-      },
-      Mx2KtTR2cX: {
-        none: {
-          role: "img",
-          src: require("../assets/10300d2a-cf6b-431f-9817-bf5c0c1739a7.svg"),
-          useMask: true,
         },
       },
       GMQGJ3oWuC: {
@@ -62,6 +50,11 @@ const defaultPropValues = [
       QNXBFmS13r: {
         none: {
           text: "Continue to Checkout",
+        },
+      },
+      VJaaiFG35i: {
+        none: {
+          text: "Add another dog",
         },
       },
     },
@@ -97,11 +90,13 @@ function HbEndFooter(_props) {
           className={"__visly_reset __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"}
           key={"K8Rvc3Sc8R"}
           addSpacing={false}
+          element={getStyle("K8Rvc3Sc8R", "htmlElement")}
         >
           <ContainerPrimitive
             className={"__visly_reset __visly_scope_XdYhdmDsxs_8NeAjDqg32"}
             key={"8NeAjDqg32"}
             addSpacing={true}
+            element={getStyle("8NeAjDqg32", "htmlElement")}
           >
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"}
@@ -111,6 +106,7 @@ function HbEndFooter(_props) {
                   ? props.total
                   : getStyle("XXvgsKKhsZ", "text")
               }
+              element={getStyle("XXvgsKKhsZ", "htmlElement")}
             />
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_96PHAUg8AY"}
@@ -120,6 +116,7 @@ function HbEndFooter(_props) {
                   ? props.priceOriginal
                   : getStyle("96PHAUg8AY", "text")
               }
+              element={getStyle("96PHAUg8AY", "htmlElement")}
             />
             <TextPrimitive
               className={"__visly_reset __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"}
@@ -129,34 +126,52 @@ function HbEndFooter(_props) {
                   ? props.priceFinal
                   : getStyle("GMQGJ3oWuC", "text")
               }
+              element={getStyle("GMQGJ3oWuC", "htmlElement")}
             />
           </ContainerPrimitive>
           <ContainerPrimitive
             className={"__visly_reset __visly_scope_XdYhdmDsxs_3Uo7BCssEJ"}
             key={"3Uo7BCssEJ"}
             addSpacing={true}
+            element={getStyle("3Uo7BCssEJ", "htmlElement")}
           >
             {[
               <ContainerPrimitive
                 className={"__visly_reset __visly_scope_XdYhdmDsxs_FvzVudkqtn"}
                 key={"FvzVudkqtn"}
                 addSpacing={true}
+                element={getStyle("FvzVudkqtn", "htmlElement")}
               >
-                <TextPrimitive
-                  className={
-                    "__visly_reset __visly_scope_XdYhdmDsxs_F89H3sVLrt"
-                  }
-                  key={"F89H3sVLrt"}
-                  text={getStyle("F89H3sVLrt", "text")}
-                />
-                <IconPrimitive
-                  className={
-                    "__visly_reset __visly_scope_XdYhdmDsxs_Mx2KtTR2cX"
-                  }
-                  key={"Mx2KtTR2cX"}
-                  useMask={getStyle("Mx2KtTR2cX", "useMask")}
-                  src={getStyle("Mx2KtTR2cX", "src")}
-                />
+                {[
+                  props.HbLinkButton === undefined ? (
+                    <HbLinkButtonComposite
+                      key={"VJaaiFG35i"}
+                      {...getCompositeDefaultProps("VJaaiFG35i")}
+                      className="__visly_reset __visly_scope_XdYhdmDsxs_VJaaiFG35i"
+                    />
+                  ) : (
+                    <HbLinkButtonContext.Provider
+                      key="VJaaiFG35i-provider"
+                      value={{
+                        key: "VJaaiFG35i",
+                        className:
+                          "__visly_reset __visly_scope_XdYhdmDsxs_VJaaiFG35i",
+                        ...getCompositeDefaultProps("VJaaiFG35i"),
+                      }}
+                    >
+                      {props.HbLinkButton}
+                    </HbLinkButtonContext.Provider>
+                  ),
+                  <ContainerPrimitive
+                    key={"K4wEpWEnXY"}
+                    className={
+                      "__visly_reset __visly_scope_XdYhdmDsxs_K4wEpWEnXY"
+                    }
+                    addSpacing={false}
+                  >
+                    {props.HelpSlot}
+                  </ContainerPrimitive>,
+                ]}
               </ContainerPrimitive>,
               props.HbButtonWithIcon === undefined ? (
                 <HbButtonWithIconComposite
@@ -186,6 +201,7 @@ function HbEndFooter(_props) {
 }
 
 HbEndFooter.HbButtonWithIcon = HbButtonWithIconComposite;
+HbEndFooter.HbLinkButton = HbLinkButtonComposite;
 HbEndFooter.__variants = [];
 
 export default HbEndFooter;

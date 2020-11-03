@@ -90,6 +90,7 @@ function HbButton(_props) {
           text={
             exists(props.text) ? props.text : getStyle("QrGpru5iuK", "text")
           }
+          element={getStyle("QrGpru5iuK", "htmlElement")}
         />
       )}
     </ButtonRoot>

@@ -22,14 +22,14 @@ const styles = [
       Pvi6YdPjgx: {
         none: {
           role: "img",
-          src: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
+          icon: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
           useMask: true,
         },
       },
       TGjmjt52AW: {
         none: {
           role: "img",
-          src: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
+          icon: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
           useMask: true,
         },
       },
@@ -123,13 +123,14 @@ function HbWave(_props) {
             className={"__visly_reset __visly_scope_RtitAK5Bpp_EeCGBQ8FkZ"}
             key={"EeCGBQ8FkZ"}
             addSpacing={false}
+            element={getStyle("EeCGBQ8FkZ", "htmlElement")}
           >
             {
               <IconPrimitive
                 className={"__visly_reset __visly_scope_RtitAK5Bpp_TGjmjt52AW"}
                 key={"TGjmjt52AW"}
                 useMask={getStyle("TGjmjt52AW", "useMask")}
-                src={getStyle("TGjmjt52AW", "src")}
+                src={getStyle("TGjmjt52AW", "icon")}
               />
             }
           </ContainerPrimitive>
@@ -137,13 +138,14 @@ function HbWave(_props) {
             className={"__visly_reset __visly_scope_RtitAK5Bpp_91q2eiiHtA"}
             key={"91q2eiiHtA"}
             addSpacing={false}
+            element={getStyle("91q2eiiHtA", "htmlElement")}
           >
             {
               <IconPrimitive
                 className={"__visly_reset __visly_scope_RtitAK5Bpp_Pvi6YdPjgx"}
                 key={"Pvi6YdPjgx"}
                 useMask={getStyle("Pvi6YdPjgx", "useMask")}
-                src={getStyle("Pvi6YdPjgx", "src")}
+                src={getStyle("Pvi6YdPjgx", "icon")}
               />
             }
           </ContainerPrimitive>

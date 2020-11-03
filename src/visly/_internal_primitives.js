@@ -28,18 +28,20 @@ export function RootPrimitive(props) {
 }
 export function ContainerPrimitive(props) {
   const children = injectSpacing(props.addSpacing, props.children);
+  const Element = exists(props.element) ? props.element : "div";
   return (
-    <div ref={props.measureRef} className={props.className}>
+    <Element ref={props.measureRef} className={props.className}>
       {children}
-    </div>
+    </Element>
   );
 }
 export function TextPrimitive(props) {
-  const { className, text, measureRef } = props;
+  const { className, text, measureRef, element } = props;
+  const Element = exists(element) ? element : "div";
   return (
-    <div className={className} ref={measureRef}>
+    <Element className={className} ref={measureRef}>
       {text}
-    </div>
+    </Element>
   );
 }
 export function IconPrimitive(props) {

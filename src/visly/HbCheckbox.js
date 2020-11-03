@@ -19,7 +19,7 @@ const styles = [
       checkmark: {
         none: {
           role: "img",
-          src: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
+          icon: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
       },
@@ -84,7 +84,7 @@ function HbCheckbox(_props) {
           className={"__visly_reset __visly_scope_3LiUQ4dVhC_checkmark"}
           key={"checkmark"}
           useMask={getStyle("checkmark", "useMask")}
-          src={getStyle("checkmark", "src")}
+          src={getStyle("checkmark", "icon")}
         />
       )}
     </CheckboxRoot>
