@@ -33,7 +33,9 @@ const Products = ({
     const [results, setResults] = useState(null);
     const [modalData, setModalData] = useState(null);
 
-    const [showModal, hideModal] = useModal(() => <ProductModal hideModal={hideModal} product={modalData.product} dog={modalData.dog} goals={modalData.goals} texts={modalData.texts}/>, [modalData]);
+    const [showModal, hideModal] = useModal(() => (
+        <ProductModal hideModal={hideModal} product={modalData.product} dog={modalData.dog} goals={modalData.goals} texts={modalData.texts}/>
+    ), [modalData]);
 
     const viewProductDetails = (product) => {
         setModalData({product, dog:dog, goals:goals, texts:texts});

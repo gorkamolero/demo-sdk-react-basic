@@ -1,0 +1,585 @@
+.supModal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 10001; /* Sit on top */
+  padding-top: 0px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0, 0.9); /* Fallback color */
+}
+
+/* Modal Content */
+.supModal-content {
+  background-color: #fff;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 100%;
+  max-width: 834px;
+  height: 836px;
+  border-radius: 4px !important;
+  overflow-y: auto;
+}
+
+/* The Close Button */
+.supModalClose {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.supModalClose:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.supModalClose img {
+  width: 24px !important;
+  height: 24px !important;
+  margin: auto !important;
+}
+
+.supModalLogo img {
+  width: 100%;
+  max-width: 136px;
+  margin: 0 auto;
+  display: block;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.supTabGrp {
+  padding-left: 40px;
+  padding-right: 40px;
+  overflow: hidden;
+  display: block;
+}
+
+.suptabs {
+  width: 100%;
+  max-width: 714px;
+}
+
+.suptabs-header {
+  height: 48px;
+  background-color: #f3f3f3;
+  display: flex;
+}
+
+.suptab-active {
+  border-bottom: 2px solid rgb(213, 155, 43);
+}
+
+.suptab-active span {
+  font-family: AvertaStdPE-Bold !important;
+  color: rgb(98, 59, 42) !important;
+}
+
+.supPlan {
+  width: 238px !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: #1b1c24 !important;
+  font-weight: normal !important;
+  text-align: center !important;
+  font-family: AvertaStdPE-Regular !important;
+  display: flex !important;
+}
+
+.supPlan span {
+  margin: auto !important;
+}
+
+.supNutri {
+  width: 238px !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: #1b1c24 !important;
+  font-weight: normal !important;
+  text-align: center !important;
+  font-family: AvertaStdPE-Regular !important;
+  display: flex !important;
+}
+
+.supNutri span {
+  margin: auto !important;
+}
+
+.supTrans {
+  width: 238px !important;
+  font-size: 14px !important;
+  line-height: 18px !important;
+  color: #1b1c24 !important;
+  font-weight: normal !important;
+  text-align: center !important;
+  font-family: AvertaStdPE-Regular !important;
+  display: flex !important;
+}
+
+.supTrans span {
+  margin: auto !important;
+}
+
+.suptabs-content {
+  margin-top: 38px !important;
+}
+
+.supPlanContGrp .suptab-header {
+  margin-bottom: 40px;
+}
+
+.suptab-header h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 15px !important;
+}
+
+.suptab-header p {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: rgba(36, 36, 36, 0.8) !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Regular !important;
+}
+
+.suptab-content-1 h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 19px !important;
+}
+
+.supMealPlanGraphicGrp {
+  display: flex !important;
+}
+
+.supmeal-pln-bx-bg {
+  background: rgba(239, 143, 122, 0.1);
+  padding: 30px 69px;
+  border-radius: 4px;
+  height: 211px;
+  width: 100%;
+  max-width: 231px;
+  position: relative !important;
+}
+
+.supmeal-pln-bx-bg-1 {
+  margin-right: auto;
+}
+
+.supmeal-pln-bx-bg-3 {
+  margin-left: auto;
+}
+
+.supCircleMP {
+  height: 86px !important;
+  width: 86px !important;
+  background-color: rgba(239, 143, 122, 0.4) !important;
+  border-radius: 50% !important;
+  display: flex !important;
+}
+
+.supCircleMP-kcals img {
+  width: 100% !important;
+  max-width: 42px !important;
+  height: 47px !important;
+  margin: auto !important;
+}
+
+.supCircleMP-cupsPD img {
+  width: 100% !important;
+  max-width: 49px !important;
+  height: 38px !important;
+  margin: auto !important;
+}
+
+.supCircleMP-lbs7 img {
+  width: 100% !important;
+  max-width: 36px !important;
+  height: 48px !important;
+  margin: auto !important;
+}
+
+.supCircleMid {
+  height: 40px !important;
+  width: 40px !important;
+  background-color: #ef8f7a !important;
+  border-radius: 50% !important;
+  display: flex !important;
+}
+
+.supCircleMid span {
+  margin: auto !important;
+}
+
+.supCircleMid-1 {
+  position: absolute !important;
+  left: 38.3% !important;
+  top: 20.9% !important;
+}
+
+.supCircleMid-2 {
+  position: absolute !important;
+  left: 58.3% !important;
+  top: 20.9% !important;
+}
+
+.supCircleMid-2 span {
+  height: 8px !important;
+  display: flex !important;
+}
+
+.supmeal-plan-number {
+  margin-top: 10px !important;
+  text-align: center !important;
+  color: #ef8f7a !important;
+  font-size: 22px !important;
+  line-height: 28px !important;
+  font-family: AvertaStdPE-Bold !important;
+  font-weight: normal !important;
+}
+
+.supmeal-plan-label {
+  text-align: center !important;
+  font-family: AvertaStdPE-Regular !important;
+  color: #1b1c24 !important;
+  font-size: 18px !important;
+  line-height: 23px !important;
+  margin-top: 4px !important;
+}
+
+.suptab-content-2 {
+  margin-top: 40px !important;
+}
+
+.suptab-content-2 h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 29px !important;
+}
+
+.supGoalContent {
+  display: flex !important;
+}
+
+.supGoalContent ul {
+  margin-right: 68px !important;
+}
+
+.supGoalContent ul li {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #242424 !important;
+  font-family: AvertaStdPE-Regular !important;
+  font-weight: normal !important;
+}
+
+.supGoalContent ul:nth-child(4) {
+  margin-right: 0px !important;
+  margin-left: auto !important;
+}
+
+.suptab-content-trans {
+  background-color: rgba(239, 143, 122, 0.1) !important;
+  padding: 0 20px !important;
+  border-radius: 4px;
+  width: 100% !important;
+  max-width: 714px !important;
+  height: 300px !important;
+  padding-top: 30px !important;
+  margin-top: 38px !important;
+}
+
+.suptab-content-trans h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: center !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 0px !important;
+  position: relative;
+  margin-top: 0px !important;
+}
+
+.suptab-contentImgGrp {
+  display: flex !important;
+  margin-top: 37px !important;
+}
+
+.supTransImg {
+  margin-left: auto;
+  margin-right: auto;
+  margin: auto !important;
+}
+
+.supTransImg img {
+  width: 100% !important;
+  max-width: 150px !important;
+}
+
+.supTransImg-1 {
+  margin-left: 0px !important;
+}
+
+.supTransImg-4 {
+  margin-right: 0px !important;
+}
+
+.supTransImg p {
+  font-size: 16px !important;
+  line-height: 20px !important;
+  color: #623b2a !important;
+  font-family: AvertaStdPE-Bold !important;
+  font-weight: normal !important;
+  text-align: center !important;
+  margin-top: 13px !important;
+}
+
+.supcontent-Nutri {
+  display: flex !important;
+  margin-top: 40px !important;
+}
+
+.supcontent-NutriAnalysis {
+  width: 100%;
+  max-width: 284px !important;
+  height: 311px !important;
+  margin-right: 70px !important;
+}
+
+.supcontent-NutriAnalysis h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 15px !important;
+  position: relative;
+  margin-top: 0px !important;
+}
+
+.supcontent-NutriAnalysis ul {
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}
+
+.supcontent-NutriAnalysis ul li {
+  text-decoration: none !important;
+  list-style: none !important;
+  font-size: 16px !important;
+  line-height: 32px !important;
+  color: #242424 !important;
+  font-family: AvertaStdPE-Regular !important;
+  display: flex !important;
+  text-align: left !important;
+}
+
+.supcontent-NutriAnalysis ul li .nutriLabel {
+  margin-right: auto !important;
+  max-width: 180px !important;
+  width: 100% !important;
+}
+
+.supcontent-NutriAnalysis ul li .nutriValue {
+  margin-left: auto !important;
+  max-width: 90px !important;
+  width: 100% !important;
+}
+
+.supcontent-NutriStatement {
+  width: 100% !important;
+  max-width: 360px !important;
+  margin-left: auto;
+}
+
+.supcontent-NutriStatement h2 {
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #623b2a !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Semibold !important;
+  margin-bottom: 15px !important;
+  position: relative;
+  margin-top: 0px !important;
+}
+
+.supcontent-NutriStatement p {
+  font-size: 16px !important;
+  line-height: 24px !important;
+  color: rgba(36, 36, 36, 0.8) !important;
+  text-align: left !important;
+  font-family: AvertaStdPE-Regular !important;
+}
+
+.suptab-header > span:nth-child(1) > p:nth-child(3) {
+  margin-top: 30px !important;
+}
+
+.doseGrp {
+  display: flex !important;
+}
+
+.doseDogWeight {
+  margin-right: auto;
+}
+
+.doseDogWeight h3 {
+  font-size: 13px !important;
+  line-height: 32px !important;
+  color: rgba(77, 74, 69, 0.7) !important;
+  font-weight: normal !important;
+  margin-top: 0px !important;
+  text-transform: uppercase !important;
+}
+
+.doseDogWeight ul li {
+  list-style: none !important;
+  font-size: 16px !important;
+  line-height: 32px !important;
+  color: #242424 !important;
+}
+
+.doseDogWeight ul {
+  padding-left: 0px !important;
+}
+
+.dosePerDay {
+  text-align: right !important;
+  margin-right: 26px !important;
+}
+
+.dosePerDay h3 {
+  font-size: 13px !important;
+  line-height: 32px !important;
+  color: rgba(77, 74, 69, 0.7) !important;
+  font-weight: normal !important;
+  font-family: AvertaStdPE-Bold !important;
+  margin-top: 0px !important;
+  text-transform: uppercase !important;
+}
+
+.dosePerDay ul {
+  padding-left: 0px !important;
+}
+
+.dosePerDay ul li {
+  list-style: none !important;
+  font-size: 16px !important;
+  line-height: 32px !important;
+  color: #242424 !important;
+  font-family: AvertaStdPE-Regular !important;
+}
+
+@media only screen and (max-width: 1112px) {
+  .supModal-content {
+    height: 100% !important;
+    position: relative !important;
+    bottom: 0 !important;
+    margin-bottom: 0px !important;
+    margin-top: auto !important;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  .supModal-content {
+    height: 100% !important;
+    position: relative !important;
+    padding: 20px 0px !important;
+    width: 100% !important;
+    max-width: 767px !important;
+    min-width: 320px !important;
+  }
+
+  .supModalClose {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    padding-right: 20px;
+  }
+
+  .supModalLogo {
+    width: 100% !important;
+    max-width: 320px !important;
+    margin: 0 auto !important;
+  }
+
+  .suptab-header {
+    margin-top: 28px !important;
+    width: 100% !important;
+    min-width: 280px !important;
+    max-width: 671.13px !important;
+    margin: 0 auto !important;
+    padding: 0px 20px !important;
+    margin-top: 28px !important;
+  }
+
+  .supMealPlanGraphicGrp {
+    display: block !important;
+    position: relative !important;
+  }
+
+  .suptab-content-trans {
+    background-color: rgba(239, 143, 122, 0.1) !important;
+    padding: 0 20px !important;
+    border-radius: 4px;
+    width: 100% !important;
+    max-width: 767px !important;
+    height: 429px !important;
+    padding-top: 20px !important;
+    margin-top: 20px !important;
+    min-width: 320px !important;
+  }
+
+  .supTabGrp {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .suptab-content {
+    width: 100% !important;
+    min-width: 280px !important;
+    max-width: 671.13px !important;
+    margin: 0 auto !important;
+    padding: 0px 20px !important;
+  }
+}
+
+@media only screen and (max-width: 414px) {
+  .supPlanContGrp .suptab-header {
+    margin-bottom: 100px !important;
+  }
+
+  .suptab-header {
+    margin-bottom: 120px !important;
+  }
+}
+
+@media only screen and (max-width: 320px) {
+  .supModal-content {
+    height: 100% !important;
+    bottom: 0 !important;
+  }
+
+  .supPlanContGrp .suptab-header {
+    margin-bottom: 100px !important;
+  }
+
+  .suptab-header {
+    margin-bottom: 120px !important;
+  }
+}

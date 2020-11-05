@@ -1,11 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
 import { Tabs, Panel, useTabState } from '@bumaga/tabs'
-import { HbCloseModal, HbTabs } from '../../../visly'
+import { HbCloseModal, HbTabs, colors, textstyles } from '../../../visly'
 import { FlexBox } from "react-styled-flex";
 import CustomHTML from "../../../components/CustomHTML/CustomHTML";
+import './modals/commonModals.css'
+import './modals/kibbleModal.css'
+import './modals/mixinModal.css'
+import './modals/supplementModal.css'
 
 const Close = styled(HbCloseModal)`
   position: absolute;
@@ -34,22 +38,23 @@ const getGoalColum = function(goals, min, max) {
 const getTabs = (product, dog, goals) => {
     if (product.type === 'kibble') {
         return (
-            <Tabs>
+            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+                <Tabs>
                     <HbTabs>
                         <Tab text="Meal Plan" />
                         <Tab text="Transitioning" />
                         <Tab text="Nutritional Info" />
                     </HbTabs>
-
+                    <div className="spacer"></div>
                     <Panel>
                         <div className="kibtab-header">
-                            <h2><span className="capitalise-pz">{dog.name}</span>'s Custom Plan</h2>
+                            <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Custom Plan</h2>
                             <p>We have used <span className="capitalise-pz">{dog.name}</span>’s unique characteristics
                                 and health goals to create the following personalized feeding requirement.</p>
                         </div>
 
                         <div className="kibtab-content-1">
-                            <h2><span className="capitalise-pz">{dog.name}</span>'s Meal Plan</h2>
+                            <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Meal Plan</h2>
 
                             <div className="KibMealPlanGraphicGrp">
                                 <div className="kibmeal-pln-bx-bg kibmeal-pln-bx-bg-1">
@@ -106,7 +111,7 @@ const getTabs = (product, dog, goals) => {
                         </div>
 
                         <div className="kibtab-content-2">
-                            <h2><span className="capitalise-pz">{dog.name}</span>'s Health Goals</h2>
+                            <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Health Goals</h2>
                             <div className="kibGoalContent">
                                 {getGoalColum(goals, 0,2)}
                                 {getGoalColum(goals, 3,5)}
@@ -118,13 +123,13 @@ const getTabs = (product, dog, goals) => {
 
                     <Panel>
                         <div className="kibtab-header">
-                            <h2>Feeding Transition</h2>
+                            <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Feeding Transition</h2>
                             <p>Hungry Bark has over 66 billion probiotic microorganisms, making it easier for your dog to transition to.</p>
                         </div>
 
                         <div className="kibtab-content">
                             <div className="kibtab-content-trans">
-                                <h2>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
+                                <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
 
                                 <div className="kibtab-contentImgGrp">
                                     <div className="kibTransImg kibTransImg-1">
@@ -161,14 +166,14 @@ const getTabs = (product, dog, goals) => {
 
                     <Panel>
                         <div className="kibtab-header">
-                            <h2><span className="capitalise-pz">{dog.name}</span>'s Ingredients</h2>
+                            <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Ingredients</h2>
                             <p>{product.ingredients}</p>
                         </div>
 
                         <div className="kibcontent-Nutri">
 
                             <div className="kibcontent-NutriAnalysis">
-                                <h2>Guaranteed Analysis</h2>
+                                <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Guaranteed Analysis</h2>
                                 <ul>
                                     {product.values.map(value => (
                                         <>
@@ -180,7 +185,7 @@ const getTabs = (product, dog, goals) => {
                             </div>
 
                             <div className="kibcontent-NutriStatement">
-                                <h2>AAFCO statement</h2>
+                                <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>AAFCO statement</h2>
                                 <p>Hungry Bark is formulated to meet the nutritional levels established by the AAFCO
                                     (Association of American Feed Control Officials) Dog Food Nutrient Profiles for All Life
                                     Stages.</p>
@@ -194,74 +199,90 @@ const getTabs = (product, dog, goals) => {
 
                     </Panel>
                 </Tabs>
+            </div>
         )
     } else if (product.type === 'chews') {
         return (
-            <Tabs>
-                <HbTabs>
-                    <Tab text="Description" />
-                    <Tab text="Dosing" />
-                    <Tab text="Nutritional" />
-                </HbTabs>
+            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+                <Tabs>
+                    <HbTabs>
+                        <Tab text="Description" />
+                        <Tab text="Dosing" />
+                        <Tab text="Nutritional" />
+                    </HbTabs>
+                    <div className="spacer"></div>
 
-                <Panel>
-                    <h2>Dosing Guidelines for <span className="capitalise-pz">{dog.name}</span></h2>
-                    <div className="doseGrp">
-                        <div className="doseDogWeight">
-                            <h3>Weight</h3>
-                            <ul>
-                                <li>{dog.weight} lbs</li>
-                            </ul>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Dosing Guidelines for <span className="capitalise-pz">{dog.name}</span></h2>
+                        <div className="doseGrp">
+                            <div className="doseDogWeight">
+                                <h3>Weight</h3>
+                                <ul>
+                                    <li>{dog.weight} lbs</li>
+                                </ul>
+                            </div>
+                            <div className="dosePerDay">
+                                <h3>Chews Per Day</h3>
+                                <ul>
+                                    <li>{product.chews1}</li>
+                                </ul>
+                            </div>
                         </div>
-                        <div className="dosePerDay">
-                            <h3>Chews Per Day</h3>
-                            <ul>
-                                <li>{product.chews1}</li>
-                            </ul>
-                        </div>
-                    </div>
-                </Panel>
+                    </Panel>
 
-                <Panel>
-                    <h2>Scoop, Pour & Mix</h2>
-                    <p>Mix in 1 tablespoon per cup of food.</p>
-                </Panel>
-                <Panel>
-                    <CustomHTML html={product.nutrition}></CustomHTML>
-                </Panel>
-            </Tabs>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
+                        <p>Mix in 1 tablespoon per cup of food.</p>
+                    </Panel>
+                    <Panel>
+                        <CustomHTML html={product.nutrition}></CustomHTML>
+                    </Panel>
+                </Tabs>
+            </div>
         )
     } else if (product.type === 'mixin') {
         return (
-            <Tabs>
-                <HbTabs>
-                    <Tab text="Description" />
-                    <Tab text="Feeding Guideline" />
-                    <Tab text="Nutritional" />
-                </HbTabs>
+            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+                <Tabs>
+                    <HbTabs>
+                        <Tab text="Description" />
+                        <Tab text="Feeding Guideline" />
+                        <Tab text="Nutritional" />
+                    </HbTabs>
+                    <div className="spacer"></div>
 
-                <Panel>
-                    <h2>{product.title}</h2>
-                    <CustomHTML html={product.description}></CustomHTML>
-                </Panel>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>{product.title}</h2>
+                        <CustomHTML html={product.description}></CustomHTML>
+                    </Panel>
 
-                <Panel>
-                    <h2>Scoop, Pour & Mix</h2>
-                    <p>Mix in 1 tablespoon per cup of food.</p>
-                </Panel>
-                <Panel>
-                    <CustomHTML html={product.nutrition}></CustomHTML>
-                </Panel>
-            </Tabs>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
+                        <p>Mix in 1 tablespoon per cup of food.</p>
+                    </Panel>
+                    <Panel>
+                        <CustomHTML html={product.nutrition}></CustomHTML>
+                    </Panel>
+                </Tabs>
+            </div>
         )
     }
 };
 
 const ProductModal = ({hideModal, product, dog, goals}) => {
+    console.log('PROD', product)
+
+    useEffect(() => {
+        document.body.classList.add('noScroll')
+
+        return () => document.body.classList.remove('noScroll')
+
+    }, [])
+
     return (
         <ReactModal isOpen onAfterClose={hideModal}>
             <FlexBox justifyContent="center">
-                <HbSection style={{ margin: '0 auto' }} withImage imageSrc={product.sectionsImg}>
+                <HbSection style={{ margin: '0 auto', alignItems: 'flex-start' }} withImage imageSrc={product.images[product.selectedImage]}>
                     {getTabs(product, dog, goals)}
                 </HbSection>
 

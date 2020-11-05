@@ -253,6 +253,23 @@ small {
   z-index: 2;
 }
 
+.noScroll {
+  overflow: hidden;
+}
+
+.spacer {
+  padding: 10px;
+}
+
 .tippy-tooltip.light-theme [x-circle] {
   background-color: var(--hbYellow) !important;
+}
+.ReactModal__Overlay {
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.75) !important;
+}
+
+.ReactModal__Content {
+  max-width: 60ch;
+  margin: 0 auto;
 }

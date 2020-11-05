@@ -1,0 +1,104 @@
+
+@media only screen and (max-width: 1112px) {
+
+  .closeModalMob {
+    position: fixed !important;
+    background: #fff !important;
+    bottom: 0 !important;
+    height: 60px !important;
+    text-align: center !important;
+    width: 100% !important;
+    left: 9.3% !important;
+    right: 50% !important;
+    border-top: 1px solid #D9DAE6 !important;
+    padding-top: 20px !important;
+    font-size: 16px !important;
+    line-height: 20px !important;
+    color: #4D4A45 !important;
+    text-transform: uppercase !important;
+    font-family: AvertaStdPE-Bold !important;
+    max-width: 834px;
+  }
+
+  .kibbleModal-content, .mixinModal-content, .supModal-content {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+  }
+  
+}  
+
+
+@media only screen and (max-width: 834px) {
+  .closeModalMob {
+    width: 100% !important;
+    max-width: 100%;
+    left: 0 !important;
+    right: 0 !important;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+
+  .supModal-content, .mixinModal-content {
+    height: 100% !important;
+    bottom: 0 !important;
+  }
+
+}
+
+@media only screen and (max-width: 500px) {
+
+  .closeModalMob {
+    position: fixed !important;
+    background: #fff !important;
+  }
+  
+  .prodCont-Mob .qtySelectGrp {
+    min-width: 120px !important;
+    max-width: 328.71px !important;
+    width: 100% !important;
+    }
+  
+  .prodCont-Mob .supplementQty .qtySelectGrp {
+    min-width: 260px !important;
+    max-width: 711.12px !important;
+    width: 100% !important;
+  }
+    
+
+  .prodCont-Mob .qtySelectGrp > select {
+    min-width: 60px !important;
+    max-width: 500px !important;
+    width: 100% !important;
+  }
+
+}
+
+@media only screen and (max-width: 414px) {
+
+   .kibbleModal-content, .mixinModal-content, .supModal-content {
+      bottom: 0 !important;
+      height: 100% !important;
+      position: relative !important;
+      padding: 20px 0px !important;
+      width: 100% !important;
+      max-width: 767px !important;
+      min-width: 320px !important;
+  }
+
+}
+
+@media only screen and (max-width: 320px) {
+
+
+  .kibbleModal-content, .mixinModal-content, .supModal-content {
+    bottom: 0 !important;
+    height: 100% !important;
+    position: relative !important;
+    padding: 20px 0px !important;
+    width: 100% !important;
+    max-width: 767px !important;
+    min-width: 320px !important;
+  }
+
+}
