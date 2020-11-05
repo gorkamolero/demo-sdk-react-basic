@@ -83,6 +83,7 @@ function HbLogo(_props) {
       key="RuuCtDNuhF"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "RuuCtDNuhF",
         scope: "3udiZxmptc",
@@ -91,7 +92,10 @@ function HbLogo(_props) {
     >
       {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_3udiZxmptc_FLHNXYLopv"}
+          id={"Icon_FLHNXYLopv"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_3udiZxmptc_FLHNXYLopv"
+          }
           key={"FLHNXYLopv"}
           useMask={getStyle("FLHNXYLopv", "useMask")}
           src={getStyle("FLHNXYLopv", "icon")}

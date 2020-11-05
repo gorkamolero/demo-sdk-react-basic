@@ -43,6 +43,7 @@ function Segmented(_props) {
       key="segmented-control-root"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "segmented-control-root",
         scope: "Nx26hYCFkE",

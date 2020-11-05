@@ -66,6 +66,7 @@ function Option(_props) {
       key="select-option-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "select-option-root",
         scope: "YCaC21ACBT",
@@ -74,7 +75,10 @@ function Option(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_YCaC21ACBT_DJFgdVooE8"}
+          id={"text_DJFgdVooE8"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_YCaC21ACBT_DJFgdVooE8"
+          }
           key={"DJFgdVooE8"}
           text={
             exists(props.label) ? props.label : getStyle("DJFgdVooE8", "text")

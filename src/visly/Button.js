@@ -51,6 +51,7 @@ function Button(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "57m21SveAo",
@@ -59,7 +60,10 @@ function Button(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_57m21SveAo_HxPKbCp77g"}
+          id={"text_HxPKbCp77g"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_57m21SveAo_HxPKbCp77g"
+          }
           key={"HxPKbCp77g"}
           text={
             exists(props.text) ? props.text : getStyle("HxPKbCp77g", "text")

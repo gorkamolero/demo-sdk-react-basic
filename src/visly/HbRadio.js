@@ -107,6 +107,7 @@ function HbRadio(_props) {
       key="radio-group-root"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "radio-group-root",
         scope: "Wuqc7UwXwC",

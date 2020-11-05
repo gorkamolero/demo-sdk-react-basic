@@ -8,8 +8,7 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0,0.9); /* Fallback color */
-  
+  background-color: rgb(0, 0, 0, 0.9); /* Fallback color */
 }
 
 /* Modal Content */
@@ -46,8 +45,6 @@
   margin: auto !important;
 }
 
-
-
 .mixinModalLogo img {
   width: 100%;
   max-width: 116.33px;
@@ -71,7 +68,7 @@
 
 .mixintabs-header {
   height: 48px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   display: flex;
 }
 
@@ -80,16 +77,14 @@
 }
 
 .mixintab-active span {
-  font-family: AvertaStdPE-Bold !important;
   color: rgb(98, 59, 42) !important;
 }
-
 
 .mixinPlan {
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -104,7 +99,7 @@
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -119,7 +114,7 @@
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -141,7 +136,7 @@
 .mixintab-header h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -158,7 +153,7 @@
 .mixintab-content-1 h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 19px !important;
@@ -169,7 +164,7 @@
 }
 
 .mixinmeal-pln-bx-bg {
-  background: rgba(239,143,122,0.1);
+  background: rgba(239, 143, 122, 0.1);
   padding: 30px 69px;
   border-radius: 4px;
   height: 211px;
@@ -182,7 +177,7 @@
   margin-right: auto;
 }
 
-.mixinmeal-pln-bx-bg-3{
+.mixinmeal-pln-bx-bg-3 {
   margin-left: auto;
 }
 
@@ -216,11 +211,11 @@
 }
 
 .mixinCircleMid {
-    height: 40px !important;
-    width: 40px !important;
-    background-color: #EF8F7A !important;
-    border-radius: 50% !important;
-    display: flex !important;
+  height: 40px !important;
+  width: 40px !important;
+  background-color: #ef8f7a !important;
+  border-radius: 50% !important;
+  display: flex !important;
 }
 
 .mixinCircleMid span {
@@ -247,17 +242,16 @@
 .mixinmeal-plan-number {
   margin-top: 10px !important;
   text-align: center !important;
-  color: #EF8F7A !important;
+  color: #ef8f7a !important;
   font-size: 22px !important;
   line-height: 28px !important;
-  font-family: AvertaStdPE-Bold !important;
   font-weight: normal !important;
 }
 
 .mixinmeal-plan-label {
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-size: 18px !important;
   line-height: 23px !important;
   margin-top: 4px !important;
@@ -270,7 +264,7 @@
 .mixintab-content-2 h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 29px !important;
@@ -285,20 +279,17 @@
 }
 
 .mixinGoalContent ul li {
-    font-size: 18px !important;
-    line-height: 23px !important;
-    color: #242424 !important;
-    font-family: AvertaStdPE-Regular !important;
-    font-weight: normal !important;
-
+  font-size: 18px !important;
+  line-height: 23px !important;
+  color: #242424 !important;
+  font-family: AvertaStdPE-Regular !important;
+  font-weight: normal !important;
 }
 
 .mixinGoalContent ul:nth-child(4) {
   margin-right: 0px !important;
   margin-left: auto !important;
 }
-
-
 
 .mixintab-content-trans {
   background-color: rgba(239, 143, 122, 0.1) !important;
@@ -314,7 +305,7 @@
 .mixintab-content-trans h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: center !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 0px !important;
@@ -349,8 +340,7 @@
 .mixinTransImg p {
   font-size: 16px !important;
   line-height: 20px !important;
-  color: #623B2A !important;
-  font-family: AvertaStdPE-Bold !important;
+  color: #623b2a !important;
   font-weight: normal !important;
   text-align: center !important;
   margin-top: 13px !important;
@@ -371,7 +361,7 @@
 .mixincontent-NutriAnalysis h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -416,7 +406,7 @@
 .mixincontent-NutriStatement h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -433,17 +423,14 @@
 }
 
 @media only screen and (max-width: 1112px) {
-
   .mixinModal-content {
     height: 100% !important;
     position: relative !important;
     bottom: 0;
   }
-
 }
 
 @media only screen and (max-width: 500px) {
-
   .mixinModal-content {
     height: 100% !important;
     position: relative !important;
@@ -465,7 +452,7 @@
     width: 100% !important;
     max-width: 320px !important;
     margin: 0 auto !important;
-    }
+  }
 
   .mixintab-header {
     margin-top: 28px !important;
@@ -476,7 +463,6 @@
     padding: 0px 20px !important;
     margin-top: 28px !important;
   }
-
 
   .mixintab-content-trans {
     background-color: rgba(239, 143, 122, 0.1) !important;
@@ -489,12 +475,12 @@
     margin-top: 20px !important;
     min-width: 320px !important;
   }
-  
+
   .mixinTabGrp {
     padding-left: 0px;
     padding-right: 0px;
   }
-  
+
   .mixintab-content {
     width: 100% !important;
     min-width: 280px !important;
@@ -502,23 +488,17 @@
     margin: 0 auto !important;
     padding: 0px 20px !important;
   }
-
 }
 
-
 @media only screen and (max-width: 414px) {
-
   .mixintabs-content {
     margin-bottom: 100px !important;
   }
-
 }
 
 @media only screen and (max-width: 320px) {
-
   .mixinModal-content {
     height: 100% !important;
     bottom: 0;
   }
-
 }

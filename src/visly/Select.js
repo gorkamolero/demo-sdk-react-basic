@@ -66,6 +66,7 @@ function Select(_props) {
       key="select-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "select-root",
         scope: "9cCvR1MveE",
@@ -76,11 +77,13 @@ function Select(_props) {
         <>
           <SelectButton
             key="select-button"
-            className="__visly_reset __visly_scope_9cCvR1MveE_select-button"
+            id={"Button_select-button"}
+            className="__visly_reset_WDRq65T88Q __visly_scope_9cCvR1MveE_select-button"
           >
             <TextPrimitive
+              id={"text_select-button-text"}
               className={
-                "__visly_reset __visly_scope_9cCvR1MveE_select-button-text"
+                "__visly_reset_WDRq65T88Q __visly_scope_9cCvR1MveE_select-button-text"
               }
               key={"select-button-text"}
               text={
@@ -91,11 +94,17 @@ function Select(_props) {
               element={getStyle("select-button-text", "htmlElement")}
             />
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_9cCvR1MveE_XD9syCR31b"}
+              id={"spacer_XD9syCR31b"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9cCvR1MveE_XD9syCR31b"
+              }
               key={"XD9syCR31b"}
             />
             <IconPrimitive
-              className={"__visly_reset __visly_scope_9cCvR1MveE_2pmEsZq6Nc"}
+              id={"icon_2pmEsZq6Nc"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9cCvR1MveE_2pmEsZq6Nc"
+              }
               key={"2pmEsZq6Nc"}
               useMask={getStyle("2pmEsZq6Nc", "useMask")}
               src={getStyle("2pmEsZq6Nc", "icon")}
@@ -103,7 +112,8 @@ function Select(_props) {
           </SelectButton>
           <SelectOptionContainer
             key="select-menu"
-            className="__visly_reset __visly_scope_9cCvR1MveE_select-menu"
+            id={"Menu_select-menu"}
+            className="__visly_reset_WDRq65T88Q __visly_scope_9cCvR1MveE_select-menu"
             innerKey="select-menu"
             addSpacing={false}
             useButtonWidth={true}

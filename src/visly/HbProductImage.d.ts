@@ -87,23 +87,10 @@ export interface CommonProps<T extends HTMLElement> {
   onBlur?: React.FocusEventHandler<T>;
   onBlurCapture?: React.FocusEventHandler<T>;
 }
-export const Select: {
+export const HbProductImage: {
   (
     props: {
-      label?: string;
-      selected?: string;
-      onSelect: (value: string) => void;
-      gap?: number;
-      children?: React.ReactNode[];
+      imageSrc?: string;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-  Option: {
-    (
-      props: {
-        label?: string;
-        value: string;
-        selected?: boolean;
-      } & CommonProps<HTMLDivElement>
-    ): JSX.Element;
-  };
 };

@@ -116,7 +116,7 @@ export const HbPopover: {
       offset?: number;
       crossOffset?: number;
       autoFocusFirst?: boolean;
-      containFocus?: number;
+      containFocus?: boolean;
       isOpen: boolean;
       onShouldClose?: () => void;
     } & CommonProps<HTMLDivElement>

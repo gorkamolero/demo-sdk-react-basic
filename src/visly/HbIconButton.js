@@ -136,6 +136,7 @@ function HbIconButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "RK1ajYQDzn",
@@ -145,7 +146,10 @@ function HbIconButton(_props) {
       {(getStyle) => (
         <>
           <IconPrimitive
-            className={"__visly_reset __visly_scope_RK1ajYQDzn_8CLRfG5L7n"}
+            id={"Icon_8CLRfG5L7n"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_RK1ajYQDzn_8CLRfG5L7n"
+            }
             key={"8CLRfG5L7n"}
             useMask={getStyle("8CLRfG5L7n", "useMask")}
             src={
@@ -153,11 +157,17 @@ function HbIconButton(_props) {
             }
           />
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_RK1ajYQDzn_9UVDautth7"}
+            id={"Spacer_9UVDautth7"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_RK1ajYQDzn_9UVDautth7"
+            }
             key={"9UVDautth7"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_RK1ajYQDzn_2raK7yRvmH"}
+            id={"text_2raK7yRvmH"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_RK1ajYQDzn_2raK7yRvmH"
+            }
             key={"2raK7yRvmH"}
             text={
               exists(props.text) ? props.text : getStyle("2raK7yRvmH", "text")

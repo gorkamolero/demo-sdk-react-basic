@@ -8,8 +8,7 @@
   width: 100%; /* Full width */
   height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0,0.9); /* Fallback color */
-  
+  background-color: rgb(0, 0, 0, 0.9); /* Fallback color */
 }
 
 /* Modal Content */
@@ -42,10 +41,10 @@
 }
 
 .kibModalLogo img {
-    width: 100%;
-    max-width: 286px;
-    margin: 0 auto;
-    display: block;
+  width: 100%;
+  max-width: 286px;
+  margin: 0 auto;
+  display: block;
 }
 
 .kibTabGrp {
@@ -62,7 +61,7 @@
 
 .kibtabs-header {
   height: 48px;
-  background-color: #F3F3F3;
+  background-color: #f3f3f3;
   display: flex;
 }
 
@@ -71,16 +70,14 @@
 }
 
 .kibtab-active span {
-  font-family: AvertaStdPE-Bold !important;
   color: rgb(98, 59, 42) !important;
 }
-
 
 .kibPlan {
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -95,7 +92,7 @@
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -110,7 +107,7 @@
   width: 238px !important;
   font-size: 14px !important;
   line-height: 18px !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
@@ -132,7 +129,7 @@
 .kibtab-header h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -149,7 +146,7 @@
 .kibtab-content-1 h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 19px !important;
@@ -163,7 +160,7 @@
 }
 
 .kibmeal-pln-bx-bg {
-  background: rgba(239,143,122,0.1);
+  background: rgba(239, 143, 122, 0.1);
   padding: 30px 69px;
   border-radius: 4px;
   height: 211px;
@@ -176,7 +173,7 @@
   margin-right: auto;
 }
 
-.kibmeal-pln-bx-bg-3{
+.kibmeal-pln-bx-bg-3 {
   margin-left: auto;
 }
 
@@ -212,7 +209,7 @@
 .kibCircleMid {
   height: 40px !important;
   width: 40px !important;
-  background-color: #EF8F7A !important;
+  background-color: #ef8f7a !important;
   border-radius: 50% !important;
   display: flex !important;
 }
@@ -235,16 +232,15 @@
 
 @media screen and (max-width: 700px) {
   .kibCircleMid-1 {
-    left:22% !important;
+    left: 22% !important;
   }
 
   .kibCircleMid-2 {
-    left:70% !important;
+    left: 70% !important;
   }
 }
 
 @media screen and (max-width: 600px) {
-
   .kibtab-content-1 {
     width: 100% !important;
     min-width: 280px !important;
@@ -262,17 +258,16 @@
 .kibmeal-plan-number {
   margin-top: 10px !important;
   text-align: center !important;
-  color: #EF8F7A !important;
+  color: #ef8f7a !important;
   font-size: 22px !important;
   line-height: 28px !important;
-  font-family: AvertaStdPE-Bold !important;
   font-weight: normal !important;
 }
 
 .kibmeal-plan-label {
   text-align: center !important;
   font-family: AvertaStdPE-Regular !important;
-  color: #1B1C24 !important;
+  color: #1b1c24 !important;
   font-size: 18px !important;
   line-height: 23px !important;
   margin-top: 4px !important;
@@ -285,7 +280,7 @@
 .kibtab-content-2 h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 29px !important;
@@ -333,7 +328,7 @@
 .kibtab-content-trans h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: center !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 0px !important;
@@ -368,8 +363,7 @@
 .kibTransImg p {
   font-size: 16px !important;
   line-height: 20px !important;
-  color: #623B2A !important;
-  font-family: AvertaStdPE-Bold !important;
+  color: #623b2a !important;
   font-weight: normal !important;
   text-align: center !important;
   margin-top: 13px !important;
@@ -390,7 +384,7 @@
 .kibcontent-NutriAnalysis h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -435,7 +429,7 @@
 .kibcontent-NutriStatement h2 {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #623B2A !important;
+  color: #623b2a !important;
   text-align: left !important;
   font-family: AvertaStdPE-Semibold !important;
   margin-bottom: 15px !important;
@@ -461,27 +455,25 @@
 }
 
 @media only screen and (max-width: 1112px) {
-
   .kibbleModal-content {
-      height: 100% !important;
-      position: relative !important;
-    }
+    height: 100% !important;
+    position: relative !important;
+  }
 
-    .kibdisclaimer {
-      margin-bottom: 80px !important;
-    }
-    
-    .kibtab-content-trans {
-      margin-bottom: 120px !important;
-    }
-    
-    .kibGoalContent {
-      margin-bottom: 80px !important;
-    }
+  .kibdisclaimer {
+    margin-bottom: 80px !important;
+  }
+
+  .kibtab-content-trans {
+    margin-bottom: 120px !important;
+  }
+
+  .kibGoalContent {
+    margin-bottom: 80px !important;
+  }
 }
 
 @media only screen and (max-width: 500px) {
-
   .kibbleModal-content {
     height: 100% !important;
     position: relative !important;
@@ -515,7 +507,6 @@
     margin-top: 28px !important;
   }
 
-
   .KibMealPlanGraphicGrp-mob {
     display: block !important;
     position: relative !important;
@@ -532,14 +523,14 @@
     margin-top: 20px !important;
     min-width: 320px !important;
   }
-  
+
   .kibTabGrp {
     padding-left: 0px;
     padding-right: 0px;
   }
-  
- .kibmeal-pln-bx-bg {
-    background: rgba(239,143,122,0.1);
+
+  .kibmeal-pln-bx-bg {
+    background: rgba(239, 143, 122, 0.1);
     padding: 20px 20px;
     border-radius: 4px;
     height: 126px;
@@ -551,20 +542,21 @@
     position: relative !important;
     margin: 0 auto;
   }
-  
+
   .kibmeal-plan-number {
     position: absolute !important;
     left: 126px;
     top: 36px !important;
   }
-  
+
   .kibmeal-plan-label {
     position: absolute !important;
     left: 126px;
     top: 70px !important;
   }
-  
-  .kibtab-content-2, .kibcontent-Nutri {
+
+  .kibtab-content-2,
+  .kibcontent-Nutri {
     width: 100% !important;
     min-width: 280px !important;
     max-width: 671.13px !important;
@@ -573,52 +565,50 @@
     margin-top: 40px !important;
     padding: 0px 20px !important;
   }
-
 }
 
 @media only screen and (max-width: 414px) {
-
   .kibCircleMid-2 span {
-      position: relative;
+    position: relative;
   }
-  
+
   .kib-transGrp-1 {
     position: relative;
     width: 100% !important;
     display: flex;
     margin-bottom: 30px;
   }
-  
+
   .kibTransImg-1 {
     position: relative;
     left: 0 !important;
     width: 45% !important;
   }
-  
+
   .kibTransImg-2 {
     position: relative;
     right: 0 !important;
     width: 45% !important;
   }
-  
+
   .kib-transGrp-2 {
     position: relative;
     width: 100% !important;
     display: flex;
   }
-  
+
   .kibTransImg-3 {
     position: relative;
     left: 0 !important;
     width: 45% !important;
   }
-  
+
   .kibTransImg-4 {
     position: relative;
     right: 0 !important;
     width: 45% !important;
   }
-  
+
   .kibtab-content-trans {
     height: auto !important;
     padding-bottom: 30px !important;
@@ -628,6 +618,4 @@
   .kibbleModal-content {
     height: 100% !important;
   }
-
-
 }

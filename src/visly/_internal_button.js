@@ -2,7 +2,7 @@
 /* tslint:disable */
 /* eslint-disable */
 import React, { useRef, useEffect, useState } from "react";
-import { mergeProps, useButton } from "@visly/core";
+import { mergeProps, useButton, useFocusRing } from "@visly/core";
 import { combineRef, renderChildren } from "./_internal_utils";
 import { usePrimitive } from "./_internal_usePrimitive";
 import { injectSpacing } from "./_internal_component_utils";
@@ -16,6 +16,7 @@ export function ButtonRoot(_props) {
     }
   );
   const { isPressed, buttonProps } = useButton({ ...props, isDisabled }, ref);
+  const { isFocusVisible, focusProps } = useFocusRing();
   const {
     style,
     testId,
@@ -27,6 +28,8 @@ export function ButtonRoot(_props) {
     ref,
     props,
     isPressed,
+    ignoreFocusHandling: true,
+    isFocusVisible,
   });
   useEffect(() => {
     setIsDisabled(disabled);
@@ -37,7 +40,7 @@ export function ButtonRoot(_props) {
   );
   return (
     <button
-      {...mergeProps(vislyProps, buttonProps)}
+      {...mergeProps(vislyProps, buttonProps, focusProps)}
       ref={combineRef(props.measureRef, combineRef(innerRef, ref))}
       data-testid={testId}
       style={{ ...style }}

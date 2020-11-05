@@ -50,6 +50,7 @@ function Input(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "AzHv2NByua",
@@ -58,7 +59,8 @@ function Input(_props) {
     >
       {(getStyle) => (
         <TextFieldPrimitive
-          className={"__visly_reset __visly_scope_AzHv2NByua_input"}
+          id={"input_input"}
+          className={"__visly_reset_WDRq65T88Q __visly_scope_AzHv2NByua_input"}
           key={"input"}
           placeholder={
             exists(props.placeholder)

@@ -52,6 +52,7 @@ function HbOnlyIconButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "LFvSjwFotj",
@@ -60,7 +61,10 @@ function HbOnlyIconButton(_props) {
     >
       {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_LFvSjwFotj_BCvLM6xQoX"}
+          id={"Icon_BCvLM6xQoX"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_LFvSjwFotj_BCvLM6xQoX"
+          }
           key={"BCvLM6xQoX"}
           useMask={getStyle("BCvLM6xQoX", "useMask")}
           src={getStyle("BCvLM6xQoX", "icon")}

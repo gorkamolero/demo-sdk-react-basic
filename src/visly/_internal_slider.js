@@ -168,31 +168,32 @@ export const SliderStyles = {
     position: "relative",
   },
 };
-export const SliderTrack = ({ className, children, measureRef }) => {
+export const SliderTrack = ({ className, id, children, measureRef }) => {
   const { trackRef } = useContext(SliderContext);
   return (
     <div
       ref={combineRef(trackRef, measureRef)}
       className={className}
+      id={id}
       style={SliderStyles.track}
     >
       {children}
     </div>
   );
 };
-export const SliderThumb = ({ className, measureRef }) => {
+export const SliderThumb = ({ className, id, measureRef }) => {
   const { handler } = useContext(SliderContext);
   const style = exists(handler)
     ? SliderStyles.thumb(handler.getProgress())
     : undefined;
-  return <div ref={measureRef} style={style} className={className} />;
+  return <div ref={measureRef} id={id} style={style} className={className} />;
 };
-export const SliderProgress = ({ className, measureRef }) => {
+export const SliderProgress = ({ className, id, measureRef }) => {
   const { handler } = useContext(SliderContext);
   const style = exists(handler)
     ? SliderStyles.progress(handler.getProgress())
     : undefined;
-  return <div ref={measureRef} className={className} style={style} />;
+  return <div ref={measureRef} id={id} className={className} style={style} />;
 };
 export function SliderRoot(props) {
   const { min = 0, max = 100, value = 50, ...rest } = props;

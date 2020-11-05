@@ -79,6 +79,7 @@ function HbEndFooter(_props) {
       key="k3jaASDPhw"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "k3jaASDPhw",
         scope: "XdYhdmDsxs",
@@ -87,19 +88,28 @@ function HbEndFooter(_props) {
     >
       {(getStyle) => (
         <ContainerPrimitive
-          className={"__visly_reset __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"}
+          id={"Container_K8Rvc3Sc8R"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"
+          }
           key={"K8Rvc3Sc8R"}
           addSpacing={false}
           element={getStyle("K8Rvc3Sc8R", "htmlElement")}
         >
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_XdYhdmDsxs_8NeAjDqg32"}
+            id={"Row_8NeAjDqg32"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_8NeAjDqg32"
+            }
             key={"8NeAjDqg32"}
             addSpacing={true}
             element={getStyle("8NeAjDqg32", "htmlElement")}
           >
             <TextPrimitive
-              className={"__visly_reset __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"}
+              id={"Total_XXvgsKKhsZ"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"
+              }
               key={"XXvgsKKhsZ"}
               text={
                 exists(props.total)
@@ -109,7 +119,10 @@ function HbEndFooter(_props) {
               element={getStyle("XXvgsKKhsZ", "htmlElement")}
             />
             <TextPrimitive
-              className={"__visly_reset __visly_scope_XdYhdmDsxs_96PHAUg8AY"}
+              id={"Text_96PHAUg8AY"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_96PHAUg8AY"
+              }
               key={"96PHAUg8AY"}
               text={
                 exists(props.priceOriginal)
@@ -119,7 +132,10 @@ function HbEndFooter(_props) {
               element={getStyle("96PHAUg8AY", "htmlElement")}
             />
             <TextPrimitive
-              className={"__visly_reset __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"}
+              id={"Text_GMQGJ3oWuC"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"
+              }
               key={"GMQGJ3oWuC"}
               text={
                 exists(props.priceFinal)
@@ -130,14 +146,20 @@ function HbEndFooter(_props) {
             />
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_XdYhdmDsxs_3Uo7BCssEJ"}
+            id={"Row_3Uo7BCssEJ"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_3Uo7BCssEJ"
+            }
             key={"3Uo7BCssEJ"}
             addSpacing={true}
             element={getStyle("3Uo7BCssEJ", "htmlElement")}
           >
             {[
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_XdYhdmDsxs_FvzVudkqtn"}
+                id={"Row_FvzVudkqtn"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FvzVudkqtn"
+                }
                 key={"FvzVudkqtn"}
                 addSpacing={true}
                 element={getStyle("FvzVudkqtn", "htmlElement")}
@@ -147,15 +169,17 @@ function HbEndFooter(_props) {
                     <HbLinkButtonComposite
                       key={"VJaaiFG35i"}
                       {...getCompositeDefaultProps("VJaaiFG35i")}
-                      className="__visly_reset __visly_scope_XdYhdmDsxs_VJaaiFG35i"
+                      id="HbLinkButton_VJaaiFG35i"
+                      className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i"
                     />
                   ) : (
                     <HbLinkButtonContext.Provider
                       key="VJaaiFG35i-provider"
                       value={{
                         key: "VJaaiFG35i",
+                        id: "HbLinkButton_VJaaiFG35i",
                         className:
-                          "__visly_reset __visly_scope_XdYhdmDsxs_VJaaiFG35i",
+                          "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i",
                         ...getCompositeDefaultProps("VJaaiFG35i"),
                       }}
                     >
@@ -164,8 +188,9 @@ function HbEndFooter(_props) {
                   ),
                   <ContainerPrimitive
                     key={"K4wEpWEnXY"}
+                    id={"Slot_K4wEpWEnXY"}
                     className={
-                      "__visly_reset __visly_scope_XdYhdmDsxs_K4wEpWEnXY"
+                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K4wEpWEnXY"
                     }
                     addSpacing={false}
                   >
@@ -177,15 +202,17 @@ function HbEndFooter(_props) {
                 <HbButtonWithIconComposite
                   key={"QNXBFmS13r"}
                   {...getCompositeDefaultProps("QNXBFmS13r")}
-                  className="__visly_reset __visly_scope_XdYhdmDsxs_QNXBFmS13r"
+                  id="HbButtonWithIcon_QNXBFmS13r"
+                  className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r"
                 />
               ) : (
                 <HbButtonWithIconContext.Provider
                   key="QNXBFmS13r-provider"
                   value={{
                     key: "QNXBFmS13r",
+                    id: "HbButtonWithIcon_QNXBFmS13r",
                     className:
-                      "__visly_reset __visly_scope_XdYhdmDsxs_QNXBFmS13r",
+                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r",
                     ...getCompositeDefaultProps("QNXBFmS13r"),
                   }}
                 >

@@ -46,6 +46,7 @@ export function Root(props) {
       <Context.Provider
         value={{
           inputRef: combineRef(props.inputRef, focusDelegateRef),
+          inputProps: props.inputProps || {},
           onFocus: vislyProps.onFocus,
           onBlur: vislyProps.onBlur,
           onChange,
@@ -59,9 +60,15 @@ export function Root(props) {
   );
 }
 export function TextFieldPrimitive(props) {
-  const { onFocus, onBlur, onChange, inputRef, value, disabled } = useContext(
-    Context
-  );
+  const {
+    onFocus,
+    onBlur,
+    onChange,
+    inputRef,
+    inputProps,
+    value,
+    disabled,
+  } = useContext(Context);
   const { focusProps } = useFocus({
     onFocus,
     onBlur,
@@ -69,6 +76,7 @@ export function TextFieldPrimitive(props) {
   const placeholder = props.placeholder;
   return (
     <input
+      {...inputProps}
       type="text"
       {...focusProps}
       onChange={onChange}
@@ -77,6 +85,7 @@ export function TextFieldPrimitive(props) {
       placeholder={placeholder}
       disabled={disabled}
       className={props.className}
+      id={props.id}
       style={{
         borderImage: "none",
         outline: "none",
@@ -86,6 +95,7 @@ export function TextFieldPrimitive(props) {
               cursor: "not-allowed",
             }
           : {}),
+        ...inputProps.style,
       }}
     />
   );

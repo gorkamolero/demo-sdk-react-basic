@@ -66,6 +66,7 @@ function Item(_props) {
       key="listbox-item-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "listbox-item-root",
         scope: "7bKpy8A4f9",
@@ -74,7 +75,10 @@ function Item(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_7bKpy8A4f9_4WQusUCHUn"}
+          id={"text_4WQusUCHUn"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_7bKpy8A4f9_4WQusUCHUn"
+          }
           key={"4WQusUCHUn"}
           text={
             exists(props.label) ? props.label : getStyle("4WQusUCHUn", "text")

@@ -93,6 +93,7 @@ function HbContent(_props) {
       key="GWx7RTdU26"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "GWx7RTdU26",
         scope: "MgHA7CBn3d",
@@ -101,7 +102,10 @@ function HbContent(_props) {
     >
       <ContainerPrimitive
         key={"863xCtrSQi"}
-        className={"__visly_reset __visly_scope_MgHA7CBn3d_863xCtrSQi"}
+        id={"Slot_863xCtrSQi"}
+        className={
+          "__visly_reset_WDRq65T88Q __visly_scope_MgHA7CBn3d_863xCtrSQi"
+        }
         addSpacing={true}
       >
         {props.children}

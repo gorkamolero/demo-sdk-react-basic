@@ -32,7 +32,6 @@
   .__visly_scope_5gQcVEwtx6_6uiwQ5NcML {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #242424;
   text-align: start;
   white-space: normal;
@@ -43,6 +42,7 @@
   line-height: 20px;
   flex-shrink: 1;
   align-self: auto;
+  overflow: visible;
   padding: 0;
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_default.__visly_state_hover

@@ -77,7 +77,6 @@
 }
 
 .suptab-active span {
-  font-family: AvertaStdPE-Bold !important;
   color: rgb(98, 59, 42) !important;
 }
 
@@ -246,7 +245,6 @@
   color: #ef8f7a !important;
   font-size: 22px !important;
   line-height: 28px !important;
-  font-family: AvertaStdPE-Bold !important;
   font-weight: normal !important;
 }
 
@@ -343,7 +341,6 @@
   font-size: 16px !important;
   line-height: 20px !important;
   color: #623b2a !important;
-  font-family: AvertaStdPE-Bold !important;
   font-weight: normal !important;
   text-align: center !important;
   margin-top: 13px !important;
@@ -467,7 +464,6 @@
   line-height: 32px !important;
   color: rgba(77, 74, 69, 0.7) !important;
   font-weight: normal !important;
-  font-family: AvertaStdPE-Bold !important;
   margin-top: 0px !important;
   text-transform: uppercase !important;
 }

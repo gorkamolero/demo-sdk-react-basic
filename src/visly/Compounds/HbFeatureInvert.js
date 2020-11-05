@@ -54,6 +54,7 @@ function HbFeatureInvert(_props) {
       key="QF3aX47C17"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "QF3aX47C17",
         scope: "SPtN2tvqGr",
@@ -65,14 +66,17 @@ function HbFeatureInvert(_props) {
           <HbFeatureItemComposite
             key={"RWAtM6Cbek"}
             {...getCompositeDefaultProps("RWAtM6Cbek")}
-            className="__visly_reset __visly_scope_SPtN2tvqGr_RWAtM6Cbek"
+            id="HbFeatureItem_RWAtM6Cbek"
+            className="__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_RWAtM6Cbek"
           />
         ) : (
           <HbFeatureItemContext.Provider
             key="RWAtM6Cbek-provider"
             value={{
               key: "RWAtM6Cbek",
-              className: "__visly_reset __visly_scope_SPtN2tvqGr_RWAtM6Cbek",
+              id: "HbFeatureItem_RWAtM6Cbek",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_RWAtM6Cbek",
               ...getCompositeDefaultProps("RWAtM6Cbek"),
             }}
           >
@@ -80,18 +84,27 @@ function HbFeatureInvert(_props) {
           </HbFeatureItemContext.Provider>
         ),
         <SpacerPrimitive
-          className={"__visly_reset __visly_scope_SPtN2tvqGr_AniiyGaDfa"}
+          id={"Spacer_AniiyGaDfa"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_AniiyGaDfa"
+          }
           key={"AniiyGaDfa"}
         />,
         <ContainerPrimitive
-          className={"__visly_reset __visly_scope_SPtN2tvqGr_KxhjEmTBpq"}
+          id={"ImageContainer_KxhjEmTBpq"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_KxhjEmTBpq"
+          }
           key={"KxhjEmTBpq"}
           addSpacing={false}
           element={getStyle("KxhjEmTBpq", "htmlElement")}
         >
           {
             <ImagePrimitive
-              className={"__visly_reset __visly_scope_SPtN2tvqGr_NtUhg3o63o"}
+              id={"Image_NtUhg3o63o"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_NtUhg3o63o"
+              }
               key={"NtUhg3o63o"}
               src={
                 exists(props.imageSrc)
@@ -103,7 +116,10 @@ function HbFeatureInvert(_props) {
           }
         </ContainerPrimitive>,
         <SpacerPrimitive
-          className={"__visly_reset __visly_scope_SPtN2tvqGr_2VS5uK6ip5"}
+          id={"Spacer_2VS5uK6ip5"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_SPtN2tvqGr_2VS5uK6ip5"
+          }
           key={"2VS5uK6ip5"}
         />,
       ]}

@@ -20,7 +20,7 @@ const Testimonials = () => {
     const getTestimonials = async () => {
       try {
         let testimonials = await getDatasheet([{id}])
-        console.log(testimonials)
+        // console.log(testimonials)
         testimonials = testimonials.result[id]
         setTestimonials(testimonials)
       } catch(err) {

@@ -50,6 +50,7 @@ function HbPopover(_props) {
       key="popover-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "popover-root",
         scope: "VMTpFDHeuv",
@@ -58,7 +59,10 @@ function HbPopover(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_VMTpFDHeuv_2nxKs2aETh"}
+          id={"text_2nxKs2aETh"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_VMTpFDHeuv_2nxKs2aETh"
+          }
           key={"2nxKs2aETh"}
           text={getStyle("2nxKs2aETh", "text")}
           element={getStyle("2nxKs2aETh", "htmlElement")}

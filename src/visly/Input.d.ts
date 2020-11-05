@@ -94,6 +94,7 @@ export const Input: {
       value?: string;
       onChange?: (value: string) => void;
       inputRef?: React.Ref<HTMLInputElement>;
+      inputProps?: CommonProps<HTMLInputElement>;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from "react-styled-flex";
-import { HbWave, colors, HbLinkButton, textstyles } from '../../../visly'
+import { HbWave, colors, HbLinkButton, HbProductImage, textstyles } from '../../../visly'
 import { HbSection } from '../../../visly/Pages'
 import { HbProduct, HbProductEmpty, HbResults } from '../../../visly/Compounds'
 import Switch from '../../../components/Switch'
@@ -62,6 +62,8 @@ const Products = ({
         else return setSelectedResults(selectedResults.concat(result))
     }
 
+    const resultImages = results.map(result => result && result.images && result.images[result.selectedImage]);
+
     return (
         <HbSection
             noMaxWidth
@@ -117,6 +119,15 @@ const Products = ({
                     HbButton={<HbResults.HbButton onPress={continueToCheckout} />}
                     trialOff={!subscription}
                     children={<Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
+                    ImageSlot={
+                        resultImages.map(img => (
+                            <>
+                                {
+                                    img && <HbProductImage imageSrc={img} style={{ marginLeft: -15 }} />
+                                }
+                            </>
+                        ))
+                    }
                 />
             </FlexBox>
         </HbSection>

@@ -30,7 +30,7 @@ export function ContainerPrimitive(props) {
   const children = injectSpacing(props.addSpacing, props.children);
   const Element = exists(props.element) ? props.element : "div";
   return (
-    <Element ref={props.measureRef} className={props.className}>
+    <Element ref={props.measureRef} id={props.id} className={props.className}>
       {children}
     </Element>
   );
@@ -39,7 +39,7 @@ export function TextPrimitive(props) {
   const { className, text, measureRef, element } = props;
   const Element = exists(element) ? element : "div";
   return (
-    <Element className={className} ref={measureRef}>
+    <Element id={props.id} className={className} ref={measureRef}>
       {text}
     </Element>
   );
@@ -58,7 +58,14 @@ export function IconPrimitive(props) {
     backgroundColor: "red",
   };
   const styles = error ? errorStyles : maskStyles;
-  return <div className={props.className} style={styles} ref={measureRef} />;
+  return (
+    <div
+      id={props.id}
+      className={props.className}
+      style={styles}
+      ref={measureRef}
+    />
+  );
 }
 export function ImagePrimitive(props) {
   const { className, src, alt, measureRef } = props;
@@ -67,6 +74,7 @@ export function ImagePrimitive(props) {
       ref={measureRef}
       role="img"
       className={className}
+      id={props.id}
       style={{
         backgroundImage: `url(${src}`,
       }}
@@ -75,8 +83,8 @@ export function ImagePrimitive(props) {
   );
 }
 export function SpacerPrimitive(props) {
-  const { className, measureRef } = props;
-  return <div className={className} ref={measureRef} />;
+  const { className, id, measureRef } = props;
+  return <div id={id} className={className} ref={measureRef} />;
 }
 export function ProgressFillPrimitive(props) {
   function clamp(value, min, max) {
@@ -87,6 +95,7 @@ export function ProgressFillPrimitive(props) {
     <div
       ref={props.measureRef}
       className={props.className}
+      id={props.id}
       style={{
         width: `${clamp(props.value, 0, 1) * 100}%`,
       }}

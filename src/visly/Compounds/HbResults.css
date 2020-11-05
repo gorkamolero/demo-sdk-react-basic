@@ -25,7 +25,6 @@
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_72EEoP6Shu {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -88,12 +87,12 @@
   height: 100%;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_DA8Xa72aFn {
-  overflow: hidden;
+  overflow: visible;
   border-color: #d9dae6;
   border-style: solid;
   flex-direction: row;
   flex-wrap: nowrap;
-  align-items: stretch;
+  align-items: center;
   align-content: flex-start;
   justify-content: space-between;
   border-width: 0 0 1px;
@@ -117,16 +116,18 @@
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_WRyAaE5y9d {
   overflow: hidden;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0px;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   align-content: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_HM7QLqsybb {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -155,7 +156,7 @@
   height: 100%;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_G19QPyqmt5 {
-  overflow: hidden;
+  overflow: visible;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
@@ -163,7 +164,7 @@
   justify-content: center;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_WrwbbVn12W {
-  overflow: hidden;
+  overflow: visible;
   box-sizing: border-box;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -175,7 +176,6 @@
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_Xdq8EgbVmd {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -194,7 +194,6 @@
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_8sMkGDxBq1 {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -230,7 +229,7 @@
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_TyccgJikTY {
   align-self: stretch;
   width: unset;
-  height: 10px;
+  height: 40px;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_S7T37kknMS {
   overflow: hidden;
@@ -260,7 +259,6 @@
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_MCawwQFVkV {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;

@@ -71,6 +71,7 @@ function HbSliderArrow(_props) {
       key="LFudhQpztk"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "LFudhQpztk",
         scope: "LputxAZgVY",
@@ -79,7 +80,10 @@ function HbSliderArrow(_props) {
     >
       {(getStyle) => (
         <ContainerPrimitive
-          className={"__visly_reset __visly_scope_LputxAZgVY_Mp3GmRbnWS"}
+          id={"Column_Mp3GmRbnWS"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_LputxAZgVY_Mp3GmRbnWS"
+          }
           key={"Mp3GmRbnWS"}
           addSpacing={false}
           element={getStyle("Mp3GmRbnWS", "htmlElement")}
@@ -91,7 +95,10 @@ function HbSliderArrow(_props) {
               props.Component
             ),
             <IconPrimitive
-              className={"__visly_reset __visly_scope_LputxAZgVY_DXgkmLvzSZ"}
+              id={"Icon_DXgkmLvzSZ"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_LputxAZgVY_DXgkmLvzSZ"
+              }
               key={"DXgkmLvzSZ"}
               useMask={getStyle("DXgkmLvzSZ", "useMask")}
               src={getStyle("DXgkmLvzSZ", "icon")}

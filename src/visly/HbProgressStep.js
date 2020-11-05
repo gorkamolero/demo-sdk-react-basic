@@ -146,6 +146,7 @@ function HbProgressStep(_props) {
       key="E1DeTUQrkS"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "E1DeTUQrkS",
         scope: "VDZamdUPev",
@@ -155,14 +156,20 @@ function HbProgressStep(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_VDZamdUPev_ND1GG14HkM"}
+            id={"Overlay_ND1GG14HkM"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_VDZamdUPev_ND1GG14HkM"
+            }
             key={"ND1GG14HkM"}
             addSpacing={false}
             element={getStyle("ND1GG14HkM", "htmlElement")}
           >
             {
               <TextPrimitive
-                className={"__visly_reset __visly_scope_VDZamdUPev_9kNRN8qWcz"}
+                id={"Step Title_9kNRN8qWcz"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_VDZamdUPev_9kNRN8qWcz"
+                }
                 key={"9kNRN8qWcz"}
                 text={
                   exists(props.stepTitle)
@@ -174,7 +181,10 @@ function HbProgressStep(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_VDZamdUPev_T9iA7HLyzJ"}
+            id={"Column_T9iA7HLyzJ"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_VDZamdUPev_T9iA7HLyzJ"
+            }
             key={"T9iA7HLyzJ"}
             addSpacing={false}
             element={getStyle("T9iA7HLyzJ", "htmlElement")}

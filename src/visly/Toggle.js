@@ -59,6 +59,7 @@ function Toggle(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "RQNciNfRqs",
@@ -67,7 +68,8 @@ function Toggle(_props) {
     >
       {(getStyle) => (
         <ContainerPrimitive
-          className={"__visly_reset __visly_scope_RQNciNfRqs_toggle"}
+          id={"container_toggle"}
+          className={"__visly_reset_WDRq65T88Q __visly_scope_RQNciNfRqs_toggle"}
           key={"toggle"}
           addSpacing={false}
           element={getStyle("toggle", "htmlElement")}

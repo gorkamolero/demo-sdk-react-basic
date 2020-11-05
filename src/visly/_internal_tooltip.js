@@ -39,40 +39,55 @@ export function TooltipRoot(props) {
     isInteractive: false,
   });
   const gravity = gravityStringToEnum(props.gravity);
-  const color = values[props.internal.layerId].arrowColor;
   const delayMs = props.delayMs;
   const renderInline = props.renderInline || false;
-  const arrowScale = props.arrowScale || 1;
   return (
     <TooltipContext.Provider
       value={{
-        color,
         delayMs,
         gravity,
         renderInline,
-        arrowScale,
+        color: values[props.internal.layerId].arrowColor,
         measureRef: props.measureRef,
       }}
     >
       <Tooltip
         style={style}
-        content={(arrowStyles) => (
+        content={
           <div
             ref={combineRef(innerRef, props.measureRef)}
             {...vislyProps}
             role="tooltip"
             style={{
               overflow: "visible",
+              position: "relative",
             }}
           >
-            <div style={arrowStyles}></div>
             {renderChildren(props.internalChildren, values)}
           </div>
-        )}
+        }
       >
         {props.children}
       </Tooltip>
     </TooltipContext.Provider>
+  );
+}
+export function TooltipArrow(props) {
+  const { color, gravity } = useContext(TooltipContext);
+  const arrowStyles = {
+    position: "absolute",
+    content: "",
+    backgroundColor: color,
+    alignSelf: "center",
+    ...arrow(gravity),
+  };
+  return (
+    <div
+      style={arrowStyles}
+      id="arrow"
+      className={props.className}
+      ref={props.measureRef}
+    />
   );
 }
 const MARGIN = 10;
@@ -93,9 +108,7 @@ export function Tooltip(props) {
           display: "flex",
         }}
       >
-        <TooltipImpl outerRef={ref}>
-          {(args) => props.content(args)}
-        </TooltipImpl>
+        <TooltipImpl outerRef={ref}>{props.content}</TooltipImpl>
       </div>
     );
   }
@@ -110,7 +123,7 @@ export function Tooltip(props) {
       {showing
         ? createPortal(
             <TooltipImplDelayed outerRef={ref}>
-              {(args) => props.content(args)}
+              {props.content}
             </TooltipImplDelayed>,
             document.body
           )
@@ -148,38 +161,32 @@ function TooltipImpl(props) {
     ref: props.outerRef,
     observe: true,
   });
-  const { gravity, color, renderInline, arrowScale } = useContext(
-    TooltipContext
-  );
-  let x, y, direction, arrow;
+  const { gravity, renderInline } = useContext(TooltipContext);
+  let x, y, direction;
 
   switch (gravity) {
     case Gravity.Top:
       x = targetBounds.x + targetBounds.width / 2 - bounds.width / 2;
       y = targetBounds.y - bounds.height - MARGIN;
       direction = "column";
-      arrow = arrowBottom;
       break;
 
     case Gravity.Bottom:
       x = targetBounds.x + targetBounds.width / 2 - bounds.width / 2;
       y = targetBounds.y + targetBounds.height + MARGIN;
       direction = "column";
-      arrow = arrowTop;
       break;
 
     case Gravity.Left:
       x = targetBounds.x - bounds.width - MARGIN;
       y = targetBounds.y + targetBounds.height / 2 - bounds.height / 2;
       direction = "row";
-      arrow = arrowRight;
       break;
 
     case Gravity.Right:
       x = targetBounds.x + targetBounds.width + MARGIN;
       y = targetBounds.y + targetBounds.height / 2 - bounds.height / 2;
       direction = "row";
-      arrow = arrowLeft;
       break;
   }
 
@@ -194,7 +201,7 @@ function TooltipImpl(props) {
         ...(renderInline ? {} : tooltipStyles(x, y)),
       }}
     >
-      {props.children(arrow(bounds, color, arrowScale))}
+      {props.children}
     </div>
   );
 }
@@ -206,48 +213,38 @@ const tooltipStyles = (x, y) => ({
   top: `${y}px`,
 });
 
-const arrowTop = (_bounds, color, scale = 1) => ({
-  position: "absolute",
-  top: -2 * scale,
-  content: "",
-  alignSelf: "center",
-  width: 6 * scale,
-  height: 6 * scale,
-  backgroundColor: color,
-  borderRadius: 1 * scale,
-  transform: "rotate(45deg)",
-});
+const arrow = (gravity) => {
+  switch (gravity) {
+    case Gravity.Top:
+      return {
+        bottom: 0,
+        marginLeft: 0,
+        marginRight: 0,
+        transform: "translateY(50%) rotate(45deg)",
+      };
 
-const arrowBottom = (_bounds, color, scale = 1) => ({
-  position: "absolute",
-  bottom: -2 * scale,
-  content: "",
-  alignSelf: "center",
-  width: 6 * scale,
-  height: 6 * scale,
-  backgroundColor: color,
-  borderRadius: 1 * scale,
-  transform: "rotate(45deg)",
-});
+    case Gravity.Bottom:
+      return {
+        top: 0,
+        marginLeft: 0,
+        marginRight: 0,
+        transform: "translateY(-50%) rotate(45deg)",
+      };
 
-export const arrowLeft = (bounds, color, scale = 1) => ({
-  position: "absolute",
-  left: -2 * scale,
-  content: "",
-  width: 6 * scale,
-  height: 6 * scale,
-  backgroundColor: color,
-  borderRadius: 1 * scale,
-  transform: "rotate(45deg)",
-});
+    case Gravity.Left:
+      return {
+        right: 0,
+        marginTop: 0,
+        marginBottom: 0,
+        transform: "translateX(50%) rotate(45deg)",
+      };
 
-const arrowRight = (bounds, color, scale = 1) => ({
-  position: "absolute",
-  right: -2 * scale,
-  content: "",
-  width: 6 * scale,
-  height: 6 * scale,
-  backgroundColor: color,
-  borderRadius: 1 * scale,
-  transform: "rotate(45deg)",
-});
+    case Gravity.Right:
+      return {
+        left: 0,
+        marginTop: 0,
+        marginBottom: 0,
+        transform: "translateX(-50%) rotate(45deg)",
+      };
+  }
+};

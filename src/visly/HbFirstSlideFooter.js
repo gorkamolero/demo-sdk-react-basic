@@ -146,6 +146,7 @@ function HbFirstSlideFooter(_props) {
       key="FSzKVGr5cz"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "FSzKVGr5cz",
         scope: "Mdjkh2vofL",
@@ -157,14 +158,17 @@ function HbFirstSlideFooter(_props) {
           <HbFooterRectangleComposite
             key={"TNW5v7g5Qv"}
             {...getCompositeDefaultProps("TNW5v7g5Qv")}
-            className="__visly_reset __visly_scope_Mdjkh2vofL_TNW5v7g5Qv"
+            id="HbFooterRectangle_TNW5v7g5Qv"
+            className="__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_TNW5v7g5Qv"
           />
         ) : (
           <HbFooterRectangleContext.Provider
             key="TNW5v7g5Qv-provider"
             value={{
               key: "TNW5v7g5Qv",
-              className: "__visly_reset __visly_scope_Mdjkh2vofL_TNW5v7g5Qv",
+              id: "HbFooterRectangle_TNW5v7g5Qv",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_TNW5v7g5Qv",
               ...getCompositeDefaultProps("TNW5v7g5Qv"),
             }}
           >
@@ -175,14 +179,17 @@ function HbFirstSlideFooter(_props) {
           <HbFooterRectangleComposite
             key={"SV2fibrpk9"}
             {...getCompositeDefaultProps("SV2fibrpk9")}
-            className="__visly_reset __visly_scope_Mdjkh2vofL_SV2fibrpk9"
+            id="HbFooterRectangle1_SV2fibrpk9"
+            className="__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_SV2fibrpk9"
           />
         ) : (
           <HbFooterRectangleContext.Provider
             key="SV2fibrpk9-provider"
             value={{
               key: "SV2fibrpk9",
-              className: "__visly_reset __visly_scope_Mdjkh2vofL_SV2fibrpk9",
+              id: "HbFooterRectangle1_SV2fibrpk9",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_SV2fibrpk9",
               ...getCompositeDefaultProps("SV2fibrpk9"),
             }}
           >
@@ -193,14 +200,17 @@ function HbFirstSlideFooter(_props) {
           <HbFooterRectangleComposite
             key={"4Lgg4oSHk1"}
             {...getCompositeDefaultProps("4Lgg4oSHk1")}
-            className="__visly_reset __visly_scope_Mdjkh2vofL_4Lgg4oSHk1"
+            id="HbFooterRectangle2_4Lgg4oSHk1"
+            className="__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_4Lgg4oSHk1"
           />
         ) : (
           <HbFooterRectangleContext.Provider
             key="4Lgg4oSHk1-provider"
             value={{
               key: "4Lgg4oSHk1",
-              className: "__visly_reset __visly_scope_Mdjkh2vofL_4Lgg4oSHk1",
+              id: "HbFooterRectangle2_4Lgg4oSHk1",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_Mdjkh2vofL_4Lgg4oSHk1",
               ...getCompositeDefaultProps("4Lgg4oSHk1"),
             }}
           >

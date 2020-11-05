@@ -59,6 +59,7 @@ function HbTag(_props) {
       key="GUwTDFwRcZ"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "GUwTDFwRcZ",
         scope: "R7jV18AV1o",
@@ -67,7 +68,10 @@ function HbTag(_props) {
     >
       {(getStyle) => [
         <TextPrimitive
-          className={"__visly_reset __visly_scope_R7jV18AV1o_XJDGMLiSr8"}
+          id={"Tag text_XJDGMLiSr8"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_R7jV18AV1o_XJDGMLiSr8"
+          }
           key={"XJDGMLiSr8"}
           text={
             exists(props.tagText)
@@ -77,21 +81,27 @@ function HbTag(_props) {
           element={getStyle("XJDGMLiSr8", "htmlElement")}
         />,
         <SpacerPrimitive
-          className={"__visly_reset __visly_scope_R7jV18AV1o_MQ47jJXDie"}
+          id={"Spacer_MQ47jJXDie"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_R7jV18AV1o_MQ47jJXDie"
+          }
           key={"MQ47jJXDie"}
         />,
         props.HbOnlyIconButton === undefined ? (
           <HbOnlyIconButtonComposite
             key={"C5Ko4vdujm"}
             {...getCompositeDefaultProps("C5Ko4vdujm")}
-            className="__visly_reset __visly_scope_R7jV18AV1o_C5Ko4vdujm"
+            id="HbOnlyIconButton_C5Ko4vdujm"
+            className="__visly_reset_WDRq65T88Q __visly_scope_R7jV18AV1o_C5Ko4vdujm"
           />
         ) : (
           <HbOnlyIconButtonContext.Provider
             key="C5Ko4vdujm-provider"
             value={{
               key: "C5Ko4vdujm",
-              className: "__visly_reset __visly_scope_R7jV18AV1o_C5Ko4vdujm",
+              id: "HbOnlyIconButton_C5Ko4vdujm",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_R7jV18AV1o_C5Ko4vdujm",
               ...getCompositeDefaultProps("C5Ko4vdujm"),
             }}
           >

@@ -67,6 +67,7 @@ function HbSliderArrowButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "9hg4dJN3z2",
@@ -78,14 +79,17 @@ function HbSliderArrowButton(_props) {
           <HbSliderArrowComposite
             key={"5GTDCF3NtV"}
             {...getCompositeDefaultProps("5GTDCF3NtV")}
-            className="__visly_reset __visly_scope_9hg4dJN3z2_5GTDCF3NtV"
+            id="HbSliderArrow_5GTDCF3NtV"
+            className="__visly_reset_WDRq65T88Q __visly_scope_9hg4dJN3z2_5GTDCF3NtV"
           />
         ) : (
           <HbSliderArrowContext.Provider
             key="5GTDCF3NtV-provider"
             value={{
               key: "5GTDCF3NtV",
-              className: "__visly_reset __visly_scope_9hg4dJN3z2_5GTDCF3NtV",
+              id: "HbSliderArrow_5GTDCF3NtV",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_9hg4dJN3z2_5GTDCF3NtV",
               ...getCompositeDefaultProps("5GTDCF3NtV"),
             }}
           >

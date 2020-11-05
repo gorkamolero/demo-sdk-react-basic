@@ -249,6 +249,7 @@ export const HbInput: {
     value?: string;
     onChange?: (value: string) => void;
     inputRef?: React.Ref<HTMLInputElement>;
+    inputProps?: CommonProps<HTMLInputElement>;
     size?: "small" | "medium" | "large" | "super";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -275,9 +276,14 @@ export const HbPopover: {
     offset?: number;
     crossOffset?: number;
     autoFocusFirst?: boolean;
-    containFocus?: number;
+    containFocus?: boolean;
     isOpen: boolean;
     onShouldClose?: () => void;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbProductImage: {
+  (props: {
+    imageSrc?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbProgress: {
@@ -343,6 +349,7 @@ export const HbSelect: {
     label?: string;
     selected?: string;
     onSelect: (value: string) => void;
+    gap?: number;
     HbUnselected?: boolean;
     size?: "small" | "medium" | "large" | "super";
     children?: React.ReactNode[];
@@ -412,6 +419,7 @@ export const Input: {
     value?: string;
     onChange?: (value: string) => void;
     inputRef?: React.Ref<HTMLInputElement>;
+    inputProps?: CommonProps<HTMLInputElement>;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const LikeButton: {
@@ -442,6 +450,7 @@ export const Select: {
     label?: string;
     selected?: string;
     onSelect: (value: string) => void;
+    gap?: number;
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
   Option: {

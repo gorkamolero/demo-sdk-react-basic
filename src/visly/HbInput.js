@@ -101,6 +101,7 @@ function HbInput(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "JhYcCBQMX6",
@@ -110,7 +111,10 @@ function HbInput(_props) {
       {(getStyle) => (
         <>
           <TextFieldPrimitive
-            className={"__visly_reset __visly_scope_JhYcCBQMX6_input"}
+            id={"Text_input"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_JhYcCBQMX6_input"
+            }
             key={"input"}
             placeholder={
               exists(props.placeholder)
@@ -120,7 +124,10 @@ function HbInput(_props) {
           />
           <ContainerPrimitive
             key={"UHa5YtKvEG"}
-            className={"__visly_reset __visly_scope_JhYcCBQMX6_UHa5YtKvEG"}
+            id={"Slot_UHa5YtKvEG"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_JhYcCBQMX6_UHa5YtKvEG"
+            }
             addSpacing={false}
           >
             {props.children}

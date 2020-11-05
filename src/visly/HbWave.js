@@ -111,6 +111,7 @@ function HbWave(_props) {
       key="G1EfLQfWP6"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "G1EfLQfWP6",
         scope: "RtitAK5Bpp",
@@ -120,14 +121,20 @@ function HbWave(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_RtitAK5Bpp_EeCGBQ8FkZ"}
+            id={"Wave Secondary_EeCGBQ8FkZ"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_RtitAK5Bpp_EeCGBQ8FkZ"
+            }
             key={"EeCGBQ8FkZ"}
             addSpacing={false}
             element={getStyle("EeCGBQ8FkZ", "htmlElement")}
           >
             {
               <IconPrimitive
-                className={"__visly_reset __visly_scope_RtitAK5Bpp_TGjmjt52AW"}
+                id={"Icon_TGjmjt52AW"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_RtitAK5Bpp_TGjmjt52AW"
+                }
                 key={"TGjmjt52AW"}
                 useMask={getStyle("TGjmjt52AW", "useMask")}
                 src={getStyle("TGjmjt52AW", "icon")}
@@ -135,14 +142,20 @@ function HbWave(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_RtitAK5Bpp_91q2eiiHtA"}
+            id={"Wave Main_91q2eiiHtA"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_RtitAK5Bpp_91q2eiiHtA"
+            }
             key={"91q2eiiHtA"}
             addSpacing={false}
             element={getStyle("91q2eiiHtA", "htmlElement")}
           >
             {
               <IconPrimitive
-                className={"__visly_reset __visly_scope_RtitAK5Bpp_Pvi6YdPjgx"}
+                id={"Icon_Pvi6YdPjgx"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_RtitAK5Bpp_Pvi6YdPjgx"
+                }
                 key={"Pvi6YdPjgx"}
                 useMask={getStyle("Pvi6YdPjgx", "useMask")}
                 src={getStyle("Pvi6YdPjgx", "icon")}

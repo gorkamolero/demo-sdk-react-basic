@@ -145,14 +145,22 @@ export function getRootClasses(args) {
   const stateClasses = args.states
     .map((state) => `__visly_state_${state}`)
     .join(" ");
-  return `${getLayerClass(
-    args.layerId,
-    args.scope
-  )} ${variantClasses} ${stateClasses}`;
+  return `${getLayerClass({
+    projectId: args.projectId,
+    layerId: args.layerId,
+    scope: args.scope,
+  })} ${variantClasses} ${stateClasses}`;
 }
-export function getLayerClass(layerId, scope) {
+export function getLayerHtmlId(layer) {
+  if (exists(layer.name)) {
+    return `${layer.name}_${layer.id}`;
+  } else {
+    return `${layer.type}_${layer.id}`;
+  }
+}
+export function getLayerClass({ projectId, layerId, scope }) {
   const scopeClass = exists(scope) ? `__visly_scope_${scope}` : "";
-  return `__visly_reset ${scopeClass}_${layerId}`;
+  return `__visly_reset_${projectId} ${scopeClass}_${layerId}`;
 }
 export const entries = Object.entries;
 

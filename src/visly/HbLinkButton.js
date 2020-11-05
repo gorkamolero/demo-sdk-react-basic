@@ -51,6 +51,7 @@ function HbLinkButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "DNX2SDvfvm",
@@ -59,7 +60,10 @@ function HbLinkButton(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_DNX2SDvfvm_WVxTDumfT8"}
+          id={"text_WVxTDumfT8"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_DNX2SDvfvm_WVxTDumfT8"
+          }
           key={"WVxTDumfT8"}
           text={
             exists(props.text) ? props.text : getStyle("WVxTDumfT8", "text")

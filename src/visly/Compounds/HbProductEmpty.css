@@ -24,7 +24,6 @@
 .__visly_scope_GVHshrcqto_TEMvSpZsq9 .__visly_scope_GVHshrcqto_72EEoP6Shu {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -60,7 +59,7 @@
   flex-wrap: nowrap;
   align-items: center;
   align-content: flex-start;
-  justify-content: center;
+  justify-content: flex-start;
   padding: 20px 20px 40px;
 }
 .__visly_scope_GVHshrcqto_TEMvSpZsq9
@@ -107,7 +106,6 @@
 .__visly_scope_GVHshrcqto_TEMvSpZsq9 .__visly_scope_GVHshrcqto_21QeGg8jho {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #fff;
   text-align: start;
   white-space: normal;
@@ -117,6 +115,7 @@
   font-size: 16px;
   line-height: 24px;
   flex-shrink: 1;
+  overflow: visible;
 }
 .__visly_scope_GVHshrcqto_TEMvSpZsq9
   .__visly_scope_GVHshrcqto_WRyAaE5y9d
@@ -145,7 +144,6 @@
 .__visly_scope_GVHshrcqto_TEMvSpZsq9 .__visly_scope_GVHshrcqto_HM7QLqsybb {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -182,7 +180,6 @@
 .__visly_scope_GVHshrcqto_TEMvSpZsq9 .__visly_scope_GVHshrcqto_8C3DGxh663 {
   display: block;
   box-sizing: border-box;
-  overflow: hidden;
   color: #623b2a;
   text-align: start;
   white-space: normal;

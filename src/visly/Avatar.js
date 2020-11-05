@@ -50,6 +50,7 @@ function Avatar(_props) {
       key="oFHs7Qk4Eu"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "oFHs7Qk4Eu",
         scope: "3ZeWAafJqb",
@@ -58,7 +59,10 @@ function Avatar(_props) {
     >
       {(getStyle) => (
         <ImagePrimitive
-          className={"__visly_reset __visly_scope_3ZeWAafJqb_D7PGbZZgp4"}
+          id={"image_D7PGbZZgp4"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_3ZeWAafJqb_D7PGbZZgp4"
+          }
           key={"D7PGbZZgp4"}
           src={exists(props.src) ? props.src : getStyle("D7PGbZZgp4", "src")}
           alt={getStyle("D7PGbZZgp4", "alternateText")}

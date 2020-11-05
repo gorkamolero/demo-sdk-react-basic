@@ -89,6 +89,7 @@ function HbProduct(_props) {
       key="TEMvSpZsq9"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "TEMvSpZsq9",
         scope: "F2wQruQTHP",
@@ -98,27 +99,37 @@ function HbProduct(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_F2wQruQTHP_DA8Xa72aFn"}
+            id={"CardHeader_DA8Xa72aFn"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_DA8Xa72aFn"
+            }
             key={"DA8Xa72aFn"}
             addSpacing={true}
             element={getStyle("DA8Xa72aFn", "htmlElement")}
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_F2wQruQTHP_WRyAaE5y9d"}
+              id={"LeftSide_WRyAaE5y9d"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_WRyAaE5y9d"
+              }
               key={"WRyAaE5y9d"}
               addSpacing={true}
               element={getStyle("WRyAaE5y9d", "htmlElement")}
             >
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_Um5F7YdKHX"}
+                id={"Number_Um5F7YdKHX"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_Um5F7YdKHX"
+                }
                 key={"Um5F7YdKHX"}
                 addSpacing={false}
                 element={getStyle("Um5F7YdKHX", "htmlElement")}
               >
                 {
                   <TextPrimitive
+                    id={"Order_21QeGg8jho"}
                     className={
-                      "__visly_reset __visly_scope_F2wQruQTHP_21QeGg8jho"
+                      "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_21QeGg8jho"
                     }
                     key={"21QeGg8jho"}
                     text={
@@ -131,7 +142,10 @@ function HbProduct(_props) {
                 }
               </ContainerPrimitive>
               <TextPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_HM7QLqsybb"}
+                id={"CardTitle_HM7QLqsybb"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_HM7QLqsybb"
+                }
                 key={"HM7QLqsybb"}
                 text={
                   exists(props.type)
@@ -142,13 +156,19 @@ function HbProduct(_props) {
               />
             </ContainerPrimitive>
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_F2wQruQTHP_G19QPyqmt5"}
+              id={"RightSide_G19QPyqmt5"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_G19QPyqmt5"
+              }
               key={"G19QPyqmt5"}
               addSpacing={true}
               element={getStyle("G19QPyqmt5", "htmlElement")}
             >
               <TextPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_8PrsR7o63t"}
+                id={"Price-Original_8PrsR7o63t"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_8PrsR7o63t"
+                }
                 key={"8PrsR7o63t"}
                 text={
                   exists(props.priceOriginal)
@@ -158,7 +178,10 @@ function HbProduct(_props) {
                 element={getStyle("8PrsR7o63t", "htmlElement")}
               />
               <TextPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_GZwM8i3ySP"}
+                id={"Price_GZwM8i3ySP"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_GZwM8i3ySP"
+                }
                 key={"GZwM8i3ySP"}
                 text={
                   exists(props.priceFinal)
@@ -170,27 +193,37 @@ function HbProduct(_props) {
             </ContainerPrimitive>
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_F2wQruQTHP_UdYVCcCaqY"}
+            id={"CardContent_UdYVCcCaqY"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_UdYVCcCaqY"
+            }
             key={"UdYVCcCaqY"}
             addSpacing={false}
             element={getStyle("UdYVCcCaqY", "htmlElement")}
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_F2wQruQTHP_RP3xHanS5S"}
+              id={"Head_RP3xHanS5S"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_RP3xHanS5S"
+              }
               key={"RP3xHanS5S"}
               addSpacing={false}
               element={getStyle("RP3xHanS5S", "htmlElement")}
             >
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_Rf5PVhWzGL"}
+                id={"ImgContainer_Rf5PVhWzGL"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_Rf5PVhWzGL"
+                }
                 key={"Rf5PVhWzGL"}
                 addSpacing={false}
                 element={getStyle("Rf5PVhWzGL", "htmlElement")}
               >
                 {
                   <ImagePrimitive
+                    id={"Image_BuTfFDTZNv"}
                     className={
-                      "__visly_reset __visly_scope_F2wQruQTHP_BuTfFDTZNv"
+                      "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_BuTfFDTZNv"
                     }
                     key={"BuTfFDTZNv"}
                     src={
@@ -203,18 +236,25 @@ function HbProduct(_props) {
                 }
               </ContainerPrimitive>
               <SpacerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_YLnrFRMb73"}
+                id={"Spacer_YLnrFRMb73"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_YLnrFRMb73"
+                }
                 key={"YLnrFRMb73"}
               />
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_4ZpyWfeCAG"}
+                id={"TitleContainer_4ZpyWfeCAG"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_4ZpyWfeCAG"
+                }
                 key={"4ZpyWfeCAG"}
                 addSpacing={false}
                 element={getStyle("4ZpyWfeCAG", "htmlElement")}
               >
                 <TextPrimitive
+                  id={"Title_LLAN2HR72H"}
                   className={
-                    "__visly_reset __visly_scope_F2wQruQTHP_LLAN2HR72H"
+                    "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_LLAN2HR72H"
                   }
                   key={"LLAN2HR72H"}
                   text={
@@ -225,8 +265,9 @@ function HbProduct(_props) {
                   element={getStyle("LLAN2HR72H", "htmlElement")}
                 />
                 <TextPrimitive
+                  id={"Extra_RZSy2TdbWe"}
                   className={
-                    "__visly_reset __visly_scope_F2wQruQTHP_RZSy2TdbWe"
+                    "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_RZSy2TdbWe"
                   }
                   key={"RZSy2TdbWe"}
                   text={
@@ -239,29 +280,44 @@ function HbProduct(_props) {
               </ContainerPrimitive>
             </ContainerPrimitive>
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_F2wQruQTHP_JLos9DaYE8"}
+              id={"Spacer_JLos9DaYE8"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_JLos9DaYE8"
+              }
               key={"JLos9DaYE8"}
             />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_F2wQruQTHP_N3yQYTcaWV"}
+              id={"Content_N3yQYTcaWV"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_N3yQYTcaWV"
+              }
               key={"N3yQYTcaWV"}
               addSpacing={false}
               element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
               <ContainerPrimitive
                 key={"UDKtwaHFzP"}
-                className={"__visly_reset __visly_scope_F2wQruQTHP_UDKtwaHFzP"}
+                id={"Slot_UDKtwaHFzP"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_UDKtwaHFzP"
+                }
                 addSpacing={false}
               >
                 {props.DescriptionHtml}
               </ContainerPrimitive>
               <SpacerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_7MAZ8igM5Q"}
+                id={"Spacer_7MAZ8igM5Q"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_7MAZ8igM5Q"
+                }
                 key={"7MAZ8igM5Q"}
               />
               <ContainerPrimitive
                 key={"KVQd13HGDM"}
-                className={"__visly_reset __visly_scope_F2wQruQTHP_KVQd13HGDM"}
+                id={"Slot_KVQd13HGDM"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_KVQd13HGDM"
+                }
                 addSpacing={false}
               >
                 {props.details}
@@ -269,7 +325,10 @@ function HbProduct(_props) {
             </ContainerPrimitive>
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_F2wQruQTHP_6xWxhWEy3g"}
+            id={"CardFooter_6xWxhWEy3g"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_6xWxhWEy3g"
+            }
             key={"6xWxhWEy3g"}
             addSpacing={false}
             element={getStyle("6xWxhWEy3g", "htmlElement")}
@@ -279,15 +338,17 @@ function HbProduct(_props) {
                 <HbCheckboxComposite
                   key={"Sk8oJHqaqN"}
                   {...getCompositeDefaultProps("Sk8oJHqaqN")}
-                  className="__visly_reset __visly_scope_F2wQruQTHP_Sk8oJHqaqN"
+                  id="HbCheckbox_Sk8oJHqaqN"
+                  className="__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_Sk8oJHqaqN"
                 />
               ) : (
                 <HbCheckboxContext.Provider
                   key="Sk8oJHqaqN-provider"
                   value={{
                     key: "Sk8oJHqaqN",
+                    id: "HbCheckbox_Sk8oJHqaqN",
                     className:
-                      "__visly_reset __visly_scope_F2wQruQTHP_Sk8oJHqaqN",
+                      "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_Sk8oJHqaqN",
                     ...getCompositeDefaultProps("Sk8oJHqaqN"),
                   }}
                 >
@@ -295,11 +356,17 @@ function HbProduct(_props) {
                 </HbCheckboxContext.Provider>
               ),
               <SpacerPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_Jd3rR87ZmP"}
+                id={"Spacer_Jd3rR87ZmP"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_Jd3rR87ZmP"
+                }
                 key={"Jd3rR87ZmP"}
               />,
               <TextPrimitive
-                className={"__visly_reset __visly_scope_F2wQruQTHP_LJa2rjC9ev"}
+                id={"Text_LJa2rjC9ev"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_F2wQruQTHP_LJa2rjC9ev"
+                }
                 key={"LJa2rjC9ev"}
                 text={
                   exists(props.addLabel)

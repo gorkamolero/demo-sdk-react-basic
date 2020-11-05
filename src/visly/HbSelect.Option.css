@@ -18,7 +18,6 @@
   .__visly_scope_3kNAjMriiT_Tas2nBSZkf {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #242424;
   font-family: Averta;
   font-style: normal;
@@ -26,6 +25,7 @@
   font-size: 20px;
   line-height: 20px;
   align-self: auto;
+  overflow: visible;
 }
 .__visly_scope_3kNAjMriiT_select-option-root.__visly_default.__visly_state_focus
   .__visly_scope_3kNAjMriiT_Tas2nBSZkf,

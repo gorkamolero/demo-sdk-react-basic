@@ -30,7 +30,6 @@
   .__visly_scope_AaLudVhbjf_select-button-text {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #00aeaa;
   font-family: Averta;
   font-style: normal;
@@ -38,6 +37,7 @@
   font-size: 24px;
   line-height: 18px;
   align-self: auto;
+  overflow: visible;
 }
 .__visly_scope_AaLudVhbjf_select-root .__visly_scope_AaLudVhbjf_select-menu {
   overflow: hidden;

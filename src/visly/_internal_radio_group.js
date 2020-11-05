@@ -30,7 +30,7 @@ function vislyToReactAriaProps(props) {
     value: props.selected,
     isDisabled: props.disabled,
     onChange: props.onSelect,
-    "aria-label": exists(props.ariaLabel) ? props.ariaLabel : "Radio Group",
+    "aria-label": props.ariaLabel || props.value || "Radio Group",
     ...props,
   };
 }

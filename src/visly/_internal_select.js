@@ -25,7 +25,7 @@ import {
 } from "@visly/core";
 import { combineRef, exists, renderChildren } from "./_internal_utils";
 import { usePrimitive } from "./_internal_usePrimitive";
-import { Popover } from "./_internal_popover";
+import { Popover } from "./builtins/Popover";
 import {
   CollectionRoot,
   proxy,
@@ -110,6 +110,7 @@ function _SelectOptionContainer(props) {
     renderInline,
     triggerRef,
     rootClassName,
+    gap,
   } = useContext(SelectContext);
   const listboxRef = useRef(null);
   const { listBoxProps } = useListBox(
@@ -125,7 +126,6 @@ function _SelectOptionContainer(props) {
     state,
     listboxRef
   );
-  const gravityOffset = 10;
   const [buttonWidth, setButtonWidth] = useState(null);
   useLayoutEffect(() => {
     if (exists(triggerRef)) {
@@ -150,7 +150,7 @@ function _SelectOptionContainer(props) {
         ref={combineRef(listboxRef, props.measureRef)}
         className={props.className}
         style={{
-          marginTop: gravityOffset,
+          marginTop: gap,
         }}
       >
         <ItemContext.Provider
@@ -198,8 +198,8 @@ function _SelectOptionContainer(props) {
           focusedKey={state.selectionManager.focusedKey}
           className={props.className}
           style={{
-            marginTop: gravityOffset,
-            marginBottom: gravityOffset,
+            marginTop: gap,
+            marginBottom: gap,
             overflow: "auto",
             ...(props.useButtonWidth
               ? {
@@ -254,7 +254,7 @@ function Option({ item }) {
 
 export function SelectRootImpl(props) {
   const ref = useRef(null);
-  const { selected, onSelect, renderInline, items } = props;
+  const { selected, onSelect, renderInline, items, gap = 10 } = props;
   const { style, testId, values, vislyProps, isDisabled } = usePrimitive({
     ref,
     props,
@@ -307,6 +307,7 @@ export function SelectRootImpl(props) {
           layout,
           menuProps,
           rootClassName: className,
+          gap,
         }}
       >
         {renderChildren(props.children, values)}

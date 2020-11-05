@@ -3,13 +3,14 @@
 /* eslint-disable */
 import "./textstyles/fonts.css";
 import "./reset.css";
-import "./HbHelper.css";
+import "./HbProductImage.css";
 import React, { createContext, useContext } from "react";
 import {
+  exists,
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { ListboxPrimitive } from "./_internal_listbox";
+import { RootPrimitive, ImagePrimitive } from "./_internal_primitives";
 
 const styles = [
   {
@@ -27,10 +28,10 @@ const defaultPropValues = [
 
 const variantPropTypes = [];
 
-export const HbHelperContext = createContext(null);
+export const HbProductImageContext = createContext(null);
 
-function HbHelper(_props) {
-  const defaults = useContext(HbHelperContext);
+function HbProductImage(_props) {
+  const defaults = useContext(HbProductImageContext);
   const props = { ...defaults, ..._props };
   const activeVariants = findSetVariantProps(variantPropTypes, props);
   const getCompositeDefaultProps = makeCompositeDefaultProps(
@@ -38,23 +39,37 @@ function HbHelper(_props) {
     activeVariants
   );
   return (
-    <ListboxPrimitive
+    <RootPrimitive
       {...props}
-      key="listbox-root"
+      key="QVF4nDf297"
       addSpacing={false}
       internal={{
         projectId: "WDRq65T88Q",
         styles: styles,
-        layerId: "listbox-root",
-        scope: "SaVAXtyYQ8",
+        layerId: "QVF4nDf297",
+        scope: "13VgZzAk6w",
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => props.children}
-    </ListboxPrimitive>
+      {(getStyle) => (
+        <ImagePrimitive
+          id={"Image_SLVLpMy2sC"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_13VgZzAk6w_SLVLpMy2sC"
+          }
+          key={"SLVLpMy2sC"}
+          src={
+            exists(props.imageSrc)
+              ? props.imageSrc
+              : getStyle("SLVLpMy2sC", "src")
+          }
+          alt={getStyle("SLVLpMy2sC", "alternateText")}
+        />
+      )}
+    </RootPrimitive>
   );
 }
 
-HbHelper.__variants = [];
+HbProductImage.__variants = [];
 
-export default HbHelper;
+export default HbProductImage;

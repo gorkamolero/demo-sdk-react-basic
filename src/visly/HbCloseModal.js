@@ -67,6 +67,7 @@ function HbCloseModal(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "YSH61WCwjS",
@@ -75,7 +76,10 @@ function HbCloseModal(_props) {
     >
       {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_YSH61WCwjS_Pu3J7F2Y9P"}
+          id={"Icon_Pu3J7F2Y9P"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_YSH61WCwjS_Pu3J7F2Y9P"
+          }
           key={"Pu3J7F2Y9P"}
           useMask={getStyle("Pu3J7F2Y9P", "useMask")}
           src={getStyle("Pu3J7F2Y9P", "icon")}

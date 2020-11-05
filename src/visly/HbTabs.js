@@ -43,6 +43,7 @@ function HbTabs(_props) {
       key="segmented-control-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "segmented-control-root",
         scope: "33ja1dLx3n",

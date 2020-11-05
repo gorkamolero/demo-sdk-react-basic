@@ -8,9 +8,9 @@ import React, {
   useContext,
   useEffect,
 } from "react";
-import { Item } from "@react-stately/collections";
+import { Item, Section } from "@react-stately/collections";
 import { exists, noop, renderChildren } from "./_internal_utils";
-const CollectionContext = createContext({
+export const CollectionContext = createContext({
   registerItem: noop,
   isProxy: false,
 });
@@ -35,17 +35,98 @@ function CollectionRootProxy(props) {
   );
 }
 
-export function CollectionItemProxy(props) {
-  const { registerItem, unregisterItem } = useContext(CollectionContext);
-  useEffect(() => {
-    registerItem({
-      key: props.value,
-      props,
-    });
-    return () => unregisterItem(props.value);
-  }, []);
-  return null;
+export function buildCollectionItemProxyWithType(ctor, extra) {
+  return (props) => {
+    const { registerItem, unregisterItem } = useContext(CollectionContext);
+    useEffect(() => {
+      const key = exists(props.value) ? props.value : props.key;
+      registerItem({
+        key,
+        props: { ...extra, ...props },
+        ctor,
+        type: "item",
+      });
+      return () => unregisterItem(key);
+    }, []);
+    return null;
+  };
 }
+export const CollectionItemProxy = buildCollectionItemProxyWithType();
+export function buildCollectionSectionProxy(ctor) {
+  return (props) => {
+    const { registerItem, unregisterItem } = useContext(CollectionContext);
+    const [sectionChildren, setSectionChildren] = useState({});
+    useEffect(() => {
+      const key = exists(props.value) ? props.value : props.key;
+      registerItem({
+        key,
+        props,
+        ctor,
+        type: "section",
+        children: sectionChildren,
+      });
+      return () => unregisterItem(key);
+    }, [sectionChildren]);
+    const addToSection = useCallback(
+      (item) => {
+        setSectionChildren((prev) =>
+          exists(prev[item.key]) ? prev : { ...prev, [item.key]: item }
+        );
+      },
+      [setSectionChildren]
+    );
+    const removeFromSection = useCallback(
+      (keyToDelete) => {
+        setSectionChildren((prev) => {
+          return Object.keys(prev)
+            .filter((key) => key !== keyToDelete)
+            .reduce((obj, key) => {
+              return { ...obj, [key]: prev[key] };
+            }, {});
+        });
+      },
+      [setSectionChildren]
+    );
+    return (
+      <div
+        style={{
+          display: "none",
+        }}
+      >
+        <CollectionContext.Provider
+          value={{
+            registerItem: addToSection,
+            unregisterItem: removeFromSection,
+            isProxy: true,
+          }}
+        >
+          {renderChildren(props.children, {})}
+        </CollectionContext.Provider>
+      </div>
+    );
+  };
+}
+
+function renderItems(items, ItemCtor) {
+  return Object.values(items).map((item) => {
+    const Element = exists(item.ctor) ? item.ctor : ItemCtor;
+
+    if (item.type === "section") {
+      return (
+        <Section title={<Element {...item.props} />}>
+          {renderItems(item.children, ItemCtor)}
+        </Section>
+      );
+    }
+
+    return (
+      <Item textValue={item.key} key={item.key}>
+        <Element {...item.props} />
+      </Item>
+    );
+  });
+}
+
 export function CollectionRoot(props) {
   const [items, setItems] = useState({});
   const { ParentCtor, ItemCtor } = props;
@@ -85,14 +166,7 @@ export function CollectionRoot(props) {
           isProxy: false,
         }}
       >
-        <ParentCtor
-          {...props}
-          items={Object.values(items).map((item) => (
-            <Item textValue={item.key} key={item.key}>
-              <ItemCtor {...item.props} />
-            </Item>
-          ))}
-        />
+        <ParentCtor {...props} items={renderItems(items, ItemCtor)} />
       </CollectionContext.Provider>
     </>
   );

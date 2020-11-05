@@ -72,6 +72,7 @@ function HbProgressButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "LVXvoJHS2N",

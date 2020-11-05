@@ -87,6 +87,7 @@ function LikeButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "3NQsqDUqcJ",
@@ -96,7 +97,10 @@ function LikeButton(_props) {
       {(getStyle) => (
         <>
           <IconPrimitive
-            className={"__visly_reset __visly_scope_3NQsqDUqcJ_YLowiHcxUk"}
+            id={"icon_YLowiHcxUk"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_3NQsqDUqcJ_YLowiHcxUk"
+            }
             key={"YLowiHcxUk"}
             useMask={getStyle("YLowiHcxUk", "useMask")}
             src={
@@ -104,11 +108,17 @@ function LikeButton(_props) {
             }
           />
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_3NQsqDUqcJ_QqpfPi4ifo"}
+            id={"spacer_QqpfPi4ifo"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_3NQsqDUqcJ_QqpfPi4ifo"
+            }
             key={"QqpfPi4ifo"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_3NQsqDUqcJ_336oAbe272"}
+            id={"text_336oAbe272"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_3NQsqDUqcJ_336oAbe272"
+            }
             key={"336oAbe272"}
             text={
               exists(props.text) ? props.text : getStyle("336oAbe272", "text")

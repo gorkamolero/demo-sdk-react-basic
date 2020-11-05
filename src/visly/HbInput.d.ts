@@ -95,6 +95,7 @@ export const HbInput: {
       value?: string;
       onChange?: (value: string) => void;
       inputRef?: React.Ref<HTMLInputElement>;
+      inputProps?: CommonProps<HTMLInputElement>;
       size?: "small" | "medium" | "large" | "super";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

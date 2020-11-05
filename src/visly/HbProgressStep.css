@@ -28,7 +28,6 @@
 .__visly_scope_VDZamdUPev_E1DeTUQrkS .__visly_scope_VDZamdUPev_9kNRN8qWcz {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #623b2a;
   text-align: center;
   white-space: nowrap;
@@ -38,6 +37,7 @@
   font-size: 14px;
   text-transform: uppercase;
   flex-shrink: 1;
+  overflow: visible;
   transform: translateY(-100%);
   padding: 20px;
 }

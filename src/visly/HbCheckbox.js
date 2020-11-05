@@ -73,6 +73,7 @@ function HbCheckbox(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "3LiUQ4dVhC",
@@ -81,7 +82,10 @@ function HbCheckbox(_props) {
     >
       {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_3LiUQ4dVhC_checkmark"}
+          id={"icon_checkmark"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_3LiUQ4dVhC_checkmark"
+          }
           key={"checkmark"}
           useMask={getStyle("checkmark", "useMask")}
           src={getStyle("checkmark", "icon")}

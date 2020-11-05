@@ -43,6 +43,7 @@ function HbButtonGroup(_props) {
       key="7Juzb2Pfn4"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "7Juzb2Pfn4",
         scope: "5cGf1BQia4",
@@ -51,7 +52,10 @@ function HbButtonGroup(_props) {
     >
       <ContainerPrimitive
         key={"KYnFXgB8gr"}
-        className={"__visly_reset __visly_scope_5cGf1BQia4_KYnFXgB8gr"}
+        id={"Slot_KYnFXgB8gr"}
+        className={
+          "__visly_reset_WDRq65T88Q __visly_scope_5cGf1BQia4_KYnFXgB8gr"
+        }
         addSpacing={true}
       >
         {props.children}

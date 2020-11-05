@@ -92,6 +92,7 @@ function HbCircleIcon(_props) {
       key="REGgNxJcPS"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "REGgNxJcPS",
         scope: "CyFbGY3R7m",
@@ -100,7 +101,10 @@ function HbCircleIcon(_props) {
     >
       {(getStyle) => (
         <IconPrimitive
-          className={"__visly_reset __visly_scope_CyFbGY3R7m_5dbE92sXAG"}
+          id={"Icon_5dbE92sXAG"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_CyFbGY3R7m_5dbE92sXAG"
+          }
           key={"5dbE92sXAG"}
           useMask={getStyle("5dbE92sXAG", "useMask")}
           src={exists(props.icon) ? props.icon : getStyle("5dbE92sXAG", "icon")}

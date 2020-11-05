@@ -77,6 +77,7 @@ function HbButton(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "LoHyGddKTC",
@@ -85,7 +86,10 @@ function HbButton(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
-          className={"__visly_reset __visly_scope_LoHyGddKTC_QrGpru5iuK"}
+          id={"text_QrGpru5iuK"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_LoHyGddKTC_QrGpru5iuK"
+          }
           key={"QrGpru5iuK"}
           text={
             exists(props.text) ? props.text : getStyle("QrGpru5iuK", "text")

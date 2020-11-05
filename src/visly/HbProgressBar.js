@@ -65,6 +65,7 @@ function HbProgressBar(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "YVnKQEdtP4",
@@ -73,7 +74,8 @@ function HbProgressBar(_props) {
     >
       {(getStyle) => (
         <ProgressFillPrimitive
-          className={"__visly_reset __visly_scope_YVnKQEdtP4_fill"}
+          id={"Fill_fill"}
+          className={"__visly_reset_WDRq65T88Q __visly_scope_YVnKQEdtP4_fill"}
           key={"fill"}
           value={
             exists(props.value) ? props.value : getStyle("fill", "progress")

@@ -194,6 +194,7 @@ function HbHeader(_props) {
       key="MPFekVRp85"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "MPFekVRp85",
         scope: "9XVkrqrLZt",
@@ -203,14 +204,20 @@ function HbHeader(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_9XVkrqrLZt_7zMWCZsd7M"}
+            id={"Background Layer_7zMWCZsd7M"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_7zMWCZsd7M"
+            }
             key={"7zMWCZsd7M"}
             addSpacing={false}
             element={getStyle("7zMWCZsd7M", "htmlElement")}
           >
             {
               <ImagePrimitive
-                className={"__visly_reset __visly_scope_9XVkrqrLZt_GPsUKuwC2X"}
+                id={"Image_GPsUKuwC2X"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_GPsUKuwC2X"
+                }
                 key={"GPsUKuwC2X"}
                 src={
                   exists(props.bg) ? props.bg : getStyle("GPsUKuwC2X", "src")
@@ -220,21 +227,28 @@ function HbHeader(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_9XVkrqrLZt_47pNJ4CTVs"}
+            id={"HbContainer_47pNJ4CTVs"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_47pNJ4CTVs"
+            }
             key={"47pNJ4CTVs"}
             addSpacing={true}
             element={getStyle("47pNJ4CTVs", "htmlElement")}
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_5dTrnoEMCT"}
+              id={"ExtraImg_5dTrnoEMCT"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_5dTrnoEMCT"
+              }
               key={"5dTrnoEMCT"}
               addSpacing={true}
               element={getStyle("5dTrnoEMCT", "htmlElement")}
             >
               {
                 <ImagePrimitive
+                  id={"Image_CdpiHELTSf"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_CdpiHELTSf"
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_CdpiHELTSf"
                   }
                   key={"CdpiHELTSf"}
                   src={
@@ -247,7 +261,10 @@ function HbHeader(_props) {
               }
             </ContainerPrimitive>
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_BvQJi9KfB1"}
+              id={"Head_BvQJi9KfB1"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_BvQJi9KfB1"
+              }
               key={"BvQJi9KfB1"}
               addSpacing={true}
               element={getStyle("BvQJi9KfB1", "htmlElement")}
@@ -257,15 +274,17 @@ function HbHeader(_props) {
                   <HbLogoComposite
                     key={"DesmwGXXNp"}
                     {...getCompositeDefaultProps("DesmwGXXNp")}
-                    className="__visly_reset __visly_scope_9XVkrqrLZt_DesmwGXXNp"
+                    id="HbLogo_DesmwGXXNp"
+                    className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp"
                   />
                 ) : (
                   <HbLogoContext.Provider
                     key="DesmwGXXNp-provider"
                     value={{
                       key: "DesmwGXXNp",
+                      id: "HbLogo_DesmwGXXNp",
                       className:
-                        "__visly_reset __visly_scope_9XVkrqrLZt_DesmwGXXNp",
+                        "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp",
                       ...getCompositeDefaultProps("DesmwGXXNp"),
                     }}
                   >
@@ -276,15 +295,17 @@ function HbHeader(_props) {
                   <HbProgressComposite
                     key={"B28tWsTkne"}
                     {...getCompositeDefaultProps("B28tWsTkne")}
-                    className="__visly_reset __visly_scope_9XVkrqrLZt_B28tWsTkne"
+                    id="HbProgress_B28tWsTkne"
+                    className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_B28tWsTkne"
                   />
                 ) : (
                   <HbProgressContext.Provider
                     key="B28tWsTkne-provider"
                     value={{
                       key: "B28tWsTkne",
+                      id: "HbProgress_B28tWsTkne",
                       className:
-                        "__visly_reset __visly_scope_9XVkrqrLZt_B28tWsTkne",
+                        "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_B28tWsTkne",
                       ...getCompositeDefaultProps("B28tWsTkne"),
                     }}
                   >
@@ -292,8 +313,9 @@ function HbHeader(_props) {
                   </HbProgressContext.Provider>
                 ),
                 <ContainerPrimitive
+                  id={"Row_UG6YPtbpZv"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_UG6YPtbpZv"
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_UG6YPtbpZv"
                   }
                   key={"UG6YPtbpZv"}
                   addSpacing={false}
@@ -304,15 +326,17 @@ function HbHeader(_props) {
                       <HbCircleIconComposite
                         key={"Coy4GvRJN5"}
                         {...getCompositeDefaultProps("Coy4GvRJN5")}
-                        className="__visly_reset __visly_scope_9XVkrqrLZt_Coy4GvRJN5"
+                        id="HbCircleIcon_Coy4GvRJN5"
+                        className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_Coy4GvRJN5"
                       />
                     ) : (
                       <HbCircleIconContext.Provider
                         key="Coy4GvRJN5-provider"
                         value={{
                           key: "Coy4GvRJN5",
+                          id: "HbCircleIcon_Coy4GvRJN5",
                           className:
-                            "__visly_reset __visly_scope_9XVkrqrLZt_Coy4GvRJN5",
+                            "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_Coy4GvRJN5",
                           ...getCompositeDefaultProps("Coy4GvRJN5"),
                         }}
                       >
@@ -320,22 +344,25 @@ function HbHeader(_props) {
                       </HbCircleIconContext.Provider>
                     ),
                     <SpacerPrimitive
+                      id={"Spacer_4vbMB4cs8F"}
                       className={
-                        "__visly_reset __visly_scope_9XVkrqrLZt_4vbMB4cs8F"
+                        "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_4vbMB4cs8F"
                       }
                       key={"4vbMB4cs8F"}
                     />,
                     <ContainerPrimitive
+                      id={"Column_8Y3DCw5uX1"}
                       className={
-                        "__visly_reset __visly_scope_9XVkrqrLZt_8Y3DCw5uX1"
+                        "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_8Y3DCw5uX1"
                       }
                       key={"8Y3DCw5uX1"}
                       addSpacing={false}
                       element={getStyle("8Y3DCw5uX1", "htmlElement")}
                     >
                       <TextPrimitive
+                        id={"Text_WVr4DnUAPt"}
                         className={
-                          "__visly_reset __visly_scope_9XVkrqrLZt_WVr4DnUAPt"
+                          "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_WVr4DnUAPt"
                         }
                         key={"WVr4DnUAPt"}
                         text={
@@ -346,8 +373,9 @@ function HbHeader(_props) {
                         element={getStyle("WVr4DnUAPt", "htmlElement")}
                       />
                       <TextPrimitive
+                        id={"Text_GJpwns7nhj"}
                         className={
-                          "__visly_reset __visly_scope_9XVkrqrLZt_GJpwns7nhj"
+                          "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_GJpwns7nhj"
                         }
                         key={"GJpwns7nhj"}
                         text={
@@ -363,11 +391,17 @@ function HbHeader(_props) {
               ]}
             </ContainerPrimitive>
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_FzQE2ekJkE"}
+              id={"Spacer_FzQE2ekJkE"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_FzQE2ekJkE"
+              }
               key={"FzQE2ekJkE"}
             />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_DXVbq46P3D"}
+              id={"ProgressMobile_DXVbq46P3D"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DXVbq46P3D"
+              }
               key={"DXVbq46P3D"}
               addSpacing={false}
               element={getStyle("DXVbq46P3D", "htmlElement")}
@@ -376,15 +410,17 @@ function HbHeader(_props) {
                 <HbProgressComposite
                   key={"9VxZfYB53B"}
                   {...getCompositeDefaultProps("9VxZfYB53B")}
-                  className="__visly_reset __visly_scope_9XVkrqrLZt_9VxZfYB53B"
+                  id="HbProgressMobile_9VxZfYB53B"
+                  className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_9VxZfYB53B"
                 />
               ) : (
                 <HbProgressContext.Provider
                   key="9VxZfYB53B-provider"
                   value={{
                     key: "9VxZfYB53B",
+                    id: "HbProgressMobile_9VxZfYB53B",
                     className:
-                      "__visly_reset __visly_scope_9XVkrqrLZt_9VxZfYB53B",
+                      "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_9VxZfYB53B",
                     ...getCompositeDefaultProps("9VxZfYB53B"),
                   }}
                 >
@@ -393,29 +429,42 @@ function HbHeader(_props) {
               )}
             </ContainerPrimitive>
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_LHD69MvEi8"}
+              id={"Spacer_LHD69MvEi8"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_LHD69MvEi8"
+              }
               key={"LHD69MvEi8"}
             />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_Ajq15sbMPw"}
+              id={"Row_Ajq15sbMPw"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_Ajq15sbMPw"
+              }
               key={"Ajq15sbMPw"}
               addSpacing={false}
               element={getStyle("Ajq15sbMPw", "htmlElement")}
             >
               <SpacerPrimitive
-                className={"__visly_reset __visly_scope_9XVkrqrLZt_AmuT4WgaTf"}
+                id={"Spacer_AmuT4WgaTf"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_AmuT4WgaTf"
+                }
                 key={"AmuT4WgaTf"}
               />
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_9XVkrqrLZt_2RwNh3KRbg"}
+                id={"HbContent_2RwNh3KRbg"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_2RwNh3KRbg"
+                }
                 key={"2RwNh3KRbg"}
                 addSpacing={true}
                 element={getStyle("2RwNh3KRbg", "htmlElement")}
               >
                 <ContainerPrimitive
                   key={"VTKN5tHTts"}
+                  id={"Slot_VTKN5tHTts"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_VTKN5tHTts"
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_VTKN5tHTts"
                   }
                   addSpacing={false}
                 >
@@ -423,30 +472,36 @@ function HbHeader(_props) {
                 </ContainerPrimitive>
                 <ContainerPrimitive
                   key={"7hnTiRDRyn"}
+                  id={"Slot_7hnTiRDRyn"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_7hnTiRDRyn"
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_7hnTiRDRyn"
                   }
                   addSpacing={false}
                 >
                   {props.SubtitleSlot}
                 </ContainerPrimitive>
                 <SpacerPrimitive
+                  id={"Spacer_JttkhPdb2e"}
                   className={
-                    "__visly_reset __visly_scope_9XVkrqrLZt_JttkhPdb2e"
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_JttkhPdb2e"
                   }
                   key={"JttkhPdb2e"}
                 />
               </ContainerPrimitive>
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_9XVkrqrLZt_kUjGG71oGb"}
+                id={"Overlay_kUjGG71oGb"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_kUjGG71oGb"
+                }
                 key={"kUjGG71oGb"}
                 addSpacing={false}
                 element={getStyle("kUjGG71oGb", "htmlElement")}
               >
                 {
                   <ImagePrimitive
+                    id={"Image_AFED7U3hCF"}
                     className={
-                      "__visly_reset __visly_scope_9XVkrqrLZt_AFED7U3hCF"
+                      "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_AFED7U3hCF"
                     }
                     key={"AFED7U3hCF"}
                     src={
@@ -461,7 +516,10 @@ function HbHeader(_props) {
             </ContainerPrimitive>
             <ContainerPrimitive
               key={"47pCh1HY9f"}
-              className={"__visly_reset __visly_scope_9XVkrqrLZt_47pCh1HY9f"}
+              id={"Slot_47pCh1HY9f"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_47pCh1HY9f"
+              }
               addSpacing={false}
             >
               {props.ExtraChildren}

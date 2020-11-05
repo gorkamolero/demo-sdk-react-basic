@@ -61,6 +61,7 @@ function HbFeatureItem(_props) {
       key="Ha2hSNMdJw"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "Ha2hSNMdJw",
         scope: "2nqE2sA12b",
@@ -70,7 +71,10 @@ function HbFeatureItem(_props) {
       {(getStyle) => (
         <>
           <TextPrimitive
-            className={"__visly_reset __visly_scope_2nqE2sA12b_WMJS8iYUM2"}
+            id={"Title_WMJS8iYUM2"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_2nqE2sA12b_WMJS8iYUM2"
+            }
             key={"WMJS8iYUM2"}
             text={
               exists(props.title) ? props.title : getStyle("WMJS8iYUM2", "text")
@@ -78,7 +82,10 @@ function HbFeatureItem(_props) {
             element={getStyle("WMJS8iYUM2", "htmlElement")}
           />
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_2nqE2sA12b_Gwzj8Sp6Nq"}
+            id={"Line_Gwzj8Sp6Nq"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_2nqE2sA12b_Gwzj8Sp6Nq"
+            }
             key={"Gwzj8Sp6Nq"}
             addSpacing={false}
             element={getStyle("Gwzj8Sp6Nq", "htmlElement")}
@@ -86,11 +93,17 @@ function HbFeatureItem(_props) {
             {null}
           </ContainerPrimitive>
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_2nqE2sA12b_2871CeG9P2"}
+            id={"Spacer_2871CeG9P2"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_2nqE2sA12b_2871CeG9P2"
+            }
             key={"2871CeG9P2"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_2nqE2sA12b_QpvH3usWxS"}
+            id={"Text_QpvH3usWxS"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_2nqE2sA12b_QpvH3usWxS"
+            }
             key={"QpvH3usWxS"}
             text={
               exists(props.text) ? props.text : getStyle("QpvH3usWxS", "text")

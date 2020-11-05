@@ -85,6 +85,7 @@ function HbTestimonial(_props) {
       key="TEMvSpZsq9"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "TEMvSpZsq9",
         scope: "WBdVWKo3g2",
@@ -94,14 +95,20 @@ function HbTestimonial(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_V1dKWcVmPd"}
+            id={"Overlay_V1dKWcVmPd"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_V1dKWcVmPd"
+            }
             key={"V1dKWcVmPd"}
             addSpacing={false}
             element={getStyle("V1dKWcVmPd", "htmlElement")}
           >
             {
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_WBdVWKo3g2_HSyBqwCpTj"}
+                id={"Row_HSyBqwCpTj"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_HSyBqwCpTj"
+                }
                 key={"HSyBqwCpTj"}
                 addSpacing={false}
                 element={getStyle("HSyBqwCpTj", "htmlElement")}
@@ -111,21 +118,28 @@ function HbTestimonial(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_ThBPq1AmgT"}
+            id={"Row_ThBPq1AmgT"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_ThBPq1AmgT"
+            }
             key={"ThBPq1AmgT"}
             addSpacing={true}
             element={getStyle("ThBPq1AmgT", "htmlElement")}
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_WBdVWKo3g2_BQWSpmyRhj"}
+              id={"ImageContainer_BQWSpmyRhj"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_BQWSpmyRhj"
+              }
               key={"BQWSpmyRhj"}
               addSpacing={false}
               element={getStyle("BQWSpmyRhj", "htmlElement")}
             >
               {
                 <ImagePrimitive
+                  id={"Image_G5WjNJdjcw"}
                   className={
-                    "__visly_reset __visly_scope_WBdVWKo3g2_G5WjNJdjcw"
+                    "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_G5WjNJdjcw"
                   }
                   key={"G5WjNJdjcw"}
                   src={
@@ -138,27 +152,37 @@ function HbTestimonial(_props) {
               }
             </ContainerPrimitive>
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_WBdVWKo3g2_SN3g8tmrW6"}
+              id={"Column_SN3g8tmrW6"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_SN3g8tmrW6"
+              }
               key={"SN3g8tmrW6"}
               addSpacing={false}
               element={getStyle("SN3g8tmrW6", "htmlElement")}
             >
               <ContainerPrimitive
                 key={"JcvuhRskdz"}
-                className={"__visly_reset __visly_scope_WBdVWKo3g2_JcvuhRskdz"}
+                id={"Slot_JcvuhRskdz"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_JcvuhRskdz"
+                }
                 addSpacing={false}
               >
                 {props.stars}
               </ContainerPrimitive>
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_WBdVWKo3g2_KoxVNRDdjs"}
+                id={"ClientContainer_KoxVNRDdjs"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_KoxVNRDdjs"
+                }
                 key={"KoxVNRDdjs"}
                 addSpacing={false}
                 element={getStyle("KoxVNRDdjs", "htmlElement")}
               >
                 <TextPrimitive
+                  id={"Client_GfQQK2QSw7"}
                   className={
-                    "__visly_reset __visly_scope_WBdVWKo3g2_GfQQK2QSw7"
+                    "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_GfQQK2QSw7"
                   }
                   key={"GfQQK2QSw7"}
                   text={
@@ -169,22 +193,25 @@ function HbTestimonial(_props) {
                   element={getStyle("GfQQK2QSw7", "htmlElement")}
                 />
                 <SpacerPrimitive
+                  id={"Spacer_KdmQLnbq1R"}
                   className={
-                    "__visly_reset __visly_scope_WBdVWKo3g2_KdmQLnbq1R"
+                    "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_KdmQLnbq1R"
                   }
                   key={"KdmQLnbq1R"}
                 />
                 <ContainerPrimitive
+                  id={"Row_PoN3rEr5Aa"}
                   className={
-                    "__visly_reset __visly_scope_WBdVWKo3g2_PoN3rEr5Aa"
+                    "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_PoN3rEr5Aa"
                   }
                   key={"PoN3rEr5Aa"}
                   addSpacing={false}
                   element={getStyle("PoN3rEr5Aa", "htmlElement")}
                 >
                   <ContainerPrimitive
+                    id={"IconContainer_BPYvu5nk1j"}
                     className={
-                      "__visly_reset __visly_scope_WBdVWKo3g2_BPYvu5nk1j"
+                      "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_BPYvu5nk1j"
                     }
                     key={"BPYvu5nk1j"}
                     addSpacing={false}
@@ -192,8 +219,9 @@ function HbTestimonial(_props) {
                   >
                     {
                       <IconPrimitive
+                        id={"Icon_Jp3AYaDT1R"}
                         className={
-                          "__visly_reset __visly_scope_WBdVWKo3g2_Jp3AYaDT1R"
+                          "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_Jp3AYaDT1R"
                         }
                         key={"Jp3AYaDT1R"}
                         useMask={getStyle("Jp3AYaDT1R", "useMask")}
@@ -202,14 +230,16 @@ function HbTestimonial(_props) {
                     }
                   </ContainerPrimitive>
                   <SpacerPrimitive
+                    id={"Spacer_PdZSAibW47"}
                     className={
-                      "__visly_reset __visly_scope_WBdVWKo3g2_PdZSAibW47"
+                      "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_PdZSAibW47"
                     }
                     key={"PdZSAibW47"}
                   />
                   <TextPrimitive
+                    id={"Text_S3tYE3vzFu"}
                     className={
-                      "__visly_reset __visly_scope_WBdVWKo3g2_S3tYE3vzFu"
+                      "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_S3tYE3vzFu"
                     }
                     key={"S3tYE3vzFu"}
                     text={getStyle("S3tYE3vzFu", "text")}
@@ -220,11 +250,17 @@ function HbTestimonial(_props) {
             </ContainerPrimitive>
           </ContainerPrimitive>
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_F1fTPjzhrX"}
+            id={"Spacer_F1fTPjzhrX"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_F1fTPjzhrX"
+            }
             key={"F1fTPjzhrX"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_LLAN2HR72H"}
+            id={"Title_LLAN2HR72H"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_LLAN2HR72H"
+            }
             key={"LLAN2HR72H"}
             text={
               exists(props.title) ? props.title : getStyle("LLAN2HR72H", "text")
@@ -232,11 +268,17 @@ function HbTestimonial(_props) {
             element={getStyle("LLAN2HR72H", "htmlElement")}
           />
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_KTFD4vqNwH"}
+            id={"Spacer_KTFD4vqNwH"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_KTFD4vqNwH"
+            }
             key={"KTFD4vqNwH"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_QDNh14WQhk"}
+            id={"Text_QDNh14WQhk"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_QDNh14WQhk"
+            }
             key={"QDNh14WQhk"}
             text={
               exists(props.dog) ? props.dog : getStyle("QDNh14WQhk", "text")
@@ -244,11 +286,17 @@ function HbTestimonial(_props) {
             element={getStyle("QDNh14WQhk", "htmlElement")}
           />
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_7Sh4tYJVoL"}
+            id={"Spacer_7Sh4tYJVoL"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_7Sh4tYJVoL"
+            }
             key={"7Sh4tYJVoL"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_WBdVWKo3g2_72EEoP6Shu"}
+            id={"Text_72EEoP6Shu"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_72EEoP6Shu"
+            }
             key={"72EEoP6Shu"}
             text={
               exists(props.text) ? props.text : getStyle("72EEoP6Shu", "text")

@@ -273,3 +273,11 @@ small {
   max-width: 60ch;
   margin: 0 auto;
 }
+
+div[id^='Slot'] {
+  overflow: visible !important;
+}
+
+h2 {
+  color: rgb(98, 59, 42);
+}

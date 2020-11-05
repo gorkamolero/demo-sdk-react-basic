@@ -46,6 +46,7 @@ function HbProgress(_props) {
       key="MxbtnZbZYP"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "MxbtnZbZYP",
         scope: "58sVdZPWz3",
@@ -57,14 +58,17 @@ function HbProgress(_props) {
           <HbProgressBarComposite
             key={"kmSY4sXvkg"}
             {...getCompositeDefaultProps("kmSY4sXvkg")}
-            className="__visly_reset __visly_scope_58sVdZPWz3_kmSY4sXvkg"
+            id="HbProgressBar_kmSY4sXvkg"
+            className="__visly_reset_WDRq65T88Q __visly_scope_58sVdZPWz3_kmSY4sXvkg"
           />
         ) : (
           <HbProgressBarContext.Provider
             key="kmSY4sXvkg-provider"
             value={{
               key: "kmSY4sXvkg",
-              className: "__visly_reset __visly_scope_58sVdZPWz3_kmSY4sXvkg",
+              id: "HbProgressBar_kmSY4sXvkg",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_58sVdZPWz3_kmSY4sXvkg",
               ...getCompositeDefaultProps("kmSY4sXvkg"),
             }}
           >
@@ -72,7 +76,10 @@ function HbProgress(_props) {
           </HbProgressBarContext.Provider>
         ),
         <ContainerPrimitive
-          className={"__visly_reset __visly_scope_58sVdZPWz3_9C7DRr8xaT"}
+          id={"Overlay_9C7DRr8xaT"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_58sVdZPWz3_9C7DRr8xaT"
+          }
           key={"9C7DRr8xaT"}
           addSpacing={false}
           element={getStyle("9C7DRr8xaT", "htmlElement")}
@@ -80,7 +87,10 @@ function HbProgress(_props) {
           {
             <ContainerPrimitive
               key={"WSVto4bCsC"}
-              className={"__visly_reset __visly_scope_58sVdZPWz3_WSVto4bCsC"}
+              id={"Slot_WSVto4bCsC"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_58sVdZPWz3_WSVto4bCsC"
+              }
               addSpacing={false}
             >
               {props.children}

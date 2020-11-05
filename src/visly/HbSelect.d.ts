@@ -93,6 +93,7 @@ export const HbSelect: {
       label?: string;
       selected?: string;
       onSelect: (value: string) => void;
+      gap?: number;
       HbUnselected?: boolean;
       size?: "small" | "medium" | "large" | "super";
       children?: React.ReactNode[];

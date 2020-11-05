@@ -166,6 +166,7 @@ export const component = {
   HbPopover: "e59b486f-1a7c-43cc-911b-dfa5c31ca50e",
   HbProduct: "71a5379b-9aa4-4c35-a046-58f006405f0a",
   HbProductEmpty: "7d6c4df7-e1ab-4edd-9511-22dee5bb77ff",
+  HbProductImage: "005929e0-c027-4474-9d7f-b11c7dd9f74c",
   HbProgress: "217de0fb-2e4c-40a5-90a4-8689b05c0719",
   HbProgressBar: "ff100d40-b155-4f07-a439-72672d3869a4",
   HbProgressButton: "9dd98517-1292-40d0-9105-4078b37c75ef",

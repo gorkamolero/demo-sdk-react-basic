@@ -95,6 +95,7 @@ export function DialogContainerPrimitive(props) {
         {...dialogProps}
         ref={combineRef(ref, measureRef)}
         className={className}
+        id={props.id}
       >
         {children}
       </div>

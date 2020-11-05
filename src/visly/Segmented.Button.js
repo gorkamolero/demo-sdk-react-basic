@@ -66,6 +66,7 @@ function Button(_props) {
       key="segmented-control-button-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "segmented-control-button-root",
         scope: "BgFNHfxTXa",
@@ -74,8 +75,9 @@ function Button(_props) {
     >
       {(getStyle) => (
         <TextPrimitive
+          id={"text_segmented-control-button-text"}
           className={
-            "__visly_reset __visly_scope_BgFNHfxTXa_segmented-control-button-text"
+            "__visly_reset_WDRq65T88Q __visly_scope_BgFNHfxTXa_segmented-control-button-text"
           }
           key={"segmented-control-button-text"}
           text={

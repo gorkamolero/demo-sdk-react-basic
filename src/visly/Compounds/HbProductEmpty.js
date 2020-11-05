@@ -79,6 +79,7 @@ function HbProductEmpty(_props) {
       key="TEMvSpZsq9"
       addSpacing={true}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "TEMvSpZsq9",
         scope: "GVHshrcqto",
@@ -88,21 +89,28 @@ function HbProductEmpty(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_GVHshrcqto_DA8Xa72aFn"}
+            id={"CardHeader_DA8Xa72aFn"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_DA8Xa72aFn"
+            }
             key={"DA8Xa72aFn"}
             addSpacing={true}
             element={getStyle("DA8Xa72aFn", "htmlElement")}
           >
             {
               <ContainerPrimitive
-                className={"__visly_reset __visly_scope_GVHshrcqto_WRyAaE5y9d"}
+                id={"LeftSide_WRyAaE5y9d"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_WRyAaE5y9d"
+                }
                 key={"WRyAaE5y9d"}
                 addSpacing={true}
                 element={getStyle("WRyAaE5y9d", "htmlElement")}
               >
                 <ContainerPrimitive
+                  id={"Number_Um5F7YdKHX"}
                   className={
-                    "__visly_reset __visly_scope_GVHshrcqto_Um5F7YdKHX"
+                    "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_Um5F7YdKHX"
                   }
                   key={"Um5F7YdKHX"}
                   addSpacing={false}
@@ -110,8 +118,9 @@ function HbProductEmpty(_props) {
                 >
                   {
                     <TextPrimitive
+                      id={"Order_21QeGg8jho"}
                       className={
-                        "__visly_reset __visly_scope_GVHshrcqto_21QeGg8jho"
+                        "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_21QeGg8jho"
                       }
                       key={"21QeGg8jho"}
                       text={
@@ -124,8 +133,9 @@ function HbProductEmpty(_props) {
                   }
                 </ContainerPrimitive>
                 <TextPrimitive
+                  id={"CardTitle_HM7QLqsybb"}
                   className={
-                    "__visly_reset __visly_scope_GVHshrcqto_HM7QLqsybb"
+                    "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_HM7QLqsybb"
                   }
                   key={"HM7QLqsybb"}
                   text={
@@ -139,21 +149,28 @@ function HbProductEmpty(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_GVHshrcqto_UdYVCcCaqY"}
+            id={"CardContent_UdYVCcCaqY"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_UdYVCcCaqY"
+            }
             key={"UdYVCcCaqY"}
             addSpacing={false}
             element={getStyle("UdYVCcCaqY", "htmlElement")}
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_GVHshrcqto_CTQf35YXup"}
+              id={"DogContainer_CTQf35YXup"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_CTQf35YXup"
+              }
               key={"CTQf35YXup"}
               addSpacing={false}
               element={getStyle("CTQf35YXup", "htmlElement")}
             >
               {
                 <IconPrimitive
+                  id={"Icon_WhwzT2jENf"}
                   className={
-                    "__visly_reset __visly_scope_GVHshrcqto_WhwzT2jENf"
+                    "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_WhwzT2jENf"
                   }
                   key={"WhwzT2jENf"}
                   useMask={getStyle("WhwzT2jENf", "useMask")}
@@ -162,17 +179,26 @@ function HbProductEmpty(_props) {
               }
             </ContainerPrimitive>
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_GVHshrcqto_JLos9DaYE8"}
+              id={"Spacer_JLos9DaYE8"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_JLos9DaYE8"
+              }
               key={"JLos9DaYE8"}
             />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_GVHshrcqto_N3yQYTcaWV"}
+              id={"Content_N3yQYTcaWV"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_N3yQYTcaWV"
+              }
               key={"N3yQYTcaWV"}
               addSpacing={false}
               element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
               <TextPrimitive
-                className={"__visly_reset __visly_scope_GVHshrcqto_8C3DGxh663"}
+                id={"CardTitle_8C3DGxh663"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_8C3DGxh663"
+                }
                 key={"8C3DGxh663"}
                 text={
                   exists(props.oops)
@@ -182,11 +208,17 @@ function HbProductEmpty(_props) {
                 element={getStyle("8C3DGxh663", "htmlElement")}
               />
               <SpacerPrimitive
-                className={"__visly_reset __visly_scope_GVHshrcqto_X6tktLxhFT"}
+                id={"Spacer_X6tktLxhFT"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_X6tktLxhFT"
+                }
                 key={"X6tktLxhFT"}
               />
               <TextPrimitive
-                className={"__visly_reset __visly_scope_GVHshrcqto_72EEoP6Shu"}
+                id={"TextAndLink_72EEoP6Shu"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_72EEoP6Shu"
+                }
                 key={"72EEoP6Shu"}
                 text={
                   exists(props.textAndLink)
@@ -197,7 +229,10 @@ function HbProductEmpty(_props) {
               />
               <ContainerPrimitive
                 key={"KVQd13HGDM"}
-                className={"__visly_reset __visly_scope_GVHshrcqto_KVQd13HGDM"}
+                id={"Slot_KVQd13HGDM"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_KVQd13HGDM"
+                }
                 addSpacing={false}
               >
                 {props.details}

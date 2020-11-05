@@ -81,6 +81,7 @@ function HbCheckboxGroup(_props) {
       key="root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "root",
         scope: "JGvT8rY9BT",
@@ -89,7 +90,10 @@ function HbCheckboxGroup(_props) {
     >
       {(getStyle) => [
         <IconPrimitive
-          className={"__visly_reset __visly_scope_JGvT8rY9BT_checkmark"}
+          id={"Marker_checkmark"}
+          className={
+            "__visly_reset_WDRq65T88Q __visly_scope_JGvT8rY9BT_checkmark"
+          }
           key={"checkmark"}
           useMask={getStyle("checkmark", "useMask")}
           src={getStyle("checkmark", "icon")}
@@ -98,14 +102,17 @@ function HbCheckboxGroup(_props) {
           <HbIconButtonComposite
             key={"HkvrZpwtE4"}
             {...getCompositeDefaultProps("HkvrZpwtE4")}
-            className="__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4"
+            id="HbIconButton_HkvrZpwtE4"
+            className="__visly_reset_WDRq65T88Q __visly_scope_JGvT8rY9BT_HkvrZpwtE4"
           />
         ) : (
           <HbIconButtonContext.Provider
             key="HkvrZpwtE4-provider"
             value={{
               key: "HkvrZpwtE4",
-              className: "__visly_reset __visly_scope_JGvT8rY9BT_HkvrZpwtE4",
+              id: "HbIconButton_HkvrZpwtE4",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_JGvT8rY9BT_HkvrZpwtE4",
               ...getCompositeDefaultProps("HkvrZpwtE4"),
             }}
           >

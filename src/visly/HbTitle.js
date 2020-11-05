@@ -53,6 +53,7 @@ function HbTitle(_props) {
       key="L83WkqFJnB"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "L83WkqFJnB",
         scope: "FZkfHq6MCA",
@@ -62,14 +63,20 @@ function HbTitle(_props) {
       {(getStyle) => (
         <>
           <TextPrimitive
-            className={"__visly_reset __visly_scope_FZkfHq6MCA_tkWWpRpjf3"}
+            id={"Text_tkWWpRpjf3"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_FZkfHq6MCA_tkWWpRpjf3"
+            }
             key={"tkWWpRpjf3"}
             text={getStyle("tkWWpRpjf3", "text")}
             element={getStyle("tkWWpRpjf3", "htmlElement")}
           />
           <ContainerPrimitive
             key={"DxEPUaudXV"}
-            className={"__visly_reset __visly_scope_FZkfHq6MCA_DxEPUaudXV"}
+            id={"Slot_DxEPUaudXV"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_FZkfHq6MCA_DxEPUaudXV"
+            }
             addSpacing={false}
           >
             {props.children}

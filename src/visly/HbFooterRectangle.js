@@ -102,6 +102,7 @@ function HbFooterRectangle(_props) {
       key="QqmbTS93UZ"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "QqmbTS93UZ",
         scope: "Npa8kPzTtv",
@@ -111,7 +112,10 @@ function HbFooterRectangle(_props) {
       {(getStyle) => (
         <>
           <IconPrimitive
-            className={"__visly_reset __visly_scope_Npa8kPzTtv_Mo7rGSicAa"}
+            id={"Icon_Mo7rGSicAa"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_Mo7rGSicAa"
+            }
             key={"Mo7rGSicAa"}
             useMask={getStyle("Mo7rGSicAa", "useMask")}
             src={
@@ -119,17 +123,26 @@ function HbFooterRectangle(_props) {
             }
           />
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_Npa8kPzTtv_UHuqLDWte5"}
+            id={"Spacer_UHuqLDWte5"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_UHuqLDWte5"
+            }
             key={"UHuqLDWte5"}
           />
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_Npa8kPzTtv_CD54kq73jf"}
+            id={"Column_CD54kq73jf"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_CD54kq73jf"
+            }
             key={"CD54kq73jf"}
             addSpacing={false}
             element={getStyle("CD54kq73jf", "htmlElement")}
           >
             <TextPrimitive
-              className={"__visly_reset __visly_scope_Npa8kPzTtv_TtJg39uXYB"}
+              id={"Title_TtJg39uXYB"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_TtJg39uXYB"
+              }
               key={"TtJg39uXYB"}
               text={
                 exists(props.title)
@@ -139,11 +152,17 @@ function HbFooterRectangle(_props) {
               element={getStyle("TtJg39uXYB", "htmlElement")}
             />
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_Npa8kPzTtv_genqiGNMDt"}
+              id={"Spacer_genqiGNMDt"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_genqiGNMDt"
+              }
               key={"genqiGNMDt"}
             />
             <TextPrimitive
-              className={"__visly_reset __visly_scope_Npa8kPzTtv_7pDuFKyB8H"}
+              id={"Subtitle_7pDuFKyB8H"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_Npa8kPzTtv_7pDuFKyB8H"
+              }
               key={"7pDuFKyB8H"}
               text={
                 exists(props.subtitle)

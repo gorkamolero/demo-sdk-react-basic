@@ -31,6 +31,7 @@ export const HbLinkButton = require("./HbLinkButton").default;
 export const HbLogo = require("./HbLogo").default;
 export const HbOnlyIconButton = require("./HbOnlyIconButton").default;
 export const HbPopover = require("./HbPopover").default;
+export const HbProductImage = require("./HbProductImage").default;
 export const HbProgress = require("./HbProgress").default;
 export const HbProgressBar = require("./HbProgressBar").default;
 export const HbProgressButton = require("./HbProgressButton").default;

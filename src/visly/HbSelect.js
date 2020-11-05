@@ -137,6 +137,7 @@ function HbSelect(_props) {
       key="select-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "select-root",
         scope: "AaLudVhbjf",
@@ -147,10 +148,14 @@ function HbSelect(_props) {
         <>
           <SelectButton
             key="select-button"
-            className="__visly_reset __visly_scope_AaLudVhbjf_select-button"
+            id={"Button_select-button"}
+            className="__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_select-button"
           >
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_AaLudVhbjf_Y1P6Hjm8D7"}
+              id={"Row_Y1P6Hjm8D7"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_Y1P6Hjm8D7"
+              }
               key={"Y1P6Hjm8D7"}
               addSpacing={false}
               element={getStyle("Y1P6Hjm8D7", "htmlElement")}
@@ -158,8 +163,9 @@ function HbSelect(_props) {
               {null}
             </ContainerPrimitive>
             <TextPrimitive
+              id={"text_select-button-text"}
               className={
-                "__visly_reset __visly_scope_AaLudVhbjf_select-button-text"
+                "__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_select-button-text"
               }
               key={"select-button-text"}
               text={
@@ -170,19 +176,26 @@ function HbSelect(_props) {
               element={getStyle("select-button-text", "htmlElement")}
             />
             <SpacerPrimitive
-              className={"__visly_reset __visly_scope_AaLudVhbjf_KFFKrL54Ck"}
+              id={"Spacer_KFFKrL54Ck"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_KFFKrL54Ck"
+              }
               key={"KFFKrL54Ck"}
             />
             <ContainerPrimitive
-              className={"__visly_reset __visly_scope_AaLudVhbjf_XBupFQrQKi"}
+              id={"Row_XBupFQrQKi"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_XBupFQrQKi"
+              }
               key={"XBupFQrQKi"}
               addSpacing={false}
               element={getStyle("XBupFQrQKi", "htmlElement")}
             >
               {
                 <IconPrimitive
+                  id={"Icon_3VtGBBDCR3"}
                   className={
-                    "__visly_reset __visly_scope_AaLudVhbjf_3VtGBBDCR3"
+                    "__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_3VtGBBDCR3"
                   }
                   key={"3VtGBBDCR3"}
                   useMask={getStyle("3VtGBBDCR3", "useMask")}
@@ -193,7 +206,8 @@ function HbSelect(_props) {
           </SelectButton>
           <SelectOptionContainer
             key="select-menu"
-            className="__visly_reset __visly_scope_AaLudVhbjf_select-menu"
+            id={"Menu_select-menu"}
+            className="__visly_reset_WDRq65T88Q __visly_scope_AaLudVhbjf_select-menu"
             innerKey="select-menu"
             addSpacing={false}
             useButtonWidth={true}

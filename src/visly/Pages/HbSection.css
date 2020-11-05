@@ -23,7 +23,6 @@
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_S2bhe8BS6y {
   display: block;
   box-sizing: border-box;
-  overflow: visible;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -33,6 +32,7 @@
   font-size: 36px;
   line-height: 48px;
   flex-shrink: 1;
+  overflow: visible;
 }
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_R8m6dsU8Qu {
   overflow: visible;
@@ -55,6 +55,7 @@
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_LmccNjQnKs {
   overflow: visible;
   box-sizing: border-box;
+  width: 100%;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -65,6 +66,7 @@
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_C9ydbVQ2rK {
   overflow: visible;
   box-sizing: border-box;
+  width: 100%;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;

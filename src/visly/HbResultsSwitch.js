@@ -64,6 +64,7 @@ function HbResultsSwitch(_props) {
       key="XfsS8UVVNb"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "XfsS8UVVNb",
         scope: "G6soLsaE7f",
@@ -73,14 +74,20 @@ function HbResultsSwitch(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_G6soLsaE7f_Q3GAzF4SsV"}
+            id={"Left_Q3GAzF4SsV"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_Q3GAzF4SsV"
+            }
             key={"Q3GAzF4SsV"}
             addSpacing={false}
             element={getStyle("Q3GAzF4SsV", "htmlElement")}
           >
             {
               <TextPrimitive
-                className={"__visly_reset __visly_scope_G6soLsaE7f_ErMskujkgf"}
+                id={"LeftLabel_ErMskujkgf"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_ErMskujkgf"
+                }
                 key={"ErMskujkgf"}
                 text={
                   exists(props.leftLabel)
@@ -92,14 +99,20 @@ function HbResultsSwitch(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_G6soLsaE7f_8Yk4zNDXLG"}
+            id={"Right_8Yk4zNDXLG"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_8Yk4zNDXLG"
+            }
             key={"8Yk4zNDXLG"}
             addSpacing={false}
             element={getStyle("8Yk4zNDXLG", "htmlElement")}
           >
             {
               <TextPrimitive
-                className={"__visly_reset __visly_scope_G6soLsaE7f_HDw8QKzs7p"}
+                id={"RightLabel_HDw8QKzs7p"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_HDw8QKzs7p"
+                }
                 key={"HDw8QKzs7p"}
                 text={
                   exists(props.rightLabel)
@@ -111,14 +124,20 @@ function HbResultsSwitch(_props) {
             }
           </ContainerPrimitive>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_G6soLsaE7f_M7AaCsm4Ka"}
+            id={"Handle_M7AaCsm4Ka"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_M7AaCsm4Ka"
+            }
             key={"M7AaCsm4Ka"}
             addSpacing={false}
             element={getStyle("M7AaCsm4Ka", "htmlElement")}
           >
             {
               <TextPrimitive
-                className={"__visly_reset __visly_scope_G6soLsaE7f_UkdzqfKtpo"}
+                id={"Text_UkdzqfKtpo"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_G6soLsaE7f_UkdzqfKtpo"
+                }
                 key={"UkdzqfKtpo"}
                 text={
                   exists(props.handlelabel)

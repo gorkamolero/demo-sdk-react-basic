@@ -1,4 +1,4 @@
-.__visly_reset {
+.__visly_reset_WDRq65T88Q {
     padding: 0;
     border: 0;
     outline: none;
@@ -18,10 +18,10 @@
     list-style-type: none;
 }
 
-.__visly_reset > *:focus {
+.__visly_reset_WDRq65T88Q > *:focus {
     outline: none;
 }
 
-.__visly_reset::placeholder {
+.__visly_reset_WDRq65T88Q::placeholder {
     opacity: 1;
 }

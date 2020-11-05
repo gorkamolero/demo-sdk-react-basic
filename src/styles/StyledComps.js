@@ -73,4 +73,3 @@ export const Tip = styled.div(props => ({
   color: colors.hbBrown,
   padding: 10, borderRadius: 4
 }))
-

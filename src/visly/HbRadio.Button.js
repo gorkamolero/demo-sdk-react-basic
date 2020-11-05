@@ -169,6 +169,7 @@ function Button(_props) {
       key="radio-group-button-root"
       addSpacing={false}
       internal={{
+        projectId: "WDRq65T88Q",
         styles: styles,
         layerId: "radio-group-button-root",
         scope: "5gQcVEwtx6",
@@ -178,14 +179,20 @@ function Button(_props) {
       {(getStyle) => (
         <>
           <ContainerPrimitive
-            className={"__visly_reset __visly_scope_5gQcVEwtx6_DfPB1k7cBG"}
+            id={"IconContainer_DfPB1k7cBG"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_5gQcVEwtx6_DfPB1k7cBG"
+            }
             key={"DfPB1k7cBG"}
             addSpacing={false}
             element={getStyle("DfPB1k7cBG", "htmlElement")}
           >
             {
               <IconPrimitive
-                className={"__visly_reset __visly_scope_5gQcVEwtx6_PpaiPZQUUA"}
+                id={"Icon_PpaiPZQUUA"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_5gQcVEwtx6_PpaiPZQUUA"
+                }
                 key={"PpaiPZQUUA"}
                 useMask={getStyle("PpaiPZQUUA", "useMask")}
                 src={
@@ -197,11 +204,17 @@ function Button(_props) {
             }
           </ContainerPrimitive>
           <SpacerPrimitive
-            className={"__visly_reset __visly_scope_5gQcVEwtx6_7Fq8iCsteh"}
+            id={"spacer_7Fq8iCsteh"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_5gQcVEwtx6_7Fq8iCsteh"
+            }
             key={"7Fq8iCsteh"}
           />
           <TextPrimitive
-            className={"__visly_reset __visly_scope_5gQcVEwtx6_6uiwQ5NcML"}
+            id={"text_6uiwQ5NcML"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_5gQcVEwtx6_6uiwQ5NcML"
+            }
             key={"6uiwQ5NcML"}
             text={
               exists(props.title) ? props.title : getStyle("6uiwQ5NcML", "text")

@@ -249,7 +249,10 @@ export function usePrimitive({
     isInteractive,
     ignoreFocusHandling
   );
-  const states = exists(internal.state) ? [internal.state] : [..._states];
+  const states = useMemo(
+    () => (exists(internal.state) ? [internal.state] : [..._states]),
+    [_states, internal.state]
+  );
 
   if (isFocusVisible) {
     states.push(InteractionState.Focus);
@@ -259,8 +262,12 @@ export function usePrimitive({
     states.push(InteractionState.Pressed);
   }
 
-  const activeVariants = [...variants, ...internal.activeVariants];
+  const activeVariants = useMemo(
+    () => [...variants, ...internal.activeVariants],
+    [internal.activeVariants, variants]
+  );
   const vislyClasses = getRootClasses({
+    projectId: internal.projectId,
     scope: internal.scope,
     layerId: internal.layerId,
     setVariantProps: activeVariants,
@@ -280,32 +287,22 @@ export function usePrimitive({
     className: [className, vislyClasses].filter(exists).join(" "),
   });
   const isDisabled = hasDisabledState(states);
-  return useMemo(
-    () => ({
+  return {
+    states,
+    style,
+    variants: activeVariants,
+    innerRef,
+    testId,
+    vislyProps,
+    values: stylesForState({
+      styles: internal.styles,
       states,
-      style,
       variants: activeVariants,
-      innerRef,
-      testId,
-      vislyProps,
-      values: stylesForState({
-        styles: internal.styles,
-        states,
-        variants: activeVariants,
-      }),
-      isDisabled,
-      setFocused,
     }),
-    [
-      states,
-      style,
-      activeVariants,
-      innerRef,
-      testId,
-      internal.styles,
-      vislyProps,
-      isDisabled,
-      setFocused,
-    ]
-  );
+    isDisabled,
+    setFocused,
+    resetProps: {
+      className: `__visly_reset_${internal.projectId}`,
+    },
+  };
 }
