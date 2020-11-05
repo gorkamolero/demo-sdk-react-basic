@@ -5,7 +5,7 @@ import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbSelect, HbRadio, useBreakpoint, colors, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
+import { HbContent, HbInput, HbRadio, useBreakpoint, colors, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
@@ -135,7 +135,6 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const [options] = useState(() => {
     let opts = field.getOptions()
-    console.log('HEYA', opts)
     if (typeof field.getOptions === 'string') opts = opts.split(',')
     opts = opts.map(
       (op) => ({ value: op.id, label: op.title })
@@ -193,19 +192,18 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
         )
       }
 
-      <HbSelect
-        onSelect={(option) => toggleSelected(option)}
-        HbUnselected={true}
-        // selected={selected.value}
-        label={meta.default && meta.default}
-        size={size}
-      >
-        {options.map((o, i) => {
-          return (
-            <HbSelect.Option disabled={o.value === "0"} key={o.value + i} value={o.value} label={o.label} />
-          );
-        })}
-      </HbSelect>
+      <ReactSelect
+        onChange={(option) => {
+          toggleSelected(option.value)
+        }}
+        // defaultValue={selected}
+        value={''}
+        isSearchable={true}
+        placeholder={selected.length > 0 ? 'Add more...' : 'Add...'}
+        options={options}
+        styles={SelectStyles}
+        components={{ DropdownIndicator: Icon }} 
+        min={meta.minSelect || false} />
 
       {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
     </FlexBox>
@@ -390,6 +388,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         if (master.isValid() || master.getValue()) {
           field.setHidden(false)
         }
+
+        if (master.getType() === 'radio-group' && master.getValue().length < 1) {
+          field.setHidden(true)
+        }
       }
     }
 
@@ -426,6 +428,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           }}
           column={meta.column}
           alignItems={meta.column && "center"}
+          data-follows={meta.follows ? meta.follows : ''}
         >
           {!meta.newLine && <HbSpace />}
 
