@@ -274,7 +274,7 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
   const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
   const toggleValue = value => values.includes(value)
     ? setValues(values.filter(val => val !== value))
-    : setValues([...values, value])
+    : setValues([...values.filter(val => val !== 'none'), value])
 
   const meta = field.getMeta();
   const options = field.getOptions()
@@ -282,7 +282,6 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
   /* eslint-disable */
   useEffect(() => onChangeHandler(values, field), [values])
   /* eslint-enable */
-  
   return (
     <FlexBox column align="center">
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
@@ -312,8 +311,8 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
       </FlexBox>
       {
         (meta.customUncheckBox) && (
-          <FlexLabel style={{ marginTop: 20 }} onClick={() => setValues([])}>
-            <HbCheckbox style={{ marginRight: 10 }} checked={values.length === 0} />
+          <FlexLabel style={{ marginTop: 20 }} onClick={() => setValues(['none'])}>
+            <HbCheckbox style={{ marginRight: 10 }} checked={values.includes('none')} />
             {Utils.capitalize([...options].slice(-1).pop().title)}
           </FlexLabel>
         )
