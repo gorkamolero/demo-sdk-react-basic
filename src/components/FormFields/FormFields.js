@@ -130,8 +130,6 @@ const Select = ({field, title, onChangeHandler, size}) => {
     }
   }, [meta])
 
-  console.log('YOLO', selected);
-
   /* eslint-disable*/
   React.useEffect(() => {
     if (selected) {
@@ -288,17 +286,38 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 };
 
 const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
-  const [values, setValues] = useState(() => field.getValue() ? field.getValue() : []);
-  const toggleValue = value => values.includes(value)
+  const [values, setValues] = useState(() => {
+    let vals = field.getValue()
+    console.log('HERE', vals)
+
+    if (vals.includes('none')) return ['none']
+
+    return !vals ? [] : Array.isArray(vals) ? vals : vals.split(',')
+  })
+
+  const toggleValue = value => {
+
+    values.includes(value)
     ? setValues(values.filter(val => val !== value))
     : setValues([...values.filter(val => val !== 'none'), value])
+  }
 
   const meta = field.getMeta();
   const options = field.getOptions()
 
   /* eslint-disable */
-  useEffect(() => onChangeHandler(values, field), [values])
+  useEffect(() => {
+    let valsForPickzen = values
+    if (Array.isArray(values)) {
+      valsForPickzen = [...new Set(valsForPickzen)]
+      valsForPickzen = values.includes('none') ? 'none' : valsForPickzen.join(',')
+    }
+
+    console.log(typeof valsForPickzen)
+    onChangeHandler(valsForPickzen, field)
+  }, [values])
   /* eslint-enable */
+
   return (
     <FlexBox column align="center">
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
@@ -533,6 +552,7 @@ function FormFields({ children, fields, showErrors }) {
         } else if (["select", "text", "radio-group", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
+            console.log(field.getType(), value)
         } else {
           field.setValue(event);
         }
