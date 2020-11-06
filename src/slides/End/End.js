@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, {useEffect, useState, useCallback, useContext} from 'react';
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
 import Loading from '../../components/Loading';
@@ -12,11 +12,12 @@ import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
 } from 'react-tippy';
+import {SlideContext} from "../../context/SlideContext";
 
 function End() {
     // No loading for dev
     const [loading, setLoading] = useState(false)
-
+    const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
@@ -60,6 +61,9 @@ function End() {
 
     const addAnotherDog = () => {
         console.log('Adding another dog')
+        window.hungry.end.addAnotherDog( () => {
+            nav.restart();
+        });
     }
 
     useEffect(() => {
