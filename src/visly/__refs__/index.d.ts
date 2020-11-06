@@ -137,7 +137,6 @@ export const shadow: {
 };
 export const component: {
   Avatar: "14c1309e-04d6-4426-b5bf-741031ceb68a";
-  Button: "215624d8-a3e1-4139-928a-11eae36fd386";
   CommentButton: "e8422644-7679-4a4b-a65e-50063492d6f1";
   HbButton: "a0544e62-c9fe-4b4d-aa7b-1b7a58f141bc";
   HbButtonGroup: "25513c05-f061-462c-81c3-1cb138788c9e";

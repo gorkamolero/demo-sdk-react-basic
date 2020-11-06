@@ -8,7 +8,6 @@ export const {
   useBreakpoint
 } = require('./_internal_utils_breakpoints');
 export const Avatar = require("./Avatar").default;
-export const Button = require("./Button").default;
 export const CommentButton = require("./CommentButton").default;
 export const HbButton = require("./HbButton").default;
 export const HbButtonGroup = require("./HbButtonGroup").default;

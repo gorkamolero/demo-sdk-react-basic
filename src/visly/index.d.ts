@@ -98,12 +98,6 @@ export const Avatar: {
     src?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
-export const Button: {
-  (props: {
-    text?: string;
-    onPress?: (event: PressEvent) => void;
-  } & CommonProps<HTMLDivElement>): JSX.Element;
-};
 export const CommentButton: {
   (props: {
     text?: string;

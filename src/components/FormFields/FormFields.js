@@ -103,7 +103,7 @@ const Icon = ({ innerRef, innerProps }) => (
 );
 
 const Select = ({field, title, onChangeHandler, size}) => {
-  const [options] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
+  const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
 
@@ -115,9 +115,28 @@ const Select = ({field, title, onChangeHandler, size}) => {
       return options.find(op => op.value === field.getValue())
     }
   });
+
+  useEffect(() => {
+    if (meta.hungryYearSelect) {
+      let years = []
+      const year = new Date().getFullYear()
+      for (let i = year; i >= year - meta.minValue; i--) {
+        years.push({
+          value: i.toString(),
+          label: i
+        })
+      }
+      setOptions(years)
+    }
+  }, [meta])
+
+  console.log('YOLO', selected);
+
   /* eslint-disable*/
   React.useEffect(() => {
-    if (selected) onChangeHandler(selected.value, field)
+    if (selected) {
+      onChangeHandler(selected.value, field)
+    }
   }, [selected, field])
   /* eslint-enable */
 
