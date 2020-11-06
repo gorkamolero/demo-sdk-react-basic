@@ -5,7 +5,6 @@
   "dependencies": {
     "@bumaga/tabs": "^0.2.0",
     "@visly/core": "^1.0.6",
-    "@welldone-software/why-did-you-render": "welldone-software/why-did-you-render",
     "framer-motion": "^2.9.4",
     "ismounted": "^0.1.8",
     "node-sass": "^4.14.1",
@@ -51,6 +50,7 @@
     ]
   },
   "devDependencies": {
+    "@welldone-software/why-did-you-render": "github:welldone-software/why-did-you-render",
     "electron": "^10.1.2"
   }
 }
