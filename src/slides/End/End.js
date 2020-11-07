@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useContext } from 'react';
+import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
 import Loading from '../../components/Loading';
@@ -6,7 +7,7 @@ import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
 import { HbCircleIcon, icons, colors } from "../../visly";
-// import Video from './partials/Video'
+import Video from './partials/ReactPlayerWistia'
 import { Footer, Tip } from '../../styles/StyledComps';
 import 'react-tippy/dist/tippy.css'
 import {
@@ -16,7 +17,9 @@ import {
 function End() {
     // No loading for dev
     const [loading, setLoading] = useState(false)
+    const [videoIsDone, setVideoIsDone] = useState(false)
 
+    const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
@@ -59,7 +62,9 @@ function End() {
     }
 
     const addAnotherDog = () => {
-        console.log('Adding another dog')
+        window.hungry.end.addAnotherDog( () => {
+            nav.restart();
+        });
     }
 
     useEffect(() => {
@@ -80,6 +85,7 @@ function End() {
 
     if (!hungry || !products) return null
 
+
     return (
         <>
             {
@@ -88,39 +94,45 @@ function End() {
                 )
             }
 
-            {/* {<Video />} */}
+            {<Video videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
 
-            <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+            {
+                videoIsDone && (
+                    <>
+                        <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
 
-            <Navigation />
+                        <Navigation />
 
-            <Features />
+                        <Features />
 
-            <Testimonials />
+                        <Testimonials />
 
-            <Footer
-                total={`Total (${totalProducts})`}
-                priceOriginal={subscription && selectedResults.length ? '$' + totalPrice : ''}
-                priceFinal={'$' + getPrice(totalPrice)}
-                HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
-                HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
-                HelpSlot={
-                    <Tooltip
-                        // options
-                        position="top"
-                        trigger="click"
-                        style={{ padding: 0 }}
-                        theme="light"
-                        html={(
-                            <Tip>
-                                Your current selections have been saved. Click to create a plan for your other dog.
-                            </Tip>
-                        )}
-                    >
-                        <HbCircleIcon icon={icons.hbHelp2} style={{ width: 32, height: 32, color: colors.hbBrown }} />
-                    </Tooltip>
-                }
-            />
+                        <Footer
+                            total={`Total (${totalProducts})`}
+                            priceOriginal={subscription && selectedResults.length ? '$' + totalPrice : ''}
+                            priceFinal={'$' + getPrice(totalPrice)}
+                            HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
+                            HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            HelpSlot={
+                                <Tooltip
+                                    // options
+                                    position="top"
+                                    trigger="click"
+                                    style={{ padding: 0 }}
+                                    theme="light"
+                                    html={(
+                                        <Tip>
+                                            Your current selections have been saved. Click to create a plan for your other dog.
+                                        </Tip>
+                                    )}
+                                >
+                                    <HbCircleIcon icon={icons.hbHelp2} style={{ width: 32, height: 32, color: colors.hbBrown }} />
+                                </Tooltip>
+                            }
+                        />
+                    </>
+               )
+            }
         </>
     );
 

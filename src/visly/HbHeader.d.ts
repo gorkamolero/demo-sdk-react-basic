@@ -101,6 +101,7 @@ export const HbHeader: {
       ShowImage?: boolean;
       NoWave?: boolean;
       size?: "small" | "large" | "medium" | "super";
+      withVideo?: boolean;
       HbCircleIcon?: React.ReactNode;
       HbProgress?: React.ReactNode;
       HbLogo?: React.ReactNode;

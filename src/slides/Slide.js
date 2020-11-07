@@ -52,6 +52,7 @@ const Slide = () => {
     const type = useMemo(() => slideModel.getType(), [slideModel])
 
     const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
+    const isEndSlide = slideModel.getType() === 'End'
 
     return (
       <ModalProvider>
@@ -71,10 +72,11 @@ const Slide = () => {
             size={size}
             discount="20% Off"
             ShowImage={slideTitle === 'Profile'}
-            NoWave={ slideModel.getType() === 'End' }
+            NoWave={ isEndSlide }
+            withVideo={ isEndSlide }
           />
-            <FlexBox is="main" column alignItems="center" style={{ }}>
-              <Container style={{ width: '100%', position: 'relative' }} alignItems="center" column>
+            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: 3 }}>
+              <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? '-60px' : 0 }} alignItems="center" column>
                 <SlideView slideModel={slideModel} />
               </Container>
             </FlexBox>

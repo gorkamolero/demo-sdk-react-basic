@@ -22,6 +22,7 @@ export const color = {
   hbGreenDark: "185e4d21-da2a-4c5d-8eed-213f8b391254",
   hbGreenTrans: "67964b35-a5bd-4b57-8df3-559dc7cea3db",
   hbIcon: "66d5ee2a-9b04-47b5-a0b3-558bf6c0de60",
+  hbLight: "e41ecce4-9898-47bd-ae4e-740614cbdba3",
   hbPlaceholder: "49fc50a5-b9f9-4c6b-b955-1ad97af4211e",
   hbSkyBlue: "a16dfaa5-1f25-4de0-bc98-bbdc03a4e867",
   hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f",

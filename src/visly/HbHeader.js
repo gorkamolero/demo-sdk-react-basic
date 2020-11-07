@@ -69,6 +69,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "withVideo",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -160,6 +165,16 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "withVideo",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
 ];
 
 const variantPropTypes = [
@@ -175,6 +190,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "large", "medium", "super"],
+  },
+  {
+    type: "boolean",
+    propName: "withVideo",
   },
 ];
 
@@ -548,6 +567,10 @@ HbHeader.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "large", "medium", "super"],
+  },
+  {
+    name: "withVideo",
+    type: "variant",
   },
 ];
 

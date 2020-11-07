@@ -21,6 +21,7 @@ export const hbGreen = "rgba(0,174,170,1)";
 export const hbGreenDark = "rgba(0,156,152,1)";
 export const hbGreenTrans = "rgba(0,174,170,0.85)";
 export const hbIcon = "rgba(55,70,76,1)";
+export const hbLight = "rgba(224,215,211,1)";
 export const hbPlaceholder = "rgba(36,36,36,0.6)";
 export const hbSkyBlue = "rgba(94,178,230,1)";
 export const hbText = "rgba(36,36,36,1)";

@@ -90,11 +90,11 @@ export interface CommonProps<T extends HTMLElement> {
 export const HbResults: {
   (
     props: {
-      trial?: string;
       verylongname?: string;
       ImageSlot?: React.ReactNode | React.ReactNode[];
-      afterTrial?: string;
       children?: React.ReactNode | React.ReactNode[];
+      DescriptionHtml?: React.ReactNode | React.ReactNode[];
+      DescriptionHtml2?: React.ReactNode | React.ReactNode[];
       trialOff?: boolean;
       HbButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>

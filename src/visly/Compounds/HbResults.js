@@ -23,12 +23,6 @@ const styles = [
   {
     type: "default",
     layers: {
-      "72EEoP6Shu": {
-        none: {
-          text:
-            "Small batch cooked at lower temperatures and made with real chicken and turkey, added probiotics and natural ingredients",
-        },
-      },
       HM7QLqsybb: {
         none: {
           text: "Averylongname’s Plan",
@@ -47,12 +41,6 @@ const styles = [
       Xdq8EgbVmd: {
         none: {
           text: "After the trial (10% off)",
-        },
-      },
-      "8sMkGDxBq1": {
-        none: {
-          text:
-            "Your 4 week plan will be billed at the discounted price of $45.36 every 4 weeks. That’s only $1.62/day. No commitment. Modify, swap or cancel anytime.",
         },
       },
       PyjEEck4UC: {
@@ -235,19 +223,16 @@ function HbResults(_props) {
                 text={getStyle("TSKydwWpV5", "text")}
                 element={getStyle("TSKydwWpV5", "htmlElement")}
               />
-              <TextPrimitive
-                id={"Description_72EEoP6Shu"}
+              <ContainerPrimitive
+                key={"HFzmbPEb4W"}
+                id={"Slot_HFzmbPEb4W"}
                 className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_72EEoP6Shu"
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_HFzmbPEb4W"
                 }
-                key={"72EEoP6Shu"}
-                text={
-                  exists(props.trial)
-                    ? props.trial
-                    : getStyle("72EEoP6Shu", "text")
-                }
-                element={getStyle("72EEoP6Shu", "htmlElement")}
-              />
+                addSpacing={false}
+              >
+                {props.DescriptionHtml}
+              </ContainerPrimitive>
               <SpacerPrimitive
                 id={"Spacer_GTNJNAq2jj"}
                 className={
@@ -264,19 +249,16 @@ function HbResults(_props) {
                 text={getStyle("Xdq8EgbVmd", "text")}
                 element={getStyle("Xdq8EgbVmd", "htmlElement")}
               />
-              <TextPrimitive
-                id={"Description_8sMkGDxBq1"}
+              <ContainerPrimitive
+                key={"YvtaXW21jT"}
+                id={"Slot_YvtaXW21jT"}
                 className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_8sMkGDxBq1"
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_YvtaXW21jT"
                 }
-                key={"8sMkGDxBq1"}
-                text={
-                  exists(props.afterTrial)
-                    ? props.afterTrial
-                    : getStyle("8sMkGDxBq1", "text")
-                }
-                element={getStyle("8sMkGDxBq1", "htmlElement")}
-              />
+                addSpacing={false}
+              >
+                {props.DescriptionHtml2}
+              </ContainerPrimitive>
             </ContainerPrimitive>
             <ContainerPrimitive
               id={"TrialOff_S7T37kknMS"}

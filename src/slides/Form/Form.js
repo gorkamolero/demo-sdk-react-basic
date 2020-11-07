@@ -43,11 +43,7 @@ function Form() {
       setShowErrors(true);
     }
   }, [touched, slideModel])
-
-  useEffect(() => {
-    console.log('YEAP');
-  }, [id])
-
+  
   return (
     <AnimatePresence>
       <FlexBox column center className="slideAnimate" key={id} data-key={id}>

@@ -106,16 +106,15 @@ const Select = ({field, title, onChangeHandler, size}) => {
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
-
-    if (meta.defaultValue) {
-      return options[0]
-    }
-
     if (field.getValue()) {
-      return options.find(op => op.value === field.getValue())
+        return options.find(op => op.value === field.getValue())
+    } else if (meta.defaultValue) {
+        return options[0]
     }
   });
 
+  console.log(field.getTitle(), 'FIELD IS VALID', field.isValid())
+  
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []

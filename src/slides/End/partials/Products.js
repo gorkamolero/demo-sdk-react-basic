@@ -100,11 +100,11 @@ const Products = ({
                                         HbCheckbox={
                                             <HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />
                                         }
-                                        style={{ width: '25%' }}
+                                        style={{ width: '23.5%' }}
                                     />
                                 ) : <HbProductEmpty
                                         type={ProductType[i]}
-                                        style={{ width: '25%', minHeight: '60vh' }}
+                                        style={{ width: '23.5%', minHeight: '60vh' }}
                                     />
                             }
                         </>
@@ -112,10 +112,22 @@ const Products = ({
                 }
 
                 <HbResults
-                    style={{ width: '25%' }}
-                    trial={texts.plan.trial}
+                    style={{ width: '23.5%' }}
                     verylongname={`${dog.name}’s Plan`}
-                    afterTrial={texts.plan.afterTrial}
+                    // trial={texts.plan.trial}
+                    // afterTrial={texts.plan.afterTrial}
+                    DescriptionHtml={
+                        <CustomHTML style={{
+                            ...textstyles.hbFeatureText,
+                            color: colors.hbBrown
+                        }} html={texts.plan.trial} />
+                    }
+                    DescriptionHtml2={
+                        <CustomHTML style={{
+                            ...textstyles.hbFeatureText,
+                            color: colors.hbBrown
+                        }} html={texts.plan.afterTrial} />
+                    }
                     HbButton={<HbResults.HbButton onPress={continueToCheckout} />}
                     trialOff={!subscription}
                     children={<Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
