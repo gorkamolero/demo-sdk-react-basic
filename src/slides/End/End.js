@@ -17,7 +17,7 @@ import {
 function End() {
     // No loading for dev
     const [loading, setLoading] = useState(false)
-    const [videoIsDone, setVideoIsDone] = useState(true)
+    const [videoIsDone, setVideoIsDone] = useState(false)
 
     const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
