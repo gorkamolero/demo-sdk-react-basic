@@ -22,12 +22,6 @@ const styles = [
   {
     type: "default",
     layers: {
-      "72EEoP6Shu": {
-        none: {
-          text:
-            "Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further?  Contact us",
-        },
-      },
       "21QeGg8jho": {
         none: {
           text: "1",
@@ -214,19 +208,16 @@ function HbProductEmpty(_props) {
                 }
                 key={"X6tktLxhFT"}
               />
-              <TextPrimitive
-                id={"TextAndLink_72EEoP6Shu"}
+              <ContainerPrimitive
+                key={"VYyPJoH3f7"}
+                id={"Slot_VYyPJoH3f7"}
                 className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_72EEoP6Shu"
+                  "__visly_reset_WDRq65T88Q __visly_scope_GVHshrcqto_VYyPJoH3f7"
                 }
-                key={"72EEoP6Shu"}
-                text={
-                  exists(props.textAndLink)
-                    ? props.textAndLink
-                    : getStyle("72EEoP6Shu", "text")
-                }
-                element={getStyle("72EEoP6Shu", "htmlElement")}
-              />
+                addSpacing={false}
+              >
+                {props.Extratext}
+              </ContainerPrimitive>
               <ContainerPrimitive
                 key={"KVQd13HGDM"}
                 id={"Slot_KVQd13HGDM"}

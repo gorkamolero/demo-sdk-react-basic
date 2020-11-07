@@ -104,6 +104,17 @@ const Products = ({
                                     />
                                 ) : <HbProductEmpty
                                         type={ProductType[i]}
+                                        Extratext={
+                                            <CustomHTML
+                                                style={{
+                                                    ...textstyles.hbFeatureText,
+                                                    color: colors.hbBrown
+                                                }}
+                                                html={
+                                                    '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                                }
+                                            />
+                                        }
                                         style={{ width: '23.5%', minHeight: subscription ? '60vh' : '40vh', transition: 'all 250ms ease' }}
                                     />
                             }

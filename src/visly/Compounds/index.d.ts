@@ -148,11 +148,11 @@ export const HbProduct: {
 export const HbProductEmpty: {
   (
     props: {
-      textAndLink?: string;
       details?: React.ReactNode | React.ReactNode[];
       order?: string;
       type?: string;
       oops?: string;
+      Extratext?: React.ReactNode | React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
