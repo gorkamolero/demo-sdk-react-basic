@@ -117,7 +117,7 @@ function End() {
                                 <Tooltip
                                     // options
                                     position="top"
-                                    trigger="click"
+                                    trigger="mouseenter click"
                                     style={{ padding: 0 }}
                                     theme="light"
                                     html={(
