@@ -275,7 +275,7 @@ function HbTestimonial(_props) {
             key={"KTFD4vqNwH"}
           />
           <TextPrimitive
-            id={"Text_QDNh14WQhk"}
+            id={"Dog_QDNh14WQhk"}
             className={
               "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_QDNh14WQhk"
             }

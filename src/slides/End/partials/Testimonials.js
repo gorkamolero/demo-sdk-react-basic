@@ -6,10 +6,6 @@ import { HbWave, colors, useBreakpoint, HbSliderArrow } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
 
-/* const Section = styled(HbSection)`
-  *:focus { outline: none; }
-` */
-
 const Testimonials = () => {
   const { getDatasheet } = useContext(SlideContext)
 
@@ -63,12 +59,14 @@ const Testimonials = () => {
           testimonials.map(testimonial => (
               <HbTestimonial
                 key={testimonial.client}
+                imageSrc={testimonial.Photo}
                 style={{ outline: 'none', border: 'none' }}
-                title={testimonial.title}
-                client={testimonial.client}
+                title={testimonial.Title}
+                client={testimonial.Name}
                 text={testimonial.text}
+                dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
                 stars={<FlexBox gap={5}>
-                  {Array(testimonial.rating).fill().map((i) => <span key={i} aria-label="rating-star" role="img">⭐️</span>)}
+                  {Array(5).fill().map((i) => <span key={i} aria-label="rating-star" role="img">⭐️</span>)}
                 </FlexBox>}
               />
           ))
