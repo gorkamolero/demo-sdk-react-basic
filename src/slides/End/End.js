@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
-import Navigation from "../../components/Navigation/Navigation";
+// import Navigation from "../../components/Navigation/Navigation";
 import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
@@ -101,7 +101,7 @@ function End() {
                     <>
                         <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
 
-                        <Navigation />
+                        {/* <Navigation /> */}
 
                         <Features />
 
