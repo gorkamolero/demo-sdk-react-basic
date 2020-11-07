@@ -75,8 +75,8 @@ const Slide = () => {
             NoWave={ isEndSlide }
             withVideo={ isEndSlide }
           />
-            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: 3 }}>
-              <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? '-60px' : 0 }} alignItems="center" column>
+            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0 }}>
+              <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? '-40px' : 0 }} alignItems="center" column>
                 <SlideView slideModel={slideModel} />
               </Container>
             </FlexBox>
