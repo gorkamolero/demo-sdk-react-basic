@@ -1,7 +1,7 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { SlideContext } from "../../../context/SlideContext";
-import { HbSection } from 'visly/Pages'
-import { HbFeature, HbFeatureInvert } from 'visly/Compounds'
+import { HbSection } from '../../../visly/Pages'
+import { HbFeature, HbFeatureInvert } from '../../../visly/Compounds'
 
 import styled from 'styled-components';
 
