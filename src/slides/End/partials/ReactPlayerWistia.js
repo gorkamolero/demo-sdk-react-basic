@@ -21,10 +21,10 @@ const texts = [
   'One moment please... we are building your personalized plan',
 ]
 
-const Wistia = ({age = 'young', videoIsDone, setVideoIsDone}) => {
+const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
   const [state] = useState({
     pip: false,
-    playing: true,
+    playing: play || true,
     controls: false,
     light: false,
     volume: 0.8,
@@ -42,6 +42,7 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone}) => {
   const textDuration = 1000
 
   useEffect(() => {
+    if (!play) return
     const interval = window.setInterval(() => {
       if (count < texts.length) {
         setCount(prevCount => prevCount + 1)
@@ -52,7 +53,7 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone}) => {
       }
     }, textDuration);
     return () => window.clearInterval(interval);
-  }, [count, setVideoIsDone]);
+  }, [count, setVideoIsDone, play]);
   
   return (
     <>
@@ -69,7 +70,7 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone}) => {
       </div>
 
       {
-        videoIsDone || (
+        (videoIsDone && play) || (
           <FlexBox center style={{ marginTop: -40 }}>
             <h1 style={{...textstyles.hbFeatureTitle, color: colors.hbBrown}}>{text}</h1>
           </FlexBox>

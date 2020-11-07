@@ -100,11 +100,11 @@ const Products = ({
                                         HbCheckbox={
                                             <HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />
                                         }
-                                        style={{ width: '23.5%' }}
+                                        style={{ width: '23.5%', transition: 'all 250ms ease' }}
                                     />
                                 ) : <HbProductEmpty
                                         type={ProductType[i]}
-                                        style={{ width: '23.5%', minHeight: '60vh' }}
+                                        style={{ width: '23.5%', minHeight: subscription ? '60vh' : '40vh', transition: 'all 250ms ease' }}
                                     />
                             }
                         </>

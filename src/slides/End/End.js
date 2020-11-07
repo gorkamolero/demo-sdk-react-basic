@@ -16,7 +16,7 @@ import {
 
 function End() {
     // No loading for dev
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [videoIsDone, setVideoIsDone] = useState(false)
 
     const { nav } = useContext(SlideContext);
@@ -94,7 +94,7 @@ function End() {
                 )
             }
 
-            {<Video videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
+            {<Video play={!loading} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
 
             {
                 videoIsDone && (
