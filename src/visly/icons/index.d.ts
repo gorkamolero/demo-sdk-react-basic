@@ -25,6 +25,7 @@ export const hbLikesLamb: string;
 export const hbLikesSalmon: string;
 export const hbLikesTurkey: string;
 export const hbLogo: string;
+export const hbLogoMain: string;
 export const hbLogoMobile: string;
 export const hbMale: string;
 export const hbTick: string;

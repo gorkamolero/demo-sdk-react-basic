@@ -1,5 +1,5 @@
 .player-container {
-  min-width: calc(100% / 3 * 2);
+  min-width: calc(100% / 12 * 8);
   margin: 0 auto 60px;
 }
 .player-wrapper {

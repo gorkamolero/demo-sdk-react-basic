@@ -131,6 +131,12 @@ export const HbCheckbox: {
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
+export const HbCheckbox2: {
+  (props: {
+    onChange?: (checked: boolean) => void;
+    checked?: boolean;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+};
 export const HbCheckboxGroup: {
   (props: {
     onChange?: (checked: boolean) => void;

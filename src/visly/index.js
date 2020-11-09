@@ -13,6 +13,7 @@ export const HbButton = require("./HbButton").default;
 export const HbButtonGroup = require("./HbButtonGroup").default;
 export const HbButtonWithIcon = require("./HbButtonWithIcon").default;
 export const HbCheckbox = require("./HbCheckbox").default;
+export const HbCheckbox2 = require("./HbCheckbox2").default;
 export const HbCheckboxGroup = require("./HbCheckboxGroup").default;
 export const HbCircleIcon = require("./HbCircleIcon").default;
 export const HbCloseModal = require("./HbCloseModal").default;

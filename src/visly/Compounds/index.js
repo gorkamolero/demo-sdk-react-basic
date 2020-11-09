@@ -6,6 +6,7 @@ export const HbFeature = require("./HbFeature").default;
 export const HbFeatureInvert = require("./HbFeatureInvert").default;
 export const HbFeatureItem = require("./HbFeatureItem").default;
 export const HbProduct = require("./HbProduct").default;
+HbProduct.CardFooter = require("./HbProduct.CardFooter").default;
 export const HbProductEmpty = require("./HbProductEmpty").default;
 export const HbResults = require("./HbResults").default;
 export const HbTestimonial = require("./HbTestimonial").default;

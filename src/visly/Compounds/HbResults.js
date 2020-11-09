@@ -199,11 +199,11 @@ function HbResults(_props) {
               {props.children}
             </ContainerPrimitive>
             <SpacerPrimitive
-              id={"Spacer_TyccgJikTY"}
+              id={"Spacer_RczpYiCSQ7"}
               className={
-                "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_TyccgJikTY"
+                "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_RczpYiCSQ7"
               }
-              key={"TyccgJikTY"}
+              key={"RczpYiCSQ7"}
             />
             <ContainerPrimitive
               id={"Content_N3yQYTcaWV"}
@@ -234,11 +234,11 @@ function HbResults(_props) {
                 {props.DescriptionHtml}
               </ContainerPrimitive>
               <SpacerPrimitive
-                id={"Spacer_GTNJNAq2jj"}
+                id={"Spacer_26nVaFEsZq"}
                 className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_GTNJNAq2jj"
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_26nVaFEsZq"
                 }
-                key={"GTNJNAq2jj"}
+                key={"26nVaFEsZq"}
               />
               <TextPrimitive
                 id={"Title2_Xdq8EgbVmd"}

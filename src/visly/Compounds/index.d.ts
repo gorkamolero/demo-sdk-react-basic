@@ -134,17 +134,24 @@ export const HbProduct: {
       title?: string;
       extra?: string;
       imageSrc?: string;
-      addLabel?: string;
       order?: string;
       type?: string;
       priceOriginal?: string;
       priceFinal?: string;
       details?: React.ReactNode | React.ReactNode[];
       DescriptionHtml?: React.ReactNode | React.ReactNode[];
-      HbCheckbox?: React.ReactNode;
+      CardFooter?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-  HbCheckbox: typeof HbCheckbox;
+  CardFooter: {
+    (
+      props: {
+        addLabel?: string;
+        HbCheckbox2?: React.ReactNode;
+      } & CommonProps<HTMLDivElement>
+    ): JSX.Element;
+    HbCheckbox2: typeof HbCheckbox2;
+  };
 };
 export const HbProductEmpty: {
   (

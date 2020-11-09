@@ -17,6 +17,13 @@ export const bodyLarge = {
   fontStyle: "normal",
   lineHeight: "24px",
 };
+export const bodyReallySmall = {
+  fontFamily: "Averta",
+  fontSize: "14px",
+  fontWeight: 400,
+  fontStyle: "normal",
+  lineHeight: "18px",
+};
 export const bodySmall = {
   fontFamily: "Averta",
   fontSize: "18px",

@@ -14,6 +14,7 @@ export interface TextStyle {
 }
 export const accent: TextStyle;
 export const bodyLarge: TextStyle;
+export const bodyReallySmall: TextStyle;
 export const bodySmall: TextStyle;
 export const bodySmallBold: TextStyle;
 export const bodySmallMobile: TextStyle;

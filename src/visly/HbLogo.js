@@ -18,7 +18,7 @@ const styles = [
       FLHNXYLopv: {
         none: {
           role: "img",
-          icon: require("./assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
+          icon: require("./assets/d12233d3-fa47-4c91-8325-faec993215ab.png"),
           useMask: true,
         },
       },

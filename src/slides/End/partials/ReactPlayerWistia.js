@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player'
 import { FlexBox } from "react-styled-flex";
 import { colors, textstyles } from '../../../visly';
+import { HbSection } from '../../../visly/Pages';
 import './ReactPlayerWistia.css'
 
 const texts = [
@@ -48,7 +49,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   }, [count, setVideoIsDone, play]);
   
   return (
-    <>
+    <HbSection noHeadNoPadding>
       <div className="player-container">
         <div className="player-wrapper">
           <ReactPlayer
@@ -68,7 +69,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
           </FlexBox>
         )
       }
-    </>
+    </HbSection>
   );
 }
  

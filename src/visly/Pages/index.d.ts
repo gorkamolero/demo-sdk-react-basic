@@ -109,6 +109,7 @@ export const HbSection: {
       noMaxWidth?: boolean;
       padded?: boolean;
       withImage?: boolean;
+      noHeadNoPadding?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
