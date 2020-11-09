@@ -54,7 +54,7 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
-  padding: 0 10px 10px;
+  padding: 0 10px;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9
   .__visly_scope_GBUFXK8ScG_DA8Xa72aFn
@@ -251,10 +251,11 @@
   width: unset;
   height: 10px;
 }
+.__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_9Nbg29zFJz,
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9 .__visly_scope_GBUFXK8ScG_AzaKN8evhX {
   align-self: stretch;
   width: unset;
-  height: 6px;
+  height: 0;
 }
 .__visly_scope_GBUFXK8ScG_TEMvSpZsq9.__visly_trialOff.__visly_state_none
   .__visly_scope_GBUFXK8ScG_N3yQYTcaWV {
