@@ -19,7 +19,7 @@ const noTest = true
 
 function End() {
     // No loading for dev
-    const [loading, setLoading] = useState(true)
+    const [loading, setLoading] = useState(false)
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
     const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
 

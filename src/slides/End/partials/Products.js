@@ -37,6 +37,7 @@ const Products = ({
 
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
+        console.log('RESULTS', products.kibble, products.supplement, products.mixin)
     }, [products.kibble, products.supplement, products.mixin]);
 
 
@@ -51,7 +52,6 @@ const Products = ({
     if (!results) return null
 
     const onAddResult = (result) => {
-        console.log(selectedResults, result)
         if (selectedResults.includes(result)) {
             setSelectedResults(selectedResults.filter(r => r.sku !== result.sku))
         }
@@ -120,7 +120,7 @@ const Products = ({
                             imageSrc={products.supplement.images[products.supplement.selectedImage]}
                             order={1}
                             title={products.supplement.title}
-                            extra={`Chews: ...`}
+                            extra={``}
                             priceOriginal={ subscription ? `$${getPrice(products.supplement.price)}` : '' }
                             priceFinal={`$${getPrice(products.supplement.price)}`}
                             DescriptionHtml={
@@ -162,7 +162,7 @@ const Products = ({
                             imageSrc={products.mixin.images[products.mixin.selectedImage]}
                             order={1}
                             title={products.mixin.title}
-                            extra={`Chews: ...`}
+                            extra={`${products.mixin.bags} ${products.mixin.bags > 1 ? 'bags' : 'bag'}`}
                             priceOriginal={ subscription ? `$${getPrice(products.mixin.price)}` : '' }
                             priceFinal={`$${getPrice(products.mixin.price)}`}
                             DescriptionHtml={

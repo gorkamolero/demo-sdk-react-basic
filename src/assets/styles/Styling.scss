@@ -320,3 +320,7 @@ h2 {
 li.paging-item.active .pagingDots {
   fill: rgb(98, 59, 42) !important;
 }
+
+[id^='TitleContainer'] {
+  overflow: visible !important;
+}
