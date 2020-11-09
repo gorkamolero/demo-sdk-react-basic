@@ -58,7 +58,7 @@ function End() {
 
     const subscribeMultiplier = subscription ? 0.8 : 1
     const getPrice = useCallback(
-        (price) => Math.round((price * subscribeMultiplier) * 100) / 100,
+        (price) => Number(price * subscribeMultiplier).toFixed(2),
         [subscribeMultiplier],
     );
     const totalProducts = selectedResults.length

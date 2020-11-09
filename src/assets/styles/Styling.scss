@@ -206,8 +206,14 @@ small {
 
 .slider {
   @media (min-width: $medium) {
-    padding-left: calc(100% / 12 * 1);
+    // padding-left: calc(100% / 12 * 1);
   }
+}
+.slider-control-centerright {
+  transform: translate(100%, -50%) !important;
+}
+.slider-control-centerleft {
+  transform: translate(-100%, -50%) !important;
 }
 
 .slider-frame {
@@ -239,7 +245,14 @@ small {
 }
 
 .wave div[style] {
-  mask-size: cover !important;
+  mask-size: contain !important;
+  mask-position: 0% 100% !important;
+  @media (min-width: 1990px) {
+    mask-size: cover !important;
+    div[id^='Slot'] > div[style] {
+      height: 100px !important;
+    }
+  }
 }
 
 .slideAnimate {
@@ -296,4 +309,14 @@ h2 {
 
 .inheritColor {
   color: inherit;
+}
+
+.pagingDots {
+  fill: white !important;
+  opacity: 1 !important;
+  outline: none !important;
+}
+
+li.paging-item.active .pagingDots {
+  fill: rgb(98, 59, 42) !important;
 }

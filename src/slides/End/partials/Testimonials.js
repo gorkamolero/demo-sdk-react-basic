@@ -34,8 +34,8 @@ const Testimonials = () => {
     renderCenterLeftControls: ({ previousSlide }) => <HbSliderArrow reverse onClick={ previousSlide }/>,
     renderCenterRightControls: ({nextSlide}) => <HbSliderArrow onClick={ nextSlide } />,
     framePadding: '20px 0 80px',
-    cellSpacing: 10,
-    frameOverflow: 'visible',
+    cellSpacing: 20,
+    frameOverflow: 'hidden',
     defaultControlsConfig: {
       pagingDotsStyle: {
         fill: colors.hbBrown,

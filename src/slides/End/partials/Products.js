@@ -67,8 +67,8 @@ const Products = ({
     return (
         <HbSection
             noMaxWidth
-            waveslot1={<HbWave double />}
-            waveslot2={<HbWave invert />}
+            waveslot1={<HbWave className="HbWave" double />}
+            waveslot2={<HbWave className="HbWave" invert />}
             column
             alignItems="center"
             className="wave"

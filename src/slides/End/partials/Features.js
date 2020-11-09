@@ -41,7 +41,7 @@ const Features = () => {
     <Section padded title="Smarter, Healthier Dog Food">
       {
         features.map((feature, i) =>
-          i % 2 ? (
+          !(i % 2) ? (
             <HbFeature
               key={feature.Title}
               imageSrc={feature.Image}
