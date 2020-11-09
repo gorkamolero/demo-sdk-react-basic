@@ -60,6 +60,8 @@ const Products = ({
 
     const resultImages = results.map(result => result && result.images && result.images[result.selectedImage]);
 
+    const roundNumber = (number) => Number(number).toFixed(2)
+
     return (
         <HbSection
             noMaxWidth
@@ -79,7 +81,7 @@ const Products = ({
                             order={1}
                             title={products.kibble.title}
                             // extra={}
-                            priceOriginal={ subscription ? `$${getPrice(products.kibble.price)}` : '' }
+                            priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
                             priceFinal={`$${getPrice(products.kibble.price)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
@@ -118,10 +120,10 @@ const Products = ({
                     products.supplement ? (
                         <HbProduct
                             imageSrc={products.supplement.images[products.supplement.selectedImage]}
-                            order={1}
+                            order={2}
                             title={products.supplement.title}
                             extra={`${products.supplement.chews14 ? products.supplement.chews14 + ' count' : ''}`}
-                            priceOriginal={ subscription ? `$${getPrice(products.supplement.price)}` : '' }
+                            priceOriginal={ subscription ? `$${roundNumber(products.supplement.price)}` : '' }
                             priceFinal={`$${getPrice(products.supplement.price)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
@@ -160,10 +162,10 @@ const Products = ({
                     products.mixin ? (
                         <HbProduct
                             imageSrc={products.mixin.images[products.mixin.selectedImage]}
-                            order={1}
+                            order={3}
                             title={products.mixin.title}
                             extra={`${products.mixin.bags} ${products.mixin.bags > 1 ? 'bags' : 'bag'}`}
-                            priceOriginal={ subscription ? `$${getPrice(products.mixin.price)}` : '' }
+                            priceOriginal={ subscription ? `$${roundNumber(products.mixin.price)}` : '' }
                             priceFinal={`$${getPrice(products.mixin.price)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{

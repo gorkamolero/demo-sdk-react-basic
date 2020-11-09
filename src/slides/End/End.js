@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useContext } from 'react';
+import React, { useEffect, useState, useCallback, useContext, useMemo } from 'react';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 // import Navigation from "../../components/Navigation/Navigation";
@@ -56,7 +56,7 @@ function End() {
     const [totalPrice, setTotalPrice] = useState(0)
     const [subscription, setSubscription] = useState(true)
 
-    const subscribeMultiplier = subscription ? 0.8 : 1
+    const subscribeMultiplier = useMemo(() => subscription ? 0.8 : 1, [subscription])
     const getPrice = useCallback(
         (price) => Number(price * subscribeMultiplier).toFixed(2),
         [subscribeMultiplier],
