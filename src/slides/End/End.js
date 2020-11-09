@@ -13,17 +13,22 @@ import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
 } from 'react-tippy';
+import { useLocalStorage } from 'react-use';
+
+const noTest = true
 
 function End() {
     // No loading for dev
     const [loading, setLoading] = useState(true)
-    const [videoIsDone, setVideoIsDone] = useState(false)
+    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
+    const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
 
     const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
+    const [video, setVideo] = useState(null)
 
     useEffect(() => {
         const waitForWindowData = () => {
@@ -38,6 +43,7 @@ function End() {
                     supplement: window.hungry.end.supplement,
                     mixin: window.hungry.end.mixin
                 })
+                setVideo(window.hungry.end.video)
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -85,16 +91,15 @@ function End() {
 
     if (!hungry || !products) return null
 
-
     return (
         <>
             {
-                loading && (
-                    <Loading setLoading={setLoading} timing={1000} outTiming={2500} />
+                loading && !loadingScreenIsSeen && (
+                    <Loading setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={1000} outTiming={2500} />
                 )
             }
 
-            {<Video play={!loading} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
+            {<Video video={video} play={!loading} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
 
             {
                 videoIsDone && (
@@ -113,6 +118,7 @@ function End() {
                             priceFinal={'$' + getPrice(totalPrice)}
                             HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
                             HelpSlot={
                                 <Tooltip
                                     // options

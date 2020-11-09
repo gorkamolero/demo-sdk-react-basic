@@ -4,12 +4,6 @@ import { FlexBox } from "react-styled-flex";
 import { colors, textstyles } from '../../../visly';
 import './ReactPlayerWistia.css'
 
-
-const urls = {
-  'old' : 'https://home.wistia.com/medias/e4a27b971d',
-  'young': 'https://home.wistia.com/medias/e4a27b971d'
-}
-
 const texts = [
   `Analyzing... your dog's information`,
   'Analyzing...breed-specific needs',
@@ -21,7 +15,7 @@ const texts = [
   'One moment please... we are building your personalized plan',
 ]
 
-const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
+const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [state] = useState({
     pip: false,
     playing: play || true,
@@ -36,7 +30,6 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
     loop: false
   })
 
-  const [url] = React.useState(urls[age])
   const [count, setCount] = useState(0)
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
@@ -46,7 +39,6 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
     const interval = window.setInterval(() => {
       if (count < texts.length) {
         setCount(prevCount => prevCount + 1)
-        console.log('YO', count)
         setText(texts[count])
       } else {
         setVideoIsDone(true)
@@ -62,7 +54,7 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
           <ReactPlayer
             className="react-player"
             {...state}
-            url={url}
+            url={video}
             width="100%"
             height="100%"
           />
@@ -71,7 +63,7 @@ const Wistia = ({age = 'young', videoIsDone, setVideoIsDone, play}) => {
 
       {
         (videoIsDone && play) || (
-          <FlexBox center style={{ marginTop: -40 }}>
+          <FlexBox center style={{ marginTop: -20 }}>
             <h1 style={{...textstyles.hbFeatureTitle, color: colors.hbBrown}}>{text}</h1>
           </FlexBox>
         )

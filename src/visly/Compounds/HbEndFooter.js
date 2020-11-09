@@ -41,6 +41,11 @@ const styles = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "NoHbAddAnotherDog",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -59,9 +64,22 @@ const defaultPropValues = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "NoHbAddAnotherDog",
+    layers: {
+      QNXBFmS13r: {},
+      VJaaiFG35i: {},
+    },
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "NoHbAddAnotherDog",
+  },
+];
 
 export const HbEndFooterContext = createContext(null);
 
@@ -229,6 +247,11 @@ function HbEndFooter(_props) {
 
 HbEndFooter.HbButtonWithIcon = HbButtonWithIconComposite;
 HbEndFooter.HbLinkButton = HbLinkButtonComposite;
-HbEndFooter.__variants = [];
+HbEndFooter.__variants = [
+  {
+    name: "NoHbAddAnotherDog",
+    type: "variant",
+  },
+];
 
 export default HbEndFooter;

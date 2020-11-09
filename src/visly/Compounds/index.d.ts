@@ -94,6 +94,7 @@ export const HbEndFooter: {
       priceFinal?: string;
       total?: string;
       HelpSlot?: React.ReactNode | React.ReactNode[];
+      NoHbAddAnotherDog?: boolean;
       HbButtonWithIcon?: React.ReactNode;
       HbLinkButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>

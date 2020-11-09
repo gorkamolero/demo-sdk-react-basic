@@ -265,13 +265,25 @@ small {
   background-color: var(--hbYellow) !important;
 }
 .ReactModal__Overlay {
-  z-index: 2;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.75) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ReactModal__Content {
   max-width: 60ch;
+  min-width: 40ch;
+  background: white;
   margin: 0 auto;
+  padding: 4ch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    height: 100%;
+    padding: 2ch;
+  }
 }
 
 div[id^='Slot'] {

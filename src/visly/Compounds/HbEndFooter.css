@@ -118,6 +118,7 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
+  display: flex;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_GMQGJ3oWuC {
   display: block;
@@ -142,4 +143,8 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
+}
+.__visly_scope_XdYhdmDsxs_k3jaASDPhw.__visly_NoHbAddAnotherDog.__visly_state_none
+  .__visly_scope_XdYhdmDsxs_FvzVudkqtn {
+  display: none;
 }

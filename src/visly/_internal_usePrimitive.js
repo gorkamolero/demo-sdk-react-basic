@@ -241,6 +241,7 @@ export function usePrimitive({
   isPressed,
   variants = [],
   isInteractive = true,
+  noUserSelect = false,
 }) {
   const { internal, style: _style = {}, className, innerRef, testId } = props;
   const { states: _states, handlers, setFocused } = useInteractionStateHandlers(
@@ -274,14 +275,15 @@ export function usePrimitive({
     states,
   });
   const reactProps = filterReactProps(props, states);
-  const noSelectStyles = exists(props.onClick)
-    ? {
-        userSelect: "none",
-        WebkitUserSelect: "none",
-        KhtmlUserSelect: "none",
-        MozUserSelect: "none",
-      }
-    : {};
+  const noSelectStyles =
+    exists(props.onClick) || noUserSelect
+      ? {
+          userSelect: "none",
+          WebkitUserSelect: "none",
+          KhtmlUserSelect: "none",
+          MozUserSelect: "none",
+        }
+      : {};
   const style = mergeProps(_style, noSelectStyles);
   const vislyProps = mergeProps(reactProps, handlers, {
     className: [className, vislyClasses].filter(exists).join(" "),

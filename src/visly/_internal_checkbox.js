@@ -11,6 +11,7 @@ import {
   mergeProps,
 } from "@visly/core";
 import { usePrimitive } from "./_internal_usePrimitive";
+import { useFormLabel } from "./_internal_formlabel";
 
 function vislyToReactAriaProps(props) {
   return {
@@ -35,11 +36,12 @@ export function CheckboxRoot(props) {
     onChange: props.onChange,
   });
   const { inputProps } = useCheckbox(reactAriaProps, state, inputRef);
+  const { fieldProps } = useFormLabel();
   return (
     <label>
       <VisuallyHidden>
         <input
-          {...mergeProps(inputProps, vislyProps, focusProps)}
+          {...mergeProps(inputProps, vislyProps, focusProps, fieldProps)}
           ref={inputRef}
         />
       </VisuallyHidden>

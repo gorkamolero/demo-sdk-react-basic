@@ -8,6 +8,7 @@ import React, {
   useState,
   useLayoutEffect,
   useMemo,
+  useEffect,
 } from "react";
 import {
   ListLayout,
@@ -32,6 +33,7 @@ import {
   CollectionItemProxy,
   ItemContext,
 } from "./_internal_collection";
+import { useFormLabel } from "./_internal_formlabel";
 export const SelectContext = createContext({
   triggerProps: {},
   triggerRef: null,
@@ -260,28 +262,32 @@ export function SelectRootImpl(props) {
     props,
   });
   const { className, ...other } = vislyProps;
+  const { label, registerLabelProps } = useFormLabel();
   const state = useSelectState({
     children: items,
     selectedKey: selected,
     onSelectionChange: onSelect,
     disallowEmptySelection: true,
     shouldFlip: true,
-    label: "Select",
+    label,
     isDisabled,
   });
   const layout = useListBoxLayout(state);
-  const { triggerProps, menuProps } = useSelect(
+  const { triggerProps, menuProps, labelProps } = useSelect(
     {
       children: items,
       selectedKey: selected,
       onSelectionChange: onSelect,
-      "aria-label": "Select",
       shouldFlip: true,
       keyboardDelegate: layout,
+      label,
     },
     state,
     ref
   );
+  useEffect(() => {
+    registerLabelProps(labelProps);
+  }, []);
   triggerProps.isDisabled = isDisabled;
   return (
     <div
@@ -291,7 +297,7 @@ export function SelectRootImpl(props) {
       <HiddenSelect
         state={state}
         triggerRef={ref}
-        label="Select"
+        label={label || "Select"}
         name="Select"
       />
       <SelectContext.Provider
