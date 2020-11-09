@@ -13,6 +13,7 @@ import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
 } from 'react-tippy';
+import {SlideContext} from "../../context/SlideContext";
 
 function End() {
     // No loading for dev
@@ -62,6 +63,7 @@ function End() {
     }
 
     const addAnotherDog = () => {
+        console.log('Adding another dog')
         window.hungry.end.addAnotherDog( () => {
             nav.restart();
         });
@@ -111,7 +113,7 @@ function End() {
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + totalPrice : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
-                            HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
+                            HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HelpSlot={
                                 <Tooltip
