@@ -83,7 +83,7 @@ const getTabs = (product, dog, goals) => {
                         </div>
 
                         <div className="kibtab-content">
-                            <div className="kibtab-content-trans">
+                            <div className="kibtab-content-trans" style={{ backgroundColor: colors.hbGoldLight }}>
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
 
                                 <div className="kibtab-contentImgGrp">
