@@ -71,7 +71,7 @@ const Products = ({
             alignItems="center"
             className="wave"
             style={{ backgroundColor: colors.hbGoldLight}}
-            title={results ? 'Recommended plan' : ''}
+            title={results ? 'Recommended Plan' : ''}
         >
             <FlexBox gap={'2%'}>
                 {
