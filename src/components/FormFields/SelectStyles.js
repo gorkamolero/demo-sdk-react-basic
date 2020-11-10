@@ -15,6 +15,7 @@ export default {
   }),
   menu: (provided, state) => ({
     ...provided,
+    margin: 0,
     minWidth: '100%',
     width: 'auto',
     borderRadius: 0,

@@ -18,11 +18,11 @@ export const HbContainer = styled.section`
 
 export const HbTitle = styled(CustomHTML)(props => ({
   ...(props.size && ['super', 'large'].includes(props.size) && textstyles.superHeading),
-  ...(props.size && props.size === 'tablet' && {
+  ...(props.size && props.size === 'medium' && {
     ...textstyles.superHeadingTablet,
     textAlign: 'left',
   }),
-  ...(props.size && props.size === 'mobile' && {
+  ...(props.size && props.size === 'small' && {
     ...textstyles.superHeadingMobile,
     textAlign: 'left',
   }),
@@ -31,9 +31,15 @@ export const HbTitle = styled(CustomHTML)(props => ({
 }))
 
 export const HbSubtitle = styled(CustomHTML)(props => ({
-  ...(props.size !== 'mobile' ? textstyles.bodySmall : textstyles.bodySmallMobile),
+  ...(props.size !== 'small' ? textstyles.bodySmall : textstyles.bodySmallMobile),
   color: colors.hbBrown,
   opacity: '80%',
+  ...(props.size && props.size === 'medium' && {
+    textAlign: 'left',
+  }),
+  ...(props.size && props.size === 'small' && {
+    textAlign: 'left',
+  }),
 }))
 
 export const Wave = styled.div`

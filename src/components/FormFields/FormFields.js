@@ -15,7 +15,6 @@ const HbFormElement = ({children, ...rest}) => {
   const fieldRef = React.useRef(null);
   // Scroll To Item
   useEffect(() => {
-      console.log(fieldRef.current);
       if (fieldRef.current) {
         fieldRef.current.scrollIntoView({ behavior: "smooth" });
       }
@@ -70,8 +69,6 @@ const Select = ({field, title, onChangeHandler, size}) => {
     }
   });
 
-  console.log(field.getTitle(), 'FIELD IS VALID', field.isValid())
-  
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
@@ -250,7 +247,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
   const [values, setValues] = useState(() => {
     let vals = field.getValue()
-    console.log('HERE', vals)
+    // console.log('HERE', vals)
 
     if (vals.includes('none')) return ['none']
 
@@ -275,7 +272,7 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
       valsForPickzen = values.includes('none') ? 'none' : valsForPickzen.join(',')
     }
 
-    console.log(typeof valsForPickzen)
+    // console.log(typeof valsForPickzen)
     onChangeHandler(valsForPickzen, field)
   }, [values])
   /* eslint-enable */
@@ -518,7 +515,7 @@ function FormFields({ children, fields, showErrors }) {
         } else if (["select", "text", "radio-group", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
-            console.log(field.getType(), value)
+            // console.log(field.getType(), value)
         } else {
           field.setValue(event);
         }

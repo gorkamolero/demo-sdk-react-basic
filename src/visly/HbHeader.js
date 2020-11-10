@@ -25,6 +25,11 @@ const styles = [
   {
     type: "default",
     layers: {
+      "2RwNh3KRbg": {
+        none: {
+          htmlElement: "header",
+        },
+      },
       WVr4DnUAPt: {
         none: {
           text: "20% Off",
@@ -48,6 +53,11 @@ const styles = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "withVideo",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -56,23 +66,20 @@ const styles = [
         layers: {},
       },
       {
-        propValue: "large",
-        layers: {},
-      },
-      {
         propValue: "medium",
-        layers: {},
+        layers: {
+          "2RwNh3KRbg": {
+            none: {
+              htmlElement: "header",
+            },
+          },
+        },
       },
       {
         propValue: "super",
         layers: {},
       },
     ],
-  },
-  {
-    type: "boolean",
-    propName: "withVideo",
-    layers: {},
   },
 ];
 
@@ -112,6 +119,16 @@ const defaultPropValues = [
     },
   },
   {
+    type: "boolean",
+    propName: "withVideo",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -133,24 +150,11 @@ const defaultPropValues = [
         },
       },
       {
-        propValue: "large",
-        layers: {
-          Coy4GvRJN5: {},
-          B28tWsTkne: {},
-          DesmwGXXNp: {},
-          "9VxZfYB53B": {},
-        },
-      },
-      {
         propValue: "medium",
         layers: {
           Coy4GvRJN5: {},
           B28tWsTkne: {},
-          DesmwGXXNp: {
-            none: {
-              size: "small",
-            },
-          },
+          DesmwGXXNp: {},
           "9VxZfYB53B": {},
         },
       },
@@ -165,16 +169,6 @@ const defaultPropValues = [
       },
     ],
   },
-  {
-    type: "boolean",
-    propName: "withVideo",
-    layers: {
-      Coy4GvRJN5: {},
-      B28tWsTkne: {},
-      DesmwGXXNp: {},
-      "9VxZfYB53B": {},
-    },
-  },
 ];
 
 const variantPropTypes = [
@@ -187,13 +181,13 @@ const variantPropTypes = [
     propName: "NoWave",
   },
   {
-    type: "enum",
-    propName: "size",
-    propValues: ["small", "large", "medium", "super"],
-  },
-  {
     type: "boolean",
     propName: "withVideo",
+  },
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small", "medium", "super"],
   },
 ];
 
@@ -289,27 +283,37 @@ function HbHeader(_props) {
               element={getStyle("BvQJi9KfB1", "htmlElement")}
             >
               {[
-                props.HbLogo === undefined ? (
-                  <HbLogoComposite
-                    key={"DesmwGXXNp"}
-                    {...getCompositeDefaultProps("DesmwGXXNp")}
-                    id="HbLogo_DesmwGXXNp"
-                    className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp"
-                  />
-                ) : (
-                  <HbLogoContext.Provider
-                    key="DesmwGXXNp-provider"
-                    value={{
-                      key: "DesmwGXXNp",
-                      id: "HbLogo_DesmwGXXNp",
-                      className:
-                        "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp",
-                      ...getCompositeDefaultProps("DesmwGXXNp"),
-                    }}
-                  >
-                    {props.HbLogo}
-                  </HbLogoContext.Provider>
-                ),
+                <ContainerPrimitive
+                  id={"HbLogoContainer_MCEaYWZj8Y"}
+                  className={
+                    "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_MCEaYWZj8Y"
+                  }
+                  key={"MCEaYWZj8Y"}
+                  addSpacing={false}
+                  element={getStyle("MCEaYWZj8Y", "htmlElement")}
+                >
+                  {props.HbLogo === undefined ? (
+                    <HbLogoComposite
+                      key={"DesmwGXXNp"}
+                      {...getCompositeDefaultProps("DesmwGXXNp")}
+                      id="HbLogo_DesmwGXXNp"
+                      className="__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp"
+                    />
+                  ) : (
+                    <HbLogoContext.Provider
+                      key="DesmwGXXNp-provider"
+                      value={{
+                        key: "DesmwGXXNp",
+                        id: "HbLogo_DesmwGXXNp",
+                        className:
+                          "__visly_reset_WDRq65T88Q __visly_scope_9XVkrqrLZt_DesmwGXXNp",
+                        ...getCompositeDefaultProps("DesmwGXXNp"),
+                      }}
+                    >
+                      {props.HbLogo}
+                    </HbLogoContext.Provider>
+                  )}
+                </ContainerPrimitive>,
                 props.HbProgress === undefined ? (
                   <HbProgressComposite
                     key={"B28tWsTkne"}
@@ -564,13 +568,13 @@ HbHeader.__variants = [
     type: "variant",
   },
   {
-    name: "size",
-    type: "group",
-    variants: ["small", "large", "medium", "super"],
-  },
-  {
     name: "withVideo",
     type: "variant",
+  },
+  {
+    name: "size",
+    type: "group",
+    variants: ["small", "medium", "super"],
   },
 ];
 

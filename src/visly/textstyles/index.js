@@ -91,7 +91,7 @@ export const menuHeadingTablet = {
 };
 export const superHeading = {
   fontFamily: "Filson Pro",
-  fontSize: "36px",
+  fontSize: "32px",
   fontWeight: 700,
   fontStyle: "normal",
   lineHeight: "48px",

@@ -179,7 +179,13 @@ body {
   top: 0;
   left: 0;
   *:not(.HbLogo) {
-    pointer-events: none;
+    // pointer-events: none;
+  }
+
+  header[id^='HbContent'] {
+    @media (min-width: 800px) and (max-width: 1200px) {
+      max-width: 600px;
+    }
   }
 }
 
@@ -347,4 +353,23 @@ li.paging-item.active .pagingDots {
 
 [id^='TitleContainer'] {
   overflow: visible !important;
+}
+
+[id^='Step Title'] {
+  @media (min-width: 540px) and (max-width: 640px) {
+    font-size: 1.9vw !important;
+  }
+  @media (min-width: 480px) and (max-width: 540px) {
+    font-size: 1.7vw !important;
+  }
+}
+
+[id^='ExtraImg'] div[role='img'] {
+  @media (max-width: 1340px) {
+    transform: translateY(30%) !important;
+  }
+
+  @media (min-width: 1340px) {
+    transform: translateY(40%) !important;
+  }
 }

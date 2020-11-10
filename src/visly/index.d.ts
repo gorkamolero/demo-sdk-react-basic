@@ -207,8 +207,8 @@ export const HbHeader: {
     textSlot1?: string;
     ShowImage?: boolean;
     NoWave?: boolean;
-    size?: "small" | "large" | "medium" | "super";
     withVideo?: boolean;
+    size?: "small" | "medium" | "super";
     HbCircleIcon?: React.ReactNode;
     HbProgress?: React.ReactNode;
     HbLogo?: React.ReactNode;

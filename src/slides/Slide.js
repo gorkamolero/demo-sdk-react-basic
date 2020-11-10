@@ -10,7 +10,7 @@ import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { HbHeader, useBreakpoint } from "../visly";
+import { HbHeader, useBreakpoint, setBreakpoints } from "../visly";
 import { HbContainer, HbTitle, HbSubtitle } from "../styles/StyledComps";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
@@ -39,9 +39,15 @@ const SlideView = ({slideModel}) => {
 const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
-    const size = useBreakpoint("small", ["medium", "large", "super"]);
+    const size = useBreakpoint("small", ["medium", "super"]);
+    console.log('SIZE', size)
 
     const [headerHeight, setHeaderHeight] = useState(0)
+
+    useEffect(() => {
+      setBreakpoints('min-width', ['800px', '1024px'])
+      window.dispatchEvent(new Event('resize'));
+    }, [])
     
     const HeadRef = useRef(null);
 
@@ -83,9 +89,8 @@ const Slide = () => {
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
                 className="HbHeader"
-                TitleSlot={<HbTitle size={size} className="title" html={title} />}
-                
-                SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+                TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
+                SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
                 HbProgress={<ProgressBar size={size} />}
                 HbProgressMobile={<ProgressBar size={size} />}
@@ -101,7 +106,15 @@ const Slide = () => {
                 style={{ position: 'fixed !important', top: 0 }}
               />
             </div>
-            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0, marginTop: !isEndSlide ? headerHeight : 0 }}>
+            <FlexBox
+              is="main"
+              column
+              alignItems="center"
+              style={{
+                position: 'relative',
+                zIndex: isEndSlide ? 3 : 0,
+                marginTop: !isEndSlide ? headerHeight - 40 : 0
+            }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
                 <SlideView slideModel={slideModel} />
               </Container>
