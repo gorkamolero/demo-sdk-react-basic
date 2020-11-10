@@ -101,7 +101,7 @@ const Slide = () => {
                 style={{ position: 'fixed !important', top: 0 }}
               />
             </div>
-            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0, marginTop: headerHeight }}>
+            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0, marginTop: !isEndSlide ? headerHeight : 0 }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
                 <SlideView slideModel={slideModel} />
               </Container>
