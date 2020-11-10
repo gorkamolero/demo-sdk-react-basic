@@ -91,28 +91,28 @@ const getTabs = (product, dog, goals) => {
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition1.png?v=1592925792"
                                             alt="Days 1-3"/>
-                                        <p>Days 1-3</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 1-3</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-2">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition2.png?v=1592925793"
                                             alt="Days 4-6"/>
-                                        <p>Days 4-6</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 4-6</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-3">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition3.png?v=1593010810"
                                             alt="Days 7-10"/>
-                                        <p>Days 7-10</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 7-10</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-4">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition4.png?v=1592925793"
                                             alt="Day 11"/>
-                                        <p>Day 11</p>
+                                        <p style={{ fontWeight: 'bold' }}>Day 11</p>
                                     </div>
                                 </div>
                             </div>
@@ -129,14 +129,14 @@ const getTabs = (product, dog, goals) => {
 
                             <div className="kibcontent-NutriAnalysis">
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Guaranteed Analysis</h2>
-                                <ul>
+                                <FlexBox column gap=".25em">
                                     {product.values.map(value => (
-                                        <>
+                                        <FlexBox justifyContent="space-between" style={{ padding: '1em 0' }}>
                                             <div className="nutriLabel">{value.bottom}</div>
                                             <div className="nutriValue">{value.top} {value.mid}{value.symbol}</div>
-                                        </>
+                                        </FlexBox>
                                     ))}
-                                </ul>
+                                </FlexBox>
                             </div>
 
                             <div className="kibcontent-NutriStatement">
@@ -166,6 +166,10 @@ const getTabs = (product, dog, goals) => {
                         <Tab text="Nutritional" />
                     </HbTabs>
                     <div className="spacer"></div>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
+                        <p>Mix in 1 tablespoon per cup of food.</p>
+                    </Panel>
 
                     <Panel>
                         <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Dosing Guidelines for <span className="capitalise-pz">{dog.name}</span></h2>
@@ -185,10 +189,6 @@ const getTabs = (product, dog, goals) => {
                         </div>
                     </Panel>
 
-                    <Panel>
-                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
-                        <p>Mix in 1 tablespoon per cup of food.</p>
-                    </Panel>
                     <Panel>
                         <CustomHTML html={product.nutrition}></CustomHTML>
                     </Panel>

@@ -280,8 +280,6 @@
 .supGoalContent ul li {
   font-size: 18px !important;
   line-height: 23px !important;
-  color: #242424 !important;
-
   font-weight: normal !important;
 }
 
@@ -378,7 +376,6 @@
   list-style: none !important;
   font-size: 16px !important;
   line-height: 32px !important;
-  color: #242424 !important;
 
   display: flex !important;
   text-align: left !important;
@@ -432,20 +429,10 @@
   margin-right: auto;
 }
 
-.doseDogWeight h3 {
-  font-size: 13px !important;
-  line-height: 32px !important;
-  color: rgba(77, 74, 69, 0.7) !important;
-  font-weight: normal !important;
-  margin-top: 0px !important;
-  text-transform: uppercase !important;
-}
-
 .doseDogWeight ul li {
   list-style: none !important;
   font-size: 16px !important;
   line-height: 32px !important;
-  color: #242424 !important;
 }
 
 .doseDogWeight ul {
@@ -460,8 +447,15 @@
 .dosePerDay h3 {
   font-size: 13px !important;
   line-height: 32px !important;
-  color: rgba(77, 74, 69, 0.7) !important;
-  font-weight: normal !important;
+  font-weight: bold !important;
+  margin-top: 0px !important;
+  text-transform: uppercase !important;
+}
+
+.doseDogWeight h3 {
+  font-size: 13px !important;
+  line-height: 32px !important;
+  font-weight: bold !important;
   margin-top: 0px !important;
   text-transform: uppercase !important;
 }
@@ -474,7 +468,7 @@
   list-style: none !important;
   font-size: 16px !important;
   line-height: 32px !important;
-  color: #242424 !important;
+  color: inherit;
 }
 
 @media only screen and (max-width: 1112px) {
