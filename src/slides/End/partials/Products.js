@@ -1,19 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { FlexBox } from "react-styled-flex";
-import { HbWave, colors, HbLinkButton, HbProductImage, textstyles } from '../../../visly'
+import { HbWave, colors, HbLinkButton, HbProductImage, textstyles, HbCheckbox2 } from '../../../visly'
 import { HbSection } from '../../../visly/Pages'
 import { HbProduct, HbProductEmpty, HbResults } from '../../../visly/Compounds'
 import Switch from '../../../components/Switch'
 import { useModal } from "react-modal-hook"
 import ProductModal from './ProductModal'
 import CustomHTML from '../../../components/CustomHTML/CustomHTML';
-
-
-const ProductType = {
-    0: 'Meal',
-    1: 'Supplement',
-    2: 'Mix-in'
-}
 
 const Products = ({
     style,
@@ -44,6 +37,7 @@ const Products = ({
 
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
+        console.log('RESULTS', products.kibble, products.supplement, products.mixin)
     }, [products.kibble, products.supplement, products.mixin]);
 
 
@@ -58,68 +52,153 @@ const Products = ({
     if (!results) return null
 
     const onAddResult = (result) => {
-        if (selectedResults.includes(result)) return setSelectedResults(selectedResults.filter(r => !r))
+        if (selectedResults.includes(result)) {
+            setSelectedResults(selectedResults.filter(r => r.sku !== result.sku))
+        }
         else return setSelectedResults(selectedResults.concat(result))
     }
 
     const resultImages = results.map(result => result && result.images && result.images[result.selectedImage]);
 
+    const roundNumber = (number) => Number(number).toFixed(2)
+
     return (
         <HbSection
             noMaxWidth
-            waveslot1={<HbWave double />}
-            waveslot2={<HbWave invert />}
+            waveslot1={<HbWave className="HbWave" double />}
+            waveslot2={<HbWave className="HbWave" invert />}
             column
             alignItems="center"
             className="wave"
-            title=""
             style={{ backgroundColor: colors.hbGoldLight}}
+            title={results ? 'Recommended plan' : ''}
         >
             <FlexBox gap={'2%'}>
                 {
-                    results.map((result, i) => (
-                        <>
-                            {
-                                result ? (
-                                    <HbProduct
-                                        key={i}
-                                        imageSrc={result.images[result.selectedImage]}
-                                        order={i + 1}
-                                        title={result.title}
-                                        priceOriginal={ subscription ? '$' + result.price : '' }
-                                        priceFinal={`$${getPrice(result.price)}`}
-                                        DescriptionHtml={
-                                            <CustomHTML style={{
-                                                ...textstyles.hbFeatureText,
-                                                color: colors.hbBrown
-                                            }} html={result.description} />
-                                        }
-                                        addLabel={selectedResults.includes(result) ? 'Added' : `Add ${ProductType[i]}` }
-                                        type={ProductType[i]}
-                                        details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(result) }>See details</HbLinkButton>}
-                                        HbCheckbox={
-                                            <HbProduct.HbCheckbox checked={selectedResults.includes(result)} onChange={() => onAddResult(result)} />
-                                        }
-                                        style={{ width: '23.5%', transition: 'all 250ms ease' }}
-                                    />
-                                ) : <HbProductEmpty
-                                        type={ProductType[i]}
-                                        Extratext={
-                                            <CustomHTML
-                                                style={{
-                                                    ...textstyles.hbFeatureText,
-                                                    color: colors.hbBrown
-                                                }}
-                                                html={
-                                                    '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
-                                                }
-                                            />
-                                        }
-                                        style={{ width: '23.5%', minHeight: subscription ? '60vh' : '40vh', transition: 'all 250ms ease' }}
-                                    />
+                    products.kibble ? (
+                        <HbProduct
+                            imageSrc={products.kibble.images[products.kibble.selectedImage]}
+                            order={1}
+                            title={products.kibble.title}
+                            // extra={}
+                            priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
+                            priceFinal={`$${getPrice(products.kibble.price)}`}
+                            DescriptionHtml={
+                                <CustomHTML style={{
+                                    ...textstyles.hbFeatureText,
+                                    color: colors.hbBrown
+                                }} html={products.kibble.description} />
                             }
-                        </>
-                    ))
+                            type={'Meal'}
+                            details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.kibble) }>See details</HbLinkButton>}
+                            CardFooter={
+                                <HbProduct.CardFooter
+                                    onClick={() => onAddResult(products.kibble)}
+                                    addLabel={selectedResults.includes(products.kibble) ? 'Added' : `Add ${'Meal'}` }
+                                    HbCheckbox2={
+                                        <HbCheckbox2 checked={selectedResults.includes(products.kibble)} />
+                                    }
+                                />
+                            } 
+                            style={{ width: '23.5%' }}
+                        />
+                    ) : (
+                        <HbProductEmpty
+                            type={'Meal'}
+                            Extratext={
+                                <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
+                                    html={
+                                        '<p>Unfortunately we don’t have a Hungry Bark Kibble to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                    }
+                                />
+                            }
+                            style={{ width: '23.5%' }}
+                        />
+                    )
+                }
+                {
+                    products.supplement ? (
+                        <HbProduct
+                            imageSrc={products.supplement.images[products.supplement.selectedImage]}
+                            order={2}
+                            title={products.supplement.title}
+                            extra={`${products.supplement.chews14 ? products.supplement.chews14 + ' count' : ''}`}
+                            priceOriginal={ subscription ? `$${roundNumber(products.supplement.price)}` : '' }
+                            priceFinal={`$${getPrice(products.supplement.price)}`}
+                            DescriptionHtml={
+                                <CustomHTML style={{
+                                    ...textstyles.hbFeatureText,
+                                    color: colors.hbBrown
+                                }} html={products.supplement.description} />
+                            }
+                            type={'Supplement'}
+                            details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.supplement) }>See details</HbLinkButton>}
+                            CardFooter={
+                                <HbProduct.CardFooter
+                                    onClick={() => onAddResult(products.supplement)}
+                                    addLabel={selectedResults.includes(products.supplement) ? 'Added' : `Add ${'Supplement'}` }
+                                    HbCheckbox2={
+                                        <HbCheckbox2 checked={selectedResults.includes(products.supplement)} />
+                                    }
+                                />
+                            } 
+                            style={{ width: '23.5%' }}
+                        />
+                    ) : (
+                        <HbProductEmpty
+                            type={'Supplement'}
+                            Extratext={
+                                <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
+                                    html={
+                                        '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                    }
+                                />
+                            }
+                            style={{ width: '23.5%' }}
+                        />
+                    )
+                }
+                {
+                    products.mixin ? (
+                        <HbProduct
+                            imageSrc={products.mixin.images[products.mixin.selectedImage]}
+                            order={3}
+                            title={products.mixin.title}
+                            extra={`${products.mixin.bags} ${products.mixin.bags > 1 ? 'bags' : 'bag'}`}
+                            priceOriginal={ subscription ? `$${roundNumber(products.mixin.price)}` : '' }
+                            priceFinal={`$${getPrice(products.mixin.price)}`}
+                            DescriptionHtml={
+                                <CustomHTML style={{
+                                    ...textstyles.hbFeatureText,
+                                    color: colors.hbBrown
+                                }} html={products.mixin.description} />
+                            }
+                            type={'Mix-in'}
+                            details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.mixin) }>See details</HbLinkButton>}
+                            CardFooter={
+                                <HbProduct.CardFooter
+                                    onClick={() => onAddResult(products.mixin)}
+                                    addLabel={selectedResults.includes(products.mixin) ? 'Added' : `Add ${'Mixin'}` }
+                                    HbCheckbox2={
+                                        <HbCheckbox2 checked={selectedResults.includes(products.mixin)} />
+                                    }
+                                />
+                            } 
+                            style={{ width: '23.5%' }}
+                        />
+                    ) : (
+                        <HbProductEmpty
+                            type={'Mixin'}
+                            Extratext={
+                                <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
+                                    html={
+                                        '<p>Unfortunately we don’t have a Hungry Bark Mixin to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                    }
+                                />
+                            }
+                            style={{ width: '23.5%' }}
+                        />
+                    )
                 }
 
                 <HbResults
@@ -129,13 +208,13 @@ const Products = ({
                     // afterTrial={texts.plan.afterTrial}
                     DescriptionHtml={
                         <CustomHTML style={{
-                            ...textstyles.hbFeatureText,
+                            ...textstyles.bodyReallySmall,
                             color: colors.hbBrown
                         }} html={texts.plan.trial} />
                     }
                     DescriptionHtml2={
                         <CustomHTML style={{
-                            ...textstyles.hbFeatureText,
+                            ...textstyles.bodyReallySmall,
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }

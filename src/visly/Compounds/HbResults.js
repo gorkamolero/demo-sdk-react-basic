@@ -199,11 +199,11 @@ function HbResults(_props) {
               {props.children}
             </ContainerPrimitive>
             <SpacerPrimitive
-              id={"Spacer_TyccgJikTY"}
+              id={"Spacer_RczpYiCSQ7"}
               className={
-                "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_TyccgJikTY"
+                "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_RczpYiCSQ7"
               }
-              key={"TyccgJikTY"}
+              key={"RczpYiCSQ7"}
             />
             <ContainerPrimitive
               id={"Content_N3yQYTcaWV"}
@@ -214,6 +214,13 @@ function HbResults(_props) {
               addSpacing={true}
               element={getStyle("N3yQYTcaWV", "htmlElement")}
             >
+              <SpacerPrimitive
+                id={"Spacer_9Nbg29zFJz"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_9Nbg29zFJz"
+                }
+                key={"9Nbg29zFJz"}
+              />
               <TextPrimitive
                 id={"Title1_TSKydwWpV5"}
                 className={
@@ -234,11 +241,11 @@ function HbResults(_props) {
                 {props.DescriptionHtml}
               </ContainerPrimitive>
               <SpacerPrimitive
-                id={"Spacer_GTNJNAq2jj"}
+                id={"Spacer_AzaKN8evhX"}
                 className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_GTNJNAq2jj"
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_AzaKN8evhX"
                 }
-                key={"GTNJNAq2jj"}
+                key={"AzaKN8evhX"}
               />
               <TextPrimitive
                 id={"Title2_Xdq8EgbVmd"}
@@ -269,6 +276,13 @@ function HbResults(_props) {
               addSpacing={false}
               element={getStyle("S7T37kknMS", "htmlElement")}
             >
+              <SpacerPrimitive
+                id={"Spacer_2VMjd59AhX"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_2VMjd59AhX"
+                }
+                key={"2VMjd59AhX"}
+              />
               <ContainerPrimitive
                 id={"Arrow_93EMydgdsv"}
                 className={

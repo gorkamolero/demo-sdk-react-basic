@@ -87,28 +87,11 @@ export interface CommonProps<T extends HTMLElement> {
   onBlur?: React.FocusEventHandler<T>;
   onBlurCapture?: React.FocusEventHandler<T>;
 }
-export const HbProduct: {
+export const HbCheckbox2: {
   (
     props: {
-      title?: string;
-      extra?: string;
-      imageSrc?: string;
-      order?: string;
-      type?: string;
-      priceOriginal?: string;
-      priceFinal?: string;
-      details?: React.ReactNode | React.ReactNode[];
-      DescriptionHtml?: React.ReactNode | React.ReactNode[];
-      CardFooter?: React.ReactNode;
+      onChange?: (checked: boolean) => void;
+      checked?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
-  CardFooter: {
-    (
-      props: {
-        addLabel?: string;
-        HbCheckbox2?: React.ReactNode;
-      } & CommonProps<HTMLDivElement>
-    ): JSX.Element;
-    HbCheckbox2: typeof HbCheckbox2;
-  };
 };

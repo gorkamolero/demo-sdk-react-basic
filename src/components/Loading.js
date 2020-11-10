@@ -48,7 +48,7 @@ const Img = styled.img`
 `
 
 
-const Loading = ({ timing = 1000, setLoading, outTiming = 3000 }) => {
+const Loading = ({ timing = 1000, setLoading, outTiming = 3000, setLoadingScreenIsSeen }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
@@ -57,6 +57,10 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 3000 }) => {
   const shouldRenderChild = useDelayUnmount(isMounted, 100);
   const mountedStyle = {opacity: 1, transform: 'translateY(0)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
   const unmountedStyle = {opacity: 0, transform: 'translateY(-10%)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
+
+  useEffect(() => {
+    return () => setLoadingScreenIsSeen(true)
+  }, [setLoadingScreenIsSeen])
   
   // Rotate images
   useEffect(() => {

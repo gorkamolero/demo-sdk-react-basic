@@ -5,6 +5,7 @@ import React, { createContext, useContext, useRef } from "react";
 import { exists, combineRef, renderChildren, noop } from "./_internal_utils";
 import { useFocus, mergeProps } from "@visly/core";
 import { usePrimitive } from "./_internal_usePrimitive";
+import { useFormLabel } from "./_internal_formlabel";
 const Context = createContext(null);
 export function Root(props) {
   const ref = useRef();
@@ -74,6 +75,7 @@ export function TextFieldPrimitive(props) {
     onBlur,
   });
   const placeholder = props.placeholder;
+  const { fieldProps } = useFormLabel();
   return (
     <input
       {...inputProps}
@@ -97,6 +99,7 @@ export function TextFieldPrimitive(props) {
           : {}),
         ...inputProps.style,
       }}
+      {...fieldProps}
     />
   );
 }

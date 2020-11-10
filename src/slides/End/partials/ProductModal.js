@@ -38,7 +38,7 @@ const getGoalColum = function(goals, min, max) {
 const getTabs = (product, dog, goals) => {
     if (product.type === 'kibble') {
         return (
-            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Meal Plan" />
@@ -280,15 +280,13 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
     }, [])
 
     return (
-        <ReactModal isOpen onAfterClose={hideModal}>
-            <FlexBox justifyContent="center">
-                <HbSection style={{ margin: '0 auto', alignItems: 'flex-start' }} withImage imageSrc={product.images[product.selectedImage]}>
-                    {getTabs(product, dog, goals)}
-                </HbSection>
+        <FlexBox center is={ReactModal} isOpen onAfterClose={hideModal} className="Modal">
+            <HbSection style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }} withImage imageSrc={product.images[product.selectedImage]}>
+                {getTabs(product, dog, goals)}
+            </HbSection>
 
-                <Close onClick={hideModal} />
-            </FlexBox>
-        </ReactModal>
+            <Close onClick={hideModal} />
+        </FlexBox>
     );
 }
 

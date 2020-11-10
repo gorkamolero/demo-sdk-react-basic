@@ -166,13 +166,15 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
     return val
   });
 
-  const toggleSelected = value => selected.includes(value)
-    ? setSelected(selected.filter(val => val !== value))
-    : setSelected([...selected, value])
-
-  /* eslint-disable */
-  useEffect(() => onChangeHandler(selected, field), [selected])
-  /* eslint-enable */
+  const toggleSelected = value => {
+    if (selected.includes(value)) {
+      setSelected(selected.filter(val => val !== value))
+      field.removeValue(value)
+    } else {
+      setSelected([...selected, value])
+      field.setValue(value)
+    }
+  }
 
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
@@ -229,6 +231,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 const Input = ({field, title, onChangeHandler, size}) => {
   const [value, setValue] = useState(() => field.getValue());
   const meta = field.getMeta();
+  const type = field.getType();
 
   return (
     <>
@@ -242,6 +245,7 @@ const Input = ({field, title, onChangeHandler, size}) => {
         placeholder={meta.placeholder || ""}
         size={size}
         style={{ width: 'auto', margin: '0 10px' }}
+        inputProps={type ? {type} : {type: 'number'}}
       >
         { meta.units && <span>{meta.units}</span> }
       </HbInput>
@@ -525,9 +529,12 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         </HbFormElement>
 
       {meta.afterLine && (
-        <small style={{ marginBottom: 20 }}>
-          {interpolate(meta.afterLine)}
-        </small>
+        <>
+          <HbBreakLine className="newLine" />
+          <small style={{ marginBottom: 20 }}>
+            {interpolate(meta.afterLine)}
+          </small>
+        </>
       )}
     </>
   );

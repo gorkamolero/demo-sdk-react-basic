@@ -25,6 +25,7 @@ export const hbLikesLamb = require("../assets/d7b43385-4f82-402b-82b5-5af719455f
 export const hbLikesSalmon = require("../assets/92f9a76e-1ede-4d6e-ba20-956bcd540e65.svg");
 export const hbLikesTurkey = require("../assets/cd1f3003-d65a-4408-8b07-601054571bc6.svg");
 export const hbLogo = require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg");
+export const hbLogoMain = require("../assets/d12233d3-fa47-4c91-8325-faec993215ab.png");
 export const hbLogoMobile = require("../assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg");
 export const hbMale = require("../assets/6ed7698a-cec1-4d22-b634-8cf9b5fc6a50.png");
 export const hbTick = require("../assets/7df7ec4d-c5a9-496f-8098-ded65cce046e.svg");

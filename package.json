@@ -23,6 +23,7 @@
     "react-styled-flex": "^1.0.19",
     "react-tippy": "^1.4.0",
     "react-transition-group": "^4.4.1",
+    "react-use": "^15.3.4",
     "react-video-pop": "https://github.com/gorkamolero/react-video-pop",
     "sanitize-html": "^2.0.0",
     "slick-carousel": "^1.8.1",

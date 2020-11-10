@@ -64,6 +64,7 @@ export const icon = {
   hbLikesSalmon: "6d213fe6-b7a4-49f1-bd73-b20c3eb9bb61",
   hbLikesTurkey: "116bc28d-365c-416a-a1ed-29be4e4fac74",
   hbLogo: "484f50c4-87c8-402b-9f17-7ea3998e9f29",
+  hbLogoMain: "9488f5c2-5746-4389-9ea6-75cc0bf9c138",
   hbLogoMobile: "c26bf768-6194-41b1-a4c5-981fbaa33611",
   hbMale: "c9c80f7e-39bc-43d8-b7d8-7d657cbb303d",
   hbTick: "9e3db88c-26b3-44fe-ae4f-6e71dd6a4ca0",
@@ -113,6 +114,7 @@ export const font = {
 export const textstyle = {
   accent: "5a5b282c-fbe5-4efb-8163-9d8e2399991c",
   bodyLarge: "f44a4b6d-a6ec-4bbd-a6b5-46a55cba7085",
+  bodyReallySmall: "efb14bf0-9eed-449a-86a6-81f11ca8c178",
   bodySmall: "199b4f45-79d7-45f8-af30-5d9a0d539bcc",
   bodySmallBold: "c4d4eb62-5034-4b6e-990e-5e19d5c712af",
   bodySmallMobile: "e2b30713-9b81-4ba7-a7ea-1ae0c936a5d0",
@@ -143,6 +145,7 @@ export const component = {
   HbButtonGroup: "25513c05-f061-462c-81c3-1cb138788c9e",
   HbButtonWithIcon: "b6c14d69-ec20-4fed-98a9-bfee9884fa72",
   HbCheckbox: "12f2f79a-efe1-44b5-a6ea-94ebaac3ce59",
+  HbCheckbox2: "40e973e6-3b31-4f7c-932e-ba147f1107f6",
   HbCheckboxGroup: "8be47431-69c4-4c33-9a00-7eae4b4f1eef",
   HbCircleIcon: "60ef2b15-65b9-418f-a4f5-65bcf657d21e",
   HbCloseModal: "fe92ce68-4f52-4496-b9b4-974102052fb8",

@@ -43,6 +43,11 @@ const styles = [
     propName: "withImage",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "noHeadNoPadding",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -65,6 +70,11 @@ const defaultPropValues = [
     propName: "withImage",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "noHeadNoPadding",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -79,6 +89,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "withImage",
+  },
+  {
+    type: "boolean",
+    propName: "noHeadNoPadding",
   },
 ];
 
@@ -214,6 +228,10 @@ HbSection.__variants = [
   },
   {
     name: "withImage",
+    type: "variant",
+  },
+  {
+    name: "noHeadNoPadding",
     type: "variant",
   },
 ];

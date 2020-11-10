@@ -18,7 +18,7 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
-  padding: 20px 0 20px 4px;
+  padding: 0;
 }
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_S2bhe8BS6y {
   display: block;
@@ -52,6 +52,7 @@
   align-content: flex-start;
   justify-content: flex-start;
 }
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_C9ydbVQ2rK,
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_LmccNjQnKs {
   overflow: visible;
   box-sizing: border-box;
@@ -61,18 +62,7 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
-  padding: 0 0 40px;
-}
-.__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_C9ydbVQ2rK {
-  overflow: visible;
-  box-sizing: border-box;
-  width: 100%;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  align-items: stretch;
-  align-content: flex-start;
-  justify-content: flex-start;
-  padding: 40px 0 0;
+  padding: 0;
 }
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB .__visly_scope_VwNHqxyyTR_ATetp6636S {
   overflow: hidden;
@@ -98,7 +88,7 @@
   .__visly_scope_VwNHqxyyTR_5xuTSehGki {
   max-width: 9999px;
   align-items: center;
-  padding: 0 0 20px 4px;
+  padding: 0 0 40px;
 }
 .__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noMaxWidth.__visly_state_none
   .__visly_scope_VwNHqxyyTR_DUtcPCxYVN {
@@ -124,4 +114,23 @@
   .__visly_scope_VwNHqxyyTR_9NLaSWxu1C {
   width: 136px;
   height: 136px;
+}
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noHeadNoPadding.__visly_state_none
+  .__visly_scope_VwNHqxyyTR_5xuTSehGki {
+  max-width: 9999px;
+  padding: 0;
+}
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noHeadNoPadding.__visly_state_none
+  .__visly_scope_VwNHqxyyTR_R8m6dsU8Qu {
+  display: none;
+}
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noHeadNoPadding.__visly_state_none
+  .__visly_scope_VwNHqxyyTR_DUtcPCxYVN {
+  padding: 0;
+}
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noHeadNoPadding.__visly_state_none
+  .__visly_scope_VwNHqxyyTR_C9ydbVQ2rK,
+.__visly_scope_VwNHqxyyTR_EShhKqSiHB.__visly_noHeadNoPadding.__visly_state_none
+  .__visly_scope_VwNHqxyyTR_LmccNjQnKs {
+  display: none;
 }

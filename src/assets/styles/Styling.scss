@@ -206,8 +206,14 @@ small {
 
 .slider {
   @media (min-width: $medium) {
-    padding-left: calc(100% / 12 * 1);
+    // padding-left: calc(100% / 12 * 1);
   }
+}
+.slider-control-centerright {
+  transform: translate(100%, -50%) !important;
+}
+.slider-control-centerleft {
+  transform: translate(-100%, -50%) !important;
 }
 
 .slider-frame {
@@ -239,7 +245,14 @@ small {
 }
 
 .wave div[style] {
-  mask-size: cover !important;
+  mask-size: contain !important;
+  mask-position: 0% 100% !important;
+  @media (min-width: 1990px) {
+    mask-size: cover !important;
+    div[id^='Slot'] > div[style] {
+      height: 100px !important;
+    }
+  }
 }
 
 .slideAnimate {
@@ -265,13 +278,25 @@ small {
   background-color: var(--hbYellow) !important;
 }
 .ReactModal__Overlay {
-  z-index: 2;
+  z-index: 10;
   background: rgba(0, 0, 0, 0.75) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .ReactModal__Content {
   max-width: 60ch;
+  min-width: 40ch;
+  background: white;
   margin: 0 auto;
+  padding: 4ch;
+  position: relative;
+
+  @media (max-width: 480px) {
+    height: 100%;
+    padding: 2ch;
+  }
 }
 
 div[id^='Slot'] {
@@ -284,4 +309,18 @@ h2 {
 
 .inheritColor {
   color: inherit;
+}
+
+.pagingDots {
+  fill: white !important;
+  opacity: 1 !important;
+  outline: none !important;
+}
+
+li.paging-item.active .pagingDots {
+  fill: rgb(98, 59, 42) !important;
+}
+
+[id^='TitleContainer'] {
+  overflow: visible !important;
 }

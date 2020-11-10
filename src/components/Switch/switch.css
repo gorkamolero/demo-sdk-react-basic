@@ -1,11 +1,13 @@
+:root {
+  --switchHeight: 39px;
+}
+
 .switch {
   position: relative;
   display: block;
   vertical-align: top;
-  max-width: 260px;
-  height: 54px;
+  height: var(--switchHeight);
   padding: 0px;
-  margin: 0 -10px 0 -10px;
   background-color: #fff;
   border-radius: 34px;
   cursor: pointer;
@@ -88,24 +90,23 @@
   top: 0px;
   left: 0px;
   width: 145px;
-  height: 54px;
+  height: var(--switchHeight);
   background-color: #623b2a;
   border-radius: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .switch-handle::before {
   content: attr(data-dynamic);
-  position: absolute;
-  top: 35%;
-  left: -3%;
   width: 154px;
-  height: 14px;
   background: transparent;
   font-size: 12px;
   text-align: center;
   line-height: 15px;
   color: #fff;
-  font-weight: normal;
+  font-weight: bold;
 }
 
 .switch-input:checked ~ .switch-handle {

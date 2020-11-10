@@ -1,6 +1,6 @@
 .player-container {
-  min-width: calc(100% / 3 * 2);
-  margin: 0 auto 60px;
+  min-width: calc(100% / 12 * 8);
+  margin: 0 auto 20px;
 }
 .player-wrapper {
   position: relative;
