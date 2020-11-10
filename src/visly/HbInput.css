@@ -3,7 +3,7 @@
   overflow: hidden;
   box-sizing: border-box;
   width: 100%;
-  border-color: #d9dae6;
+  border-color: #e0d7d3;
   border-style: solid;
   background-color: rgba(197, 197, 197, 0);
   align-items: center;
@@ -12,10 +12,10 @@
   padding: 0 0 2px;
 }
 .__visly_scope_JhYcCBQMX6_root.__visly_default.__visly_state_focus {
-  border-color: #00aeaa;
+  border-color: #e0d7d3;
 }
 .__visly_scope_JhYcCBQMX6_root .__visly_scope_JhYcCBQMX6_input::placeholder {
-  color: rgba(36, 36, 36, 0.6);
+  color: #876465;
 }
 .__visly_scope_JhYcCBQMX6_root .__visly_scope_JhYcCBQMX6_input {
   border: none;
@@ -29,6 +29,10 @@
   width: 100%;
   flex-grow: 1;
   flex-shrink: 1;
+}
+.__visly_scope_JhYcCBQMX6_root.__visly_default.__visly_state_hover
+  .__visly_scope_JhYcCBQMX6_input::placeholder {
+  color: #876465;
 }
 .__visly_scope_JhYcCBQMX6_root.__visly_default.__visly_state_disabled
   .__visly_scope_JhYcCBQMX6_input {

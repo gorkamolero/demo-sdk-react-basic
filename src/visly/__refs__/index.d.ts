@@ -12,6 +12,7 @@ export const color: {
   hbBeige: "7b930783-dd66-44dc-9396-d94147d0c2d2";
   hbBrown: "917b7d0c-65f2-47ee-b15b-420c68bdaaff";
   hbBrownDim: "bd13d04a-a01e-4296-9338-69383236bb7b";
+  hbDark: "f74a8446-dee6-469e-8c1b-6e3546973cd4";
   hbGold: "778906c6-af65-4ef6-a7b0-984241bdab0d";
   hbGoldLight: "f49ebb9e-17fa-4a54-86c4-c915b3f451cf";
   hbGray100: "855dc846-88ce-463f-8ce7-e3aaf070efda";

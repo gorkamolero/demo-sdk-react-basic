@@ -5,10 +5,11 @@ import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbRadio, useBreakpoint, colors, icons, HbCheckboxGroup, HbCheckbox, HbTag } from "../../visly";
+import { HbContent, HbInput, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
+import SelectStyles from './SelectStyles'
 
 const HbFormElement = ({children, ...rest}) => {
     return (
@@ -44,59 +45,6 @@ const HbSpace = styled.div`
     white-space: pre;
   }
 `;
-
-
-const SelectStyles = {
-  control: (provided, state) => ({
-    ...provided,
-    boxShadow: 'none',
-    borderColor: 'none',
-    borderRadius: 0,
-    border: 0,
-    borderBottom: `2px solid ${colors.hbGray300}`,
-    paddingLeft: 20,
-    '&:hover': {
-      borderColor: colors.hbGreen
-    }
-  }),
-  menu: (provided, state) => ({
-    ...provided,
-    minWidth: '100%',
-    width: 'auto',
-    borderRadius: 0,
-  }),
-  indicatorSeparator: () => ({ display: 'none' }),
-  menuList: (provided) => ({
-    ...provided,
-    padding: 0
-  }),
-  valueContainer: provided => ({
-    ...provided,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: '0 !important',
-  }),
-  singleValue: (provided, state) => ({
-    ...provided,
-    transform: 'none',
-    top: 'auto',
-    position: 'static',
-    overflow: 'visible',
-    fontWeight: 'bold',
-    color: colors.hbGreen
-  }),
-  placeholder: (provided, state) => ({
-    ...provided,
-    transform: 'none',
-    top: 'auto',
-    position: 'static'
-  }),
-  container: (provided, state) => ({
-    ...provided,
-    minWidth: state.selectProps.min ? 60 : 150
-  })
-}
 
 const Icon = ({ innerRef, innerProps }) => (
   <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
@@ -170,9 +118,11 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
     if (selected.includes(value)) {
       setSelected(selected.filter(val => val !== value))
       field.removeValue(value)
+      onChangeHandler(value, field)
     } else {
       setSelected([...selected, value])
       field.setValue(value)
+      onChangeHandler(value, field)
     }
   }
 
@@ -333,13 +283,14 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
               key={id}
               value={id}
               HbIconButton={
-                <HbCheckboxGroup.HbIconButton
+                <HbIconButton
                   onPress={() => {
                     toggleValue(id)
                   }}
                   text={title}
                   icon={icons[icon]}
                   noIcon={meta.noIcons}
+                  HbIconButtonSelected={values.includes(id)}
                 />
               }
               size={size}

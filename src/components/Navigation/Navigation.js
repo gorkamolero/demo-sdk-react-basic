@@ -20,7 +20,7 @@ function Navigation({back, next, restart}) {
     return (next.slideId === 'end')
   }, [progressBar, slideModel])
 
-  // nav.restart()
+  // slideModel.restart()
 
   // const isValid = slideModel.validate ? slideModel.validate() : false;
   const isValid = slideModel.validate ? slideModel.validate() : false;

@@ -21,7 +21,7 @@
   --lightRed: #ef8f7a;
   --hbYellow: #f6dfa4;
 
-  --hbTextColor: #242424;
+  --hbTextColor: #623b2a;
 
   --fontFamily: 'Averta Std', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -160,6 +160,7 @@ $super: '1200px';
 
 body {
   font-family: var(--fontFamily);
+  color: var(--hbTextColor);
   font-size: 18px;
 
   @media (min-width: 520px) {

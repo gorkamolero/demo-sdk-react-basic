@@ -32,13 +32,14 @@ const styles = [
           icon: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
+        hover: {
+          useMask: true,
+        },
+        pressed: {
+          useMask: true,
+        },
       },
     },
-  },
-  {
-    type: "boolean",
-    propName: "HbIconButtonSelected",
-    layers: {},
   },
   {
     type: "boolean",
@@ -66,16 +67,22 @@ const styles = [
     propName: "noIcon",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "HbIconButtonSelected",
+    layers: {
+      "8CLRfG5L7n": {
+        none: {
+          useMask: true,
+        },
+      },
+    },
+  },
 ];
 
 const defaultPropValues = [
   {
     type: "default",
-    layers: {},
-  },
-  {
-    type: "boolean",
-    propName: "HbIconButtonSelected",
     layers: {},
   },
   {
@@ -98,13 +105,14 @@ const defaultPropValues = [
     propName: "noIcon",
     layers: {},
   },
-];
-
-const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbIconButtonSelected",
+    layers: {},
   },
+];
+
+const variantPropTypes = [
   {
     type: "boolean",
     propName: "column",
@@ -117,6 +125,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "noIcon",
+  },
+  {
+    type: "boolean",
+    propName: "HbIconButtonSelected",
   },
 ];
 
@@ -182,10 +194,6 @@ function HbIconButton(_props) {
 
 HbIconButton.__variants = [
   {
-    name: "HbIconButtonSelected",
-    type: "variant",
-  },
-  {
     name: "column",
     type: "variant",
   },
@@ -196,6 +204,10 @@ HbIconButton.__variants = [
   },
   {
     name: "noIcon",
+    type: "variant",
+  },
+  {
+    name: "HbIconButtonSelected",
     type: "variant",
   },
 ];

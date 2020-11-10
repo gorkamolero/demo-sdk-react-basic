@@ -237,10 +237,10 @@ export const HbIconButton: {
     text?: string;
     icon?: string;
     onPress?: (event: PressEvent) => void;
-    HbIconButtonSelected?: boolean;
     column?: boolean;
     size?: "small";
     noIcon?: boolean;
+    HbIconButtonSelected?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbInput: {
