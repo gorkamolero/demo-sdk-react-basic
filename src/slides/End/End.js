@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useCallback, useContext } from 'react';
-import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 // import Navigation from "../../components/Navigation/Navigation";
 import Loading from '../../components/Loading';

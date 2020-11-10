@@ -36,9 +36,8 @@ function Form() {
   const id = slideModel.getId()
 
   useEffect(() => {
-    slideModel.validate()
-
     if (slideModel.validate()) {
+
     } else {
       setShowErrors(true);
     }
