@@ -1,4 +1,4 @@
-import React, { useContext, useState, useMemo } from 'react';
+import React, { useContext, useState, useMemo, useRef, useEffect } from 'react';
 import { ModalProvider } from "react-modal-hook";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
@@ -41,6 +41,27 @@ const Slide = () => {
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
+    const [headerHeight, setHeaderHeight] = useState(0)
+    
+    const HeadRef = useRef(null);
+
+    useEffect(() => {
+      if(HeadRef.current){
+        let HeadHeight = HeadRef.current.offsetHeight;
+        setHeaderHeight(HeadHeight)
+      }
+    }, [HeadRef])
+
+    useEffect(() => {
+      const resizeObserver = new ResizeObserver(() => {
+        if(HeadRef.current){
+          let HeadHeight = HeadRef.current.offsetHeight;
+          setHeaderHeight(HeadHeight)
+        }
+      })
+      resizeObserver.observe(document.body);
+    }, [])
+
 
     React.useEffect(() => {
       if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());
@@ -55,33 +76,39 @@ const Slide = () => {
     const isEndSlide = slideModel.getType() === 'End'
 
     return (
-      <ModalProvider>
-        <FlexBox column center className={`slide-${type} animate`}>
-          <HbHeader
-            className="HbHeader"
-            TitleSlot={<HbTitle size={size} className="title" html={title} />}
-            
-            SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
-            HbLogo={<HbHeader.HbLogo onClick={event =>  window.location.href='/'} />}
-            HbProgress={<ProgressBar size={size} />}
-            HbProgressMobile={<ProgressBar size={size} />}
-            HbCircleIcon={<HbHeader.HbCircleIcon />}
-            bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
-            extraImage={Bowl}
-            extraImageT={Bowl}
-            size={size}
-            discount="20% Off"
-            ShowImage={slideTitle === 'Profile'}
-            NoWave={ isEndSlide }
-            withVideo={ isEndSlide }
-          />
-            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0 }}>
+      <div>
+      {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
+        <ModalProvider>
+          <FlexBox column center className={`slide-${type} animate`}>
+            <div className="HbHeadContainer" ref={HeadRef}>
+              <HbHeader
+                className="HbHeader"
+                TitleSlot={<HbTitle size={size} className="title" html={title} />}
+                
+                SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
+                HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
+                HbProgress={<ProgressBar size={size} />}
+                HbProgressMobile={<ProgressBar size={size} />}
+                HbCircleIcon={<HbHeader.HbCircleIcon />}
+                bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
+                extraImage={Bowl}
+                extraImageT={Bowl}
+                size={size}
+                discount="20% Off"
+                ShowImage={slideTitle === 'Profile'}
+                NoWave={ isEndSlide }
+                withVideo={ isEndSlide }
+                style={{ position: 'fixed !important', top: 0 }}
+              />
+            </div>
+            <FlexBox is="main" column alignItems="center" style={{ position: 'relative', zIndex: isEndSlide ? 3 : 0, marginTop: headerHeight }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
                 <SlideView slideModel={slideModel} />
               </Container>
             </FlexBox>
-        </FlexBox>
-      </ModalProvider>
+          </FlexBox>
+        </ModalProvider>
+      </div>
     );
 };
 

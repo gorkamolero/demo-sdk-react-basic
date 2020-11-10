@@ -12,11 +12,20 @@ import ReactSelect from 'react-select'
 import SelectStyles from './SelectStyles'
 
 const HbFormElement = ({children, ...rest}) => {
-    return (
-      <FlexBox {...rest} alignItems="baseline">
-        {children}
-      </FlexBox>
-    )
+  const fieldRef = React.useRef(null);
+  // Scroll To Item
+  useEffect(() => {
+      console.log(fieldRef.current);
+      if (fieldRef.current) {
+        fieldRef.current.scrollIntoView({ behavior: "smooth" });
+      }
+  }, []);
+
+  return (
+    <FlexBox ref={fieldRef} {...rest} alignItems="baseline">
+      {children}
+    </FlexBox>
+  )
 }
 
 const HbHelperTxt = styled.small`

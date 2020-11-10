@@ -169,6 +169,17 @@ body {
   }
 }
 
+.HbHeadContainer {
+  position: fixed !important;
+  z-index: 9999;
+  width: 100%;
+  top: 0;
+  left: 0;
+  *:not(.HbLogo) {
+    pointer-events: none;
+  }
+}
+
 .HbHeader {
   text-align: center;
 }
