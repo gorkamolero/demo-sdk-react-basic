@@ -282,21 +282,30 @@ small {
   z-index: 10;
   background: rgba(0, 0, 0, 0.75) !important;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2.5vh 0;
   justify-content: center;
 }
 
 .ReactModal__Content {
   max-width: 60ch;
-  min-width: 40ch;
+  min-width: 60ch;
   background: white;
   margin: 0 auto;
   padding: 4ch;
   position: relative;
+  height: 95vh;
+  overflow-y: auto;
+  align-items: flex-start;
 
   @media (max-width: 480px) {
+    max-height: 100%;
     height: 100%;
     padding: 2ch;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 

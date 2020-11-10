@@ -87,7 +87,7 @@
   color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
-  font-family: AvertaStdPE-Regular !important;
+
   display: flex !important;
 }
 
@@ -102,7 +102,7 @@
   color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
-  font-family: AvertaStdPE-Regular !important;
+
   display: flex !important;
 }
 
@@ -117,7 +117,7 @@
   color: #1b1c24 !important;
   font-weight: normal !important;
   text-align: center !important;
-  font-family: AvertaStdPE-Regular !important;
+
   display: flex !important;
 }
 
@@ -138,7 +138,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 15px !important;
 }
 
@@ -147,7 +147,6 @@
   line-height: 24px !important;
   color: rgba(36, 36, 36, 0.8) !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Regular !important;
 }
 
 .suptab-content-1 h2 {
@@ -155,7 +154,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 19px !important;
 }
 
@@ -250,7 +249,7 @@
 
 .supmeal-plan-label {
   text-align: center !important;
-  font-family: AvertaStdPE-Regular !important;
+
   color: #1b1c24 !important;
   font-size: 18px !important;
   line-height: 23px !important;
@@ -266,7 +265,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 29px !important;
 }
 
@@ -282,7 +281,7 @@
   font-size: 18px !important;
   line-height: 23px !important;
   color: #242424 !important;
-  font-family: AvertaStdPE-Regular !important;
+
   font-weight: normal !important;
 }
 
@@ -307,7 +306,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: center !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 0px !important;
   position: relative;
   margin-top: 0px !important;
@@ -363,7 +362,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 15px !important;
   position: relative;
   margin-top: 0px !important;
@@ -380,7 +379,7 @@
   font-size: 16px !important;
   line-height: 32px !important;
   color: #242424 !important;
-  font-family: AvertaStdPE-Regular !important;
+
   display: flex !important;
   text-align: left !important;
 }
@@ -408,7 +407,7 @@
   line-height: 23px !important;
   color: #623b2a !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Semibold !important;
+
   margin-bottom: 15px !important;
   position: relative;
   margin-top: 0px !important;
@@ -419,7 +418,6 @@
   line-height: 24px !important;
   color: rgba(36, 36, 36, 0.8) !important;
   text-align: left !important;
-  font-family: AvertaStdPE-Regular !important;
 }
 
 .suptab-header > span:nth-child(1) > p:nth-child(3) {
@@ -477,7 +475,6 @@
   font-size: 16px !important;
   line-height: 32px !important;
   color: #242424 !important;
-  font-family: AvertaStdPE-Regular !important;
 }
 
 @media only screen and (max-width: 1112px) {

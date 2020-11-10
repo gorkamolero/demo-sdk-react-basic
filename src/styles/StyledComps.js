@@ -65,12 +65,14 @@ export const WaveContainer = styled.section`
 
 export const Footer = styled(HbEndFooter)`
   position: fixed;
+  left: 0;
   bottom: 0;
 `
 
 
 export const FooterBar = styled(HbStickyBar)`
   position: fixed;
+  left: 0;
   bottom: 0;
 `
 

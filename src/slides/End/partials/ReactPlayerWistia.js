@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player'
 import { FooterBar } from 'styles/StyledComps';
-import { colors, textstyles } from '../../../visly';
 import { HbSection } from '../../../visly/Pages';
 import './ReactPlayerWistia.css'
 

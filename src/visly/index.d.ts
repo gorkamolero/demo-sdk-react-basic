@@ -151,6 +151,7 @@ export const HbCircleIcon: {
     HbYellowIcon?: boolean;
     size?: "small";
     justEmoji?: boolean;
+    HbGoldIcon?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCloseModal: {
@@ -254,6 +255,26 @@ export const HbInput: {
     inputProps?: CommonProps<HTMLInputElement>;
     size?: "small" | "medium" | "large" | "super";
   } & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbKibblePlan: {
+  (props: {
+    HbKibblePlanElement?: React.ReactNode;
+    HbKibblePlanElement1?: React.ReactNode;
+    HbKibblePlanElement2?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  HbKibblePlanElement: typeof HbKibblePlanElement;
+  HbKibblePlanElement1: typeof HbKibblePlanElement;
+  HbKibblePlanElement2: typeof HbKibblePlanElement;
+};
+export const HbKibblePlanElement: {
+  (props: {
+    icon?: string;
+    slot1?: string;
+    slot2?: string;
+    NoNext?: boolean;
+    HbCircleIcon?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  HbCircleIcon: typeof HbCircleIcon;
 };
 export const HbLinkButton: {
   (props: {

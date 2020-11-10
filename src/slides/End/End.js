@@ -15,7 +15,7 @@ import {
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
 
-const noTest = false
+const noTest = true
 
 function End() {
     // No loading for dev

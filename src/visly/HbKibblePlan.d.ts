@@ -87,14 +87,15 @@ export interface CommonProps<T extends HTMLElement> {
   onBlur?: React.FocusEventHandler<T>;
   onBlurCapture?: React.FocusEventHandler<T>;
 }
-export const HbCircleIcon: {
+export const HbKibblePlan: {
   (
     props: {
-      icon?: string;
-      HbYellowIcon?: boolean;
-      size?: "small";
-      justEmoji?: boolean;
-      HbGoldIcon?: boolean;
+      HbKibblePlanElement?: React.ReactNode;
+      HbKibblePlanElement1?: React.ReactNode;
+      HbKibblePlanElement2?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
+  HbKibblePlanElement: typeof HbKibblePlanElement;
+  HbKibblePlanElement1: typeof HbKibblePlanElement;
+  HbKibblePlanElement2: typeof HbKibblePlanElement;
 };

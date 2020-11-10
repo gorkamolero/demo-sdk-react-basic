@@ -51,6 +51,17 @@ const styles = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "HbGoldIcon",
+    layers: {
+      "5dbE92sXAG": {
+        none: {
+          useMask: true,
+        },
+      },
+    },
+  },
 ];
 
 const defaultPropValues = [
@@ -78,6 +89,11 @@ const defaultPropValues = [
     propName: "justEmoji",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "HbGoldIcon",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -93,6 +109,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "justEmoji",
+  },
+  {
+    type: "boolean",
+    propName: "HbGoldIcon",
   },
 ];
 
@@ -146,6 +166,10 @@ HbCircleIcon.__variants = [
   },
   {
     name: "justEmoji",
+    type: "variant",
+  },
+  {
+    name: "HbGoldIcon",
     type: "variant",
   },
 ];
