@@ -166,7 +166,7 @@
 }
 .__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_PdZSAibW47 {
   align-self: stretch;
-  width: 10px;
+  width: 6px;
   height: unset;
 }
 .__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_QDNh14WQhk {
@@ -219,4 +219,9 @@
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
+}
+.__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_Wr9CQbX1o7 {
+  align-self: stretch;
+  width: unset;
+  height: 10px;
 }

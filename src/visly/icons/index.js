@@ -28,6 +28,7 @@ export const hbLogo = require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.sv
 export const hbLogoMain = require("../assets/d12233d3-fa47-4c91-8325-faec993215ab.png");
 export const hbLogoMobile = require("../assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg");
 export const hbMale = require("../assets/6ed7698a-cec1-4d22-b634-8cf9b5fc6a50.png");
+export const hbStar = require("../assets/cdcb6ac3-269b-4b4b-9ecf-ef3448495c52.svg");
 export const hbTick = require("../assets/7df7ec4d-c5a9-496f-8098-ded65cce046e.svg");
 export const hbWeightIdeal = require("../assets/40bfe50a-8392-4062-a10d-775720e1c8d2.svg");
 export const hbWeightObese = require("../assets/dedbcc3d-27a3-4172-a25a-385a449e147c.svg");

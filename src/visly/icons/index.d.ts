@@ -28,6 +28,7 @@ export const hbLogo: string;
 export const hbLogoMain: string;
 export const hbLogoMobile: string;
 export const hbMale: string;
+export const hbStar: string;
 export const hbTick: string;
 export const hbWeightIdeal: string;
 export const hbWeightObese: string;

@@ -170,6 +170,13 @@ function HbTestimonial(_props) {
               >
                 {props.stars}
               </ContainerPrimitive>
+              <SpacerPrimitive
+                id={"Spacer_Wr9CQbX1o7"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_Wr9CQbX1o7"
+                }
+                key={"Wr9CQbX1o7"}
+              />
               <ContainerPrimitive
                 id={"ClientContainer_KoxVNRDdjs"}
                 className={

@@ -40,6 +40,17 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "justEmoji",
+    layers: {
+      "5dbE92sXAG": {
+        none: {
+          useMask: true,
+        },
+      },
+    },
+  },
 ];
 
 const defaultPropValues = [
@@ -62,6 +73,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "justEmoji",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -73,6 +89,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small"],
+  },
+  {
+    type: "boolean",
+    propName: "justEmoji",
   },
 ];
 
@@ -123,6 +143,10 @@ HbCircleIcon.__variants = [
     name: "size",
     type: "group",
     variants: ["small"],
+  },
+  {
+    name: "justEmoji",
+    type: "variant",
   },
 ];
 

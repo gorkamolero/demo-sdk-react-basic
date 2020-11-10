@@ -68,6 +68,7 @@ export const icon: {
   hbLogoMain: "9488f5c2-5746-4389-9ea6-75cc0bf9c138";
   hbLogoMobile: "c26bf768-6194-41b1-a4c5-981fbaa33611";
   hbMale: "c9c80f7e-39bc-43d8-b7d8-7d657cbb303d";
+  hbStar: "02b756ea-10bf-4527-b240-44225fc921a6";
   hbTick: "9e3db88c-26b3-44fe-ae4f-6e71dd6a4ca0";
   hbWeightIdeal: "f57ca7b5-5471-442e-a055-0f712c27a58e";
   hbWeightObese: "d1afdb1f-ba61-4489-bf8a-c99aff05b683";
