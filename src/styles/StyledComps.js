@@ -3,7 +3,7 @@ import CustomHTML from "../components/CustomHTML/CustomHTML";
 import { textstyles, colors } from "../visly";
 import Curve from '../assets/images/curve-separator.svg'
 import CurveLight from '../assets/images/curve-separator-white.svg'
-import { HbEndFooter } from '../visly/Compounds'
+import { HbEndFooter, HbStickyBar } from '../visly/Compounds'
 
 export const HbContainer = styled.section`
   width: 100%;
@@ -64,6 +64,12 @@ export const WaveContainer = styled.section`
 `
 
 export const Footer = styled(HbEndFooter)`
+  position: fixed;
+  bottom: 0;
+`
+
+
+export const FooterBar = styled(HbStickyBar)`
   position: fixed;
   bottom: 0;
 `

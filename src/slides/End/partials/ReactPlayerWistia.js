@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player'
-import { FlexBox } from "react-styled-flex";
+import { FooterBar } from 'styles/StyledComps';
 import { colors, textstyles } from '../../../visly';
 import { HbSection } from '../../../visly/Pages';
 import './ReactPlayerWistia.css'
@@ -64,9 +64,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
 
       {
         (videoIsDone && play) || (
-          <FlexBox center style={{ marginTop: -20 }}>
-            <h1 style={{...textstyles.hbFeatureTitle, color: colors.hbBrown}}>{text}</h1>
-          </FlexBox>
+          <FooterBar center text={text} />
         )
       }
     </HbSection>

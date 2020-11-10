@@ -62,7 +62,7 @@ const Slide = () => {
             TitleSlot={<HbTitle size={size} className="title" html={title} />}
             
             SubtitleSlot={<HbSubtitle size={size} className="subtitle" html={subtitle} />}
-            HbLogo={<HbHeader.HbLogo />}
+            HbLogo={<HbHeader.HbLogo onClick={event =>  window.location.href='/'} />}
             HbProgress={<ProgressBar size={size} />}
             HbProgressMobile={<ProgressBar size={size} />}
             HbCircleIcon={<HbHeader.HbCircleIcon />}
