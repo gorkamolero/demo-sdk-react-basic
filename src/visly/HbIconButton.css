@@ -125,19 +125,30 @@
 .__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_none {
   border-color: #00aeaa;
   border-style: solid;
-  background-color: #00aeaa;
+  background-color: #fff;
   border-width: 2px;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_pressed {
+  background-color: #00aeaa;
 }
 .__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_none
   .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
-  color: #fff;
+  color: #00aeaa;
   font-family: Averta;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 24px;
 }
+.__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_pressed
+  .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
+  color: #fff;
+}
 .__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_none
+  .__visly_scope_RK1ajYQDzn_8CLRfG5L7n {
+  background-color: #00aeaa;
+}
+.__visly_scope_RK1ajYQDzn_root.__visly_HbIconButtonSelected.__visly_state_pressed
   .__visly_scope_RK1ajYQDzn_8CLRfG5L7n {
   background-color: #fff;
 }

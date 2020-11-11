@@ -63,6 +63,7 @@ function End() {
         (price) => Number(price * subscribeMultiplier).toFixed(2),
         [subscribeMultiplier],
     );
+    const roundPrice = (price) => Number(price).toFixed(2)
     const totalProducts = selectedResults.length
 
     const continueToCheckout = () => {
@@ -108,7 +109,7 @@ function End() {
                     <>
                         <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
 
-                        <Navigation />
+                        { window.location.href.includes('localhost') && <Navigation />}
 
                         <Features stack={size === 'small'} />
 
@@ -116,7 +117,7 @@ function End() {
 
                         <Footer
                             total={`Total (${totalProducts})`}
-                            priceOriginal={subscription && selectedResults.length ? '$' + totalPrice : ''}
+                            priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
                             HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}

@@ -75,6 +75,9 @@ const styles = [
         none: {
           useMask: true,
         },
+        pressed: {
+          useMask: true,
+        },
       },
     },
   },

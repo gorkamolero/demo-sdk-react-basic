@@ -95,15 +95,15 @@
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_selected.__visly_state_none {
   border-color: #00aeaa;
-  background-color: #00aeaa;
+  background-color: #fff;
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_selected.__visly_state_disabled {
   border-color: rgba(0, 174, 170, 0.5);
-  background-color: rgba(0, 174, 170, 0.5);
+  background-color: #fff;
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_selected.__visly_state_none
   .__visly_scope_5gQcVEwtx6_6uiwQ5NcML {
-  color: #fff;
+  color: #00aeaa;
   font-family: Averta;
   font-style: normal;
   font-weight: 600;
@@ -112,11 +112,11 @@
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_selected.__visly_state_pressed
   .__visly_scope_5gQcVEwtx6_6uiwQ5NcML {
-  color: #fff;
+  color: #00aeaa;
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_selected.__visly_state_none
   .__visly_scope_5gQcVEwtx6_PpaiPZQUUA {
-  background-color: #fff;
+  background-color: #00aeaa;
 }
 .__visly_scope_5gQcVEwtx6_radio-group-button-root.__visly_fullWidth.__visly_state_none {
   width: 100%;
