@@ -21,28 +21,6 @@ const styles = [
     propName: "HbRadioColumn",
     layers: {},
   },
-  {
-    type: "enum",
-    propName: "size",
-    values: [
-      {
-        propValue: "small",
-        layers: {},
-      },
-      {
-        propValue: "medium",
-        layers: {},
-      },
-      {
-        propValue: "large",
-        layers: {},
-      },
-      {
-        propValue: "super",
-        layers: {},
-      },
-    ],
-  },
 ];
 
 const defaultPropValues = [
@@ -55,39 +33,12 @@ const defaultPropValues = [
     propName: "HbRadioColumn",
     layers: {},
   },
-  {
-    type: "enum",
-    propName: "size",
-    values: [
-      {
-        propValue: "small",
-        layers: {},
-      },
-      {
-        propValue: "medium",
-        layers: {},
-      },
-      {
-        propValue: "large",
-        layers: {},
-      },
-      {
-        propValue: "super",
-        layers: {},
-      },
-    ],
-  },
 ];
 
 const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbRadioColumn",
-  },
-  {
-    type: "enum",
-    propName: "size",
-    propValues: ["small", "medium", "large", "super"],
   },
 ];
 
@@ -123,11 +74,6 @@ HbRadio.__variants = [
   {
     name: "HbRadioColumn",
     type: "variant",
-  },
-  {
-    name: "size",
-    type: "group",
-    variants: ["small", "medium", "large", "super"],
   },
 ];
 

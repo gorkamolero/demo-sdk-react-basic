@@ -6,7 +6,7 @@ import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
-import { HbCircleIcon, icons, colors } from "../../visly";
+import { HbCircleIcon, icons, colors, useBreakpoint } from "../../visly";
 import Video from './partials/ReactPlayerWistia'
 import { Footer, Tip } from '../../styles/StyledComps';
 import 'react-tippy/dist/tippy.css'
@@ -29,6 +29,8 @@ function End() {
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [video, setVideo] = useState(null)
+
+    const size = useBreakpoint("small", ["medium", "large", "super"]);
 
     useEffect(() => {
         const waitForWindowData = () => {
@@ -108,7 +110,7 @@ function End() {
 
                         <Navigation />
 
-                        <Features />
+                        <Features stack={size === 'small'} />
 
                         <Testimonials />
 
@@ -118,7 +120,9 @@ function End() {
                             priceFinal={'$' + getPrice(totalPrice)}
                             HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
+                            stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={
                                 <Tooltip
                                     // options

@@ -14,6 +14,8 @@
   box-sizing: content-box;
   border: none;
   width: 100%;
+  max-width: 280px;
+  margin: 0 auto;
 }
 
 .switch-input {

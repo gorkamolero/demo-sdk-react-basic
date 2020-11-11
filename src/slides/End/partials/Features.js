@@ -15,7 +15,7 @@ const Section = styled(HbSection)`
 
 `
 
-const Features = () => {
+const Features = ({stack}) => {
   const { getDatasheet } = useContext(SlideContext)
   const [ features, setFeatures ] = useState([])
 
@@ -42,22 +42,24 @@ const Features = () => {
       {
         features.map((feature, i) =>
           !(i % 2) ? (
-            <HbFeature
+            <HbFeature stack={stack}
               key={feature.Title}
               imageSrc={feature.Image}
               HbFeatureItem={
-                <HbFeature.HbFeatureItem 
+                <HbFeature.HbFeatureItem
+                  className={`HbFeatureItem ${stack && 'stack'}`}
                   title={feature.Title}
                   text={feature.Text}
                 />
               }
             />
           ) : (
-            <HbFeatureInvert
+            <HbFeatureInvert stack={stack}
               key={feature.Title}
               imageSrc={feature.Image}
               HbFeatureItem={
-                <HbFeature.HbFeatureItem 
+                <HbFeature.HbFeatureItem
+                  className={`HbFeatureItem ${stack && 'stack'}`}
                   title={feature.Title}
                   text={feature.Text}
                 />

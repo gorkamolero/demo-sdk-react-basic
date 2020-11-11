@@ -31,6 +31,7 @@ export default {
     alignItems: 'center',
     justifyContent: 'center',
     padding: '0 !important',
+    flexWrap: 'nowrap'
   }),
   singleValue: (provided, state) => ({
     ...provided,

@@ -10,14 +10,14 @@ import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { HbHeader, useBreakpoint, setBreakpoints } from "../visly";
+import { HbHeader, useBreakpoint, HbFirstSlideFooter } from "../visly";
 import { HbContainer, HbTitle, HbSubtitle } from "../styles/StyledComps";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
 
-const SlideView = ({slideModel}) => {
+const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
 
   return (
@@ -28,7 +28,7 @@ const SlideView = ({slideModel}) => {
           'Filter':<Filter />,
           'Info':<Info />,
           'Feedback':<Feedback />,
-          'Form':<Form />,
+          'Form':<Form {...rest} />,
           'End':<End />,
         }[type]
       }
@@ -39,15 +39,16 @@ const SlideView = ({slideModel}) => {
 const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
-    const size = useBreakpoint("small", ["medium", "super"]);
-    console.log('SIZE', size)
+    const size = useBreakpoint("small", ["medium", "large", "super"]);
+    const [slideHeight, setSlideHeight] = useState(0)
+    console.log(slideHeight)
 
     const [headerHeight, setHeaderHeight] = useState(0)
 
     useEffect(() => {
-      setBreakpoints('min-width', ['800px', '1024px'])
-      window.dispatchEvent(new Event('resize'));
-    }, [])
+      console.log(size) 
+      // window.dispatchEvent(new Event('resize'));
+    }, [size])
     
     const HeadRef = useRef(null);
 
@@ -85,7 +86,7 @@ const Slide = () => {
       <div>
       {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
         <ModalProvider>
-          <FlexBox column center className={`slide-${type} animate`}>
+          <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
                 className="HbHeader"
@@ -113,12 +114,27 @@ const Slide = () => {
               style={{
                 position: 'relative',
                 zIndex: isEndSlide ? 3 : 0,
-                marginTop: !isEndSlide ? headerHeight - 40 : 0
+                marginTop: !isEndSlide ? headerHeight - 40 : 0,
+                flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
-                <SlideView slideModel={slideModel} />
+                {/* eslint-disable */}
+                <SlideView setSlideHeight={size === 'small' && slideId == 101 ? setSlideHeight : null} slideModel={slideModel} />
+                {/* eslint-enable */}
               </Container>
             </FlexBox>
+
+            {
+              /* eslint-disable */
+              slideId && slideId == 101 && (
+              /* eslint-enable */
+                <div className="slideFooter" style={{ marginTop: slideHeight }}>
+                  <HbFirstSlideFooter
+                    size={size === 'super' ? 'large' : size}
+                  />
+                </div>
+              )
+            }
           </FlexBox>
         </ModalProvider>
       </div>

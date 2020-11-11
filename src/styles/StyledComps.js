@@ -7,7 +7,7 @@ import { HbEndFooter, HbStickyBar } from '../visly/Compounds'
 
 export const HbContainer = styled.section`
   width: 100%;
-  max-width: 60ch;
+  /* max-width: 60ch; */
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
@@ -87,3 +87,32 @@ export const Tip = styled.div(props => ({
   color: colors.hbBrown,
   padding: 10, borderRadius: 4
 }))
+
+
+
+export const HbHelperTxt = styled.small`
+  font-size: 16px;
+  font-style: italic;
+  color: var(--hbTextColor);
+  opacity: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const FlexLabel = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`
+
+export const HbBreakLine = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`;
+export const HbSpace = styled.div`
+  &:before {
+    content: " ";
+    white-space: pre;
+  }
+`;

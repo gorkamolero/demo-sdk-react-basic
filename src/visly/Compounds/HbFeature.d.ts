@@ -91,6 +91,7 @@ export const HbFeature: {
   (
     props: {
       imageSrc?: string;
+      stack?: boolean;
       HbFeatureItem?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

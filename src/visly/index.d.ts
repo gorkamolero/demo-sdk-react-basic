@@ -168,7 +168,7 @@ export const HbContainer: {
 export const HbContent: {
   (props: {
     children?: React.ReactNode | React.ReactNode[];
-    customProp?: "small" | "medium" | "large" | "super";
+    size?: "small";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbFirstSlideFooter: {
@@ -344,7 +344,6 @@ export const HbRadio: {
     onChange: (value: string) => void;
     ariaLabel?: string;
     HbRadioColumn?: boolean;
-    size?: "small" | "medium" | "large" | "super";
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
   Button: {

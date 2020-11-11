@@ -18,22 +18,10 @@ const styles = [
   },
   {
     type: "enum",
-    propName: "customProp",
+    propName: "size",
     values: [
       {
         propValue: "small",
-        layers: {},
-      },
-      {
-        propValue: "medium",
-        layers: {},
-      },
-      {
-        propValue: "large",
-        layers: {},
-      },
-      {
-        propValue: "super",
         layers: {},
       },
     ],
@@ -47,22 +35,10 @@ const defaultPropValues = [
   },
   {
     type: "enum",
-    propName: "customProp",
+    propName: "size",
     values: [
       {
         propValue: "small",
-        layers: {},
-      },
-      {
-        propValue: "medium",
-        layers: {},
-      },
-      {
-        propValue: "large",
-        layers: {},
-      },
-      {
-        propValue: "super",
         layers: {},
       },
     ],
@@ -72,8 +48,8 @@ const defaultPropValues = [
 const variantPropTypes = [
   {
     type: "enum",
-    propName: "customProp",
-    propValues: ["small", "medium", "large", "super"],
+    propName: "size",
+    propValues: ["small"],
   },
 ];
 
@@ -116,9 +92,9 @@ function HbContent(_props) {
 
 HbContent.__variants = [
   {
-    name: "customProp",
+    name: "size",
     type: "group",
-    variants: ["small", "medium", "large", "super"],
+    variants: ["small"],
   },
 ];
 

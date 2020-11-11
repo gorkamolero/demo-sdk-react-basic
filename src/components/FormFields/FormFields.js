@@ -1,6 +1,4 @@
 import React, { useState, useContext, useMemo, useEffect } from "react";
-// import {useSpring, animated} from 'react-spring';
-import styled from 'styled-components';
 import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
@@ -10,6 +8,8 @@ import { FlexBox } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
 import SelectStyles from './SelectStyles'
+import { HbHelperTxt ,FlexLabel ,HbBreakLine , HbSpace} from '../../styles/StyledComps'
+// import ConditionalWrap from 'conditional-wrap'
 
 const HbFormElement = ({children, ...rest}) => {
   const fieldRef = React.useRef(null);
@@ -26,33 +26,6 @@ const HbFormElement = ({children, ...rest}) => {
     </FlexBox>
   )
 }
-
-const HbHelperTxt = styled.small`
-  font-size: 16px;
-  font-style: italic;
-  color: var(--hbTextColor);
-  opacity: 80%;
-  margin-top: 10px;
-  margin-bottom: 10px;
-`;
-
-const FlexLabel = styled.label`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-`
-
-const HbBreakLine = styled.div`
-  flex-basis: 100%;
-  height: 0;
-`;
-const HbSpace = styled.div`
-  &:before {
-    content: " ";
-    white-space: pre;
-  }
-`;
 
 const Icon = ({ innerRef, innerProps }) => (
   <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
@@ -92,7 +65,7 @@ const Select = ({field, title, onChangeHandler, size}) => {
   /* eslint-enable */
 
   return (
-    <FlexBox column alignItems="center" justifyContent="flex-start">
+    <FlexBox column alignItems="center" justifyContent="flex-start" className={`selectContainer`}>
       {title}
 
       <ReactSelect onChange={setSelected} defaultValue={selected} isSearchable={true} placeholder={meta.default || 'Select...'} options={options} styles={SelectStyles} components={{ DropdownIndicator: Icon }}  min={meta.minSelect || false} />
@@ -224,9 +197,9 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}
-        HbRadioColumn={!meta.radioRow}
+        HbRadioColumn={!meta.radioRow || (size === 'small' && meta.buttonColumn)}
         size={size}
-        className="hbRadio"
+        className={`hbRadio RadioWithImages ${(size === 'small' && meta.buttonColumn) && 'buttonColumn'}`}
       >
         {options.map(({ id, title, image: icon }) => (
           <HbRadio.Button
@@ -278,9 +251,9 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
   /* eslint-enable */
 
   return (
-    <FlexBox column align="center">
+    <FlexBox column align="center" className="CheckboxGroup">
       {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
-      <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }}>
+      <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }} className={`CheckboxButtonContainer ${meta.noIcons && 'tag-group'}`}>
         {options.map(({ id, title, image: icon }) => {
           if (meta.customUncheckBox && id === 'none') return null
           return (
@@ -413,20 +386,24 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   if (meta.hide || !isExpanded) return null
   return (
     <>
+      {
+        meta.forceTogetherFirstElement && <span className="forceTogether" />
+      }
       {meta.newLine && <HbBreakLine className="newLine" />}
         <HbFormElement
-          className={`${field.getType()} ${getFieldErrorClass(field)}`}
+          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine && 'mobileNewLine'}  ${meta.forceSameLine && 'forceSameLine'}`}
           style={{
-            marginTop: size === 'small' ? 10 : 20,
-            marginBottom: size === 'small' ? 10 : 20,
+            marginTop: 20,
+            marginBottom: 20,
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
             ...(meta.column && { alignItems: "center" }),
-            ...(size === "small" && { flexWrap: "nowrap" }),
+            // ...(size === "small" && { flexWrap: "nowrap" }),
           }}
           column={meta.column}
           alignItems={meta.column && "center"}
           data-follows={meta.follows ? meta.follows : ''}
+          wrap={!meta.forceTogether}
         >
           {!meta.newLine && <HbSpace />}
 
@@ -460,13 +437,13 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
                   multiple ? (
                     <>
                       {
-                        (meta.tags) && <SelectMulti {...inputProps} />
+                        (meta.tags) && <SelectMulti class="SelectMulti" {...inputProps} />
                       }
                       {
-                        (meta.images || meta.noIcons) && <CheckboxGroup fieldValues={fieldValues} {...inputProps} />
+                        (meta.images || meta.noIcons) && <CheckboxGroup className="CheckboxGroup" fieldValues={fieldValues} {...inputProps} />
                       }
                     </>
-                  ) : <RadioWithImages {...inputProps} />
+                  ) : <RadioWithImages className="RadioWithImages" {...inputProps} />
                 }
               </>
             )
@@ -488,7 +465,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
       {meta.afterLine && (
         <>
           <HbBreakLine className="newLine" />
-          <small style={{ marginBottom: 20 }}>
+          <small className="newLineSmall" style={{ marginBottom: 20 }}>
             {interpolate(meta.afterLine)}
           </small>
         </>
@@ -500,7 +477,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 function FormFields({ children, fields, showErrors }) {
       
     const { setTouched, touched } = useContext(SlideContext);
-    const size = useBreakpoint("small", ["large", "large", "super"]);
+    const size = useBreakpoint("small", ["medium", "large", "super"]);
     const getFieldValues = () => fields.map(field => field.getValue())
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
@@ -530,8 +507,9 @@ function FormFields({ children, fields, showErrors }) {
     };
 
     return (
-      <HbContent style={size !== 'super' && { paddingTop: 80 }}>
-        <HbFormElement wrap justifyContent="center">
+      // style={size !== 'super' && { paddingTop: 80 }}
+      <HbContent className="HbContent" size={size}>
+        <HbFormElement className="HbFormElementParent" wrap justifyContent="center">
           {fields.map((field, i) => (
             <FormField
               key={i}

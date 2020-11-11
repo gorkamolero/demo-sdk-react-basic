@@ -1,8 +1,9 @@
 import React, { useContext, useMemo } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
-import { HbButtonGroup, HbButton } from "../../visly";
+import { HbButton } from "../../visly";
 import { CSSTransition } from "react-transition-group";
+import { FlexBox } from 'react-styled-flex';
 
 function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
@@ -28,7 +29,7 @@ function Navigation({back, next, restart}) {
 
   return (
     <>
-      <HbButtonGroup>
+      <FlexBox gap="10px" className="HbButtonGroup Navigation" center>
         <CSSTransition
           in={nav.canBack}
           timeout={200}
@@ -77,7 +78,7 @@ function Navigation({back, next, restart}) {
           }
           </>
         </CSSTransition>
-      </HbButtonGroup>
+      </FlexBox>
     </>
   );
 }

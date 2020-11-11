@@ -91,7 +91,7 @@ export const HbContent: {
   (
     props: {
       children?: React.ReactNode | React.ReactNode[];
-      customProp?: "small" | "medium" | "large" | "super";
+      size?: "small";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
