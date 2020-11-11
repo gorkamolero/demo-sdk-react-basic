@@ -19,7 +19,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [state] = useState({
     pip: false,
     playing: play || true,
-    controls: false,
+    controls: true,
     light: false,
     volume: 0.8,
     muted: false,

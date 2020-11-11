@@ -537,7 +537,7 @@ label[class*='radio-group-button-root'] {
 }
 
 .player-container {
-  @media (max-width: $small) {
+  @media (max-width: $medium) {
     width: 100%;
     padding: 0 10px;
     margin-bottom: 0 !important;
@@ -612,7 +612,7 @@ label[class*='radio-group-button-root'] {
 }
 [id*='Column'] [id^='Head'] {
   @media (max-width: $small) {
-    padding-bottom: 10px !important;
+    padding-bottom: 20px !important;
   }
 }
 
@@ -646,5 +646,11 @@ label[class*='radio-group-button-root'] {
   @media (max-width: $small) {
     flex-direction: column !important;
     gap: 3px !important;
+  }
+}
+
+.HbLogo [id*='Icon'] {
+  @media (min-width: $large) {
+    transform: scale(1.5);
   }
 }

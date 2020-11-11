@@ -99,7 +99,7 @@ const Slide = () => {
                 bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
                 extraImage={Bowl}
                 extraImageT={Bowl}
-                size={size}
+                size={size === 'large' ? 'super' : size}
                 discount="20% Off"
                 ShowImage={slideTitle === 'Profile'}
                 NoWave={ isEndSlide }
