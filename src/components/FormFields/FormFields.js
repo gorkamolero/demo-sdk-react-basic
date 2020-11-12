@@ -524,7 +524,7 @@ function FormFields({ children, fields, showErrors = true }) {
               size={size}
               field={field}
               i={i}
-              notValid={notValid(field)}
+              // notValid={notValid(field)}
             />
           ))}
         </HbFormElement>

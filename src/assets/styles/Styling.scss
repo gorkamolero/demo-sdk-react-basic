@@ -307,6 +307,9 @@ small {
   top: 0;
   left: 0;
   width: 100%;
+  .HbContent {
+    max-width: 60ch;
+  }
 }
 
 .HbHeader {
@@ -430,6 +433,12 @@ li.paging-item.active .pagingDots {
   }
 
   white-space: nowrap;
+
+  @media (min-width: $medium) {
+    &.select {
+      justify-content: center;
+    }
+  }
 }
 
 .mobileNewLine {
@@ -665,4 +674,13 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
   -webkit-transition-delay: 9999s;
+}
+
+button[class*='noIcon'] [class*='spacing'] {
+  display: none !important;
+}
+
+.HbCard [id*='CardTitle'] {
+  width: 100%;
+  word-break: break-all;
 }
