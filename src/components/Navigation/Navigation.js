@@ -50,7 +50,7 @@ function Navigation({back, next, restart}) {
           mountOnEnter
         >
           <HbButton
-            text="Previous step"
+            text="Go Back"
             variant="contained"
             disabled={!nav.canBack}
             onPress={() => back()}
