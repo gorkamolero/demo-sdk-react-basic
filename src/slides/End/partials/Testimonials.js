@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { SlideContext } from "../../../context/SlideContext";
 import { FlexBox } from "react-styled-flex";
 import { HbSection } from '../../../visly/Pages'
-import { HbWave, colors, useBreakpoint, HbSliderArrow } from '../../../visly'
+import { HbWave, colors, useBreakpoint, HbSliderArrow, HbCircleIcon, icons } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
 
@@ -66,7 +66,7 @@ const Testimonials = () => {
                 text={testimonial.text}
                 dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
                 stars={<FlexBox gap={5}>
-                  {Array(5).fill().map((i) => <span key={i} aria-label="rating-star" role="img">⭐️</span>)}
+                  {Array(5).fill().map((i) => (<HbCircleIcon justEmoji icon={icons.hbStar} />))}
                 </FlexBox>}
               />
           ))

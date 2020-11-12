@@ -1,12 +1,14 @@
-import React, { useContext, useMemo } from 'react';
+import React, { useContext, useMemo, useEffect } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
-import { HbButtonGroup, HbButton } from "../../visly";
+import { HbButton } from "../../visly";
 import { CSSTransition } from "react-transition-group";
+import { FlexBox } from 'react-styled-flex';
 
 function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
-
+  const navRef = React.useRef(null);
+  
   // nav.next()
 
   // Allow handlers override
@@ -20,15 +22,26 @@ function Navigation({back, next, restart}) {
     return (next.slideId === 'end')
   }, [progressBar, slideModel])
 
-  // nav.restart()
+  const isEndSlide = slideModel.getType() === 'End'
+
+
+  // slideModel.restart()
 
   // const isValid = slideModel.validate ? slideModel.validate() : false;
   const isValid = slideModel.validate ? slideModel.validate() : false;
   const isBlocked = false
 
+  // Scroll To Item
+  useEffect(() => {
+    if (!navRef.current || !isValid || isEndSlide) return
+    if (navRef.current && isValid && !isEndSlide) {
+      navRef.current.scrollIntoView(false, { behavior: "smooth" });
+    }
+  }, [isEndSlide, isValid]);
+
   return (
     <>
-      <HbButtonGroup>
+      <FlexBox gap="10px" className="HbButtonGroup Navigation" column={nextSlideIsEndSlide} center ref={navRef}>
         <CSSTransition
           in={nav.canBack}
           timeout={200}
@@ -37,7 +50,7 @@ function Navigation({back, next, restart}) {
           mountOnEnter
         >
           <HbButton
-            text="Previous step"
+            text="Go Back"
             variant="contained"
             disabled={!nav.canBack}
             onPress={() => back()}
@@ -77,7 +90,7 @@ function Navigation({back, next, restart}) {
           }
           </>
         </CSSTransition>
-      </HbButtonGroup>
+      </FlexBox>
     </>
   );
 }

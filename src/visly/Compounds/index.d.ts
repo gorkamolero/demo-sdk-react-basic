@@ -94,18 +94,22 @@ export const HbEndFooter: {
       priceFinal?: string;
       total?: string;
       HelpSlot?: React.ReactNode | React.ReactNode[];
+      stack?: boolean;
       NoHbAddAnotherDog?: boolean;
       HbButtonWithIcon?: React.ReactNode;
       HbLinkButton?: React.ReactNode;
+      HbButtonWithIconMobile?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbButtonWithIcon: typeof HbButtonWithIcon;
   HbLinkButton: typeof HbLinkButton;
+  HbButtonWithIconMobile: typeof HbButtonWithIcon;
 };
 export const HbFeature: {
   (
     props: {
       imageSrc?: string;
+      stack?: boolean;
       HbFeatureItem?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
@@ -115,6 +119,7 @@ export const HbFeatureInvert: {
   (
     props: {
       imageSrc?: string;
+      stack?: boolean;
       HbFeatureItem?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
@@ -177,6 +182,13 @@ export const HbResults: {
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbButton: typeof HbButton;
+};
+export const HbStickyBar: {
+  (
+    props: {
+      text?: string;
+    } & CommonProps<HTMLDivElement>
+  ): JSX.Element;
 };
 export const HbTestimonial: {
   (

@@ -3,11 +3,11 @@ import CustomHTML from "../components/CustomHTML/CustomHTML";
 import { textstyles, colors } from "../visly";
 import Curve from '../assets/images/curve-separator.svg'
 import CurveLight from '../assets/images/curve-separator-white.svg'
-import { HbEndFooter } from '../visly/Compounds'
+import { HbEndFooter, HbStickyBar } from '../visly/Compounds'
 
 export const HbContainer = styled.section`
   width: 100%;
-  max-width: 60ch;
+  /* max-width: 60ch; */
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
@@ -18,11 +18,11 @@ export const HbContainer = styled.section`
 
 export const HbTitle = styled(CustomHTML)(props => ({
   ...(props.size && ['super', 'large'].includes(props.size) && textstyles.superHeading),
-  ...(props.size && props.size === 'tablet' && {
+  ...(props.size && props.size === 'medium' && {
     ...textstyles.superHeadingTablet,
     textAlign: 'left',
   }),
-  ...(props.size && props.size === 'mobile' && {
+  ...(props.size && props.size === 'small' && {
     ...textstyles.superHeadingMobile,
     textAlign: 'left',
   }),
@@ -31,9 +31,15 @@ export const HbTitle = styled(CustomHTML)(props => ({
 }))
 
 export const HbSubtitle = styled(CustomHTML)(props => ({
-  ...(props.size !== 'mobile' ? textstyles.bodySmall : textstyles.bodySmallMobile),
+  ...(props.size !== 'small' ? textstyles.bodySmall : textstyles.bodySmallMobile),
   color: colors.hbBrown,
   opacity: '80%',
+  ...(props.size && props.size === 'medium' && {
+    textAlign: 'left',
+  }),
+  ...(props.size && props.size === 'small' && {
+    textAlign: 'left',
+  }),
 }))
 
 export const Wave = styled.div`
@@ -65,6 +71,14 @@ export const WaveContainer = styled.section`
 
 export const Footer = styled(HbEndFooter)`
   position: fixed;
+  left: 0;
+  bottom: 0;
+`
+
+
+export const FooterBar = styled(HbStickyBar)`
+  position: fixed;
+  left: 0;
   bottom: 0;
 `
 
@@ -73,3 +87,32 @@ export const Tip = styled.div(props => ({
   color: colors.hbBrown,
   padding: 10, borderRadius: 4
 }))
+
+
+
+export const HbHelperTxt = styled.small`
+  font-size: 16px;
+  font-style: italic;
+  color: var(--hbTextColor);
+  opacity: 80%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+
+export const FlexLabel = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+`
+
+export const HbBreakLine = styled.div`
+  flex-basis: 100%;
+  height: 0;
+`;
+export const HbSpace = styled.div`
+  &:before {
+    content: " ";
+    white-space: pre;
+  }
+`;

@@ -10,11 +10,7 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import {
-  SpacerPrimitive,
-  TextPrimitive,
-  IconPrimitive,
-} from "./_internal_primitives";
+import { TextPrimitive, IconPrimitive } from "./_internal_primitives";
 import { ButtonRoot } from "./_internal_button";
 
 const styles = [
@@ -32,17 +28,23 @@ const styles = [
           icon: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
+        hover: {
+          useMask: true,
+        },
+        pressed: {
+          useMask: true,
+        },
       },
     },
   },
   {
     type: "boolean",
-    propName: "HbIconButtonSelected",
+    propName: "column",
     layers: {},
   },
   {
     type: "boolean",
-    propName: "column",
+    propName: "noIcon",
     layers: {},
   },
   {
@@ -63,8 +65,17 @@ const styles = [
   },
   {
     type: "boolean",
-    propName: "noIcon",
-    layers: {},
+    propName: "HbIconButtonSelected",
+    layers: {
+      "8CLRfG5L7n": {
+        none: {
+          useMask: true,
+        },
+        pressed: {
+          useMask: true,
+        },
+      },
+    },
   },
 ];
 
@@ -75,12 +86,12 @@ const defaultPropValues = [
   },
   {
     type: "boolean",
-    propName: "HbIconButtonSelected",
+    propName: "column",
     layers: {},
   },
   {
     type: "boolean",
-    propName: "column",
+    propName: "noIcon",
     layers: {},
   },
   {
@@ -95,7 +106,7 @@ const defaultPropValues = [
   },
   {
     type: "boolean",
-    propName: "noIcon",
+    propName: "HbIconButtonSelected",
     layers: {},
   },
 ];
@@ -103,11 +114,11 @@ const defaultPropValues = [
 const variantPropTypes = [
   {
     type: "boolean",
-    propName: "HbIconButtonSelected",
+    propName: "column",
   },
   {
     type: "boolean",
-    propName: "column",
+    propName: "noIcon",
   },
   {
     type: "enum",
@@ -116,7 +127,7 @@ const variantPropTypes = [
   },
   {
     type: "boolean",
-    propName: "noIcon",
+    propName: "HbIconButtonSelected",
   },
 ];
 
@@ -134,7 +145,7 @@ function HbIconButton(_props) {
     <ButtonRoot
       {...props}
       key="root"
-      addSpacing={false}
+      addSpacing={true}
       internal={{
         projectId: "WDRq65T88Q",
         styles: styles,
@@ -156,13 +167,6 @@ function HbIconButton(_props) {
               exists(props.icon) ? props.icon : getStyle("8CLRfG5L7n", "icon")
             }
           />
-          <SpacerPrimitive
-            id={"Spacer_9UVDautth7"}
-            className={
-              "__visly_reset_WDRq65T88Q __visly_scope_RK1ajYQDzn_9UVDautth7"
-            }
-            key={"9UVDautth7"}
-          />
           <TextPrimitive
             id={"text_2raK7yRvmH"}
             className={
@@ -182,11 +186,11 @@ function HbIconButton(_props) {
 
 HbIconButton.__variants = [
   {
-    name: "HbIconButtonSelected",
+    name: "column",
     type: "variant",
   },
   {
-    name: "column",
+    name: "noIcon",
     type: "variant",
   },
   {
@@ -195,7 +199,7 @@ HbIconButton.__variants = [
     variants: ["small"],
   },
   {
-    name: "noIcon",
+    name: "HbIconButtonSelected",
     type: "variant",
   },
 ];

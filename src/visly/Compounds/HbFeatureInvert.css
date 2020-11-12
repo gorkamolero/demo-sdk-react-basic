@@ -35,3 +35,90 @@
   width: 10%;
   height: unset;
 }
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none {
+  flex-direction: column-reverse;
+  padding: 10px;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_hover
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_hover
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_pressed
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_pressed
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_focus
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_focus
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_disabled
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_disabled
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none
+  .__visly_scope_SPtN2tvqGr_KxhjEmTBpq {
+  width: 100%;
+  flex-basis: 100%;
+  padding: 0;
+}
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none
+  .__visly_scope_SPtN2tvqGr_2VS5uK6ip5,
+.__visly_scope_SPtN2tvqGr_QF3aX47C17.__visly_stack.__visly_state_none
+  .__visly_scope_SPtN2tvqGr_AniiyGaDfa {
+  width: unset;
+  height: 10%;
+}

@@ -21,7 +21,7 @@
   --lightRed: #ef8f7a;
   --hbYellow: #f6dfa4;
 
-  --hbTextColor: #242424;
+  --hbTextColor: #623b2a;
 
   --fontFamily: 'Averta Std', -apple-system, BlinkMacSystemFont, 'Segoe UI',
     'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
@@ -113,15 +113,16 @@
   --negative-spacing: -10px;
 }
 
-main {
-  width: 100%;
-}
-
 $fontPath: '../fonts/AvertaStd/';
 $small: '480px';
 $medium: '768px';
 $large: '1024px';
 $super: '1200px';
+$hyper: '1440px';
+
+main {
+  width: 100%;
+}
 
 @font-face {
   font-family: 'Averta Std';
@@ -160,6 +161,7 @@ $super: '1200px';
 
 body {
   font-family: var(--fontFamily);
+  color: var(--hbTextColor);
   font-size: 18px;
 
   @media (min-width: 520px) {
@@ -168,18 +170,50 @@ body {
   }
 }
 
+@media (max-width: $small) {
+  :root {
+    --spacing: 10px;
+  }
+}
+
+.HbHeadContainer {
+  .slide-End & {
+    position: static !important;
+  }
+  z-index: 10;
+  width: 100%;
+  top: 0;
+  left: 0;
+
+  @media (min-width: $small) {
+    position: fixed !important;
+  }
+
+  header[id^='HbContent'] {
+    @media (min-width: 800px) and (max-width: 1200px) {
+      max-width: 600px;
+    }
+  }
+}
+
 .HbHeader {
   text-align: center;
 }
 
 div[role='radiogroup'] {
-  flex-wrap: wrap;
+  // flex-wrap: wrap;
 }
 .hbRadio {
   @media (max-width: $small) {
     [class*='spacing'] {
-      display: none;
+      // display: none;
     }
+  }
+}
+
+label[class*='radio-group-button'] {
+  @media (max-width: $small) {
+    min-width: 0 !important;
   }
 }
 
@@ -210,10 +244,22 @@ small {
   }
 }
 .slider-control-centerright {
-  transform: translate(100%, -50%) !important;
+  display: none;
+  @media (min-width: $super) {
+    display: block;
+  }
+  @media (min-width: $hyper) {
+    transform: translate(100%, -50%) !important;
+  }
 }
 .slider-control-centerleft {
-  transform: translate(-100%, -50%) !important;
+  display: none;
+  @media (min-width: $super) {
+    display: block;
+  }
+  @media (min-width: $hyper) {
+    transform: translate(-100%, -50%) !important;
+  }
 }
 
 .slider-frame {
@@ -259,6 +305,7 @@ small {
   transition: all 1200ms;
   position: absolute;
   top: 0;
+  left: 0;
   width: 100%;
 }
 
@@ -281,21 +328,30 @@ small {
   z-index: 10;
   background: rgba(0, 0, 0, 0.75) !important;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
+  padding: 2.5vh 0;
   justify-content: center;
 }
 
 .ReactModal__Content {
   max-width: 60ch;
-  min-width: 40ch;
+  min-width: 60ch;
   background: white;
   margin: 0 auto;
   padding: 4ch;
   position: relative;
+  height: 95vh;
+  overflow-y: auto;
+  align-items: flex-start;
 
   @media (max-width: 480px) {
+    max-height: 100%;
     height: 100%;
     padding: 2ch;
+  }
+
+  &:focus {
+    outline: none;
   }
 }
 
@@ -323,4 +379,290 @@ li.paging-item.active .pagingDots {
 
 [id^='TitleContainer'] {
   overflow: visible !important;
+}
+
+[id^='Step Title'] {
+  @media (min-width: 540px) and (max-width: 640px) {
+    font-size: 1.9vw !important;
+  }
+  @media (min-width: 480px) and (max-width: 540px) {
+    font-size: 1.7vw !important;
+  }
+}
+
+[id^='ExtraImg'] div[role='img'] {
+  @media (max-width: 1340px) {
+    transform: translateY(30%) !important;
+  }
+
+  @media (min-width: 1340px) {
+    transform: translateY(40%) !important;
+  }
+}
+
+.selectContainer {
+  @media (max-width: $medium) {
+    min-width: 30%;
+    & > div {
+      width: 100%;
+    }
+    [class*='control'] {
+      min-height: 28px !important;
+    }
+  }
+}
+
+.HbFormElement {
+  @media (max-width: $small) {
+    width: 100%;
+    justify-content: center;
+
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+
+    gap: 20px;
+    flex-wrap: nowrap;
+
+    // &:last-of-type {
+    //   // margin-bottom: 10px !important;
+
+    // }
+  }
+
+  white-space: nowrap;
+}
+
+.mobileNewLine {
+  @media (max-width: $small) {
+    width: 100%;
+    flex-wrap: wrap;
+    input {
+      width: 100%;
+    }
+  }
+}
+
+.beforeTxt,
+.afterTxt {
+  display: inline-flex;
+  white-space: nowrap;
+}
+
+.HbHeader {
+  @media (max-width: $small) {
+    div[id^='Background'] {
+      height: 100% !important;
+    }
+  }
+}
+
+.HbButtonGroup {
+  @media (max-width: $small) {
+    width: 100%;
+    button:only-of-type {
+      flex: 1;
+    }
+  }
+}
+
+.HbContent {
+  @media (max-width: $small) {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  @media (min-width: $medium) {
+    margin: 0 auto;
+  }
+}
+
+.HbFormElementParent {
+  width: 100%;
+}
+
+label[class*='radio-group-button-root'] {
+  @media (min-width: $small) {
+    min-width: 192px;
+  }
+}
+
+.Navigation {
+  padding: 10px 0;
+  @media (max-width: $small) {
+    button {
+      flex: 1;
+    }
+  }
+}
+
+.RadioWithImages {
+  @media (max-width: $small) {
+    &.buttonColumn {
+      > [class*='spacing'] {
+        display: none;
+      }
+    }
+  }
+}
+
+.CheckboxGroup {
+  @media (max-width: $small) {
+    gap: 0;
+    max-width: 100%;
+    .CheckboxButtonContainer:not(.tag-group) label {
+      flex-basis: 45%;
+      min-width: 45%;
+      margin-bottom: 5px;
+    }
+    button {
+      min-width: 0px;
+      width: 100%;
+      flex-direction: row !important;
+      gap: 5px;
+      padding: 10px;
+      min-height: 0;
+    }
+  }
+}
+
+.newLineSmall {
+  line-height: 1.4;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  @media (max-width: $small) {
+    text-align: center;
+    margin-bottom: 0;
+  }
+}
+
+.player-container {
+  @media (max-width: $medium) {
+    width: 100%;
+    padding: 0 10px;
+    margin-bottom: 0 !important;
+  }
+}
+
+.HbCardContainer {
+  @media (max-width: $small) {
+    padding: 0 10px;
+  }
+
+  @media (max-width: $medium) {
+    justify-content: center;
+  }
+
+  @media (min-width: $medium) {
+    padding: 0 10px;
+  }
+}
+
+.HbCard {
+  width: 23.5%;
+  @media (max-width: $large) {
+    width: 48%;
+    margin-bottom: 20px;
+  }
+  @media (max-width: $small) {
+    width: 100%;
+
+    margin-bottom: 10px;
+  }
+}
+
+.slideFooter {
+  // position: fixed;
+  bottom: 0;
+  align-self: flex-end;
+  width: 100%;
+
+  @media (min-width: $medium) {
+    position: fixed;
+    bottom: 0;
+    padding: 0 10px;
+
+    & > div {
+      max-width: 1280px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.forceSameLine {
+  flex-wrap: nowrap !important;
+}
+
+.HbFeatureItem {
+  &.stack {
+    padding: 0 20px 20px;
+  }
+}
+
+[id^='Head'] [id^='Text'] {
+  @media (max-width: $small) {
+    // font-size: 22px !important;
+    // line-height: 24px !important;
+  }
+}
+[id*='Column'] [id^='Head'] {
+  @media (max-width: $small) {
+    padding-bottom: 20px !important;
+  }
+}
+
+[id^='Title'] {
+  @media (max-width: $small) {
+    // font-size: 18px !important;
+    // line-height: 18px !important;
+  }
+}
+
+.switch {
+  @media (max-width: $small) {
+    margin: 0 10px;
+  }
+}
+
+.HbWave {
+  @media (max-width: $small) {
+    height: 0 !important;
+    padding: 20px !important;
+  }
+}
+
+.slider-list {
+  @media (max-width: $small) {
+    margin: 0;
+  }
+}
+
+[id*='ClientContainer'] {
+  @media (max-width: $small) {
+    flex-direction: column !important;
+    gap: 3px !important;
+  }
+}
+
+.HbLogo [id*='Icon'] {
+  @media (min-width: $large) {
+    transform: scale(1.5);
+  }
+}
+
+div[style*='8fbf67af'] {
+  transform: scale(1.2);
+}
+
+.fname ~ .email {
+  @media (max-width: $small) {
+    margin-top: 20px !important;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+  -webkit-transition-delay: 9999s;
 }

@@ -71,16 +71,16 @@ const Products = ({
             alignItems="center"
             className="wave"
             style={{ backgroundColor: colors.hbGoldLight}}
-            title={results ? 'Recommended plan' : ''}
+            title={results ? 'Recommended Plan' : ''}
         >
-            <FlexBox gap={'2%'}>
+            <FlexBox gap={'2%'} wrap className="HbCardContainer">
                 {
                     products.kibble ? (
                         <HbProduct
                             imageSrc={products.kibble.images[products.kibble.selectedImage]}
                             order={1}
                             title={products.kibble.title}
-                            // extra={}
+                            extra={products.kibble.lbs14 + 'lbs'}
                             priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
                             priceFinal={`$${getPrice(products.kibble.price)}`}
                             DescriptionHtml={
@@ -99,8 +99,8 @@ const Products = ({
                                         <HbCheckbox2 checked={selectedResults.includes(products.kibble)} />
                                     }
                                 />
-                            } 
-                            style={{ width: '23.5%' }}
+                            }
+                            className="HbCard"
                         />
                     ) : (
                         <HbProductEmpty
@@ -112,7 +112,7 @@ const Products = ({
                                     }
                                 />
                             }
-                            style={{ width: '23.5%' }}
+                            className="HbCard"
                         />
                     )
                 }
@@ -141,8 +141,8 @@ const Products = ({
                                         <HbCheckbox2 checked={selectedResults.includes(products.supplement)} />
                                     }
                                 />
-                            } 
-                            style={{ width: '23.5%' }}
+                            }
+                            className="HbCard"
                         />
                     ) : (
                         <HbProductEmpty
@@ -154,7 +154,7 @@ const Products = ({
                                     }
                                 />
                             }
-                            style={{ width: '23.5%' }}
+                            className="HbCard"
                         />
                     )
                 }
@@ -183,8 +183,8 @@ const Products = ({
                                         <HbCheckbox2 checked={selectedResults.includes(products.mixin)} />
                                     }
                                 />
-                            } 
-                            style={{ width: '23.5%' }}
+                            }
+                            className="HbCard"
                         />
                     ) : (
                         <HbProductEmpty
@@ -196,13 +196,13 @@ const Products = ({
                                     }
                                 />
                             }
-                            style={{ width: '23.5%' }}
+                            className="HbCard"
                         />
                     )
                 }
 
                 <HbResults
-                    style={{ width: '23.5%' }}
+                    className="HbCard"
                     verylongname={`${dog.name}’s Plan`}
                     // trial={texts.plan.trial}
                     // afterTrial={texts.plan.afterTrial}

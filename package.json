@@ -5,6 +5,8 @@
   "dependencies": {
     "@bumaga/tabs": "^0.2.0",
     "@visly/core": "^1.0.6",
+    "@welldone-software/why-did-you-render": "welldone-software/why-did-you-render",
+    "conditional-wrap": "^1.0.2",
     "framer-motion": "^2.9.4",
     "ismounted": "^0.1.8",
     "node-sass": "^4.14.1",
@@ -12,6 +14,7 @@
     "react": "^16.12.0",
     "react-cool-portal": "^1.0.23",
     "react-dom": "^16.12.0",
+    "react-frame-component": "^4.1.3",
     "react-modal": "^3.11.2",
     "react-modal-hook": "^3.0.0",
     "react-picture-in-picture": "^1.0.0",
@@ -51,7 +54,6 @@
     ]
   },
   "devDependencies": {
-    "@welldone-software/why-did-you-render": "github:welldone-software/why-did-you-render",
     "electron": "^10.1.2"
   }
 }

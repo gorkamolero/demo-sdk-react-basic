@@ -22,11 +22,14 @@
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 24px;
+  line-height: 23px;
   flex-shrink: 1;
 }
 .__visly_scope_R7jV18AV1o_GUwTDFwRcZ .__visly_scope_R7jV18AV1o_MQ47jJXDie {
   align-self: stretch;
   width: 20px;
   height: unset;
+}
+.__visly_scope_R7jV18AV1o_GUwTDFwRcZ.__visly_size-small.__visly_state_none {
+  padding: 10px;
 }

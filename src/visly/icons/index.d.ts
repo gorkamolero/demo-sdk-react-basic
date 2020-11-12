@@ -3,6 +3,7 @@
 /* eslint-disable */
 export const afterTrialArrow: string;
 export const arrowRight: string;
+export const chevronRightIcon: string;
 export const hbActivityActive: string;
 export const hbActivityAthlete: string;
 export const hbActivityLazy: string;
@@ -12,6 +13,7 @@ export const hbClose: string;
 export const hbCurveSeparator: string;
 export const hbDiscount: string;
 export const hbEmptyProduct: string;
+export const hbEqual: string;
 export const hbFemale: string;
 export const hbFooterCustomNutrition: string;
 export const hbFooterPremium: string;
@@ -28,6 +30,10 @@ export const hbLogo: string;
 export const hbLogoMain: string;
 export const hbLogoMobile: string;
 export const hbMale: string;
+export const hbMealPlan: string;
+export const hbMealPlan2: string;
+export const hbMealPlan3: string;
+export const hbStar: string;
 export const hbTick: string;
 export const hbWeightIdeal: string;
 export const hbWeightObese: string;

@@ -43,6 +43,11 @@ const styles = [
   },
   {
     type: "boolean",
+    propName: "stack",
+    layers: {},
+  },
+  {
+    type: "boolean",
     propName: "NoHbAddAnotherDog",
     layers: {},
   },
@@ -62,6 +67,20 @@ const defaultPropValues = [
           text: "Add another dog",
         },
       },
+      FY2RCHsKNM: {
+        none: {
+          text: "Continue to Checkout",
+        },
+      },
+    },
+  },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {
+      QNXBFmS13r: {},
+      VJaaiFG35i: {},
+      FY2RCHsKNM: {},
     },
   },
   {
@@ -70,11 +89,16 @@ const defaultPropValues = [
     layers: {
       QNXBFmS13r: {},
       VJaaiFG35i: {},
+      FY2RCHsKNM: {},
     },
   },
 ];
 
 const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "stack",
+  },
   {
     type: "boolean",
     propName: "NoHbAddAnotherDog",
@@ -95,7 +119,7 @@ function HbEndFooter(_props) {
     <RootPrimitive
       {...props}
       key="k3jaASDPhw"
-      addSpacing={false}
+      addSpacing={true}
       internal={{
         projectId: "WDRq65T88Q",
         styles: styles,
@@ -104,14 +128,14 @@ function HbEndFooter(_props) {
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => (
+      {(getStyle) => [
         <ContainerPrimitive
           id={"Container_K8Rvc3Sc8R"}
           className={
             "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"
           }
           key={"K8Rvc3Sc8R"}
-          addSpacing={false}
+          addSpacing={true}
           element={getStyle("K8Rvc3Sc8R", "htmlElement")}
         >
           <ContainerPrimitive
@@ -239,15 +263,41 @@ function HbEndFooter(_props) {
               ),
             ]}
           </ContainerPrimitive>
-        </ContainerPrimitive>
-      )}
+        </ContainerPrimitive>,
+        props.HbButtonWithIconMobile === undefined ? (
+          <HbButtonWithIconComposite
+            key={"FY2RCHsKNM"}
+            {...getCompositeDefaultProps("FY2RCHsKNM")}
+            id="HbButtonWithIconMobile_FY2RCHsKNM"
+            className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM"
+          />
+        ) : (
+          <HbButtonWithIconContext.Provider
+            key="FY2RCHsKNM-provider"
+            value={{
+              key: "FY2RCHsKNM",
+              id: "HbButtonWithIconMobile_FY2RCHsKNM",
+              className:
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM",
+              ...getCompositeDefaultProps("FY2RCHsKNM"),
+            }}
+          >
+            {props.HbButtonWithIconMobile}
+          </HbButtonWithIconContext.Provider>
+        ),
+      ]}
     </RootPrimitive>
   );
 }
 
 HbEndFooter.HbButtonWithIcon = HbButtonWithIconComposite;
 HbEndFooter.HbLinkButton = HbLinkButtonComposite;
+HbEndFooter.HbButtonWithIconMobile = HbButtonWithIconComposite;
 HbEndFooter.__variants = [
+  {
+    name: "stack",
+    type: "variant",
+  },
   {
     name: "NoHbAddAnotherDog",
     type: "variant",

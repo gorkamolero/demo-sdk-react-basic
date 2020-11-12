@@ -12,6 +12,7 @@ export const color: {
   hbBeige: "7b930783-dd66-44dc-9396-d94147d0c2d2";
   hbBrown: "917b7d0c-65f2-47ee-b15b-420c68bdaaff";
   hbBrownDim: "bd13d04a-a01e-4296-9338-69383236bb7b";
+  hbDark: "f74a8446-dee6-469e-8c1b-6e3546973cd4";
   hbGold: "778906c6-af65-4ef6-a7b0-984241bdab0d";
   hbGoldLight: "f49ebb9e-17fa-4a54-86c4-c915b3f451cf";
   hbGray100: "855dc846-88ce-463f-8ce7-e3aaf070efda";
@@ -42,6 +43,7 @@ export const color: {
 export const icon: {
   afterTrialArrow: "c09fe3f3-e0fe-472d-9183-1cef3c7793ec";
   arrowRight: "d3f7af56-6dfa-46f9-ae00-549017913694";
+  chevronRightIcon: "4fd68832-ccc3-4e18-a90f-86bea9ce803f";
   hbActivityActive: "04736f6d-3508-4b43-a810-6173d635309d";
   hbActivityAthlete: "3de5fbdc-9c46-49f1-bb9d-92afb97d81b3";
   hbActivityLazy: "b1214685-4aeb-46ca-95e6-2ee842c0228c";
@@ -51,6 +53,7 @@ export const icon: {
   hbCurveSeparator: "df26a81b-7085-4257-a480-ee880739bebb";
   hbDiscount: "5465e731-4834-4811-be34-34a4a31de8e8";
   hbEmptyProduct: "d837777a-cc24-43b7-9e2e-761426113d2e";
+  hbEqual: "3eb0c919-efdb-4f4c-9a74-90422a508087";
   hbFemale: "e94f856c-9e3f-472b-9594-d44c2135827c";
   hbFooterCustomNutrition: "eaebb328-5879-4908-ba3e-7a02026ed96e";
   hbFooterPremium: "00143776-fc5c-4ae3-9fa7-90e433ca7278";
@@ -67,6 +70,10 @@ export const icon: {
   hbLogoMain: "9488f5c2-5746-4389-9ea6-75cc0bf9c138";
   hbLogoMobile: "c26bf768-6194-41b1-a4c5-981fbaa33611";
   hbMale: "c9c80f7e-39bc-43d8-b7d8-7d657cbb303d";
+  hbMealPlan: "d30fdeb5-01f0-4ecf-82f3-81d7ec7168c3";
+  hbMealPlan2: "3940f69b-0fe0-48ca-ae21-24f06290f256";
+  hbMealPlan3: "47e99d61-7825-47c9-ad8f-b7b5398a4097";
+  hbStar: "02b756ea-10bf-4527-b240-44225fc921a6";
   hbTick: "9e3db88c-26b3-44fe-ae4f-6e71dd6a4ca0";
   hbWeightIdeal: "f57ca7b5-5471-442e-a055-0f712c27a58e";
   hbWeightObese: "d1afdb1f-ba61-4489-bf8a-c99aff05b683";
@@ -162,6 +169,8 @@ export const component: {
   HbHelper: "cf215e28-e138-44bf-ac37-63dbd1d13f58";
   HbIconButton: "c4df12fa-3957-4bca-9c5a-6ab6d17b7ee6";
   HbInput: "8f54961d-50f7-4b98-bd90-239f78c4b7bf";
+  HbKibblePlan: "1e84f6a0-96b2-46f4-ac9c-580cdf0a51ed";
+  HbKibblePlanElement: "9a90162b-1efa-448f-8079-59653ae8bf6d";
   HbLinkButton: "642ec957-98c4-4648-b958-2399814ed238";
   "Pages/HbLoadingScreen": "0cb21f9c-340e-46dc-97cb-464ccd0b0b6b";
   HbLogo: "178b94b1-16c1-4db1-a333-70d00d2d5610";
@@ -181,6 +190,7 @@ export const component: {
   HbSelect: "4d8a0f8b-6df2-43cd-b03e-7387816fd1c3";
   HbSliderArrow: "a08e309b-3b76-4776-8c78-ae425627f109";
   HbSliderArrowButton: "4676eee6-d833-449d-add7-8763ce711387";
+  "Compounds/HbStickyBar": "124137e6-1ccb-43fe-a6dd-75dcd419d889";
   HbTabs: "1093ffc0-8dbd-4c21-bb02-1f5c8493cb1d";
   HbTag: "c34bf8ae-7ee2-4f04-b7f5-c83b3ccf53d3";
   "Compounds/HbTestimonial": "ec54f290-0db3-4d07-bfcf-5f8d76bfcaf8";

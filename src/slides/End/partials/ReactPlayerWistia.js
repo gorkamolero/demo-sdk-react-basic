@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ReactPlayer from 'react-player'
-import { FlexBox } from "react-styled-flex";
-import { colors, textstyles } from '../../../visly';
+import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
 import './ReactPlayerWistia.css'
 
@@ -20,7 +19,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [state] = useState({
     pip: false,
     playing: play || true,
-    controls: false,
+    controls: true,
     light: false,
     volume: 0.8,
     muted: false,
@@ -55,7 +54,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
           <ReactPlayer
             className="react-player"
             {...state}
-            url={video}
+            url={'https://hungrybark.wistia.com/embed/iframe/bmwh267dv6?embedType=ab_test_async&idType=ab-test&seo=true&videoFoam=true&videoWidth=640'}
             width="100%"
             height="100%"
           />
@@ -64,9 +63,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
 
       {
         (videoIsDone && play) || (
-          <FlexBox center style={{ marginTop: -20 }}>
-            <h1 style={{...textstyles.hbFeatureTitle, color: colors.hbBrown}}>{text}</h1>
-          </FlexBox>
+          <FooterBar center text={text} />
         )
       }
     </HbSection>

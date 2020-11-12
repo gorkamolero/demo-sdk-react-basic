@@ -46,6 +46,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "notValid",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -75,6 +80,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "notValid",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -82,6 +92,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "medium", "large", "super"],
+  },
+  {
+    type: "boolean",
+    propName: "notValid",
   },
 ];
 
@@ -143,6 +157,10 @@ HbInput.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "medium", "large", "super"],
+  },
+  {
+    name: "notValid",
+    type: "variant",
   },
 ];
 

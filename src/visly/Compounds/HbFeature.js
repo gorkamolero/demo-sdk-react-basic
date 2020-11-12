@@ -25,6 +25,11 @@ const styles = [
     type: "default",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -34,9 +39,21 @@ const defaultPropValues = [
       RWAtM6Cbek: {},
     },
   },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {
+      RWAtM6Cbek: {},
+    },
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "stack",
+  },
+];
 
 export const HbFeatureContext = createContext(null);
 
@@ -52,7 +69,7 @@ function HbFeature(_props) {
     <RootPrimitive
       {...props}
       key="QF3aX47C17"
-      addSpacing={false}
+      addSpacing={true}
       internal={{
         projectId: "WDRq65T88Q",
         styles: styles,
@@ -128,6 +145,11 @@ function HbFeature(_props) {
 }
 
 HbFeature.HbFeatureItem = HbFeatureItemComposite;
-HbFeature.__variants = [];
+HbFeature.__variants = [
+  {
+    name: "stack",
+    type: "variant",
+  },
+];
 
 export default HbFeature;

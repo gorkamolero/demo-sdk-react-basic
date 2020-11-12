@@ -30,6 +30,16 @@ const styles = [
       },
     },
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {},
+      },
+    ],
+  },
 ];
 
 const defaultPropValues = [
@@ -39,9 +49,27 @@ const defaultPropValues = [
       C5Ko4vdujm: {},
     },
   },
+  {
+    type: "enum",
+    propName: "size",
+    values: [
+      {
+        propValue: "small",
+        layers: {
+          C5Ko4vdujm: {},
+        },
+      },
+    ],
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "enum",
+    propName: "size",
+    propValues: ["small"],
+  },
+];
 
 export const HbTagContext = createContext(null);
 
@@ -114,6 +142,12 @@ function HbTag(_props) {
 }
 
 HbTag.HbOnlyIconButton = HbOnlyIconButtonComposite;
-HbTag.__variants = [];
+HbTag.__variants = [
+  {
+    name: "size",
+    type: "group",
+    variants: ["small"],
+  },
+];
 
 export default HbTag;

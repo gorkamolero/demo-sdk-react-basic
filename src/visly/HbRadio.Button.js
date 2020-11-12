@@ -33,13 +33,25 @@ const styles = [
           icon: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
           useMask: true,
         },
+        hover: {
+          useMask: true,
+        },
+        pressed: {
+          useMask: true,
+        },
       },
     },
   },
   {
     type: "boolean",
     propName: "selected",
-    layers: {},
+    layers: {
+      PpaiPZQUUA: {
+        none: {
+          useMask: true,
+        },
+      },
+    },
   },
   {
     type: "boolean",

@@ -150,6 +150,8 @@ export const HbCircleIcon: {
     icon?: string;
     HbYellowIcon?: boolean;
     size?: "small";
+    justEmoji?: boolean;
+    HbGoldIcon?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCloseModal: {
@@ -166,7 +168,7 @@ export const HbContainer: {
 export const HbContent: {
   (props: {
     children?: React.ReactNode | React.ReactNode[];
-    customProp?: "small" | "medium" | "large" | "super";
+    size?: "small";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbFirstSlideFooter: {
@@ -196,17 +198,17 @@ export const HbFormElement: {
 export const HbHeader: {
   (props: {
     bg?: string;
-    textSlot?: string;
+    discount?: string;
     extraImage?: string;
     extraImageT?: string;
     TitleSlot?: React.ReactNode | React.ReactNode[];
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
     ExtraChildren?: React.ReactNode | React.ReactNode[];
-    textSlot1?: string;
+    discount2?: string;
     ShowImage?: boolean;
     NoWave?: boolean;
-    size?: "small" | "large" | "medium" | "super";
     withVideo?: boolean;
+    size?: "small" | "medium" | "super";
     HbCircleIcon?: React.ReactNode;
     HbProgress?: React.ReactNode;
     HbLogo?: React.ReactNode;
@@ -237,10 +239,10 @@ export const HbIconButton: {
     text?: string;
     icon?: string;
     onPress?: (event: PressEvent) => void;
-    HbIconButtonSelected?: boolean;
     column?: boolean;
-    size?: "small";
     noIcon?: boolean;
+    size?: "small";
+    HbIconButtonSelected?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbInput: {
@@ -252,7 +254,28 @@ export const HbInput: {
     inputRef?: React.Ref<HTMLInputElement>;
     inputProps?: CommonProps<HTMLInputElement>;
     size?: "small" | "medium" | "large" | "super";
+    notValid?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
+};
+export const HbKibblePlan: {
+  (props: {
+    HbKibblePlanElement?: React.ReactNode;
+    HbKibblePlanElement1?: React.ReactNode;
+    HbKibblePlanElement2?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  HbKibblePlanElement: typeof HbKibblePlanElement;
+  HbKibblePlanElement1: typeof HbKibblePlanElement;
+  HbKibblePlanElement2: typeof HbKibblePlanElement;
+};
+export const HbKibblePlanElement: {
+  (props: {
+    icon?: string;
+    slot1?: string;
+    slot2?: string;
+    NoNext?: boolean;
+    HbCircleIcon?: React.ReactNode;
+  } & CommonProps<HTMLDivElement>): JSX.Element;
+  HbCircleIcon: typeof HbCircleIcon;
 };
 export const HbLinkButton: {
   (props: {
@@ -322,7 +345,6 @@ export const HbRadio: {
     onChange: (value: string) => void;
     ariaLabel?: string;
     HbRadioColumn?: boolean;
-    size?: "small" | "medium" | "large" | "super";
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
   Button: {
@@ -398,6 +420,7 @@ export const HbTabs: {
 export const HbTag: {
   (props: {
     tagText?: string;
+    size?: "small";
     HbOnlyIconButton?: React.ReactNode;
   } & CommonProps<HTMLDivElement>): JSX.Element;
   HbOnlyIconButton: typeof HbOnlyIconButton;

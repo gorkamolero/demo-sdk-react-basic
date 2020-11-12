@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
+import { HbKibblePlan, HbKibblePlanElement, icons } from '../../../visly'
 import { Tabs, Panel, useTabState } from '@bumaga/tabs'
 import { HbCloseModal, HbTabs, colors, textstyles } from '../../../visly'
 import { FlexBox } from "react-styled-flex";
@@ -37,6 +38,7 @@ const getGoalColum = function(goals, min, max) {
 
 const getTabs = (product, dog, goals) => {
     if (product.type === 'kibble') {
+        console.log(product)
         return (
             <div className="tabContainer" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
@@ -56,57 +58,11 @@ const getTabs = (product, dog, goals) => {
                         <div className="kibtab-content-1">
                             <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Meal Plan</h2>
 
-                            <div className="KibMealPlanGraphicGrp">
-                                <div className="kibmeal-pln-bx-bg kibmeal-pln-bx-bg-1">
-                                    <div className="kibCircleMP-kcals kibCircleMP">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/kcals.png?v=1592911965"
-                                            alt=""/>
-                                    </div>
-                                    <p className="kibmeal-plan-number" data-hj-allow>{product.calories}</p>
-                                    <p className="kibmeal-plan-label">Cals / day</p>
-                                </div>
-
-                                <div className="kibCircleMid-1 kibCircleMid">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="18.75" height="15"
-                                                     viewBox="0 0 18.75 15">
-                                                    <path style={ {fill: '#1b1c24' } }
-                                                          d="M11.25,0,10.193,1.058,15.877,6.75H0v1.5H15.877l-5.685,5.693L11.25,15l7.5-7.5L11.25,0Z"/>
-                                                </svg>
-                                            </span>
-                                </div>
-
-
-                                <div className="kibmeal-pln-bx-bg kibmeal-pln-bx-bg-2">
-                                    <div className="kibCircleMP-cupsPD kibCircleMP">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/cupsPD.png?v=1592911965"
-                                            alt=""/>
-                                    </div>
-                                    <p className="kibmeal-plan-number" data-hj-allow>{product.serving}</p>
-                                    <p className="kibmeal-plan-label">Cups / day</p>
-                                </div>
-
-                                <div className="kibCircleMid-2 kibCircleMid">
-                                            <span>
-                                                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8">
-                                                    <rect style={ {fill: '#1b1c24'} } width="12" height="2" />
-                                                    <rect style={ {fill: '#1b1c24' } } width="12" height="2" />
-                                                </svg>
-                                            </span>
-                                </div>
-
-                                <div className="kibmeal-pln-bx-bg kibmeal-pln-bx-bg-3">
-                                    <div className="kibCircleMP-lbs7 kibCircleMP">
-                                        <img
-                                            src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/lbs7x.png?v=1592911965"
-                                            alt=""/>
-                                    </div>
-                                    <p className="kibmeal-plan-number" data-hj-allow>{product.lbs14}</p>
-                                    <p className="kibmeal-plan-label">Lbs / 2 weeks</p>
-                                </div>
-                            </div>
+                            <HbKibblePlan
+                                HbKibblePlanElement={<HbKibblePlan.HbKibblePlanElement slot1={product.calories} slot2="Kcals / day" style={{ flex: 1 }} HbCircleIcon={<HbKibblePlanElement.HbCircleIcon icon={icons.chevronRightIcon} style={{ position: 'relative', zIndex: 9 }} />} />}
+                                HbKibblePlanElement1={<HbKibblePlan.HbKibblePlanElement1 slot1={product.serving} slot2="Cups / day" style={{ flex: 1 }} HbCircleIcon={<HbKibblePlanElement.HbCircleIcon icon={icons.hbEqual} style={{ position: 'relative', zIndex: 9 }} />} />}
+                                HbKibblePlanElement2={<HbKibblePlan.HbKibblePlanElement2 slot1={product.lbs14} slot2="Lbs / 2 weeks" style={{ flex: 1 }} NoNext />} 
+                            />
 
                         </div>
 
@@ -128,7 +84,7 @@ const getTabs = (product, dog, goals) => {
                         </div>
 
                         <div className="kibtab-content">
-                            <div className="kibtab-content-trans">
+                            <div className="kibtab-content-trans" style={{ backgroundColor: colors.hbGoldLight }}>
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
 
                                 <div className="kibtab-contentImgGrp">
@@ -136,28 +92,28 @@ const getTabs = (product, dog, goals) => {
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition1.png?v=1592925792"
                                             alt="Days 1-3"/>
-                                        <p>Days 1-3</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 1-3</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-2">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition2.png?v=1592925793"
                                             alt="Days 4-6"/>
-                                        <p>Days 4-6</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 4-6</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-3">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition3.png?v=1593010810"
                                             alt="Days 7-10"/>
-                                        <p>Days 7-10</p>
+                                        <p style={{ fontWeight: 'bold' }}>Days 7-10</p>
                                     </div>
 
                                     <div className="kibTransImg kibTransImg-4">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition4.png?v=1592925793"
                                             alt="Day 11"/>
-                                        <p>Day 11</p>
+                                        <p style={{ fontWeight: 'bold' }}>Day 11</p>
                                     </div>
                                 </div>
                             </div>
@@ -174,14 +130,14 @@ const getTabs = (product, dog, goals) => {
 
                             <div className="kibcontent-NutriAnalysis">
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Guaranteed Analysis</h2>
-                                <ul>
+                                <FlexBox column gap=".25em" style={{ paddingTop: '.25em' }}>
                                     {product.values.map(value => (
-                                        <>
+                                        <FlexBox justifyContent="space-between" style={{ padding: '0 0 .5em' }}>
                                             <div className="nutriLabel">{value.bottom}</div>
                                             <div className="nutriValue">{value.top} {value.mid}{value.symbol}</div>
-                                        </>
+                                        </FlexBox>
                                     ))}
-                                </ul>
+                                </FlexBox>
                             </div>
 
                             <div className="kibcontent-NutriStatement">
@@ -211,6 +167,10 @@ const getTabs = (product, dog, goals) => {
                         <Tab text="Nutritional" />
                     </HbTabs>
                     <div className="spacer"></div>
+                    <Panel>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
+                        <p>Mix in 1 tablespoon per cup of food.</p>
+                    </Panel>
 
                     <Panel>
                         <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Dosing Guidelines for <span className="capitalise-pz">{dog.name}</span></h2>
@@ -230,10 +190,6 @@ const getTabs = (product, dog, goals) => {
                         </div>
                     </Panel>
 
-                    <Panel>
-                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
-                        <p>Mix in 1 tablespoon per cup of food.</p>
-                    </Panel>
                     <Panel>
                         <CustomHTML html={product.nutrition}></CustomHTML>
                     </Panel>
@@ -280,8 +236,13 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
     }, [])
 
     return (
-        <FlexBox center is={ReactModal} isOpen onAfterClose={hideModal} className="Modal">
-            <HbSection style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }} withImage imageSrc={product.images[product.selectedImage]}>
+        <FlexBox is={ReactModal} isOpen onAfterClose={hideModal} className="Modal">
+            <HbSection
+                style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }}
+                withImage={product.type !== 'kibble'}
+                withLargeImage={product.type === 'kibble'}
+                imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
+            >
                 {getTabs(product, dog, goals)}
             </HbSection>
 

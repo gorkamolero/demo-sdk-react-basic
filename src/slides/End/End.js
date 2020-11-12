@@ -1,13 +1,13 @@
 import React, { useEffect, useState, useCallback, useContext, useMemo } from 'react';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
-// import Navigation from "../../components/Navigation/Navigation";
+import Navigation from "../../components/Navigation/Navigation";
 import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
-import { HbCircleIcon, icons, colors } from "../../visly";
-import Video from './partials/ReactPlayerWistia'
+import { HbCircleIcon, icons, colors, useBreakpoint } from "../../visly";
+import Video from './partials/ReactPlayerWistia2'
 import { Footer, Tip } from '../../styles/StyledComps';
 import 'react-tippy/dist/tippy.css'
 import {
@@ -15,7 +15,7 @@ import {
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
 
-const noTest = true
+const noTest = false
 
 function End() {
     // No loading for dev
@@ -29,6 +29,8 @@ function End() {
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [video, setVideo] = useState(null)
+
+    const size = useBreakpoint("small", ["medium", "large", "super"]);
 
     useEffect(() => {
         const waitForWindowData = () => {
@@ -61,6 +63,7 @@ function End() {
         (price) => Number(price * subscribeMultiplier).toFixed(2),
         [subscribeMultiplier],
     );
+    const roundPrice = (price) => Number(price).toFixed(2)
     const totalProducts = selectedResults.length
 
     const continueToCheckout = () => {
@@ -107,19 +110,21 @@ function End() {
                     <>
                         <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
 
-                        {/* <Navigation /> */}
+                        { window.location.href.includes('localhost') && <Navigation />}
 
-                        <Features />
+                        <Features stack={size === 'small'} />
 
                         <Testimonials />
 
                         <Footer
                             total={`Total (${totalProducts})`}
-                            priceOriginal={subscription && selectedResults.length ? '$' + totalPrice : ''}
+                            priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
                             HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
+                            stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={
                                 <Tooltip
                                     // options

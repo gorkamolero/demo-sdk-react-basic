@@ -94,7 +94,6 @@ export const HbRadio: {
       onChange: (value: string) => void;
       ariaLabel?: string;
       HbRadioColumn?: boolean;
-      size?: "small" | "medium" | "large" | "super";
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

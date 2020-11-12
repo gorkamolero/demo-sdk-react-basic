@@ -9,4 +9,5 @@ export const HbProduct = require("./HbProduct").default;
 HbProduct.CardFooter = require("./HbProduct.CardFooter").default;
 export const HbProductEmpty = require("./HbProductEmpty").default;
 export const HbResults = require("./HbResults").default;
+export const HbStickyBar = require("./HbStickyBar").default;
 export const HbTestimonial = require("./HbTestimonial").default;
