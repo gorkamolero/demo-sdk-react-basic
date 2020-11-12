@@ -306,5 +306,6 @@ export function usePrimitive({
     resetProps: {
       className: `__visly_reset_${internal.projectId}`,
     },
+    handlers,
   };
 }

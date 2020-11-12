@@ -38,6 +38,7 @@ const getGoalColum = function(goals, min, max) {
 
 const getTabs = (product, dog, goals) => {
     if (product.type === 'kibble') {
+        console.log(product)
         return (
             <div className="tabContainer" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
@@ -129,9 +130,9 @@ const getTabs = (product, dog, goals) => {
 
                             <div className="kibcontent-NutriAnalysis">
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Guaranteed Analysis</h2>
-                                <FlexBox column gap=".25em">
+                                <FlexBox column gap=".25em" style={{ paddingTop: '.25em' }}>
                                     {product.values.map(value => (
-                                        <FlexBox justifyContent="space-between" style={{ padding: '1em 0' }}>
+                                        <FlexBox justifyContent="space-between" style={{ padding: '0 0 .5em' }}>
                                             <div className="nutriLabel">{value.bottom}</div>
                                             <div className="nutriValue">{value.top} {value.mid}{value.symbol}</div>
                                         </FlexBox>
@@ -236,7 +237,12 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
 
     return (
         <FlexBox is={ReactModal} isOpen onAfterClose={hideModal} className="Modal">
-            <HbSection style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }} withImage imageSrc={product.images[product.selectedImage]}>
+            <HbSection
+                style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }}
+                withImage={product.type !== 'kibble'}
+                withLargeImage={product.type === 'kibble'}
+                imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
+            >
                 {getTabs(product, dog, goals)}
             </HbSection>
 

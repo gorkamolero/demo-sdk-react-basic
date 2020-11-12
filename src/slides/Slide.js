@@ -41,12 +41,11 @@ const Slide = () => {
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
     const [slideHeight, setSlideHeight] = useState(0)
-    console.log(slideHeight)
 
     const [headerHeight, setHeaderHeight] = useState(0)
 
     useEffect(() => {
-      console.log(size) 
+      if (size) console.log(size) 
       // window.dispatchEvent(new Event('resize'));
     }, [size])
     

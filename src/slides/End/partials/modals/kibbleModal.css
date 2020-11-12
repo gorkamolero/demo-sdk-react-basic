@@ -387,7 +387,7 @@
 .kibcontent-NutriAnalysis {
   width: 100%;
   height: auto;
-  margin-right: 20px;
+  margin-right: 60px;
 }
 
 .kibcontent-NutriAnalysis h2 {
@@ -453,7 +453,7 @@
 }
 
 .kibdisclaimer {
-  color: #242424;
+  margin-top: 1em;
   font-size: 14px;
   line-height: 18px;
   font-style: italic;
