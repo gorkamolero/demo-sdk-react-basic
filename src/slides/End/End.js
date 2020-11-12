@@ -7,7 +7,7 @@ import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
 import { HbCircleIcon, icons, colors, useBreakpoint } from "../../visly";
-import Video from './partials/ReactPlayerWistia'
+import Video from './partials/ReactPlayerWistia2'
 import { Footer, Tip } from '../../styles/StyledComps';
 import 'react-tippy/dist/tippy.css'
 import {

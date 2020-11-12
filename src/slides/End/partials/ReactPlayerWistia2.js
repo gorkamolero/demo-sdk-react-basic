@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import ReactPlayer from 'react-player'
+import Frame from 'react-frame-component'
 import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
 import './ReactPlayerWistia.css'
@@ -15,24 +15,38 @@ const texts = [
   'One moment please... we are building your personalized plan',
 ]
 
+
+
+const iframeMarkup = (videoURL) => `
+<!DOCTYPE html>
+  <html>
+    <head>
+      <script src="${videoURL}" async></script>
+      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+    </head>
+    <body style="padding: 0; margin: 0; overflow: hidden;">
+      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
+        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
+          <div class="wistia_embed wistia_async_bmwh267dv6 idType=ab-test seo=true videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div>
+        </div>
+      </div>
+    </body>
+</html>
+  `
+
 const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
-  const [state] = useState({
-    pip: false,
-    playing: play || true,
-    controls: true,
-    light: false,
-    volume: 0.8,
-    muted: false,
-    played: 0,
-    loaded: 0,
-    duration: 0,
-    playbackRate: 1.0,
-    loop: false
-  })
 
   const [count, setCount] = useState(0)
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
+
+  console.log()
+  const [markup, setMarkup] = useState(() => iframeMarkup('https://fast.wistia.com/embed/medias/bmwh267dv6.jsonp?idType=ab-test'))
+
+  // const [markup, setMarkup] = useState(() => iframeMarkup(video))
+  // useEffect(() => {
+  //   return setMarkup( iframeMarkup(video) )
+  // }, [video])
 
   useEffect(() => {
     if (!play) return
@@ -46,18 +60,14 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
     }, textDuration);
     return () => window.clearInterval(interval);
   }, [count, setVideoIsDone, play]);
+
+  if (!markup) return null
   
   return (
     <HbSection noHeadNoPadding>
       <div className="player-container">
         <div className="player-wrapper">
-          <ReactPlayer
-            className="react-player"
-            {...state}
-            url={'https://hungrybark.wistia.com/embed/iframe/bmwh267dv6?embedType=ab_test_async&idType=ab-test&seo=true&videoFoam=true&videoWidth=640'}
-            width="100%"
-            height="100%"
-          />
+          <Frame className="player-iframe" initialContent={markup} />
         </div>
       </div>
 

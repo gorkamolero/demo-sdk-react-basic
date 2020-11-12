@@ -36,7 +36,7 @@ export const bodySmallBold = {
   fontSize: "18px",
   fontWeight: 600,
   fontStyle: "normal",
-  lineHeight: "24px",
+  lineHeight: "23px",
 };
 export const bodySmallMobile = {
   fontFamily: "Averta",
