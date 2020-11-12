@@ -254,6 +254,7 @@ export const HbInput: {
     inputRef?: React.Ref<HTMLInputElement>;
     inputProps?: CommonProps<HTMLInputElement>;
     size?: "small" | "medium" | "large" | "super";
+    notValid?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbKibblePlan: {

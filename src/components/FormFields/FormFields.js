@@ -31,7 +31,7 @@ const Icon = ({ innerRef, innerProps }) => (
   <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
 );
 
-const Select = ({field, title, onChangeHandler, size}) => {
+const Select = ({field, title, onChangeHandler, size, notValid}) => {
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
@@ -158,7 +158,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   );
 };
 
-const Input = ({field, title, onChangeHandler, size}) => {
+const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const [value, setValue] = useState(() => field.getValue());
   const meta = field.getMeta();
   const type = field.getType();
@@ -176,6 +176,7 @@ const Input = ({field, title, onChangeHandler, size}) => {
         size={size}
         style={{ width: 'auto', margin: '0 10px' }}
         inputProps={type ? {type} : {type: 'number'}}
+        notValid={notValid} 
       >
         { meta.units && <span>{meta.units}</span> }
       </HbInput>
@@ -308,7 +309,7 @@ const Checkbox = (type, ...props) => {
   } return null
 }
  */
-const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null}) => {
+const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, notValid}) => {
   const [isExpanded, setExpanded] = useState(field.isHidden() || false);
   const {slideModel, interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
@@ -421,7 +422,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
 
           { type === 'checkbox' && (<h1>Hey</h1>) }
 
-          { type === 'select' && <Select {...inputProps} />}
+          { type === 'select' && <Select notValid={notValid} {...inputProps} />}
           {/*
             <>
               {
@@ -438,20 +439,20 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
                   multiple ? (
                     <>
                       {
-                        (meta.tags) && <SelectMulti class="SelectMulti" {...inputProps} />
+                        (meta.tags) && <SelectMulti notValid={notValid} class="SelectMulti" {...inputProps} />
                       }
                       {
-                        (meta.images || meta.noIcons) && <CheckboxGroup className="CheckboxGroup" fieldValues={fieldValues} {...inputProps} />
+                        (meta.images || meta.noIcons) && <CheckboxGroup notValid={notValid} className="CheckboxGroup" fieldValues={fieldValues} {...inputProps} />
                       }
                     </>
-                  ) : <RadioWithImages className="RadioWithImages" {...inputProps} />
+                  ) : <RadioWithImages notValid={notValid} className="RadioWithImages" {...inputProps} />
                 }
               </>
             )
           }
           {
             !['checkbox', 'select', 'radio-group'].includes(type) && (
-              <Input {...inputProps} />
+              <Input notValid={notValid} {...inputProps} />
             )
           }
 
@@ -475,7 +476,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   );
 }
 
-function FormFields({ children, fields, showErrors }) {
+function FormFields({ children, fields, showErrors = true }) {
       
     const { setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
@@ -507,6 +508,8 @@ function FormFields({ children, fields, showErrors }) {
         return showErrors && !field.isValid()?'invalid':'';
     };
 
+    const notValid = (field) => !field.isValid()
+
     return (
       // style={size !== 'super' && { paddingTop: 80 }}
       <HbContent className="HbContent" size={size}>
@@ -521,6 +524,7 @@ function FormFields({ children, fields, showErrors }) {
               size={size}
               field={field}
               i={i}
+              notValid={notValid(field)}
             />
           ))}
         </HbFormElement>
