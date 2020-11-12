@@ -8,10 +8,10 @@ export default {
     borderRadius: 0,
     border: 0,
     borderBottom: `2px solid ${colors.hbLight}`,
-    paddingLeft: 20,
+    paddingLeft: state.isFocused ? 0 : 20,
     '&:hover': {
       borderColor: colors.hbGreen
-    }
+    },
   }),
   menu: (provided, state) => ({
     ...provided,
@@ -44,10 +44,14 @@ export default {
   }),
   placeholder: (provided, state) => ({
     ...provided,
-    color: colors.hbText,
+    color: state.isFocused ? colors.hbDark : colors.hbText,
     transform: 'none',
     top: 'auto',
     position: 'static'
+  }),
+  input: (provided, state) => ({
+    fontFamily: 'inherit',
+    fontSize: 'inherit'
   }),
   container: (provided, state) => ({
     ...provided,

@@ -31,10 +31,7 @@ export function CheckboxRoot(props) {
     isFocusVisible,
   });
   const reactAriaProps = vislyToReactAriaProps(props);
-  const state = useToggleState({
-    isSelected: props.checked,
-    onChange: props.onChange,
-  });
+  const state = useToggleState(reactAriaProps);
   const { inputProps } = useCheckbox(reactAriaProps, state, inputRef);
   const { fieldProps } = useFormLabel();
   return (

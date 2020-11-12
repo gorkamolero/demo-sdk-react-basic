@@ -41,7 +41,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         return options[0]
     }
   });
-
+  const [placeholder, setPlaceholder] = useState(() => meta && meta.default ? meta.default : 'Select...')
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
@@ -65,10 +65,20 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   /* eslint-enable */
 
   return (
-    <FlexBox column alignItems="center" justifyContent="flex-start" className={`selectContainer`}>
+    <FlexBox column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.isSearchable === false && 'notSearchable'}`}>
       {title}
 
-      <ReactSelect onChange={setSelected} defaultValue={selected} isSearchable={true} placeholder={meta.default || 'Select...'} options={options} styles={SelectStyles} components={{ DropdownIndicator: Icon }}  min={meta.minSelect || false} />
+      <ReactSelect
+        onChange={setSelected}
+        defaultValue={selected}
+        isSearchable={meta.isSearchable ? meta.isSearchable : true}
+        placeholder={placeholder}
+        options={options}
+        styles={SelectStyles}
+        components={{ DropdownIndicator: Icon }} 
+        min={meta.minSelect || false}
+        onFocus={() => setPlaceholder('Start typing...')}
+      />
     </FlexBox>
   )
 }
@@ -89,7 +99,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const [selected, setSelected] = React.useState(() => {
     let val = field.getValue()
     if (!val) return []
-    if (typeof val === 'string') val = [val]
+    if (typeof val === 'string') val = val.split(',')
     return val
   });
 
@@ -175,8 +185,11 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
         placeholder={meta.placeholder || ""}
         size={size}
         style={{ width: 'auto', margin: '0 10px' }}
-        inputProps={type ? {type} : {type: 'number'}}
-        notValid={notValid} 
+        inputProps={{
+          type,
+          ...(meta.max && { max: meta.max })
+        }}
+        // notValid={notValid} 
       >
         { meta.units && <span>{meta.units}</span> }
       </HbInput>
@@ -524,7 +537,7 @@ function FormFields({ children, fields, showErrors = true }) {
               size={size}
               field={field}
               i={i}
-              // notValid={notValid(field)}
+              notValid={notValid(field)}
             />
           ))}
         </HbFormElement>

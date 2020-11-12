@@ -439,6 +439,17 @@ li.paging-item.active .pagingDots {
       justify-content: center;
     }
   }
+
+  &.select input {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+  }
+
+  [class*='ValueContainer'] {
+    width: 100%;
+  }
 }
 
 .mobileNewLine {
@@ -496,8 +507,9 @@ label[class*='radio-group-button-root'] {
 }
 
 .Navigation {
-  padding: 10px 0;
+  padding: 10px 0 30px;
   @media (max-width: $small) {
+    padding: 10px 0;
     button {
       flex: 1;
     }
@@ -660,6 +672,10 @@ label[class*='radio-group-button-root'] {
 
 div[style*='8fbf67af'] {
   transform: scale(1.2);
+
+  @media (min-width: $medium) {
+    transform: scale(1.4);
+  }
 }
 
 .fname ~ .email {
@@ -683,4 +699,8 @@ button[class*='noIcon'] [class*='spacing'] {
 .HbCard [id*='CardTitle'] {
   width: 100%;
   word-break: break-all;
+}
+
+div#Background {
+  pointer-events: none;
 }

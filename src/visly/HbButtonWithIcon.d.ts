@@ -92,6 +92,20 @@ export const HbButtonWithIcon: {
     props: {
       text?: string;
       onPress?: (event: PressEvent) => void;
+      type?: "button" | "submit" | "reset";
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
+      "aria-expanded"?: boolean;
+      "aria-haspopup"?:
+        | boolean
+        | "menu"
+        | "listbox"
+        | "tree"
+        | "grid"
+        | "dialog";
+      "aria-controls"?: string;
       variant?: "contained";
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

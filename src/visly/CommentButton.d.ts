@@ -93,6 +93,11 @@ export const CommentButton: {
       text?: string;
       icon?: string;
       onChange?: (checked: boolean) => void;
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
+      "aria-controls"?: string;
       checked?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

@@ -1,13 +1,15 @@
 import React, { useContext, useMemo, useEffect } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
-import { HbButton } from "../../visly";
+import { HbButton, useBreakpoint } from "../../visly";
 import { CSSTransition } from "react-transition-group";
 import { FlexBox } from 'react-styled-flex';
 
 function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
   const navRef = React.useRef(null);
+
+  const size = useBreakpoint("small", ["medium", "large", "super"]);
   
   // nav.next()
 
@@ -41,7 +43,7 @@ function Navigation({back, next, restart}) {
 
   return (
     <>
-      <FlexBox gap="10px" className="HbButtonGroup Navigation" column={nextSlideIsEndSlide} center ref={navRef}>
+      <FlexBox gap="10px" className="HbButtonGroup Navigation" column={size === 'small' && nextSlideIsEndSlide} center ref={navRef}>
         <CSSTransition
           in={nav.canBack}
           timeout={200}

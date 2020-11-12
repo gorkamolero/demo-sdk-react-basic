@@ -3,7 +3,7 @@
 /* eslint-disable */
 import React, { createContext, useContext, useRef } from "react";
 import { exists, combineRef, renderChildren, noop } from "./_internal_utils";
-import { useFocus, mergeProps } from "@visly/core";
+import { mergeProps, useTextField } from "@visly/core";
 import { usePrimitive } from "./_internal_usePrimitive";
 import { useFormLabel } from "./_internal_formlabel";
 const Context = createContext(null);
@@ -28,13 +28,6 @@ export function Root(props) {
       }
     },
   };
-
-  const onChange = (e) => {
-    if (exists(props.onChange)) {
-      props.onChange(e.currentTarget.value);
-    }
-  };
-
   return (
     <label
       ref={combineRef(props.measureRef, combineRef(innerRef, ref))}
@@ -50,9 +43,10 @@ export function Root(props) {
           inputProps: props.inputProps || {},
           onFocus: vislyProps.onFocus,
           onBlur: vislyProps.onBlur,
-          onChange,
+          onChange: props.onChange || noop,
           value: props.value,
-          disabled: isDisabled,
+          isDisabled,
+          type: props.type || "text",
         }}
       >
         {renderChildren(props.children, values)}
@@ -61,42 +55,25 @@ export function Root(props) {
   );
 }
 export function TextFieldPrimitive(props) {
-  const {
-    onFocus,
-    onBlur,
-    onChange,
-    inputRef,
-    inputProps,
-    value,
-    disabled,
-  } = useContext(Context);
-  const { focusProps } = useFocus({
-    onFocus,
-    onBlur,
-  });
+  const { inputProps, inputRef, ...contextProps } = useContext(Context);
+  const ref = useRef(null);
   const placeholder = props.placeholder;
-  const { fieldProps } = useFormLabel();
+  const { fieldProps, label } = useFormLabel();
+  const { inputProps: baseInputProps } = useTextField(
+    { ...contextProps, inputElementType: "input", label },
+    ref
+  );
   return (
     <input
-      {...inputProps}
-      type="text"
-      {...focusProps}
-      onChange={onChange}
-      value={value}
-      ref={combineRef(props.measureRef, inputRef)}
+      {...mergeProps(baseInputProps, inputProps)}
+      ref={combineRef(props.measureRef, combineRef(ref, inputRef))}
       placeholder={placeholder}
-      disabled={disabled}
       className={props.className}
       id={props.id}
       style={{
         borderImage: "none",
         outline: "none",
         background: "none",
-        ...(disabled
-          ? {
-              cursor: "not-allowed",
-            }
-          : {}),
         ...inputProps.style,
       }}
       {...fieldProps}

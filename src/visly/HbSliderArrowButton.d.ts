@@ -91,6 +91,20 @@ export const HbSliderArrowButton: {
   (
     props: {
       onPress?: (event: PressEvent) => void;
+      type?: "button" | "submit" | "reset";
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
+      "aria-expanded"?: boolean;
+      "aria-haspopup"?:
+        | boolean
+        | "menu"
+        | "listbox"
+        | "tree"
+        | "grid"
+        | "dialog";
+      "aria-controls"?: string;
       reverse?: boolean;
       HbSliderArrow?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
