@@ -187,7 +187,8 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
         style={{ width: 'auto', margin: '0 10px' }}
         inputProps={{
           type,
-          ...(meta.max && { max: meta.max })
+          ...(meta.max && { max: meta.max }),
+          ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
         // notValid={notValid} 
       >
@@ -483,6 +484,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           <small className="newLineSmall" style={{ marginBottom: 20 }}>
             {interpolate(meta.afterLine)}
           </small>
+          <HbBreakLine className="newLine" />
         </>
       )}
     </>
