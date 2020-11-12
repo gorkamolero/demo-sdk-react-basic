@@ -52,11 +52,12 @@ const Slide = () => {
     const HeadRef = useRef(null);
 
     useEffect(() => {
+      if (size === 'small') return
       if(HeadRef.current){
         let HeadHeight = HeadRef.current.offsetHeight;
         setHeaderHeight(HeadHeight)
       }
-    }, [HeadRef])
+    }, [HeadRef, size])
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(() => {
@@ -80,6 +81,9 @@ const Slide = () => {
 
     const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
     const isEndSlide = slideModel.getType() === 'End'
+    /* eslint-disable */
+    const isFirstSlide = slideId == 101 
+    /* eslint-enable */
 
     return (
       <div>
@@ -100,6 +104,7 @@ const Slide = () => {
                 extraImageT={Bowl}
                 size={size === 'large' ? 'super' : size}
                 discount="20% Off"
+                discount2={isEndSlide ? '$50+ Ships Free' : ''}
                 ShowImage={slideTitle === 'Profile'}
                 NoWave={ isEndSlide }
                 withVideo={ isEndSlide }
@@ -112,21 +117,18 @@ const Slide = () => {
               alignItems="center"
               style={{
                 position: 'relative',
-                zIndex: isEndSlide ? 3 : 0,
-                marginTop: !isEndSlide ? headerHeight - 40 : 0,
+                zIndex: isEndSlide ? 3 : isFirstSlide ? 2 : 0,
+                marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : 0,
                 flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
-                {/* eslint-disable */}
-                <SlideView setSlideHeight={size === 'small' && slideId == 101 ? setSlideHeight : null} slideModel={slideModel} />
-                {/* eslint-enable */}
+                <SlideView setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
               </Container>
             </FlexBox>
 
             {
-              /* eslint-disable */
-              slideId && slideId == 101 && (
-              /* eslint-enable */
+              
+              slideId && isFirstSlide && (
                 <div className="slideFooter" style={{ marginTop: slideHeight }}>
                   <HbFirstSlideFooter
                     size={size === 'super' ? 'large' : size}

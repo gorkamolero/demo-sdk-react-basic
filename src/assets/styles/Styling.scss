@@ -122,10 +122,6 @@ $hyper: '1440px';
 
 main {
   width: 100%;
-
-  @media (max-width: $small) {
-    padding-top: 40px;
-  }
 }
 
 @font-face {
@@ -181,7 +177,6 @@ body {
 }
 
 .HbHeadContainer {
-  position: fixed !important;
   .slide-End & {
     position: static !important;
   }
@@ -189,8 +184,9 @@ body {
   width: 100%;
   top: 0;
   left: 0;
-  *:not(.HbLogo) {
-    // pointer-events: none;
+
+  @media (min-width: $small) {
+    position: fixed !important;
   }
 
   header[id^='HbContent'] {
@@ -424,7 +420,7 @@ li.paging-item.active .pagingDots {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 
-    gap: 10px;
+    gap: 20px;
     flex-wrap: nowrap;
 
     // &:last-of-type {
@@ -522,6 +518,9 @@ label[class*='radio-group-button-root'] {
       min-width: 0px;
       width: 100%;
       flex-direction: row !important;
+      gap: 5px;
+      padding: 10px;
+      min-height: 0;
     }
   }
 }
@@ -571,16 +570,6 @@ label[class*='radio-group-button-root'] {
   }
 }
 
-.slide-Form {
-  @media (max-width: $small) {
-    height: 100vh;
-  }
-}
-@media (max-width: $small) {
-  main {
-    height: 100%;
-  }
-}
 .slideFooter {
   // position: fixed;
   bottom: 0;
@@ -611,8 +600,8 @@ label[class*='radio-group-button-root'] {
 
 [id^='Head'] [id^='Text'] {
   @media (max-width: $small) {
-    font-size: 22px !important;
-    line-height: 24px !important;
+    // font-size: 22px !important;
+    // line-height: 24px !important;
   }
 }
 [id*='Column'] [id^='Head'] {
@@ -623,8 +612,8 @@ label[class*='radio-group-button-root'] {
 
 [id^='Title'] {
   @media (max-width: $small) {
-    font-size: 18px !important;
-    line-height: 18px !important;
+    // font-size: 18px !important;
+    // line-height: 18px !important;
   }
 }
 
@@ -658,4 +647,22 @@ label[class*='radio-group-button-root'] {
   @media (min-width: $large) {
     transform: scale(1.5);
   }
+}
+
+div[style*='8fbf67af'] {
+  transform: scale(1.2);
+}
+
+.fname ~ .email {
+  @media (max-width: $small) {
+    margin-top: 20px !important;
+  }
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
+  -webkit-transition-delay: 9999s;
 }

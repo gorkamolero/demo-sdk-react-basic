@@ -389,8 +389,8 @@ function HbHeader(_props) {
                         }
                         key={"WVr4DnUAPt"}
                         text={
-                          exists(props.textSlot)
-                            ? props.textSlot
+                          exists(props.discount)
+                            ? props.discount
                             : getStyle("WVr4DnUAPt", "text")
                         }
                         element={getStyle("WVr4DnUAPt", "htmlElement")}
@@ -402,8 +402,8 @@ function HbHeader(_props) {
                         }
                         key={"GJpwns7nhj"}
                         text={
-                          exists(props.textSlot1)
-                            ? props.textSlot1
+                          exists(props.discount2)
+                            ? props.discount2
                             : getStyle("GJpwns7nhj", "text")
                         }
                         element={getStyle("GJpwns7nhj", "htmlElement")}

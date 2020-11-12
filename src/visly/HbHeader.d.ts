@@ -91,13 +91,13 @@ export const HbHeader: {
   (
     props: {
       bg?: string;
-      textSlot?: string;
+      discount?: string;
       extraImage?: string;
       extraImageT?: string;
       TitleSlot?: React.ReactNode | React.ReactNode[];
       SubtitleSlot?: React.ReactNode | React.ReactNode[];
       ExtraChildren?: React.ReactNode | React.ReactNode[];
-      textSlot1?: string;
+      discount2?: string;
       ShowImage?: boolean;
       NoWave?: boolean;
       withVideo?: boolean;

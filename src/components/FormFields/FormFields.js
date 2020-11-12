@@ -108,12 +108,12 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" style={{ marginBottom: size === 'small' ? 20 : 0 }}>
       {title}
 
       {
         selected.length > 0 && (
-          <FlexBox gap={10}>
+          <FlexBox gap={10} center wrap>
             {selected.map((o, i) => {
               const op = options.find(op => op.value === o)
               return (
@@ -126,6 +126,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                 key={o + i}
               >
                 <HbTag
+                  size={size}
                   tagText={op && op.label? op.label : op}
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
@@ -193,7 +194,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: size === 'small' ? 0 : 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}

@@ -198,13 +198,13 @@ export const HbFormElement: {
 export const HbHeader: {
   (props: {
     bg?: string;
-    textSlot?: string;
+    discount?: string;
     extraImage?: string;
     extraImageT?: string;
     TitleSlot?: React.ReactNode | React.ReactNode[];
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
     ExtraChildren?: React.ReactNode | React.ReactNode[];
-    textSlot1?: string;
+    discount2?: string;
     ShowImage?: boolean;
     NoWave?: boolean;
     withVideo?: boolean;
@@ -240,8 +240,8 @@ export const HbIconButton: {
     icon?: string;
     onPress?: (event: PressEvent) => void;
     column?: boolean;
-    size?: "small";
     noIcon?: boolean;
+    size?: "small";
     HbIconButtonSelected?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -419,6 +419,7 @@ export const HbTabs: {
 export const HbTag: {
   (props: {
     tagText?: string;
+    size?: "small";
     HbOnlyIconButton?: React.ReactNode;
   } & CommonProps<HTMLDivElement>): JSX.Element;
   HbOnlyIconButton: typeof HbOnlyIconButton;

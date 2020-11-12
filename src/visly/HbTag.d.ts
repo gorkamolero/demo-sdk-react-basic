@@ -91,6 +91,7 @@ export const HbTag: {
   (
     props: {
       tagText?: string;
+      size?: "small";
       HbOnlyIconButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

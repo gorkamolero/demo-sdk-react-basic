@@ -10,11 +10,7 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import {
-  SpacerPrimitive,
-  TextPrimitive,
-  IconPrimitive,
-} from "./_internal_primitives";
+import { TextPrimitive, IconPrimitive } from "./_internal_primitives";
 import { ButtonRoot } from "./_internal_button";
 
 const styles = [
@@ -47,6 +43,11 @@ const styles = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -61,11 +62,6 @@ const styles = [
         },
       },
     ],
-  },
-  {
-    type: "boolean",
-    propName: "noIcon",
-    layers: {},
   },
   {
     type: "boolean",
@@ -94,6 +90,11 @@ const defaultPropValues = [
     layers: {},
   },
   {
+    type: "boolean",
+    propName: "noIcon",
+    layers: {},
+  },
+  {
     type: "enum",
     propName: "size",
     values: [
@@ -102,11 +103,6 @@ const defaultPropValues = [
         layers: {},
       },
     ],
-  },
-  {
-    type: "boolean",
-    propName: "noIcon",
-    layers: {},
   },
   {
     type: "boolean",
@@ -121,13 +117,13 @@ const variantPropTypes = [
     propName: "column",
   },
   {
+    type: "boolean",
+    propName: "noIcon",
+  },
+  {
     type: "enum",
     propName: "size",
     propValues: ["small"],
-  },
-  {
-    type: "boolean",
-    propName: "noIcon",
   },
   {
     type: "boolean",
@@ -149,7 +145,7 @@ function HbIconButton(_props) {
     <ButtonRoot
       {...props}
       key="root"
-      addSpacing={false}
+      addSpacing={true}
       internal={{
         projectId: "WDRq65T88Q",
         styles: styles,
@@ -170,13 +166,6 @@ function HbIconButton(_props) {
             src={
               exists(props.icon) ? props.icon : getStyle("8CLRfG5L7n", "icon")
             }
-          />
-          <SpacerPrimitive
-            id={"Spacer_9UVDautth7"}
-            className={
-              "__visly_reset_WDRq65T88Q __visly_scope_RK1ajYQDzn_9UVDautth7"
-            }
-            key={"9UVDautth7"}
           />
           <TextPrimitive
             id={"text_2raK7yRvmH"}
@@ -201,13 +190,13 @@ HbIconButton.__variants = [
     type: "variant",
   },
   {
+    name: "noIcon",
+    type: "variant",
+  },
+  {
     name: "size",
     type: "group",
     variants: ["small"],
-  },
-  {
-    name: "noIcon",
-    type: "variant",
   },
   {
     name: "HbIconButtonSelected",
