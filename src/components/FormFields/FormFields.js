@@ -402,12 +402,9 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   if (meta.hide || !isExpanded) return null
   return (
     <>
-      {
-        meta.forceTogetherFirstElement && <span className="forceTogether" />
-      }
       {meta.newLine && <HbBreakLine className="newLine" />}
         <HbFormElement
-          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine && 'mobileNewLine'}  ${meta.forceSameLine && 'forceSameLine'}`}
+          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine ? 'mobileNewLine' : ''}  ${meta.forceSameLine ? 'forceSameLine' : ''} ${meta.forceTogether ? 'forceTogether' : ''} ${meta.forceTogetherFirstElement ? 'forceTogetherFirstElement' : ''}`}
           style={{
             marginTop: 20,
             marginBottom: 20,

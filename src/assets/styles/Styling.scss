@@ -430,6 +430,23 @@ li.paging-item.active .pagingDots {
     //   // margin-bottom: 10px !important;
 
     // }
+
+    &.forceTogether {
+      width: auto !important;
+      display: inline-flex;
+      gap: 5px;
+      .selectContainer > div {
+        min-width: 100px;
+      }
+
+      &.forceTogetherFirstElement {
+        flex-basis: 50%;
+      }
+
+      [class*='control'] {
+        padding: 0;
+      }
+    }
   }
 
   white-space: nowrap;
