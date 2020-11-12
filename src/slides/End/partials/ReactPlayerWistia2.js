@@ -40,13 +40,10 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
 
-  console.log()
-  const [markup, setMarkup] = useState(() => iframeMarkup('https://fast.wistia.com/embed/medias/bmwh267dv6.jsonp?idType=ab-test'))
-
-  // const [markup, setMarkup] = useState(() => iframeMarkup(video))
-  // useEffect(() => {
-  //   return setMarkup( iframeMarkup(video) )
-  // }, [video])
+  const [markup, setMarkup] = useState(() => iframeMarkup(video))
+  useEffect(() => {
+    return setMarkup( iframeMarkup(video) )
+  }, [video])
 
   useEffect(() => {
     if (!play) return
