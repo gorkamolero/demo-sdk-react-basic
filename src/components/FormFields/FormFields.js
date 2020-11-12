@@ -363,7 +363,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
           ) {
             field.setHidden(false)
-          }
+          } else { field.setHidden(true) }
         }
       }
 

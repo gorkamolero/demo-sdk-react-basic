@@ -720,3 +720,7 @@ button[class*='noIcon'] [class*='spacing'] {
 div#Background {
   pointer-events: none;
 }
+
+.HbFeatureItem {
+  flex-shrink: 1;
+}
