@@ -52,7 +52,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   }, [count, setVideoIsDone, play]);
   
   return (
-    <HbSection noHeadNoPadding>
+    <HbSection noHeadNoPadding style={{ margin: '0 auto' }}>
       <CSSTransition
         in={true}
         timeout={200}
