@@ -25,11 +25,7 @@ const iframeMarkup = (videoURL) => `
       <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
     </head>
     <body style="padding: 0; margin: 0; overflow: hidden;">
-      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
           <div class="wistia_embed wistia_async_bmwh267dv6 idType=ab-test seo=true videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div>
-        </div>
-      </div>
     </body>
 </html>
   `

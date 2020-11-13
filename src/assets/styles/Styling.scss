@@ -802,3 +802,7 @@ div#Background {
     }
   }
 }
+
+.slide-end .HbHeader [id^='HbContainer'] {
+  padding-bottom: 0 !important;
+}

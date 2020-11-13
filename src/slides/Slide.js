@@ -123,7 +123,7 @@ const Slide = () => {
                 marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : 0,
                 flex: 1
             }}>
-              <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
+              <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
                 <SlideView setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
               </Container>
             </FlexBox>
