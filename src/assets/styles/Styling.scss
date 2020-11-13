@@ -259,11 +259,6 @@ label[class*='radio-group-button'] {
 ul[role*='listbox'] {
   width: auto !important;
 }
-small {
-  font-size: 16px;
-  font-style: italic;
-  opacity: 60%;
-}
 
 .Select-placeholder,
 .Select--single > .Select-control .Select-value {
@@ -634,7 +629,7 @@ label[class*='radio-group-button-root'] {
 .newLineSmall {
   line-height: 1.4;
   margin-bottom: 20px;
-  opacity: 60%;
+  opacity: 0.6;
   @media (max-width: $small) {
     text-align: center;
     margin-bottom: 0;
@@ -891,5 +886,5 @@ div#Background {
 small {
   font-size: 16px;
   font-style: italic;
-  opacity: 60%;
+  opacity: 0.6;
 }
