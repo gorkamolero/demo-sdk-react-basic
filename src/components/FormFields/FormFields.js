@@ -492,7 +492,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             )
           }
 
-          {meta.afterTxt && (
+          {meta.afterTxt && (size === 'small' && !meta.hideMobileAfterText ) && (
             <>
               <HbSpace />
               {interpolate(customAfterText || meta.afterTxt)}
