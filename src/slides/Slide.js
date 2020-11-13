@@ -21,7 +21,7 @@ const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
 
   return (
-    <div>
+    <div style={{ width: '100%' }}>
       {
         {
           'Cover':  <Cover />,
@@ -127,7 +127,7 @@ const Slide = () => {
               style={{
                 position: 'relative',
                 zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
-                marginTop: marginTop,
+                marginTop: marginTop(),
                 flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
@@ -150,7 +150,5 @@ const Slide = () => {
       </div>
     );
 };
-
-Slide.whyDidYouRender = true
 
 export default Slide

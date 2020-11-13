@@ -46,7 +46,7 @@ function End() {
                     gender: window.hungry.end.dogGender,
                 })
                 setProducts({
-                    kibble: null,
+                    kibble: window.hungry.end.kibble ? window.hungry.end.kibble : null,
                     supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
                     mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
@@ -115,7 +115,9 @@ function End() {
             {
                 videoIsDone && (
                     <>
-                        <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                        {
+                            products && <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                        }
 
                         { window.location.href.includes('localhost') && <Navigation />}
 

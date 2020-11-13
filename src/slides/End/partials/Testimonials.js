@@ -66,7 +66,7 @@ const Testimonials = () => {
                 text={testimonial.text}
                 dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
                 stars={<FlexBox gap={5}>
-                  {Array(5).fill().map((i) => (<HbCircleIcon justEmoji icon={icons.hbStar} />))}
+                  {Array(5).fill().map((i) => (<HbCircleIcon key={i} justEmoji icon={icons.hbStar} />))}
                 </FlexBox>}
               />
           ))

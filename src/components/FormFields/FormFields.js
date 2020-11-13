@@ -128,12 +128,12 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" style={{ marginBottom: size === 'small' ? 20 : 0 }}>
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
       {title}
 
       {
         selected.length > 0 && (
-          <FlexBox gap={10} center wrap>
+          <FlexBox center wrap>
             {selected.map((o, i) => {
               const op = options.find(op => op.value === o)
               return (
@@ -153,6 +153,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                       onPress={() => toggleSelected(o)}
                       style={{ marginTop: 10 }}
                     />}
+                  style={{ margin: 5 }}
                 />
               </CSSTransition>
             )
@@ -235,7 +236,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: size === 'small' ? 10 : 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}
@@ -431,8 +432,6 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         <HbFormElement
           className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine ? 'mobileNewLine' : ''}  ${meta.forceSameLine ? 'forceSameLine' : ''} ${meta.forceTogether ? 'forceTogether' : ''} ${meta.forceTogetherFirstElement ? 'forceTogetherFirstElement' : ''}`}
           style={{
-            marginTop: 20,
-            marginBottom: 20,
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
             ...(meta.column && { alignItems: "center" }),
