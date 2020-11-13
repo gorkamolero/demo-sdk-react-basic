@@ -37,7 +37,6 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const textDuration = 1000
 
   const markup = iframeMarkup(video)
-  console.log('Wistia!', markup);
 
   useEffect(() => {
     if (!play) return

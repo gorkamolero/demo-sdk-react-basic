@@ -42,10 +42,11 @@ function End() {
                 setHungry(window.hungry.end)
                 setDog({
                     name: window.hungry.end.dogName,
-                    weight: window.hungry.end.dogWeight
+                    weight: window.hungry.end.dogWeight,
+                    gender: window.hungry.end.dogGender,
                 })
                 setProducts({
-                    kibble: window.hungry.end.kibble ? window.hungry.end.kibble : null,
+                    kibble: null,
                     supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
                     mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })

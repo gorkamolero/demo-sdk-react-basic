@@ -881,3 +881,7 @@ div#Background {
     transform: translateY(100%);
   }
 }
+
+[id^='RightSide'] {
+  flex: 1;
+}

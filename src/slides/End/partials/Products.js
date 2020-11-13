@@ -8,6 +8,8 @@ import { useModal } from "react-modal-hook"
 import ProductModal from './ProductModal'
 import CustomHTML from '../../../components/CustomHTML/CustomHTML';
 
+
+
 const Products = ({
     style,
     selectedResults,
@@ -22,6 +24,14 @@ const Products = ({
     goals,
     texts
 }) => {
+
+    const replacers = {
+        kibble: 'meal',
+        supplement: 'supplement',
+        mixin: 'mixin'
+    }
+
+    const contact = (type) => `<p>Unfortunately we don’t have a Hungry Bark ${replacers[type]} to offer ${dog.gender === 'Male' ? 'him' : 'her'}. Want to discuss this further? <span class="underline">Contact us at nutritionist@hungrybark.com</span></p>`
 
     const [results, setResults] = useState(null);
     const [modalData, setModalData] = useState(null);
@@ -38,7 +48,8 @@ const Products = ({
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
         setSelectedResults([products.kibble, products.supplement, products.mixin])
-    }, [products.kibble, products.supplement, products.mixin, setSelectedResults]);
+        console.log(products)
+    }, [products.kibble, products.supplement, products.mixin, setSelectedResults, products]);
 
 
     useEffect(() => {
@@ -108,9 +119,7 @@ const Products = ({
                             type={'Meal'}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark dry food to offer him. Want to discuss this further? <span class="underline" href="mailto:">Contact us at nutritionist@hungrybark.com</span></p>'
-                                    }
+                                    html={contact('kibble')}
                                 />
                             }
                             className="HbCard"
@@ -150,9 +159,7 @@ const Products = ({
                             type={'Supplement'}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
-                                    }
+                                    html={contact('supplement')}
                                 />
                             }
                             className="HbCard"
@@ -192,9 +199,7 @@ const Products = ({
                             type={'Mixin'}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Mixin to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
-                                    }
+                                    html={contact('mixin')}
                                 />
                             }
                             className="HbCard"
