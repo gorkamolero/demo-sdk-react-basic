@@ -37,8 +37,9 @@ const Products = ({
 
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
+        setSelectedResults([products.kibble, products.supplement, products.mixin])
         console.log('RESULTS', products.kibble, products.supplement, products.mixin)
-    }, [products.kibble, products.supplement, products.mixin]);
+    }, [products.kibble, products.supplement, products.mixin, setSelectedResults]);
 
 
     useEffect(() => {
@@ -108,7 +109,7 @@ const Products = ({
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Kibble to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                        '<p>Unfortunately we don’t have a Hungry Bark Dry food to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
                                     }
                                 />
                             }
@@ -150,7 +151,7 @@ const Products = ({
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                        '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
                                     }
                                 />
                             }
@@ -192,7 +193,7 @@ const Products = ({
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Mixin to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
+                                        '<p>Unfortunately we don’t have a Hungry Bark Mixin to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
                                     }
                                 />
                             }
@@ -202,10 +203,8 @@ const Products = ({
                 }
 
                 <HbResults
-                    className="HbCard"
+                    className="HbCard HbResults"
                     verylongname={`${dog.name}’s Plan`}
-                    // trial={texts.plan.trial}
-                    // afterTrial={texts.plan.afterTrial}
                     DescriptionHtml={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,

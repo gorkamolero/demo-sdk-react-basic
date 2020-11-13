@@ -107,6 +107,7 @@ export const HbButtonWithIcon: {
         | "dialog";
       "aria-controls"?: string;
       variant?: "contained";
+      noIcon?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

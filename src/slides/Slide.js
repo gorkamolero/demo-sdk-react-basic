@@ -85,6 +85,8 @@ const Slide = () => {
     const isFirstSlide = slideId == 101 
     /* eslint-enable */
 
+    console.log(slideTitle)
+
     return (
       <div>
       {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
@@ -92,7 +94,7 @@ const Slide = () => {
           <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
-                className="HbHeader"
+                className={`HbHeader ${slideTitle !== 'Profile' && !isEndSlide ? 'hideImage' : ''}`}
                 TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
                 SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}

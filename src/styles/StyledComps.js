@@ -39,6 +39,7 @@ export const HbSubtitle = styled(CustomHTML)(props => ({
   }),
   ...(props.size && props.size === 'small' && {
     textAlign: 'left',
+    lineHeight: '24px'
   }),
 }))
 

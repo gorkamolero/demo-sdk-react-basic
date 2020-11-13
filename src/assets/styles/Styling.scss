@@ -1,3 +1,5 @@
+/* autoprefixer grid: autoplace */
+
 :root {
   --background: #f7f7f7;
   --green: #12b0aa;
@@ -198,6 +200,13 @@ body {
 
 .HbHeader {
   text-align: center;
+
+  &.hideImage {
+    div[role='image'][style*='Bowl'],
+    header + [id^='Overlay'] {
+      display: none !important;
+    }
+  }
 }
 
 div[role='radiogroup'] {
@@ -423,7 +432,7 @@ li.paging-item.active .pagingDots {
     margin-top: 10px !important;
     margin-bottom: 10px !important;
 
-    gap: 20px;
+    gap: 0;
     flex-wrap: nowrap;
 
     // &:last-of-type {
@@ -432,19 +441,25 @@ li.paging-item.active .pagingDots {
     // }
 
     &.forceTogether {
-      width: auto !important;
-      display: inline-flex;
-      gap: 5px;
+      // width: auto !important;
+      // display: inline-flex;
+      // gap: 5px;
       .selectContainer > div {
         min-width: 100px;
       }
 
-      &.forceTogetherFirstElement {
-        flex-basis: 50%;
-      }
+      // &.forceTogetherFirstElement {
+      //   flex-basis: 50%;
+      // }
 
       [class*='control'] {
         padding: 0;
+      }
+    }
+
+    &.number {
+      label {
+        margin-top: 20px !important;
       }
     }
   }
@@ -527,8 +542,19 @@ label[class*='radio-group-button-root'] {
   padding: 10px 0 30px;
   @media (max-width: $small) {
     padding: 10px 0;
-    button {
+    button,
+    button[type='button'] {
       flex: 1;
+      padding: 20px !important;
+    }
+  }
+}
+
+.HbEndFooter {
+  &.stack {
+    button[type='button'] {
+      flex: 1;
+      padding: 16px 24px !important;
     }
   }
 }
@@ -644,6 +670,7 @@ label[class*='radio-group-button-root'] {
 [id*='Column'] [id^='Head'] {
   @media (max-width: $small) {
     padding-bottom: 20px !important;
+    padding-top: 20px !important;
   }
 }
 
@@ -656,7 +683,8 @@ label[class*='radio-group-button-root'] {
 
 .switch {
   @media (max-width: $small) {
-    margin: 0 10px;
+    margin: 0 0 10px !important;
+    --switchHeight: 52px;
   }
 }
 
@@ -723,4 +751,45 @@ div#Background {
 
 .HbFeatureItem {
   flex-shrink: 1;
+}
+
+@media (max-width: $small) {
+  .forceTogetherFirstElement {
+    padding-left: 10px;
+    .selectContainer {
+      position: absolute;
+      left: 10px;
+      transform: translateY(calc(100% + 10px));
+      z-index: 9;
+      width: 50%;
+    }
+  }
+
+  .forceTogether:not(.forceTogetherFirstElement) {
+    justify-content: flex-end;
+    padding-right: 0;
+    > *:not(.selectContainer) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $small) {
+  .selectContainer {
+    &.field-1,
+    &.field-5 {
+      margin-top: 10px;
+    }
+  }
+  .HbInput {
+    margin-top: 10px !important;
+  }
+}
+
+.HbResults {
+  @media (max-width: $small) {
+    [id^='CardFooter'] button {
+      display: none;
+    }
+  }
 }

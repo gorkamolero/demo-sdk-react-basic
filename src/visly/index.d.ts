@@ -144,6 +144,7 @@ export const HbButtonWithIcon: {
     'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
     'aria-controls'?: string;
     variant?: "contained";
+    noIcon?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCheckbox: {
@@ -246,10 +247,10 @@ export const HbHeader: {
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
     ExtraChildren?: React.ReactNode | React.ReactNode[];
     discount2?: string;
-    ShowImage?: boolean;
     NoWave?: boolean;
     withVideo?: boolean;
     size?: "small" | "medium" | "super";
+    ShowImage?: boolean;
     HbCircleIcon?: React.ReactNode;
     HbProgress?: React.ReactNode;
     HbLogo?: React.ReactNode;

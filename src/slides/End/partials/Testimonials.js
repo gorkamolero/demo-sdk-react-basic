@@ -33,7 +33,7 @@ const Testimonials = () => {
     slidesToShow: size === 'large' ? 3 : size === 'medium' ? 2 : 1,
     renderCenterLeftControls: ({ previousSlide }) => <HbSliderArrow reverse onClick={ previousSlide }/>,
     renderCenterRightControls: ({nextSlide}) => <HbSliderArrow onClick={ nextSlide } />,
-    framePadding: '20px 0 80px',
+    framePadding: size === 'small' ? '20px 10px 80px' : '20px 0 80px',
     cellSpacing: 20,
     frameOverflow: 'hidden',
     defaultControlsConfig: {

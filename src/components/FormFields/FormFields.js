@@ -56,6 +56,8 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
     }
   }, [meta])
 
+  console.log(field)
+
   /* eslint-disable*/
   React.useEffect(() => {
     if (selected) {
@@ -65,7 +67,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   /* eslint-enable */
 
   return (
-    <FlexBox column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.isSearchable === false && 'notSearchable'}`}>
+    <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.isSearchable === false && 'notSearchable'} ${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
       <ReactSelect
@@ -141,6 +143,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
+                      style={{ marginTop: 10 }}
                     />}
                 />
               </CSSTransition>
@@ -190,6 +193,7 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
           ...(meta.max && { max: meta.max }),
           ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
+        className={`HbInput`}
         // notValid={notValid} 
       >
         { meta.units && <span>{meta.units}</span> }
@@ -209,7 +213,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: size === 'small' ? 0 : 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: size === 'small' ? 10 : 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}

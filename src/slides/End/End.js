@@ -76,6 +76,8 @@ function End() {
         });
     }
 
+    const restartQuiz = () => nav.restart()
+
     useEffect(() => {
         if (!hungry) return
         let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice*0.8))
@@ -116,12 +118,15 @@ function End() {
                         <Testimonials />
 
                         <Footer
+                            className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
                             HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
+                            RestartSlotMobile={<Footer.RestartSlotMobile onPress={restartQuiz} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
                             stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={

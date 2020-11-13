@@ -44,11 +44,6 @@ const styles = [
   },
   {
     type: "boolean",
-    propName: "ShowImage",
-    layers: {},
-  },
-  {
-    type: "boolean",
     propName: "NoWave",
     layers: {},
   },
@@ -81,6 +76,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "ShowImage",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -93,16 +93,6 @@ const defaultPropValues = [
           HbYellowIcon: true,
         },
       },
-      B28tWsTkne: {},
-      DesmwGXXNp: {},
-      "9VxZfYB53B": {},
-    },
-  },
-  {
-    type: "boolean",
-    propName: "ShowImage",
-    layers: {
-      Coy4GvRJN5: {},
       B28tWsTkne: {},
       DesmwGXXNp: {},
       "9VxZfYB53B": {},
@@ -169,13 +159,19 @@ const defaultPropValues = [
       },
     ],
   },
-];
-
-const variantPropTypes = [
   {
     type: "boolean",
     propName: "ShowImage",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
   },
+];
+
+const variantPropTypes = [
   {
     type: "boolean",
     propName: "NoWave",
@@ -188,6 +184,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "size",
     propValues: ["small", "medium", "super"],
+  },
+  {
+    type: "boolean",
+    propName: "ShowImage",
   },
 ];
 
@@ -560,10 +560,6 @@ HbHeader.HbLogo = HbLogoComposite;
 HbHeader.HbProgressMobile = HbProgressComposite;
 HbHeader.__variants = [
   {
-    name: "ShowImage",
-    type: "variant",
-  },
-  {
     name: "NoWave",
     type: "variant",
   },
@@ -575,6 +571,10 @@ HbHeader.__variants = [
     name: "size",
     type: "group",
     variants: ["small", "medium", "super"],
+  },
+  {
+    name: "ShowImage",
+    type: "variant",
   },
 ];
 

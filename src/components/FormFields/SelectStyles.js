@@ -18,12 +18,13 @@ export default {
     margin: 0,
     minWidth: '100%',
     width: 'auto',
-    borderRadius: 0,
+    borderRadius: 0
   }),
   indicatorSeparator: () => ({ display: 'none' }),
   menuList: (provided) => ({
     ...provided,
-    padding: 0
+    padding: 0,
+    backgroundColor: 'white'
   }),
   valueContainer: provided => ({
     ...provided,
