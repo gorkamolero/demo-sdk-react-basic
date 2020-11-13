@@ -104,11 +104,15 @@ function End({loading, setLoading}) {
         <>
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={0} />
+                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={100} />
                 )
             }
 
-            <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+            {
+                !loading && (
+                    <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                )
+            }
 
             {
                 videoIsDone && (

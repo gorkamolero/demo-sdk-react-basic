@@ -48,15 +48,15 @@ const Img = styled.img`
 `
 
 
-const Loading = ({ timing = 1000, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
+const Loading = ({ timing = 1000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
   const [ isMounted, setIsMounted ] = useState(true);
   
-  const shouldRenderChild = useDelayUnmount(isMounted, 100);
-  const mountedStyle = {opacity: 1, transform: 'translateY(0)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
-  const unmountedStyle = {opacity: 0, transform: 'translateY(-10%)', transition: "all 1000ms cubic-bezier(0.25, 1, 0.5, 1)"};
+  const shouldRenderChild = useDelayUnmount(isMounted, 20);
+  const mountedStyle = {opacity: 1, transform: 'translateY(0)', transition: "all 250ms cubic-bezier(0.25, 1, 0.5, 1)"};
+  const unmountedStyle = {opacity: 0, transform: 'translateY(-10%)', transition: "all 100ms cubic-bezier(0.25, 1, 0.5, 1)"};
 
   useEffect(() => {
     return () => setLoadingScreenIsSeen(true)
@@ -64,18 +64,20 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 0, setLoadingScreenIsS
   
   // Rotate images
   useEffect(() => {
+    if (progress === 100) return
     let min = 0, max = Loaders.length - 1, step = +1, now = 0;
+
 
     const interval = setInterval(() => {
         if(now >= max) {step = -1;}
         if(now <= min) {step = +1;}
         now += step;
         setRotation(now)
-    }, timing);
+    }, timing, progress);
 
 
     return () => clearInterval(interval);
-  }, [timing])
+  }, [timing, progress])
   
   // Rotate progress
   useEffect(() => {
@@ -84,12 +86,13 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 0, setLoadingScreenIsS
     const interval = setInterval(() => {
         now += Math.floor(Math.random() * step) + min  ;
         // if (now <= max) { clearInterval(interval) }
+        if (progress === 100) return
         setProgress(now)
     }, timing * 2 / 3);
 
 
     return () => clearInterval(interval);
-  }, [timing])
+  }, [timing, progress])
 
   // Set loading when complete
   useEffect(() => {
@@ -113,7 +116,7 @@ const Loading = ({ timing = 1000, setLoading, outTiming = 0, setLoadingScreenIsS
               size={size}
             />
           }
-          className="HbLoadingScreen"
+          className={`HbLoadingScreen ${loading ? 'screenIsLoading' : 'screenIsLoaded'}`}
           text="We are creating Oscar's custom plan"
         >
           <Img src={Loaders[rotation]} />
