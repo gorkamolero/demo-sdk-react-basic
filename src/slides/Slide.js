@@ -3,10 +3,10 @@ import { ModalProvider } from "react-modal-hook";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
 import Utils from '../utils/Utils'
-import Cover from '../slides/Cover/Cover';
-import Filter from '../slides/Filter/Filter';
-import Info from '../slides/Info/Info';
-import Feedback from '../slides/Feedback/Feedback';
+// import Cover from '../slides/Cover/Cover';
+// import Filter from '../slides/Filter/Filter';
+// import Info from '../slides/Info/Info';
+// import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
@@ -24,10 +24,10 @@ const SlideView = ({slideModel, ...rest}) => {
     <div style={{ width: '100%' }}>
       {
         {
-          'Cover':  <Cover />,
-          'Filter':<Filter />,
-          'Info':<Info />,
-          'Feedback':<Feedback />,
+          // 'Cover':  <Cover />,
+          // 'Filter':<Filter />,
+          // 'Info':<Info />,
+          // 'Feedback':<Feedback />,
           'Form':<Form {...rest} />,
           'End':<End />,
         }[type]
