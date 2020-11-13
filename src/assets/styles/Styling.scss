@@ -552,9 +552,12 @@ label[class*='radio-group-button-root'] {
 
 .HbEndFooter {
   &.stack {
-    button[type='button'] {
+    button[type='button']:not([id^='HbLinkButton']) {
       flex: 1;
       padding: 16px 24px !important;
+      &:last-child {
+        flex: 3;
+      }
     }
   }
 }
@@ -805,4 +808,11 @@ div#Background {
 
 .slide-end .HbHeader [id^='HbContainer'] {
   padding-bottom: 0 !important;
+}
+
+.HbEndFooter.stack [id^='Row'] [id^='Row'] {
+  justify-content: flex-end;
+  button + [class*='spacing'] {
+    display: none;
+  }
 }

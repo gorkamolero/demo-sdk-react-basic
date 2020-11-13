@@ -43,7 +43,7 @@ function Navigation({back, next, restart}) {
 
   return (
     <>
-      <FlexBox gap="10px" reverse={nextSlideIsEndSlide} className="HbButtonGroup Navigation" column={size === 'small' && nextSlideIsEndSlide} center ref={navRef}>
+      <FlexBox gap="10px" reverse={nextSlideIsEndSlide && size === 'small'} className="HbButtonGroup Navigation" column={size === 'small' && nextSlideIsEndSlide} center ref={navRef}>
         <CSSTransition
           in={nav.canBack}
           timeout={200}
