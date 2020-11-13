@@ -178,6 +178,31 @@ body {
   }
 }
 
+.player-container {
+  min-width: calc(1280px / 12 * 8);
+  margin: 0 auto 20px;
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player,
+.player-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  border: 0;
+}
+
+.Spacer_JttkhPdb2e {
+  display: none;
+}
+
 .HbHeadContainer {
   .slide-End & {
     position: static !important;
@@ -378,6 +403,9 @@ h2 {
 
 .inheritColor {
   color: inherit;
+}
+.underline {
+  text-decoration: underline;
 }
 
 .pagingDots {
@@ -594,6 +622,7 @@ label[class*='radio-group-button-root'] {
 }
 .CheckboxButtonContainer {
   @media not all and (min-resolution: 0.001dpcm) {
+    // SAFARI
     @supports (-webkit-appearance: none) {
       label {
         margin: 5px;
@@ -635,10 +664,20 @@ label[class*='radio-group-button-root'] {
 
 .HbCard {
   width: 23.5%;
+  --margin: 2%;
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      &:not(:last-of-type) {
+        margin-right: var(--margin);
+      }
+    }
+  }
   @media (max-width: $large) {
     width: 48%;
     margin-bottom: 20px;
   }
+
   @media (max-width: $small) {
     width: 100%;
 

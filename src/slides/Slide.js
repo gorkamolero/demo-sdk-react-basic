@@ -87,6 +87,13 @@ const Slide = () => {
 
     if (!Container) return null
 
+    const marginTop = () => {
+      if (isEndSlide) return 0
+      if(size !=='small') return headerHeight - 40
+      if (size === 'medium') return headerHeight - 20
+      else return 0
+    }
+
     return (
       <div>
       {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
@@ -94,7 +101,7 @@ const Slide = () => {
           <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
-                className={`HbHeader ${slideTitle !== 'Profile' && !isEndSlide ? 'hideImage' : ''}`}
+                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''}`}
                 TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
                 SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
@@ -119,8 +126,8 @@ const Slide = () => {
               alignItems="center"
               style={{
                 position: 'relative',
-                zIndex: isEndSlide ? 3 : isFirstSlide ? 2 : 0,
-                marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : size === 'medium' ? headerHeight - 20 : 0,
+                zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
+                marginTop: marginTop,
                 flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>

@@ -15,12 +15,17 @@ import {
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
 
-const noTest = false
+const noTest = true
 
 function End() {
     // No loading for dev
-    const [loading, setLoading] = useState(false)
+    const [loading, setLoading] = useState(true)
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
+    
+    React.useEffect(() => {
+        if (loadingScreenIsSeen) setLoading(false)
+    }, [loadingScreenIsSeen])
+
     const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
 
     const { nav } = useContext(SlideContext);
@@ -28,7 +33,6 @@ function End() {
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
-    const [video, setVideo] = useState(null)
 
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
@@ -41,17 +45,18 @@ function End() {
                     weight: window.hungry.end.dogWeight
                 })
                 setProducts({
-                    kibble: window.hungry.end.kibble,
-                    supplement: window.hungry.end.supplement,
-                    mixin: window.hungry.end.mixin
+                    kibble: window.hungry.end.kibble ? window.hungry.end.kibble : null,
+                    supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
+                    mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
-                setVideo(window.hungry.end.video)
+
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
         }
 
         waitForWindowData()
+
     }, [])
 
     const [selectedResults, setSelectedResults] = useState([])
@@ -94,7 +99,7 @@ function End() {
         })
     }, [hungry, getPrice, totalPrice])
 
-    if (!hungry || !products) return null
+    if (!hungry) return null
 
     return (
         <>
@@ -104,7 +109,7 @@ function End() {
                 )
             }
 
-            {<Video video={video} play={!loading} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
+            <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
 
             {
                 videoIsDone && (

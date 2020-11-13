@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Frame from 'react-frame-component'
 import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
-import './ReactPlayerWistia.css'
+import {CSSTransition} from 'react-transition-group'
 
 const texts = [
   `Analyzing... your dog's information`,
@@ -36,10 +36,8 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
 
-  const [markup, setMarkup] = useState(() => iframeMarkup(video))
-  useEffect(() => {
-    return setMarkup( iframeMarkup(video) )
-  }, [video])
+  const markup = iframeMarkup(video)
+  console.log('Wistia!', markup);
 
   useEffect(() => {
     if (!play) return
@@ -53,20 +51,27 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
     }, textDuration);
     return () => window.clearInterval(interval);
   }, [count, setVideoIsDone, play]);
-
-  if (!markup) return null
   
   return (
     <HbSection noHeadNoPadding>
-      <div className="player-container">
-        <div className="player-wrapper">
-          <Frame className="player-iframe" initialContent={markup} />
+      <CSSTransition
+        in={true}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <div className="player-container">
+          <div className="player-wrapper">
+            <Frame className="player-iframe" initialContent={markup} />
+          </div>
         </div>
-      </div>
+      </CSSTransition>
+      
 
       {
         (videoIsDone && play) || (
-          <FooterBar center text={text} />
+          <FooterBar className="FooterBar" center text={text} />
         )
       }
     </HbSection>

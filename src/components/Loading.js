@@ -35,7 +35,7 @@ const LoadingScreen = styled(HbLoadingScreen)`
   position: fixed;
   top: 0; right: 0; bottom: 0; left: 0;
   background: white;
-  z-index: 1;
+  z-index: 99999999999;
   & > * {
     width: 100%;
   }

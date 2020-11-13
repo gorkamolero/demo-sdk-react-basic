@@ -38,14 +38,13 @@ const Products = ({
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
         setSelectedResults([products.kibble, products.supplement, products.mixin])
-        console.log('RESULTS', products.kibble, products.supplement, products.mixin)
     }, [products.kibble, products.supplement, products.mixin, setSelectedResults]);
 
 
     useEffect(() => {
         setTotalPrice(
             Math.round((
-                selectedResults.length > 0 ? selectedResults.map(({price}) => price).reduce((a, b) => a + b) : 0
+                selectedResults.length > 0 ? selectedResults.map((result) => result && result.price && result.price).reduce((a, b) => a + b) : 0
             ) * 100) / 100
         )
     }, [subscription, selectedResults, setTotalPrice])
@@ -53,8 +52,9 @@ const Products = ({
     if (!results) return null
 
     const onAddResult = (result) => {
+        if (!result) return
         if (selectedResults.includes(result)) {
-            setSelectedResults(selectedResults.filter(r => r.sku !== result.sku))
+            setSelectedResults(selectedResults.filter(r => r && r.sku !== result.sku))
         }
         else return setSelectedResults(selectedResults.concat(result))
     }
@@ -109,7 +109,7 @@ const Products = ({
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Dry food to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:nutritionist@hungrybark.com">Contact us</a></p>'
+                                        '<p>Unfortunately we don’t have a Hungry Bark dry food to offer him. Want to discuss this further? <span class="underline" href="mailto:">Contact us at nutritionist@hungrybark.com</span></p>'
                                     }
                                 />
                             }
