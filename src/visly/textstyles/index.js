@@ -53,7 +53,7 @@ export const hbFeatureText = {
   lineHeight: "24px",
 };
 export const hbFeatureTitle = {
-  fontFamily: "Averta",
+  fontFamily: "Filson Pro",
   fontSize: "22px",
   fontWeight: 700,
   fontStyle: "normal",
