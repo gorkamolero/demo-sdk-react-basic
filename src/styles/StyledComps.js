@@ -24,7 +24,7 @@ export const HbTitle = styled(CustomHTML)(props => ({
   }),
   ...(props.size && props.size === 'small' && {
     ...textstyles.superHeadingMobile,
-    textAlign: 'left',
+    textAlign: 'center',
   }),
   color: colors.hbBrown,
   '&:first-letter': { textTransform: 'uppercase' }
@@ -38,7 +38,7 @@ export const HbSubtitle = styled(CustomHTML)(props => ({
     textAlign: 'left',
   }),
   ...(props.size && props.size === 'small' && {
-    textAlign: 'left',
+    textAlign: 'center',
     lineHeight: '24px'
   }),
 }))

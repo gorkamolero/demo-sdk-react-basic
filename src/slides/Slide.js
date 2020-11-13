@@ -102,7 +102,7 @@ const Slide = () => {
           <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
-                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading ? 'isLoading' : 'finishedLoading'}`}
+                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
                 TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
                 SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}

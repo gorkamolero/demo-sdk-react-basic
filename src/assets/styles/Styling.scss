@@ -239,6 +239,10 @@ body {
     [id^='ExtraImg'] {
       display: none !important;
     }
+
+    header {
+      padding: 0 !important;
+    }
   }
 }
 
@@ -620,6 +624,9 @@ label[class*='radio-group-button-root'] {
       gap: 5px;
       padding: 10px;
       min-height: 0;
+      [class*='spacing'] {
+        padding: 5px !important;
+      }
     }
   }
 }
@@ -739,7 +746,7 @@ label[class*='radio-group-button-root'] {
 
 .switch {
   @media (max-width: $small) {
-    margin: 0 0 10px !important;
+    margin-bottom: 10px !important;
     --switchHeight: 52px;
   }
 }
@@ -832,6 +839,9 @@ div#Background {
 
 @media (max-width: $small) {
   .selectContainer {
+    &.notSearchable > div {
+      max-width: 0;
+    }
     &.field-1,
     &.field-5 {
       margin-top: 20px;

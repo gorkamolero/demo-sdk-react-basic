@@ -178,6 +178,7 @@ export const HbCheckboxGroup: {
     'aria-details'?: string;
     'aria-controls'?: string;
     checked?: boolean;
+    column?: boolean;
     HbIconButton?: React.ReactNode;
   } & CommonProps<HTMLDivElement>): JSX.Element;
   HbIconButton: typeof HbIconButton;

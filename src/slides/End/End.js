@@ -137,7 +137,7 @@ function End({loading, setLoading}) {
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
                             RestartSlotMobile={<Footer.RestartSlotMobile onPress={restartQuiz} />}
-                            NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
+                            // NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
                             stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={
                                 <Tooltip

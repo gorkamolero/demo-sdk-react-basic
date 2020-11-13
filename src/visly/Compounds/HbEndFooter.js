@@ -12,7 +12,6 @@ import {
 } from "../_internal_utils";
 import {
   RootPrimitive,
-  SpacerPrimitive,
   TextPrimitive,
   ContainerPrimitive,
 } from "../_internal_primitives";
@@ -259,13 +258,6 @@ function HbEndFooter(_props) {
                         {props.HbLinkButton}
                       </HbLinkButtonContext.Provider>
                     ),
-                    <SpacerPrimitive
-                      id={"Spacer_A4GhRtcmT9"}
-                      className={
-                        "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_A4GhRtcmT9"
-                      }
-                      key={"A4GhRtcmT9"}
-                    />,
                     <ContainerPrimitive
                       key={"K4wEpWEnXY"}
                       id={"Slot_K4wEpWEnXY"}
