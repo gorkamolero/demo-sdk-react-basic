@@ -48,7 +48,7 @@ const Img = styled.img`
 `
 
 
-const Loading = ({ timing = 1000, setLoading, outTiming = 3000, setLoadingScreenIsSeen }) => {
+const Loading = ({ timing = 1000, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);

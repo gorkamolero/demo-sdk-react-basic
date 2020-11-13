@@ -31,7 +31,8 @@ const Products = ({
         mixin: 'mixin'
     }
 
-    const contact = (type) => `<p>Unfortunately we don’t have a Hungry Bark ${replacers[type]} to offer ${dog.gender === 'Male' ? 'him' : 'her'}. Want to discuss this further? <span class="underline">Contact us at nutritionist@hungrybark.com</span></p>`
+    const contact = (type) => `<p>Unfortunately we don’t have a Hungry Bark ${replacers[type]} to offer ${dog.gender === 'Male' ? 'him' : 'her'}. Want to discuss this further? Contact us at nutritionist@hungrybark.com</p>`
+    const oops = `Oops… Looks like ${dog.name} has some very specific needs…`
 
     const [results, setResults] = useState(null);
     const [modalData, setModalData] = useState(null);
@@ -117,6 +118,7 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Meal'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={contact('kibble')}
@@ -157,6 +159,7 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Supplement'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={contact('supplement')}
@@ -197,6 +200,7 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Mixin'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
                                     html={contact('mixin')}

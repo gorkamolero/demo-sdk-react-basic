@@ -21,7 +21,7 @@ const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
 
   return (
-    <div style={{ width: '100%' }}>
+    <FlexBox column center style={{ width: '100%' }}>
       {
         {
           // 'Cover':  <Cover />,
@@ -29,10 +29,10 @@ const SlideView = ({slideModel, ...rest}) => {
           // 'Info':<Info />,
           // 'Feedback':<Feedback />,
           'Form':<Form {...rest} />,
-          'End':<End />,
+          'End':<End {...rest} />,
         }[type]
       }
-    </div>
+    </FlexBox>
   )
 }
 
@@ -40,6 +40,7 @@ const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
+    const [loading, setLoading] = useState(true)
     const [slideHeight, setSlideHeight] = useState(0)
 
     const [headerHeight, setHeaderHeight] = useState(0)
@@ -101,7 +102,7 @@ const Slide = () => {
           <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
-                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''}`}
+                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading ? 'isLoading' : 'finishedLoading'}`}
                 TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
                 SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
@@ -131,7 +132,7 @@ const Slide = () => {
                 flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
-                <SlideView setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
+                <SlideView loading={loading} setLoading={setLoading} setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
               </Container>
             </FlexBox>
 

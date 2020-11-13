@@ -15,16 +15,14 @@ import {
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
 
-const noTest = true
+const noTest = false
 
-function End() {
-    // No loading for dev
-    const [loading, setLoading] = useState(true)
+function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
     
     React.useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
-    }, [loadingScreenIsSeen])
+    }, [loadingScreenIsSeen, setLoading])
 
     const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
 
@@ -106,7 +104,7 @@ function End() {
         <>
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={1000} outTiming={2500} />
+                    <Loading setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={0} />
                 )
             }
 

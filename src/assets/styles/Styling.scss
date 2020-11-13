@@ -222,6 +222,12 @@ body {
       max-width: 600px;
     }
   }
+
+  transition: opacity 250ms ease;
+  opacity: 1;
+  .isLoading {
+    opacity: 0;
+  }
 }
 
 .HbHeader {
@@ -309,6 +315,8 @@ ul[role*='listbox'] {
   opacity: 0;
   transform: translateY(30px);
   transition: all 150ms ease-in-out;
+
+  z-index: 999;
 }
 
 .ReactModal__Overlay--after-open {
@@ -359,7 +367,7 @@ ul[role*='listbox'] {
   background-color: var(--hbYellow) !important;
 }
 .ReactModal__Overlay {
-  z-index: 10;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.75) !important;
   display: flex;
   align-items: flex-start;
