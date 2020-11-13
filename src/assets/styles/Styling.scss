@@ -588,6 +588,15 @@ label[class*='radio-group-button-root'] {
     }
   }
 }
+.CheckboxButtonContainer {
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      label {
+        margin: 5px;
+      }
+    }
+  }
+}
 
 .newLineSmall {
   line-height: 1.4;
