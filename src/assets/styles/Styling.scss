@@ -750,7 +750,7 @@ div#Background {
 }
 
 .HbFeatureItem {
-  flex-shrink: 1;
+  flex-shrink: 1 !important;
 }
 
 @media (max-width: $small) {
