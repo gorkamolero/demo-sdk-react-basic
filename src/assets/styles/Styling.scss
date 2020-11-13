@@ -203,7 +203,8 @@ body {
 
   &.hideImage {
     div[role='image'][style*='Bowl'],
-    header + [id^='Overlay'] {
+    header + [id^='Overlay'],
+    [id^='ExtraImg'] {
       display: none !important;
     }
   }
@@ -503,7 +504,7 @@ li.paging-item.active .pagingDots {
 .HbHeader {
   @media (max-width: $small) {
     div[id^='Background'] {
-      height: 100% !important;
+      // height: 100% !important;
     }
   }
 }
@@ -810,9 +811,33 @@ div#Background {
   padding-bottom: 0 !important;
 }
 
-.HbEndFooter.stack [id^='Row'] [id^='Row'] {
+.HbEndFooter.stack [id^='Container'] [id^='Row'] ~ [id^='Row'] {
   justify-content: flex-end;
-  button + [class*='spacing'] {
+
+  [class*='spacing'] {
     display: none;
+  }
+}
+
+.slideAnimate .HbContent {
+  padding-top: 80px;
+}
+
+.hasHelperText {
+  position: relative !important;
+  overflow: visible !important;
+  [id^='Slot'] {
+    position: static;
+  }
+
+  .helperText {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+  .helperTextItem {
+    transform: translateY(100%);
   }
 }

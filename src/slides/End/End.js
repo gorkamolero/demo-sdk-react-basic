@@ -122,7 +122,7 @@ function End() {
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
-                            HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />} 
+                            HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />} 
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}

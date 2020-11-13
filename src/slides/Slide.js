@@ -21,7 +21,7 @@ const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
 
   return (
-    <>
+    <div>
       {
         {
           'Cover':  <Cover />,
@@ -32,7 +32,7 @@ const SlideView = ({slideModel, ...rest}) => {
           'End':<End />,
         }[type]
       }
-    </>
+    </div>
   )
 }
 
@@ -85,6 +85,8 @@ const Slide = () => {
     const isFirstSlide = slideId == 101 
     /* eslint-enable */
 
+    console.log(slideTitle)
+
     if (!Container) return null
 
     return (
@@ -107,7 +109,7 @@ const Slide = () => {
                 size={size === 'large' ? 'super' : size}
                 discount="20% Off"
                 discount2={isEndSlide ? '$50+ Ships Free' : ''}
-                ShowImage={slideTitle === 'Profile'}
+                // ShowImage={slideTitle === 'Profile'}
                 NoWave={ isEndSlide }
                 withVideo={ isEndSlide }
                 style={{ position: 'fixed !important', top: 0 }}
@@ -120,7 +122,7 @@ const Slide = () => {
               style={{
                 position: 'relative',
                 zIndex: isEndSlide ? 3 : isFirstSlide ? 2 : 0,
-                marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : 0,
+                marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : size === 'medium' ? headerHeight - 20 : 0,
                 flex: 1
             }}>
               <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>

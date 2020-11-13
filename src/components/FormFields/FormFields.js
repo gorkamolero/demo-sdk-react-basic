@@ -4,7 +4,7 @@ import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
 import { HbContent, HbInput, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
-import { FlexBox } from "react-styled-flex";
+import { FlexBox, FlexItem } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
 import SelectStyles from './SelectStyles'
@@ -55,8 +55,6 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
       setOptions(years)
     }
   }, [meta])
-
-  console.log(field)
 
   /* eslint-disable*/
   React.useEffect(() => {
@@ -187,16 +185,23 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
         }}
         placeholder={meta.placeholder || ""}
         size={size}
-        style={{ width: 'auto', margin: '0 10px' }}
+        style={{ width: 'auto', margin: '0 10px', position: 'relative' }}
         inputProps={{
           type,
           ...(meta.max && { max: meta.max }),
           ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
-        className={`HbInput`}
+        className={`HbInput ${meta.helperText ? 'hasHelperText' : ''}`}
         // notValid={notValid} 
       >
         { meta.units && <span>{meta.units}</span> }
+        { meta.helperText && (
+          <FlexBox center className="helperText">
+            <FlexItem className="helperTextItem">
+              <small className="newLineSmall">{ meta.helperText }</small>
+            </FlexItem>
+          </FlexBox>
+        )}
       </HbInput>
     </>
   );
