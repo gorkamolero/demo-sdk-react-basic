@@ -85,7 +85,7 @@ const Slide = () => {
     const isFirstSlide = slideId == 101 
     /* eslint-enable */
 
-    console.log(slideTitle)
+    if (!Container) return null
 
     return (
       <div>

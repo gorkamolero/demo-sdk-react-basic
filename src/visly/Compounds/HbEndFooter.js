@@ -103,7 +103,11 @@ const defaultPropValues = [
     propName: "stack",
     layers: {
       QNXBFmS13r: {},
-      VJaaiFG35i: {},
+      VJaaiFG35i: {
+        none: {
+          text: "+Dog",
+        },
+      },
       FY2RCHsKNM: {
         none: {
           text: "Checkout",
