@@ -210,10 +210,11 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
           ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
         className={`HbInput ${meta.helperText ? 'hasHelperText' : ''}`}
-        notValid={notSoValid()} 
+        notValid={invalid} 
       >
         { meta.units && <span>{meta.units}</span> }
-        { meta.helperText && (
+        { ((meta.helperText && !meta.onlyShowHelperIfWrong)
+          || (meta.helperText && meta.onlyShowHelperIfWrong && invalid)) &&  (
           <FlexBox center className="helperText">
             <FlexItem className="helperTextItem">
               <small style={{ color: invalid ? colors.red400 : 'inherit' }} className="newLineSmall">{ meta.helperText }</small>
