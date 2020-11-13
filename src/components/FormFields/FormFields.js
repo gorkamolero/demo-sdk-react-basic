@@ -43,6 +43,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
     }
   });
   const [placeholder, setPlaceholder] = useState(() => meta && meta.default ? meta.default : 'Select...')
+  const notSearchable = meta.notSearchable || false
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
@@ -73,20 +74,22 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   }, [options, field, selected])
 
   return (
-    <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.isSearchable === false && 'notSearchable'} ${field.id ? `field-${field.id}` : ''}`}>
+    <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.notSearchable ? 'notSearchable' : ''} ${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
       <ReactSelect
         onChange={setSelected}
         defaultValue={selected}
-        isSearchable={meta.isSearchable ? meta.isSearchable : true}
+        isSearchable={!notSearchable}
         placeholder={placeholder}
         options={options}
         styles={SelectStyles}
         components={{ DropdownIndicator: Icon }} 
         min={meta.minSelect || false}
-        onFocus={() => setPlaceholder('Start typing...')}
+        onFocus={() => notSearchable || setPlaceholder('Start typing...')}
         ref={selectRef}
+        maxWidth={meta.maxWidth}
+        superMaxWidth={meta.superMaxWidth}
       />
     </FlexBox>
   )
@@ -113,17 +116,15 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   });
 
   const toggleSelected = value => {
-    if (selected.includes(value)) {
+    if (selected.includes(value) || selected === 'value') {
       setSelected(selected.filter(val => val !== value))
-      field.removeValue(value)
-      onChangeHandler(value, field)
+      field.setValue(value)
     } else {
       setSelected([...selected, value])
-      field.setValue(value)
-      onChangeHandler(value, field)
+      field.removeValue(value)
     }
+    onChangeHandler(value, field)
   }
-
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
@@ -149,7 +150,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   tagText={op && op.label? op.label : op}
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
-                      onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
+                      onPress={() => toggleSelected(o)}
                       style={{ marginTop: 10 }}
                     />}
                 />
@@ -373,12 +374,11 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         field.setHidden(false)
 
         if (meta.onlyShowIfFollowsAnswer) {
-          // console.log('ERROR', master.getValue())
           field.setHidden(true)
 
           if (
-            fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
-            || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
+            master.getValue().includes(meta.onlyShowIfFollowsAnswer)
+            || master.getValue() === meta.onlyShowIfFollowsAnswer
           ) {
             field.setHidden(false)
           } else { field.setHidden(true) }
@@ -521,14 +521,20 @@ function FormFields({ children, fields, showErrors = true }) {
 
         if (type === 'checkbox') {
             field.setValue(event.target.checked);
-        } else if (["select", "text", "radio-group", "number"].includes(type)) {
+        } else if (["text", "select", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
             // console.log(field.getType(), value)
+        } else if (["radio-group"].includes(type)) {
+            const value = event;
+            if (field.getValue().includes(value)) {
+              field.removeValue(value)
+            }
+            else field.setValue(value);
+            // console.log(field.getType(), value)
         } else {
           field.setValue(event);
-        }
-
+        } 
         setFieldValues(getFieldValues());
         
         setTouched(touched + 1);

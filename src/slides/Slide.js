@@ -44,10 +44,10 @@ const Slide = () => {
 
     const [headerHeight, setHeaderHeight] = useState(0)
 
-    useEffect(() => {
-      if (size) console.log(size) 
-      // window.dispatchEvent(new Event('resize'));
-    }, [size])
+    // useEffect(() => {
+    //   if (size) console.log(size) 
+    //   // window.dispatchEvent(new Event('resize'));
+    // }, [size])
     
     const HeadRef = useRef(null);
 
