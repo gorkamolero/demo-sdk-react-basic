@@ -3,7 +3,7 @@ import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
+import { HbContent, HbInput, HbRadio, useBreakpoint, icons, colors, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
 import { FlexBox, FlexItem } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
@@ -184,6 +184,13 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
+  const notSoValid = () => {
+    if (meta.max && value > meta.max) return true
+    if (meta.maxlength && value.length > meta.maxlength) return true
+    return false
+  }
+  const invalid = notSoValid()
+
   return (
     <>
       {title}
@@ -202,13 +209,13 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
           ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
         className={`HbInput ${meta.helperText ? 'hasHelperText' : ''}`}
-        // notValid={notValid} 
+        notValid={notSoValid()} 
       >
         { meta.units && <span>{meta.units}</span> }
         { meta.helperText && (
           <FlexBox center className="helperText">
             <FlexItem className="helperTextItem">
-              <small className="newLineSmall">{ meta.helperText }</small>
+              <small style={{ color: invalid ? colors.red400 : 'inherit' }} className="newLineSmall">{ meta.helperText }</small>
             </FlexItem>
           </FlexBox>
         )}
