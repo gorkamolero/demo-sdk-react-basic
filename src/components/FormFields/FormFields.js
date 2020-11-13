@@ -1,4 +1,4 @@
-import React, { useState, useContext, useMemo, useEffect } from "react";
+import React, { useState, useContext, useMemo, useEffect, useRef } from "react";
 import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
@@ -10,7 +10,7 @@ import ReactSelect from 'react-select'
 import SelectStyles from './SelectStyles'
 import { HbHelperTxt ,FlexLabel ,HbBreakLine , HbSpace} from '../../styles/StyledComps'
 // import ConditionalWrap from 'conditional-wrap'
-
+const year = new Date().getFullYear()
 const HbFormElement = ({children, ...rest}) => {
   const fieldRef = React.useRef(null);
   // Scroll To Item
@@ -32,11 +32,12 @@ const Icon = ({ innerRef, innerProps }) => (
 );
 
 const Select = ({field, title, onChangeHandler, size, notValid}) => {
+  const selectRef = useRef(null);
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
     if (field.getValue()) {
-        return options.find(op => op.value === field.getValue())
+      return options.find(op => op.value === field.getValue())
     } else if (meta.defaultValue) {
         return options[0]
     }
@@ -45,7 +46,6 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
-      const year = new Date().getFullYear()
       for (let i = year; i >= year - meta.minValue; i--) {
         years.push({
           value: i.toString(),
@@ -57,12 +57,20 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   }, [meta])
 
   /* eslint-disable*/
-  React.useEffect(() => {
+  useEffect(() => {
     if (selected) {
       onChangeHandler(selected.value, field)
+      selectRef.current.select.setValue(selected)
     }
   }, [selected, field])
   /* eslint-enable */
+
+  
+  useEffect(() => {
+    if (!selected && field.getValue()) {
+      setSelected(options.find(op => op.value === field.getValue()))
+    }
+  }, [options, field, selected])
 
   return (
     <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.isSearchable === false && 'notSearchable'} ${field.id ? `field-${field.id}` : ''}`}>
@@ -78,6 +86,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         components={{ DropdownIndicator: Icon }} 
         min={meta.minSelect || false}
         onFocus={() => setPlaceholder('Start typing...')}
+        ref={selectRef}
       />
     </FlexBox>
   )
