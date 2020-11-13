@@ -634,6 +634,7 @@ label[class*='radio-group-button-root'] {
 .newLineSmall {
   line-height: 1.4;
   margin-bottom: 20px;
+  opacity: 60%;
   @media (max-width: $small) {
     text-align: center;
     margin-bottom: 0;
@@ -890,5 +891,5 @@ div#Background {
 small {
   font-size: 16px;
   font-style: italic;
-  opacity: 90% !important;
+  opacity: 60%;
 }
