@@ -226,9 +226,6 @@ body {
     &.nextSlideIsEndSlide {
       position: static !important;
     }
-    &.isEndSlide {
-      margin-bottom: 40px;
-    }
   }
 
   header[id^='HbContent'] {
