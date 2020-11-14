@@ -61,7 +61,6 @@ function Form({setSlideHeight}) {
   }, [setSlideHeight])
 
   useEffect(() => {
-
     if (slideModel.validate()) {
       setIsValid(true)
     } else {
@@ -70,6 +69,7 @@ function Form({setSlideHeight}) {
     }
 
     fields.forEach(field => {
+
       if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
         setIsValid(false)
         return

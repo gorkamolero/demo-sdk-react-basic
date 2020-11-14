@@ -233,8 +233,20 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   const options =  field.getOptions()
   const meta = field.getMeta();
 
+  useEffect(() => {
+    if (field.getValue()) {
+      console.log(options)
+      field.setValue(field.getValue())
+    }
+  })
+
   /* eslint-disable */
-  useEffect(() => onChangeHandler(selected, field), [selected])
+  useEffect(() => {
+    if (selected) {
+      console.log('selected', selected)
+      onChangeHandler(selected, field)
+    }
+  }, [selected])
   /* eslint-enable */
 
   return (
@@ -522,8 +534,6 @@ function FormFields({ children, fields, showErrors = true, doNotScroll }) {
     const getFieldValues = () => fields.map(field => field.getValue())
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
-
-    console.log('VALUES', fieldValues)
     
     // console.log('Values', fieldValues)
 
@@ -538,7 +548,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll }) {
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
-            if (field.getValue().includes(value)) {
+            if (field.getValue().includes(value) && field.isMultiple()) {
               field.removeValue(value)
             }
             else field.setValue(value);
