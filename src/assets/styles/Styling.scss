@@ -125,6 +125,9 @@ $reading: 60ch;
 
 main {
   width: 100%;
+  &.main-nextSlideIsEndSlide {
+    margin-top: -20px !important;
+  }
 }
 
 @font-face {
@@ -207,7 +210,9 @@ body {
 }
 
 .HbHeadContainer {
-  .slide-End & {
+  &.slide-End,
+  &.isEndSlide,
+  &.nextSlideIsEndSlide & {
     position: static !important;
   }
   z-index: 10;
@@ -217,6 +222,13 @@ body {
 
   @media (min-width: $large) {
     position: fixed !important;
+    &.slide-End,
+    &.nextSlideIsEndSlide {
+      position: static !important;
+    }
+    &.isEndSlide {
+      margin-bottom: 40px;
+    }
   }
 
   header[id^='HbContent'] {

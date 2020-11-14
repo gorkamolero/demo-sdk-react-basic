@@ -19,7 +19,7 @@ import { useLocalStorage } from 'react-use';
 import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
-const noTest = window.location.href.includes('dev')
+const noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 
 function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', noTest ? true : false);

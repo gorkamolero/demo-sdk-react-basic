@@ -169,18 +169,22 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
         )
       }
 
-      <ReactSelect
-        onChange={(option) => {
-          toggleSelected(option.value)
-        }}
-        // defaultValue={selected}
-        value={''}
-        isSearchable={true}
-        placeholder={selected.length > 0 ? 'Add more...' : 'Add...'}
-        options={options}
-        styles={SelectStyles}
-        components={{ DropdownIndicator: Icon }} 
-        min={meta.minSelect || false} />
+      {
+        (selected.includes('none') || selected === 'none') || (
+          <ReactSelect
+            onChange={(option) => {
+              toggleSelected(option.value)
+            }}
+            // defaultValue={selected}
+            value={''}
+            isSearchable={true}
+            placeholder={selected.length > 0 ? 'Add more...' : 'Add...'}
+            options={options}
+            styles={SelectStyles}
+            components={{ DropdownIndicator: Icon }} 
+            min={meta.minSelect || false} />
+        )
+      }
 
       {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
     </FlexBox>
