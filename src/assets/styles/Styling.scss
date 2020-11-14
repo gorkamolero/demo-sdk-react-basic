@@ -613,7 +613,8 @@ li.paging-item.active .pagingDots {
 .HbButtonGroup {
   @media (max-width: $small) {
     width: 100%;
-    button:only-of-type {
+    button:only-of-type,
+    .continueButton:only-child {
       flex: 1;
     }
   }
@@ -983,6 +984,11 @@ small {
   }
 }
 
-.isNotValid .FormSlide .continueButton {
-  display: none !important;
+.continueButton {
+  button {
+    width: 100%;
+  }
+  .hideContinue & {
+    display: none !important;
+  }
 }

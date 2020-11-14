@@ -35,6 +35,7 @@ function Form({setSlideHeight}) {
   const fields = slideModel.getFields()
   const id = slideModel.getId()
   const [isValid, setIsValid] = useState(false)
+  const [doNotScroll, setDoNotScroll] = useState(false)
 
   
   const SlideRef = useRef(null);
@@ -60,15 +61,22 @@ function Form({setSlideHeight}) {
   }, [setSlideHeight])
 
   useEffect(() => {
-    slideModel.validate()
-
-    setIsValid(slideModel.validate())
 
     if (slideModel.validate()) {
+      setIsValid(true)
     } else {
+      setIsValid(false)
       setShowErrors(true);
     }
-  }, [touched, slideModel])
+
+    fields.forEach(field => {
+      if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
+        setIsValid(false)
+        return
+      }
+    })
+
+  }, [touched, fields, slideModel])
   
   return (
     <AnimatePresence>
@@ -81,8 +89,8 @@ function Form({setSlideHeight}) {
           transition={{ duration: 0.35 }}
           style={{ width: '100%' }}
         >
-            <FormFields showErrors={showErrors} fields={fields}>
-              <Navigation />
+            <FormFields doNotScroll={doNotScroll} showErrors={showErrors} fields={fields}>
+              <Navigation isValid={isValid} doNotScroll={doNotScroll} setDoNotScroll={setDoNotScroll} />
             </FormFields>
         </motion.div>
       </FlexBox>      

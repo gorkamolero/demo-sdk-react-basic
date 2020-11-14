@@ -11,14 +11,15 @@ import SelectStyles from './SelectStyles'
 import { HbHelperTxt ,FlexLabel ,HbBreakLine , HbSpace} from '../../styles/StyledComps'
 // import ConditionalWrap from 'conditional-wrap'
 const year = new Date().getFullYear()
-const HbFormElement = ({children, ...rest}) => {
+const HbFormElement = ({children,  doNotScroll, ...rest}) => {
   const fieldRef = React.useRef(null);
   // Scroll To Item
   useEffect(() => {
-      if (fieldRef.current) {
+      if (fieldRef.current && !doNotScroll) {
+        console.log('FORM SCROLL');
         fieldRef.current.scrollIntoView({ behavior: "smooth" });
       }
-  }, []);
+  }, [doNotScroll]);
 
   return (
     <FlexBox ref={fieldRef} {...rest} alignItems="baseline">
@@ -63,6 +64,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
       onChangeHandler(selected.value, field)
       selectRef.current.select.setValue(selected)
     }
+    // if (field.getValue())
   }, [selected, field])
   /* eslint-enable */
 
@@ -513,13 +515,15 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   );
 }
 
-function FormFields({ children, fields, showErrors = true }) {
+function FormFields({ children, fields, showErrors = true, doNotScroll }) {
       
     const { setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
     const getFieldValues = () => fields.map(field => field.getValue())
 
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
+
+    console.log('VALUES', fieldValues)
     
     // console.log('Values', fieldValues)
 
@@ -556,7 +560,7 @@ function FormFields({ children, fields, showErrors = true }) {
     return (
       // style={size !== 'super' && { paddingTop: 80 }}
       <HbContent className="HbContent FormSlide" size={size}>
-        <HbFormElement className="HbFormElementParent" wrap justifyContent="center">
+        <HbFormElement doNotScroll={false} className="HbFormElementParent" wrap justifyContent="center">
           {fields.map((field, i) => (
             <FormField
               key={i}
@@ -568,6 +572,7 @@ function FormFields({ children, fields, showErrors = true }) {
               field={field}
               i={i}
               notValid={notValid(field)}
+              doNotScroll={doNotScroll}
             />
           ))}
         </HbFormElement>
