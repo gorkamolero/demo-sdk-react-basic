@@ -11,14 +11,20 @@ import SelectStyles from './SelectStyles'
 import { HbHelperTxt ,FlexLabel ,HbBreakLine , HbSpace} from '../../styles/StyledComps'
 // import ConditionalWrap from 'conditional-wrap'
 const year = new Date().getFullYear()
-const HbFormElement = ({children, ...rest}) => {
+const HbFormElement = ({children,  doNotScroll, isFirstSlide, ...rest}) => {
   const fieldRef = React.useRef(null);
   // Scroll To Item
   useEffect(() => {
-      if (fieldRef.current) {
+      if (fieldRef.current && !doNotScroll && !isFirstSlide) {
+        console.log('FORM SCROLL');
         fieldRef.current.scrollIntoView({ behavior: "smooth" });
       }
-  }, []);
+
+      if (isFirstSlide && window) {
+        console.log('FIRST')
+        window.scrollTo(0, 0)
+      }
+  }, [doNotScroll, isFirstSlide]);
 
   return (
     <FlexBox ref={fieldRef} {...rest} alignItems="baseline">
@@ -63,6 +69,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
       onChangeHandler(selected.value, field)
       selectRef.current.select.setValue(selected)
     }
+    // if (field.getValue())
   }, [selected, field])
   /* eslint-enable */
 
@@ -88,8 +95,8 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         min={meta.minSelect || false}
         onFocus={() => notSearchable || setPlaceholder('Start typing...')}
         ref={selectRef}
-        maxWidth={meta.maxWidth}
-        superMaxWidth={meta.superMaxWidth}
+        // maxWidth={meta.maxWidth}
+        // superMaxWidth={meta.superMaxWidth}
       />
     </FlexBox>
   )
@@ -231,8 +238,20 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
   const options =  field.getOptions()
   const meta = field.getMeta();
 
+  useEffect(() => {
+    if (field.getValue()) {
+      console.log(options)
+      field.setValue(field.getValue())
+    }
+  })
+
   /* eslint-disable */
-  useEffect(() => onChangeHandler(selected, field), [selected])
+  useEffect(() => {
+    if (selected) {
+      console.log('selected', selected)
+      onChangeHandler(selected, field)
+    }
+  }, [selected])
   /* eslint-enable */
 
   return (
@@ -351,7 +370,7 @@ const Checkbox = (type, ...props) => {
   } return null
 }
  */
-const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, notValid}) => {
+const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFieldErrorClass = null, notValid, isFirstSlide = false}) => {
   const [isExpanded, setExpanded] = useState(field.isHidden() || false);
   const {slideModel, interpolate} = useContext(SlideContext)
   const [customAfterText, setCustomAfterText] = React.useState(null)
@@ -431,7 +450,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
     <>
       {meta.newLine && <HbBreakLine className="newLine" />}
         <HbFormElement
-          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine ? 'mobileNewLine' : ''}  ${meta.forceSameLine ? 'forceSameLine' : ''} ${meta.forceTogether ? 'forceTogether' : ''} ${meta.forceTogetherFirstElement ? 'forceTogetherFirstElement' : ''}`}
+          isFirstSlide={isFirstSlide}
+          className={`HbFormElement HbFormElementChild ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine ? 'mobileNewLine' : ''}  ${meta.forceSameLine ? 'forceSameLine' : ''} ${meta.forceTogether ? 'forceTogether' : ''} ${meta.forceTogetherFirstElement ? 'forceTogetherFirstElement' : ''}`}
           style={{
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
@@ -513,7 +533,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   );
 }
 
-function FormFields({ children, fields, showErrors = true }) {
+function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstSlide = false }) {
       
     const { setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
@@ -533,7 +553,7 @@ function FormFields({ children, fields, showErrors = true }) {
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
-            if (field.getValue().includes(value)) {
+            if (field.getValue().includes(value) && field.isMultiple()) {
               field.removeValue(value)
             }
             else field.setValue(value);
@@ -554,8 +574,8 @@ function FormFields({ children, fields, showErrors = true }) {
 
     return (
       // style={size !== 'super' && { paddingTop: 80 }}
-      <HbContent className="HbContent" size={size}>
-        <HbFormElement className="HbFormElementParent" wrap justifyContent="center">
+      <HbContent className="HbContent FormSlide" size={size}>
+        <HbFormElement isFirstSlide={isFirstSlide} doNotScroll={false} className="HbFormElementParent" wrap justifyContent="center">
           {fields.map((field, i) => (
             <FormField
               key={i}
@@ -567,6 +587,8 @@ function FormFields({ children, fields, showErrors = true }) {
               field={field}
               i={i}
               notValid={notValid(field)}
+              doNotScroll={doNotScroll}
+              isFirstSlide={isFirstSlide}
             />
           ))}
         </HbFormElement>

@@ -9,7 +9,8 @@ export default {
       borderRadius: 0,
       border: 0,
       borderBottom: `2px solid ${colors.hbLight}`,
-      paddingLeft: 20,
+      paddingLeft: 0,
+      fontWeight: 'normal',
       '&:hover': {
         borderColor: colors.hbGreen
       },

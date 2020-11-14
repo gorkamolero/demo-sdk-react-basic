@@ -1,13 +1,19 @@
-import React, { useContext, useMemo, useEffect } from 'react';
+import React, { useContext, useMemo, useEffect, useRef } from 'react';
 import { SlideContext } from '../../context/SlideContext';
 import './Navigation.css'
 import { HbButton, useBreakpoint } from "../../visly";
 import { CSSTransition } from "react-transition-group";
-import { FlexBox } from 'react-styled-flex';
+import { FlexBox, FlexItem } from 'react-styled-flex';
 
-function Navigation({back, next, restart}) {
+function Navigation({back, next, restart, isValid}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
-  const navRef = React.useRef(null);
+  const navRef = useRef();
+
+  useEffect(() => {
+    if (navRef.current) {
+      navRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  })
 
   const size = useBreakpoint("small", ["medium", "large", "super"]);
   
@@ -24,26 +30,21 @@ function Navigation({back, next, restart}) {
     return (next.slideId === 'end')
   }, [progressBar, slideModel])
 
-  const isEndSlide = slideModel.getType() === 'End'
-
 
   // slideModel.restart()
 
-  // const isValid = slideModel.validate ? slideModel.validate() : false;
-  const isValid = slideModel.validate ? slideModel.validate() : false;
+  // const isValid = slideModel.validate() && !slideModel.fields.find(field => field.data.mandatory && !field._isValid);
   const isBlocked = false
-
-  // Scroll To Item
-  useEffect(() => {
-    if (!navRef.current || !isValid || isEndSlide) return
-    if (navRef.current && isValid && !isEndSlide) {
-      navRef.current.scrollIntoView(false, { behavior: "smooth" });
-    }
-  }, [isEndSlide, isValid]);
 
   return (
     <>
-      <FlexBox gap="10px" reverse={nextSlideIsEndSlide && size === 'small'} className="HbButtonGroup Navigation" column={size === 'small' && nextSlideIsEndSlide} center ref={navRef}>
+      <FlexBox gap="10px"
+        reverse={nextSlideIsEndSlide && size === 'small'}
+        className={`HbButtonGroup Navigation ${!nav.canNext || !isValid ? 'hideContinue': ''}`}
+        column={size === 'small' && nextSlideIsEndSlide}
+        center
+        is="nav"
+      >
         <CSSTransition
           in={nav.canBack}
           timeout={200}
@@ -72,26 +73,18 @@ function Navigation({back, next, restart}) {
             onPress={() => restart()}
           />
         </CSSTransition>
-        
-        <CSSTransition
-          in={(isValid && nav.canNext) || nextSlideIsEndSlide}
-          timeout={200}
-          classNames="collapse-after"
-          unmountOnExit
-          mountOnEnter
-        >
-          <>
-          {
-            isValid && nav.canNext && (
+        {
+          (!nav.canNext || isBlocked || !isValid) || (
+            <FlexItem ref={navRef} flex="1" className={`continueButton`}>
               <HbButton
+                id="ContinueButton"
                 text={isBlocked ? 'Coming soon' : nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
-                disabled={!nav.canNext || isBlocked || !isValid}
+                disabled={!nav.canNext|| isBlocked || !isValid}
                 onPress={next}
               />
-            )
-          }
-          </>
-        </CSSTransition>
+            </FlexItem>   
+          )
+        }
       </FlexBox>
     </>
   );

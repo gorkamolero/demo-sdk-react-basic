@@ -3,6 +3,7 @@ import './App.scss';
 import '../assets/styles/Styling.scss';
 import SlideContextProvider from '../context/SlideContext'
 import Slide from '../slides/Slide'
+import { ModalProvider } from "react-modal-hook";
 
 const cfg = window.pickzen||{};
 
@@ -11,7 +12,9 @@ if (!cfg.preview) cfg.preview=0;
 
 const App = () => (
   <SlideContextProvider>
-    <Slide />
+    <ModalProvider>
+      <Slide />
+    </ModalProvider>
   </SlideContextProvider>
 );
 

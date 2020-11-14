@@ -121,6 +121,7 @@ $medium: '768px';
 $large: '1024px';
 $super: '1200px';
 $hyper: '1440px';
+$reading: 60ch;
 
 main {
   width: 100%;
@@ -189,7 +190,8 @@ body {
 }
 
 .react-player,
-.player-iframe {
+.player-iframe,
+.player-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;
@@ -213,7 +215,7 @@ body {
   top: 0;
   left: 0;
 
-  @media (min-width: $small) {
+  @media (min-width: $large) {
     position: fixed !important;
   }
 
@@ -242,6 +244,16 @@ body {
 
     header {
       padding: 0 !important;
+    }
+  }
+
+  &:not(.hideImage) {
+    .title,
+    .subtitle {
+      text-align: left !important;
+      align-self: flex-start;
+      justify-self: flex-start;
+      width: 100%;
     }
   }
 }
@@ -351,7 +363,7 @@ ul[role*='listbox'] {
   left: 0;
   width: 100%;
   .HbContent {
-    max-width: 60ch;
+    max-width: $reading;
   }
 }
 
@@ -377,11 +389,14 @@ ul[role*='listbox'] {
   align-items: flex-start;
   padding: 2.5vh 0;
   justify-content: center;
+
+  @media (max-width: $small) {
+    padding: 0;
+  }
 }
 
 .ReactModal__Content {
-  max-width: 60ch;
-  min-width: 60ch;
+  max-width: $reading;
   background: white;
   margin: 0 auto;
   padding: 4ch;
@@ -389,15 +404,66 @@ ul[role*='listbox'] {
   height: 95vh;
   overflow-y: auto;
   align-items: flex-start;
+  .kibGoalContent ul {
+    column-count: 4;
+    column-width: 200px;
+  }
 
-  @media (max-width: 480px) {
+  @media (min-width: $reading) {
+     min-width: $reading;
+  }
+
+  @media (max-width: $small) {
     max-height: 100%;
     height: 100%;
     padding: 2ch;
+
+    [role='img'] {
+      max-width: 100% !important;
+      background-size: calc(100% - 30px) !important;
+    }
+  }
+
+  @media (max-width: $reading) {
+    min-width: 0px;
+    padding: 0;
   }
 
   &:focus {
     outline: none;
+  }
+
+  [role='img'] {
+    max-width: 100%;
+  }
+
+  @media (max-width: $medium) {
+    padding: 0 20px;
+    .kibtab-content {
+      padding: 0 0 20px;
+    }
+    .kibtab-content-1 {
+      padding: 0;
+    }
+    .tabContainer label {
+      padding: 20px 10px;
+      [id^='text'] {
+        font-size: 14px !important;
+      }
+    }
+    .kibtab-contentImgGrp {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > * {
+        margin: 0;
+        margin-bottom: var(--spacing);
+      }
+    }
+    .kibtab-content-trans {
+      margin: 0;
+    }
   }
 }
 
@@ -466,6 +532,7 @@ li.paging-item.active .pagingDots {
   @media (max-width: $small) {
     width: 100%;
     justify-content: center;
+    font-weight: bold !important;
 
     gap: 0;
     flex-wrap: nowrap;
@@ -547,7 +614,8 @@ li.paging-item.active .pagingDots {
 .HbButtonGroup {
   @media (max-width: $small) {
     width: 100%;
-    button:only-of-type {
+    button:only-of-type,
+    .continueButton:only-child {
       flex: 1;
     }
   }
@@ -645,6 +713,7 @@ label[class*='radio-group-button-root'] {
   line-height: 1.4;
   margin-bottom: 20px;
   opacity: 0.6;
+  font-weight: normal;
   @media (max-width: $small) {
     text-align: center;
     margin-bottom: 0;
@@ -852,6 +921,10 @@ div#Background {
   }
 }
 
+.notSearchable input {
+  position: absolute;
+}
+
 .HbResults {
   @media (max-width: $small) {
     [id^='CardFooter'] button {
@@ -909,4 +982,40 @@ small {
 
 .screenIsLoaded {
   opacity: 0;
+}
+
+.slide-Form.slide-101 {
+  @media (max-width: $small) {
+    min-height: 100vh;
+  }
+}
+
+.continueButton {
+  button {
+    width: 100%;
+  }
+  .hideContinue & {
+    display: none !important;
+  }
+}
+
+#ContinueButton:hover {
+  background-color: #00aeaa !important;
+}
+
+.mobileBold {
+  @media (max-width: $small) {
+    font-weight: bold !important;
+  }
+}
+
+.HbFormElementChild:only-of-type {
+  flex: 1;
+  justify-content: center;
+}
+
+.FooterBar footer div {
+  @media (max-width: $small) {
+    text-align: center;
+  }
 }

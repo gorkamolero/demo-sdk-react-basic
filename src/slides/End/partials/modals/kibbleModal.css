@@ -312,6 +312,7 @@
   background: var(--greenButtonBase);
   border-radius: 100%;
   font-size: 1.8em;
+  flex-shrink: 0;
 }
 
 .kibGoalContent ul:nth-child(4) {
@@ -481,7 +482,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .kibbleModal-content {
+  kibtab-content .kibbleModal-content {
     height: 100%;
     position: relative;
     padding: 20px 0px;
@@ -511,7 +512,8 @@
     max-width: 671.13px;
     margin: 0 auto;
     padding: 0px 20px;
-    margin-top: 28px;
+    margin-top: 20px;
+    margin-bottom: 20px;
   }
 
   .KibMealPlanGraphicGrp-mob {
@@ -525,10 +527,11 @@
     border-radius: 4px;
     width: 100%;
     max-width: 767px;
-    height: 429px;
+    height: auto;
     padding-top: 20px;
     margin-top: 20px;
     min-width: 320px;
+    margin-bottom: 20px;
   }
 
   .kibTabGrp {

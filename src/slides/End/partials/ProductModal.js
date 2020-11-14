@@ -2,9 +2,8 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
-import { HbKibblePlan, HbKibblePlanElement, icons } from '../../../visly'
+import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbCloseModal, HbTabs, colors, textstyles } from '../../../visly'
 import { Tabs, Panel, useTabState } from '@bumaga/tabs'
-import { HbCloseModal, HbTabs, colors, textstyles } from '../../../visly'
 import { FlexBox } from "react-styled-flex";
 import CustomHTML from "../../../components/CustomHTML/CustomHTML";
 import './modals/commonModals.css'
@@ -24,28 +23,15 @@ const Tab = ({ text }) => {
     return <HbTabs.Button text={text} onClick={onClick} selected={isActive} />
 };
 
-const getGoalColum = function(goals, min, max) {
-    let items = [];
-    for (let i = min; i <= max; i += 1) {
-        if (goals[i]) items.push(<li className="goal" key={i}>{goals[i]}</li>);
-    }
-    return (
-        <ul className="health-goals">
-            {items}
-        </ul>
-    )
-};
-
-const getTabs = (product, dog, goals) => {
+const getTabs = (product, dog, goals, size) => {
     if (product.type === 'kibble') {
-        console.log(product)
         return (
             <div className="tabContainer" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Meal Plan" />
                         <Tab text="Transitioning" />
-                        <Tab text="Nutritional Info" />
+                        <Tab text={['small', 'medium'].includes(size) ? 'Nutritional' : 'Nutritional Info'} />
                     </HbTabs>
                     <div className="spacer"></div>
                     <Panel>
@@ -59,7 +45,8 @@ const getTabs = (product, dog, goals) => {
                             <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Meal Plan</h2>
 
                             <HbKibblePlan
-                                HbKibblePlanElement={<HbKibblePlan.HbKibblePlanElement slot1={product.calories} slot2="Kcals / day" style={{ flex: 1 }} HbCircleIcon={<HbKibblePlanElement.HbCircleIcon icon={icons.chevronRightIcon} style={{ position: 'relative', zIndex: 9 }} />} />}
+                                stack={['small', 'medium'].includes(size)}
+                                HbKibblePlanElement={<HbKibblePlan.HbKibblePlanElement slot1={product.calories} slot2="Kcals / day" style={{ flex: 1 }} HbCircleIcon={<HbKibblePlanElement.HbCircleIcon down={['small', 'medium'].includes(size)} icon={icons.chevronRightIcon} style={{ position: 'relative', zIndex: 9 }} />} />}
                                 HbKibblePlanElement1={<HbKibblePlan.HbKibblePlanElement1 slot1={product.serving} slot2="Cups / day" style={{ flex: 1 }} HbCircleIcon={<HbKibblePlanElement.HbCircleIcon icon={icons.hbEqual} style={{ position: 'relative', zIndex: 9 }} />} />}
                                 HbKibblePlanElement2={<HbKibblePlan.HbKibblePlanElement2 slot1={product.lbs14} slot2="Lbs / 2 weeks" style={{ flex: 1 }} NoNext />} 
                             />
@@ -69,10 +56,11 @@ const getTabs = (product, dog, goals) => {
                         <div className="kibtab-content-2">
                             <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Health Goals</h2>
                             <div className="kibGoalContent">
-                                {getGoalColum(goals, 0,2)}
-                                {getGoalColum(goals, 3,5)}
-                                {getGoalColum(goals, 6,8)}
-                                {getGoalColum(goals, 9,11)}
+                                <ul className="health-goals">
+                                    {
+                                        goals.map((goal, i) => (<li className="goal" key={i}>{goals[i]}</li>))
+                                    }
+                                </ul>
                             </div>
                         </div>
                     </Panel>
@@ -87,7 +75,7 @@ const getTabs = (product, dog, goals) => {
                             <div className="kibtab-content-trans" style={{ backgroundColor: colors.hbGoldLight }}>
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
 
-                                <div className="kibtab-contentImgGrp">
+                                <div className="kibtab-contentImgGrp" style={{ backgroundColor: colors.hbGoldLight }}>
                                     <div className="kibTransImg kibTransImg-1">
                                         <img
                                             src="https://cdn.shopify.com/s/files/1/0080/0561/5687/files/transition1.png?v=1592925792"
@@ -228,6 +216,8 @@ const getTabs = (product, dog, goals) => {
 const ProductModal = ({hideModal, product, dog, goals}) => {
     console.log('PROD', product)
 
+    const size = useBreakpoint("small", ["medium", "large", "super"]);
+
     useEffect(() => {
         document.body.classList.add('noScroll')
 
@@ -243,7 +233,7 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
                 withLargeImage={product.type === 'kibble'}
                 imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
             >
-                {getTabs(product, dog, goals)}
+                {getTabs(product, dog, goals, size)}
             </HbSection>
 
             <Close onClick={hideModal} />

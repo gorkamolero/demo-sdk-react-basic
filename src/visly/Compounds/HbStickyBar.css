@@ -14,6 +14,7 @@
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw .__visly_scope_3Fk3gvCxrB_K8Rvc3Sc8R {
   overflow: hidden;
   width: 1280px;
+  max-width: 100%;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;

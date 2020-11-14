@@ -29,11 +29,13 @@ const pageVariants = {
   },
 }
 
-function Form({setSlideHeight}) {
+function Form({setSlideHeight, isFirstSlide}) {
   const { slideModel, touched } = useContext(SlideContext);
   const [showErrors, setShowErrors] = useState(false);
   const fields = slideModel.getFields()
   const id = slideModel.getId()
+  const [isValid, setIsValid] = useState(false)
+  const [doNotScroll, setDoNotScroll] = useState(false)
 
   
   const SlideRef = useRef(null);
@@ -60,15 +62,25 @@ function Form({setSlideHeight}) {
 
   useEffect(() => {
     if (slideModel.validate()) {
-
+      setIsValid(true)
     } else {
+      setIsValid(false)
       setShowErrors(true);
     }
-  }, [touched, slideModel])
+
+    fields.forEach(field => {
+
+      if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
+        setIsValid(false)
+        return
+      }
+    })
+
+  }, [touched, fields, slideModel])
   
   return (
     <AnimatePresence>
-      <FlexBox ref={SlideRef} column center className="slideAnimate" key={id} data-key={id}>
+      <FlexBox ref={SlideRef} column center className={`slideAnimate ${isValid ? 'isValid' : 'isNotValid'}`} key={id} data-key={id}>
         <motion.div
           initial="initial"
           animate="in"
@@ -77,8 +89,8 @@ function Form({setSlideHeight}) {
           transition={{ duration: 0.35 }}
           style={{ width: '100%' }}
         >
-            <FormFields showErrors={showErrors} fields={fields}>
-              <Navigation />
+            <FormFields doNotScroll={doNotScroll} isFirstSlide={isFirstSlide} showErrors={showErrors} fields={fields}>
+              <Navigation isValid={isValid} doNotScroll={doNotScroll} setDoNotScroll={setDoNotScroll} />
             </FormFields>
         </motion.div>
       </FlexBox>      

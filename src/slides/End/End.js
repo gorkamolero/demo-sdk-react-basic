@@ -14,13 +14,14 @@ import {
   Tooltip,
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
+import { FlexBox } from 'react-styled-flex';
 
 const noTest = false
 
 function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
-
-    React.useEffect(() => {
+    
+    useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
     }, [loadingScreenIsSeen, setLoading])
 
@@ -31,6 +32,7 @@ function End({loading, setLoading}) {
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
+    const [reviews, setReviews] = useState(null)
 
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
@@ -48,6 +50,12 @@ function End({loading, setLoading}) {
                     supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
                     mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
+
+                if (window.hungry.end.kibble) {
+                    setReviews(window.hungry.end.reviews[window.hungry.end.kibble.key])
+                } else {
+                    setReviews(window.hungry.end.reviews['chicken_rice'])
+                }
 
             } else {
                 setTimeout(() => waitForWindowData(), 500);
@@ -99,10 +107,13 @@ function End({loading, setLoading}) {
         })
     }, [hungry, getPrice, totalPrice])
 
-    if (!hungry) return null
+    useEffect(() => {
+        return () => setLoading(true)
+    }, [setLoading])
+    if (!hungry) return <div></div>
 
     return (
-        <>
+        <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
                     <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={100} />
@@ -111,7 +122,9 @@ function End({loading, setLoading}) {
 
             {
                 !loading && (
-                    <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                    <FlexBox column center width="100%">
+                        <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                    </FlexBox>
                 )
             }
 
@@ -124,7 +137,7 @@ function End({loading, setLoading}) {
 
                         { window.location.href.includes('localhost') && <Navigation />}
 
-                        <Features stack={size === 'small'} />
+                        <Features reviews={reviews} stack={size === 'small'} />
 
                         <Testimonials />
 
@@ -160,7 +173,7 @@ function End({loading, setLoading}) {
                     </>
                )
             }
-        </>
+        </FlexBox>
     );
 
 }

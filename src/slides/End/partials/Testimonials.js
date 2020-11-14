@@ -6,7 +6,7 @@ import { HbWave, colors, useBreakpoint, HbSliderArrow, HbCircleIcon, icons } fro
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
 
-const Testimonials = () => {
+const Testimonials = ({reviews}) => {
   const { getDatasheet } = useContext(SlideContext)
 
   const [ testimonials, setTestimonials ] = useState([])

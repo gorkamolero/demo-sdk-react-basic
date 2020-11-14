@@ -90,6 +90,7 @@ export interface CommonProps<T extends HTMLElement> {
 export const HbKibblePlan: {
   (
     props: {
+      stack?: boolean;
       HbKibblePlanElement?: React.ReactNode;
       HbKibblePlanElement1?: React.ReactNode;
       HbKibblePlanElement2?: React.ReactNode;

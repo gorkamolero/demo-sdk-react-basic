@@ -81,6 +81,11 @@ const styles = [
     propName: "ShowImage",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "noTitleNoSubtitle",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -169,6 +174,16 @@ const defaultPropValues = [
       "9VxZfYB53B": {},
     },
   },
+  {
+    type: "boolean",
+    propName: "noTitleNoSubtitle",
+    layers: {
+      Coy4GvRJN5: {},
+      B28tWsTkne: {},
+      DesmwGXXNp: {},
+      "9VxZfYB53B": {},
+    },
+  },
 ];
 
 const variantPropTypes = [
@@ -188,6 +203,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "ShowImage",
+  },
+  {
+    type: "boolean",
+    propName: "noTitleNoSubtitle",
   },
 ];
 
@@ -574,6 +593,10 @@ HbHeader.__variants = [
   },
   {
     name: "ShowImage",
+    type: "variant",
+  },
+  {
+    name: "noTitleNoSubtitle",
     type: "variant",
   },
 ];
