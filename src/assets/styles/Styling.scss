@@ -1,3 +1,5 @@
+/* autoprefixer grid: autoplace */
+
 :root {
   --background: #f7f7f7;
   --green: #12b0aa;
@@ -176,6 +178,32 @@ body {
   }
 }
 
+.player-container {
+  width: calc(1280px / 12 * 8);
+  max-width: 100%;
+  margin: 0 auto 20px;
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player,
+.player-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  outline: none;
+  border: 0;
+}
+
+.Spacer_JttkhPdb2e {
+  display: none;
+}
+
 .HbHeadContainer {
   .slide-End & {
     position: static !important;
@@ -194,10 +222,28 @@ body {
       max-width: 600px;
     }
   }
+
+  transition: opacity 250ms ease;
+  opacity: 1;
+  .isLoading {
+    opacity: 0;
+  }
 }
 
 .HbHeader {
   text-align: center;
+
+  &.hideImage {
+    div[role='image'][style*='Bowl'],
+    header + [id^='Overlay'],
+    [id^='ExtraImg'] {
+      display: none !important;
+    }
+
+    header {
+      padding: 0 !important;
+    }
+  }
 }
 
 div[role='radiogroup'] {
@@ -222,11 +268,6 @@ label[class*='radio-group-button'] {
 }
 ul[role*='listbox'] {
   width: auto !important;
-}
-small {
-  font-size: 16px;
-  font-style: italic;
-  opacity: 60%;
 }
 
 .Select-placeholder,
@@ -278,6 +319,8 @@ small {
   opacity: 0;
   transform: translateY(30px);
   transition: all 150ms ease-in-out;
+
+  z-index: 999;
 }
 
 .ReactModal__Overlay--after-open {
@@ -307,6 +350,9 @@ small {
   top: 0;
   left: 0;
   width: 100%;
+  .HbContent {
+    max-width: 60ch;
+  }
 }
 
 .HbHeader {
@@ -325,7 +371,7 @@ small {
   background-color: var(--hbYellow) !important;
 }
 .ReactModal__Overlay {
-  z-index: 10;
+  z-index: 999;
   background: rgba(0, 0, 0, 0.75) !important;
   display: flex;
   align-items: flex-start;
@@ -365,6 +411,9 @@ h2 {
 
 .inheritColor {
   color: inherit;
+}
+.underline {
+  text-decoration: underline;
 }
 
 .pagingDots {
@@ -413,23 +462,62 @@ li.paging-item.active .pagingDots {
 }
 
 .HbFormElement {
+  margin: 20px 0;
   @media (max-width: $small) {
     width: 100%;
     justify-content: center;
 
-    margin-top: 10px !important;
-    margin-bottom: 10px !important;
-
-    gap: 20px;
+    gap: 0;
     flex-wrap: nowrap;
+    margin: 10px 0;
 
     // &:last-of-type {
     //   // margin-bottom: 10px !important;
 
     // }
+
+    &.forceTogether {
+      // width: auto !important;
+      // display: inline-flex;
+      // gap: 5px;
+      .selectContainer > div {
+        min-width: 100px;
+      }
+
+      // &.forceTogetherFirstElement {
+      //   flex-basis: 50%;
+      // }
+
+      [class*='control'] {
+        padding: 0;
+      }
+    }
+
+    &.number {
+      label {
+        margin-top: 20px !important;
+      }
+    }
   }
 
   white-space: nowrap;
+
+  @media (min-width: $medium) {
+    &.select {
+      justify-content: center;
+    }
+  }
+
+  &.select input {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    width: 100%;
+  }
+
+  [class*='ValueContainer'] {
+    width: 100%;
+  }
 }
 
 .mobileNewLine {
@@ -451,7 +539,7 @@ li.paging-item.active .pagingDots {
 .HbHeader {
   @media (max-width: $small) {
     div[id^='Background'] {
-      height: 100% !important;
+      // height: 100% !important;
     }
   }
 }
@@ -487,10 +575,25 @@ label[class*='radio-group-button-root'] {
 }
 
 .Navigation {
-  padding: 10px 0;
+  padding: 10px 0 30px;
   @media (max-width: $small) {
-    button {
+    padding: 10px 0;
+    button,
+    button[type='button'] {
       flex: 1;
+      padding: 20px !important;
+    }
+  }
+}
+
+.HbEndFooter {
+  &.stack {
+    button[type='button']:not([id^='HbLinkButton']) {
+      flex: 1;
+      padding: 16px 24px !important;
+      &:last-child {
+        flex: 3;
+      }
     }
   }
 }
@@ -521,14 +624,27 @@ label[class*='radio-group-button-root'] {
       gap: 5px;
       padding: 10px;
       min-height: 0;
+      [class*='spacing'] {
+        padding: 5px !important;
+      }
+    }
+  }
+}
+.CheckboxButtonContainer {
+  @media not all and (min-resolution: 0.001dpcm) {
+    // SAFARI
+    @supports (-webkit-appearance: none) {
+      label {
+        margin: 5px;
+      }
     }
   }
 }
 
 .newLineSmall {
   line-height: 1.4;
-  margin-top: 10px;
   margin-bottom: 20px;
+  opacity: 0.6;
   @media (max-width: $small) {
     text-align: center;
     margin-bottom: 0;
@@ -559,10 +675,20 @@ label[class*='radio-group-button-root'] {
 
 .HbCard {
   width: 23.5%;
+  --margin: 2%;
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) {
+      &:not(:last-of-type) {
+        margin-right: var(--margin);
+      }
+    }
+  }
   @media (max-width: $large) {
     width: 48%;
     margin-bottom: 20px;
   }
+
   @media (max-width: $small) {
     width: 100%;
 
@@ -607,6 +733,7 @@ label[class*='radio-group-button-root'] {
 [id*='Column'] [id^='Head'] {
   @media (max-width: $small) {
     padding-bottom: 20px !important;
+    padding-top: 20px !important;
   }
 }
 
@@ -619,7 +746,8 @@ label[class*='radio-group-button-root'] {
 
 .switch {
   @media (max-width: $small) {
-    margin: 0 10px;
+    margin-bottom: 10px !important;
+    --switchHeight: 52px;
   }
 }
 
@@ -651,6 +779,10 @@ label[class*='radio-group-button-root'] {
 
 div[style*='8fbf67af'] {
   transform: scale(1.2);
+
+  @media (min-width: $medium) {
+    transform: scale(1.4);
+  }
 }
 
 .fname ~ .email {
@@ -665,4 +797,116 @@ input:-webkit-autofill:focus,
 input:-webkit-autofill:active {
   -webkit-transition: 'color 9999s ease-out, background-color 9999s ease-out';
   -webkit-transition-delay: 9999s;
+}
+
+button[class*='noIcon'] [class*='spacing'] {
+  display: none !important;
+}
+
+.HbCard [id*='CardTitle'] {
+  width: 100%;
+  word-break: break-all;
+}
+
+div#Background {
+  pointer-events: none;
+}
+
+.HbFeatureItem {
+  flex-shrink: 1 !important;
+}
+
+@media (max-width: $small) {
+  .forceTogetherFirstElement {
+    padding-left: 10px;
+    .selectContainer {
+      position: absolute;
+      left: 10px;
+      transform: translateY(calc(100% + 20px));
+      z-index: 9;
+      width: 50%;
+    }
+  }
+
+  .forceTogether:not(.forceTogetherFirstElement) {
+    justify-content: flex-end;
+    padding-right: 0;
+    > *:not(.selectContainer) {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: $small) {
+  .selectContainer {
+    &.notSearchable > div {
+      max-width: 0;
+    }
+    &.field-1,
+    &.field-5 {
+      margin-top: 20px;
+    }
+  }
+  .HbInput {
+    margin-top: 20px !important;
+  }
+}
+
+.HbResults {
+  @media (max-width: $small) {
+    [id^='CardFooter'] button {
+      display: none;
+    }
+  }
+}
+
+.slide-end .HbHeader [id^='HbContainer'] {
+  padding-bottom: 0 !important;
+}
+
+.HbEndFooter.stack [id^='Container'] [id^='Row'] ~ [id^='Row'] {
+  justify-content: flex-end;
+
+  [class*='spacing'] {
+    display: none;
+  }
+}
+
+.slideAnimate .HbContent {
+  padding-top: 80px;
+}
+
+.hasHelperText {
+  position: relative !important;
+  overflow: visible !important;
+  margin-bottom: 20px !important;
+  [id^='Slot'] {
+    position: static;
+  }
+
+  .helperText {
+    position: absolute;
+    top: 6px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+  .helperTextItem {
+    transform: translateY(100%);
+  }
+}
+
+[id^='RightSide'] {
+  flex: 1;
+}
+
+small {
+  font-size: 16px;
+  font-style: italic;
+  opacity: 0.6;
+}
+
+.screenIsLoaded {
+  opacity: 0;
 }

@@ -94,16 +94,20 @@ export const HbEndFooter: {
       priceFinal?: string;
       total?: string;
       HelpSlot?: React.ReactNode | React.ReactNode[];
-      stack?: boolean;
       NoHbAddAnotherDog?: boolean;
+      stack?: boolean;
       HbButtonWithIcon?: React.ReactNode;
       HbLinkButton?: React.ReactNode;
       HbButtonWithIconMobile?: React.ReactNode;
+      RestartSlot?: React.ReactNode;
+      RestartSlotMobile?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
   HbButtonWithIcon: typeof HbButtonWithIcon;
   HbLinkButton: typeof HbLinkButton;
   HbButtonWithIconMobile: typeof HbButtonWithIcon;
+  RestartSlot: typeof HbButton;
+  RestartSlotMobile: typeof HbButton;
 };
 export const HbFeature: {
   (

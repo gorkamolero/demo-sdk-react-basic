@@ -17,10 +17,13 @@ import { useLocalStorage } from 'react-use';
 
 const noTest = false
 
-function End() {
-    // No loading for dev
-    const [loading, setLoading] = useState(false)
+function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
+
+    React.useEffect(() => {
+        if (loadingScreenIsSeen) setLoading(false)
+    }, [loadingScreenIsSeen, setLoading])
+
     const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
 
     const { nav } = useContext(SlideContext);
@@ -28,7 +31,6 @@ function End() {
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
-    const [video, setVideo] = useState(null)
 
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
@@ -38,20 +40,22 @@ function End() {
                 setHungry(window.hungry.end)
                 setDog({
                     name: window.hungry.end.dogName,
-                    weight: window.hungry.end.dogWeight
+                    weight: window.hungry.end.dogWeight,
+                    gender: window.hungry.end.dogGender,
                 })
                 setProducts({
-                    kibble: window.hungry.end.kibble,
-                    supplement: window.hungry.end.supplement,
-                    mixin: window.hungry.end.mixin
+                    kibble: window.hungry.end.kibble ? window.hungry.end.kibble : null,
+                    supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
+                    mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
-                setVideo(window.hungry.end.video)
+
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
         }
 
         waitForWindowData()
+
     }, [])
 
     const [selectedResults, setSelectedResults] = useState([])
@@ -77,6 +81,8 @@ function End() {
         });
     }
 
+    const restartQuiz = () => nav.restart()
+
     useEffect(() => {
         if (!hungry) return
         let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice*0.8))
@@ -93,22 +99,28 @@ function End() {
         })
     }, [hungry, getPrice, totalPrice])
 
-    if (!hungry || !products) return null
+    if (!hungry) return null
 
     return (
         <>
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={1000} outTiming={2500} />
+                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={100} />
                 )
             }
 
-            {<Video video={video} play={!loading} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />}
+            {
+                !loading && (
+                    <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                )
+            }
 
             {
                 videoIsDone && (
                     <>
-                        <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                        {
+                            products && <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                        }
 
                         { window.location.href.includes('localhost') && <Navigation />}
 
@@ -117,13 +129,16 @@ function End() {
                         <Testimonials />
 
                         <Footer
+                            className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
-                            HbLinkButton={<Footer.HbLinkButton onPress={addAnotherDog} />}
+                            HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
-                            NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
+                            RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
+                            RestartSlotMobile={<Footer.RestartSlotMobile onPress={restartQuiz} />}
+                            // NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
                             stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={
                                 <Tooltip

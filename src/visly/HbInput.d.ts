@@ -96,6 +96,23 @@ export const HbInput: {
       onChange?: (value: string) => void;
       inputRef?: React.Ref<HTMLInputElement>;
       inputProps?: CommonProps<HTMLInputElement>;
+      type?:
+        | "text"
+        | "search"
+        | "url"
+        | "tel"
+        | "email"
+        | "password"
+        | "number";
+      inputMode?:
+        | "none"
+        | "text"
+        | "tel"
+        | "url"
+        | "email"
+        | "numeric"
+        | "decimal"
+        | "search";
       size?: "small" | "medium" | "large" | "super";
       notValid?: boolean;
     } & CommonProps<HTMLDivElement>

@@ -103,6 +103,11 @@ export const CommentButton: {
     text?: string;
     icon?: string;
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -110,6 +115,14 @@ export const HbButton: {
   (props: {
     text?: string;
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
     variant?: "contained";
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -122,25 +135,50 @@ export const HbButtonWithIcon: {
   (props: {
     text?: string;
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
     variant?: "contained";
+    noIcon?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCheckbox: {
   (props: {
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCheckbox2: {
   (props: {
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCheckboxGroup: {
   (props: {
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
+    column?: boolean;
     HbIconButton?: React.ReactNode;
   } & CommonProps<HTMLDivElement>): JSX.Element;
   HbIconButton: typeof HbIconButton;
@@ -157,6 +195,11 @@ export const HbCircleIcon: {
 export const HbCloseModal: {
   (props: {
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -205,10 +248,10 @@ export const HbHeader: {
     SubtitleSlot?: React.ReactNode | React.ReactNode[];
     ExtraChildren?: React.ReactNode | React.ReactNode[];
     discount2?: string;
-    ShowImage?: boolean;
     NoWave?: boolean;
     withVideo?: boolean;
     size?: "small" | "medium" | "super";
+    ShowImage?: boolean;
     HbCircleIcon?: React.ReactNode;
     HbProgress?: React.ReactNode;
     HbLogo?: React.ReactNode;
@@ -239,6 +282,14 @@ export const HbIconButton: {
     text?: string;
     icon?: string;
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
     column?: boolean;
     noIcon?: boolean;
     size?: "small";
@@ -253,6 +304,8 @@ export const HbInput: {
     onChange?: (value: string) => void;
     inputRef?: React.Ref<HTMLInputElement>;
     inputProps?: CommonProps<HTMLInputElement>;
+    type?: 'text' | 'search' | 'url' | 'tel' | 'email' | 'password' | 'number';
+    inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
     size?: "small" | "medium" | "large" | "super";
     notValid?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
@@ -281,6 +334,14 @@ export const HbLinkButton: {
   (props: {
     text?: string;
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbLogo: {
@@ -291,6 +352,14 @@ export const HbLogo: {
 export const HbOnlyIconButton: {
   (props: {
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbPopover: {
@@ -326,6 +395,14 @@ export const HbProgressBar: {
 export const HbProgressButton: {
   (props: {
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
     HbProgressButtonActive?: boolean;
     HbProgressButtonEmpty?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
@@ -344,6 +421,10 @@ export const HbRadio: {
     value?: string;
     onChange: (value: string) => void;
     ariaLabel?: string;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
     HbRadioColumn?: boolean;
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
@@ -397,6 +478,14 @@ export const HbSliderArrow: {
 export const HbSliderArrowButton: {
   (props: {
     onPress?: (event: PressEvent) => void;
+    type?: 'button' | 'submit' | 'reset';
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-expanded'?: boolean;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-controls'?: string;
     reverse?: boolean;
     HbSliderArrow?: React.ReactNode;
   } & CommonProps<HTMLDivElement>): JSX.Element;
@@ -444,6 +533,8 @@ export const Input: {
     onChange?: (value: string) => void;
     inputRef?: React.Ref<HTMLInputElement>;
     inputProps?: CommonProps<HTMLInputElement>;
+    type?: 'text' | 'search' | 'url' | 'tel' | 'email' | 'password' | 'number';
+    inputMode?: 'none' | 'text' | 'tel' | 'url' | 'email' | 'numeric' | 'decimal' | 'search';
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const LikeButton: {
@@ -451,6 +542,11 @@ export const LikeButton: {
     text?: string;
     icon?: string;
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -488,6 +584,11 @@ export const Select: {
 export const Toggle: {
   (props: {
     onChange?: (checked: boolean) => void;
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
+    'aria-controls'?: string;
     checked?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };

@@ -91,7 +91,13 @@ export const HbCheckboxGroup: {
   (
     props: {
       onChange?: (checked: boolean) => void;
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
+      "aria-controls"?: string;
       checked?: boolean;
+      column?: boolean;
       HbIconButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

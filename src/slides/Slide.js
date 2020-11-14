@@ -3,10 +3,10 @@ import { ModalProvider } from "react-modal-hook";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
 import Utils from '../utils/Utils'
-import Cover from '../slides/Cover/Cover';
-import Filter from '../slides/Filter/Filter';
-import Info from '../slides/Info/Info';
-import Feedback from '../slides/Feedback/Feedback';
+// import Cover from '../slides/Cover/Cover';
+// import Filter from '../slides/Filter/Filter';
+// import Info from '../slides/Info/Info';
+// import Feedback from '../slides/Feedback/Feedback';
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
@@ -21,18 +21,18 @@ const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
 
   return (
-    <>
+    <FlexBox column center style={{ width: '100%' }}>
       {
         {
-          'Cover':  <Cover />,
-          'Filter':<Filter />,
-          'Info':<Info />,
-          'Feedback':<Feedback />,
+          // 'Cover':  <Cover />,
+          // 'Filter':<Filter />,
+          // 'Info':<Info />,
+          // 'Feedback':<Feedback />,
           'Form':<Form {...rest} />,
-          'End':<End />,
+          'End':<End {...rest} />,
         }[type]
       }
-    </>
+    </FlexBox>
   )
 }
 
@@ -40,14 +40,15 @@ const Slide = () => {
     const { slideModel, interpolate, progressBar } = useContext(SlideContext);
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
+    const [loading, setLoading] = useState(true)
     const [slideHeight, setSlideHeight] = useState(0)
 
     const [headerHeight, setHeaderHeight] = useState(0)
 
-    useEffect(() => {
-      if (size) console.log(size) 
-      // window.dispatchEvent(new Event('resize'));
-    }, [size])
+    // useEffect(() => {
+    //   if (size) console.log(size) 
+    //   // window.dispatchEvent(new Event('resize'));
+    // }, [size])
     
     const HeadRef = useRef(null);
 
@@ -85,6 +86,15 @@ const Slide = () => {
     const isFirstSlide = slideId == 101 
     /* eslint-enable */
 
+    if (!Container) return null
+
+    const marginTop = () => {
+      if (isEndSlide) return 0
+      if(size !=='small') return headerHeight - 40
+      if (size === 'medium') return headerHeight - 20
+      else return 0
+    }
+
     return (
       <div>
       {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
@@ -92,7 +102,7 @@ const Slide = () => {
           <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
             <div className="HbHeadContainer" ref={HeadRef}>
               <HbHeader
-                className="HbHeader"
+                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
                 TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
                 SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
                 HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
@@ -105,7 +115,7 @@ const Slide = () => {
                 size={size === 'large' ? 'super' : size}
                 discount="20% Off"
                 discount2={isEndSlide ? '$50+ Ships Free' : ''}
-                ShowImage={slideTitle === 'Profile'}
+                // ShowImage={slideTitle === 'Profile'}
                 NoWave={ isEndSlide }
                 withVideo={ isEndSlide }
                 style={{ position: 'fixed !important', top: 0 }}
@@ -117,12 +127,12 @@ const Slide = () => {
               alignItems="center"
               style={{
                 position: 'relative',
-                zIndex: isEndSlide ? 3 : isFirstSlide ? 2 : 0,
-                marginTop: (!isEndSlide && size !=='small') ? headerHeight - 40 : 0,
+                zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
+                marginTop: marginTop(),
                 flex: 1
             }}>
-              <Container style={{ width: '100%', position: 'relative', marginTop: isEndSlide ? -20 : 0 }} alignItems="center" column>
-                <SlideView setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
+              <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
+                <SlideView loading={loading} setLoading={setLoading} setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
               </Container>
             </FlexBox>
 
@@ -141,7 +151,5 @@ const Slide = () => {
       </div>
     );
 };
-
-Slide.whyDidYouRender = true
 
 export default Slide

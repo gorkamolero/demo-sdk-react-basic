@@ -33,7 +33,7 @@ const Testimonials = () => {
     slidesToShow: size === 'large' ? 3 : size === 'medium' ? 2 : 1,
     renderCenterLeftControls: ({ previousSlide }) => <HbSliderArrow reverse onClick={ previousSlide }/>,
     renderCenterRightControls: ({nextSlide}) => <HbSliderArrow onClick={ nextSlide } />,
-    framePadding: '20px 0 80px',
+    framePadding: size === 'small' ? '20px 10px 80px' : '20px 0 80px',
     cellSpacing: 20,
     frameOverflow: 'hidden',
     defaultControlsConfig: {
@@ -66,7 +66,7 @@ const Testimonials = () => {
                 text={testimonial.text}
                 dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
                 stars={<FlexBox gap={5}>
-                  {Array(5).fill().map((i) => (<HbCircleIcon justEmoji icon={icons.hbStar} />))}
+                  {Array(5).fill().map((i) => (<HbCircleIcon key={i} justEmoji icon={icons.hbStar} />))}
                 </FlexBox>}
               />
           ))

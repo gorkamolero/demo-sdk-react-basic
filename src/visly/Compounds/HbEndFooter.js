@@ -19,6 +19,7 @@ import HbButtonWithIconComposite, {
   HbButtonWithIconContext,
 } from "../HbButtonWithIcon";
 import HbLinkButtonComposite, { HbLinkButtonContext } from "../HbLinkButton";
+import HbButtonComposite, { HbButtonContext } from "../HbButton";
 
 const styles = [
   {
@@ -43,12 +44,12 @@ const styles = [
   },
   {
     type: "boolean",
-    propName: "stack",
+    propName: "NoHbAddAnotherDog",
     layers: {},
   },
   {
     type: "boolean",
-    propName: "NoHbAddAnotherDog",
+    propName: "stack",
     layers: {},
   },
 ];
@@ -72,15 +73,18 @@ const defaultPropValues = [
           text: "Continue to Checkout",
         },
       },
-    },
-  },
-  {
-    type: "boolean",
-    propName: "stack",
-    layers: {
-      QNXBFmS13r: {},
-      VJaaiFG35i: {},
-      FY2RCHsKNM: {},
+      HTkUPAjJCp: {
+        none: {
+          text: "Start OVer",
+          variant: "contained",
+        },
+      },
+      MRiDQF3hkD: {
+        none: {
+          text: "Restart",
+          variant: "contained",
+        },
+      },
     },
   },
   {
@@ -90,6 +94,31 @@ const defaultPropValues = [
       QNXBFmS13r: {},
       VJaaiFG35i: {},
       FY2RCHsKNM: {},
+      HTkUPAjJCp: {},
+      MRiDQF3hkD: {},
+    },
+  },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {
+      QNXBFmS13r: {},
+      VJaaiFG35i: {
+        none: {
+          text: "+Dog",
+        },
+      },
+      FY2RCHsKNM: {
+        none: {
+          text: "Checkout",
+        },
+      },
+      HTkUPAjJCp: {},
+      MRiDQF3hkD: {
+        none: {
+          text: "Restart",
+        },
+      },
     },
   },
 ];
@@ -97,11 +126,11 @@ const defaultPropValues = [
 const variantPropTypes = [
   {
     type: "boolean",
-    propName: "stack",
+    propName: "NoHbAddAnotherDog",
   },
   {
     type: "boolean",
-    propName: "NoHbAddAnotherDog",
+    propName: "stack",
   },
 ];
 
@@ -128,164 +157,220 @@ function HbEndFooter(_props) {
         activeVariants: activeVariants,
       }}
     >
-      {(getStyle) => [
-        <ContainerPrimitive
-          id={"Container_K8Rvc3Sc8R"}
-          className={
-            "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"
-          }
-          key={"K8Rvc3Sc8R"}
-          addSpacing={true}
-          element={getStyle("K8Rvc3Sc8R", "htmlElement")}
-        >
+      {(getStyle) => (
+        <>
           <ContainerPrimitive
-            id={"Row_8NeAjDqg32"}
+            id={"Container_K8Rvc3Sc8R"}
             className={
-              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_8NeAjDqg32"
+              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K8Rvc3Sc8R"
             }
-            key={"8NeAjDqg32"}
+            key={"K8Rvc3Sc8R"}
             addSpacing={true}
-            element={getStyle("8NeAjDqg32", "htmlElement")}
+            element={getStyle("K8Rvc3Sc8R", "htmlElement")}
           >
-            <TextPrimitive
-              id={"Total_XXvgsKKhsZ"}
+            <ContainerPrimitive
+              id={"Row_8NeAjDqg32"}
               className={
-                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_8NeAjDqg32"
               }
-              key={"XXvgsKKhsZ"}
-              text={
-                exists(props.total)
-                  ? props.total
-                  : getStyle("XXvgsKKhsZ", "text")
-              }
-              element={getStyle("XXvgsKKhsZ", "htmlElement")}
-            />
-            <TextPrimitive
-              id={"Text_96PHAUg8AY"}
+              key={"8NeAjDqg32"}
+              addSpacing={true}
+              element={getStyle("8NeAjDqg32", "htmlElement")}
+            >
+              <TextPrimitive
+                id={"Total_XXvgsKKhsZ"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_XXvgsKKhsZ"
+                }
+                key={"XXvgsKKhsZ"}
+                text={
+                  exists(props.total)
+                    ? props.total
+                    : getStyle("XXvgsKKhsZ", "text")
+                }
+                element={getStyle("XXvgsKKhsZ", "htmlElement")}
+              />
+              <TextPrimitive
+                id={"Text_96PHAUg8AY"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_96PHAUg8AY"
+                }
+                key={"96PHAUg8AY"}
+                text={
+                  exists(props.priceOriginal)
+                    ? props.priceOriginal
+                    : getStyle("96PHAUg8AY", "text")
+                }
+                element={getStyle("96PHAUg8AY", "htmlElement")}
+              />
+              <TextPrimitive
+                id={"Text_GMQGJ3oWuC"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"
+                }
+                key={"GMQGJ3oWuC"}
+                text={
+                  exists(props.priceFinal)
+                    ? props.priceFinal
+                    : getStyle("GMQGJ3oWuC", "text")
+                }
+                element={getStyle("GMQGJ3oWuC", "htmlElement")}
+              />
+            </ContainerPrimitive>
+            <ContainerPrimitive
+              id={"Row_3Uo7BCssEJ"}
               className={
-                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_96PHAUg8AY"
+                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_3Uo7BCssEJ"
               }
-              key={"96PHAUg8AY"}
-              text={
-                exists(props.priceOriginal)
-                  ? props.priceOriginal
-                  : getStyle("96PHAUg8AY", "text")
-              }
-              element={getStyle("96PHAUg8AY", "htmlElement")}
-            />
-            <TextPrimitive
-              id={"Text_GMQGJ3oWuC"}
-              className={
-                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_GMQGJ3oWuC"
-              }
-              key={"GMQGJ3oWuC"}
-              text={
-                exists(props.priceFinal)
-                  ? props.priceFinal
-                  : getStyle("GMQGJ3oWuC", "text")
-              }
-              element={getStyle("GMQGJ3oWuC", "htmlElement")}
-            />
+              key={"3Uo7BCssEJ"}
+              addSpacing={true}
+              element={getStyle("3Uo7BCssEJ", "htmlElement")}
+            >
+              {[
+                <ContainerPrimitive
+                  id={"Row_FvzVudkqtn"}
+                  className={
+                    "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FvzVudkqtn"
+                  }
+                  key={"FvzVudkqtn"}
+                  addSpacing={true}
+                  element={getStyle("FvzVudkqtn", "htmlElement")}
+                >
+                  {[
+                    props.HbLinkButton === undefined ? (
+                      <HbLinkButtonComposite
+                        key={"VJaaiFG35i"}
+                        {...getCompositeDefaultProps("VJaaiFG35i")}
+                        id="HbLinkButton_VJaaiFG35i"
+                        className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i"
+                      />
+                    ) : (
+                      <HbLinkButtonContext.Provider
+                        key="VJaaiFG35i-provider"
+                        value={{
+                          key: "VJaaiFG35i",
+                          id: "HbLinkButton_VJaaiFG35i",
+                          className:
+                            "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i",
+                          ...getCompositeDefaultProps("VJaaiFG35i"),
+                        }}
+                      >
+                        {props.HbLinkButton}
+                      </HbLinkButtonContext.Provider>
+                    ),
+                    <ContainerPrimitive
+                      key={"K4wEpWEnXY"}
+                      id={"Slot_K4wEpWEnXY"}
+                      className={
+                        "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K4wEpWEnXY"
+                      }
+                      addSpacing={false}
+                    >
+                      {props.HelpSlot}
+                    </ContainerPrimitive>,
+                  ]}
+                </ContainerPrimitive>,
+                props.RestartSlot === undefined ? (
+                  <HbButtonComposite
+                    key={"HTkUPAjJCp"}
+                    {...getCompositeDefaultProps("HTkUPAjJCp")}
+                    id="RestartSlot_HTkUPAjJCp"
+                    className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_HTkUPAjJCp"
+                  />
+                ) : (
+                  <HbButtonContext.Provider
+                    key="HTkUPAjJCp-provider"
+                    value={{
+                      key: "HTkUPAjJCp",
+                      id: "RestartSlot_HTkUPAjJCp",
+                      className:
+                        "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_HTkUPAjJCp",
+                      ...getCompositeDefaultProps("HTkUPAjJCp"),
+                    }}
+                  >
+                    {props.RestartSlot}
+                  </HbButtonContext.Provider>
+                ),
+                props.HbButtonWithIcon === undefined ? (
+                  <HbButtonWithIconComposite
+                    key={"QNXBFmS13r"}
+                    {...getCompositeDefaultProps("QNXBFmS13r")}
+                    id="HbButtonWithIcon_QNXBFmS13r"
+                    className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r"
+                  />
+                ) : (
+                  <HbButtonWithIconContext.Provider
+                    key="QNXBFmS13r-provider"
+                    value={{
+                      key: "QNXBFmS13r",
+                      id: "HbButtonWithIcon_QNXBFmS13r",
+                      className:
+                        "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r",
+                      ...getCompositeDefaultProps("QNXBFmS13r"),
+                    }}
+                  >
+                    {props.HbButtonWithIcon}
+                  </HbButtonWithIconContext.Provider>
+                ),
+              ]}
+            </ContainerPrimitive>
           </ContainerPrimitive>
           <ContainerPrimitive
-            id={"Row_3Uo7BCssEJ"}
+            id={"Row_BLig2wrCBm"}
             className={
-              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_3Uo7BCssEJ"
+              "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_BLig2wrCBm"
             }
-            key={"3Uo7BCssEJ"}
+            key={"BLig2wrCBm"}
             addSpacing={true}
-            element={getStyle("3Uo7BCssEJ", "htmlElement")}
+            element={getStyle("BLig2wrCBm", "htmlElement")}
           >
             {[
-              <ContainerPrimitive
-                id={"Row_FvzVudkqtn"}
-                className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FvzVudkqtn"
-                }
-                key={"FvzVudkqtn"}
-                addSpacing={true}
-                element={getStyle("FvzVudkqtn", "htmlElement")}
-              >
-                {[
-                  props.HbLinkButton === undefined ? (
-                    <HbLinkButtonComposite
-                      key={"VJaaiFG35i"}
-                      {...getCompositeDefaultProps("VJaaiFG35i")}
-                      id="HbLinkButton_VJaaiFG35i"
-                      className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i"
-                    />
-                  ) : (
-                    <HbLinkButtonContext.Provider
-                      key="VJaaiFG35i-provider"
-                      value={{
-                        key: "VJaaiFG35i",
-                        id: "HbLinkButton_VJaaiFG35i",
-                        className:
-                          "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_VJaaiFG35i",
-                        ...getCompositeDefaultProps("VJaaiFG35i"),
-                      }}
-                    >
-                      {props.HbLinkButton}
-                    </HbLinkButtonContext.Provider>
-                  ),
-                  <ContainerPrimitive
-                    key={"K4wEpWEnXY"}
-                    id={"Slot_K4wEpWEnXY"}
-                    className={
-                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_K4wEpWEnXY"
-                    }
-                    addSpacing={false}
-                  >
-                    {props.HelpSlot}
-                  </ContainerPrimitive>,
-                ]}
-              </ContainerPrimitive>,
-              props.HbButtonWithIcon === undefined ? (
+              props.RestartSlotMobile === undefined ? (
+                <HbButtonComposite
+                  key={"MRiDQF3hkD"}
+                  {...getCompositeDefaultProps("MRiDQF3hkD")}
+                  id="RestartSlotMobile_MRiDQF3hkD"
+                  className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_MRiDQF3hkD"
+                />
+              ) : (
+                <HbButtonContext.Provider
+                  key="MRiDQF3hkD-provider"
+                  value={{
+                    key: "MRiDQF3hkD",
+                    id: "RestartSlotMobile_MRiDQF3hkD",
+                    className:
+                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_MRiDQF3hkD",
+                    ...getCompositeDefaultProps("MRiDQF3hkD"),
+                  }}
+                >
+                  {props.RestartSlotMobile}
+                </HbButtonContext.Provider>
+              ),
+              props.HbButtonWithIconMobile === undefined ? (
                 <HbButtonWithIconComposite
-                  key={"QNXBFmS13r"}
-                  {...getCompositeDefaultProps("QNXBFmS13r")}
-                  id="HbButtonWithIcon_QNXBFmS13r"
-                  className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r"
+                  key={"FY2RCHsKNM"}
+                  {...getCompositeDefaultProps("FY2RCHsKNM")}
+                  id="HbButtonWithIconMobile_FY2RCHsKNM"
+                  className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM"
                 />
               ) : (
                 <HbButtonWithIconContext.Provider
-                  key="QNXBFmS13r-provider"
+                  key="FY2RCHsKNM-provider"
                   value={{
-                    key: "QNXBFmS13r",
-                    id: "HbButtonWithIcon_QNXBFmS13r",
+                    key: "FY2RCHsKNM",
+                    id: "HbButtonWithIconMobile_FY2RCHsKNM",
                     className:
-                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_QNXBFmS13r",
-                    ...getCompositeDefaultProps("QNXBFmS13r"),
+                      "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM",
+                    ...getCompositeDefaultProps("FY2RCHsKNM"),
                   }}
                 >
-                  {props.HbButtonWithIcon}
+                  {props.HbButtonWithIconMobile}
                 </HbButtonWithIconContext.Provider>
               ),
             ]}
           </ContainerPrimitive>
-        </ContainerPrimitive>,
-        props.HbButtonWithIconMobile === undefined ? (
-          <HbButtonWithIconComposite
-            key={"FY2RCHsKNM"}
-            {...getCompositeDefaultProps("FY2RCHsKNM")}
-            id="HbButtonWithIconMobile_FY2RCHsKNM"
-            className="__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM"
-          />
-        ) : (
-          <HbButtonWithIconContext.Provider
-            key="FY2RCHsKNM-provider"
-            value={{
-              key: "FY2RCHsKNM",
-              id: "HbButtonWithIconMobile_FY2RCHsKNM",
-              className:
-                "__visly_reset_WDRq65T88Q __visly_scope_XdYhdmDsxs_FY2RCHsKNM",
-              ...getCompositeDefaultProps("FY2RCHsKNM"),
-            }}
-          >
-            {props.HbButtonWithIconMobile}
-          </HbButtonWithIconContext.Provider>
-        ),
-      ]}
+        </>
+      )}
     </RootPrimitive>
   );
 }
@@ -293,13 +378,15 @@ function HbEndFooter(_props) {
 HbEndFooter.HbButtonWithIcon = HbButtonWithIconComposite;
 HbEndFooter.HbLinkButton = HbLinkButtonComposite;
 HbEndFooter.HbButtonWithIconMobile = HbButtonWithIconComposite;
+HbEndFooter.RestartSlot = HbButtonComposite;
+HbEndFooter.RestartSlotMobile = HbButtonComposite;
 HbEndFooter.__variants = [
   {
-    name: "stack",
+    name: "NoHbAddAnotherDog",
     type: "variant",
   },
   {
-    name: "NoHbAddAnotherDog",
+    name: "stack",
     type: "variant",
   },
 ];

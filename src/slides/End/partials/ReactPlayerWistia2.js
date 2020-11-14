@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Frame from 'react-frame-component'
 import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
-import './ReactPlayerWistia.css'
+import {CSSTransition} from 'react-transition-group'
 
 const texts = [
   `Analyzing... your dog's information`,
@@ -25,11 +25,7 @@ const iframeMarkup = (videoURL) => `
       <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
     </head>
     <body style="padding: 0; margin: 0; overflow: hidden;">
-      <div class="wistia_responsive_padding" style="padding:56.25% 0 0 0;position:relative;">
-        <div class="wistia_responsive_wrapper" style="height:100%;left:0;position:absolute;top:0;width:100%;">
           <div class="wistia_embed wistia_async_bmwh267dv6 idType=ab-test seo=true videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div>
-        </div>
-      </div>
     </body>
 </html>
   `
@@ -40,10 +36,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
 
-  const [markup, setMarkup] = useState(() => iframeMarkup(video))
-  useEffect(() => {
-    return setMarkup( iframeMarkup(video) )
-  }, [video])
+  const markup = iframeMarkup(video)
 
   useEffect(() => {
     if (!play) return
@@ -57,20 +50,27 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
     }, textDuration);
     return () => window.clearInterval(interval);
   }, [count, setVideoIsDone, play]);
-
-  if (!markup) return null
   
   return (
-    <HbSection noHeadNoPadding>
-      <div className="player-container">
-        <div className="player-wrapper">
-          <Frame className="player-iframe" initialContent={markup} />
+    <HbSection noHeadNoPadding style={{ margin: '0 auto' }}>
+      <CSSTransition
+        in={true}
+        timeout={200}
+        classNames="collapse-after"
+        unmountOnExit
+        mountOnEnter
+      >
+        <div className="player-container">
+          <div className="player-wrapper">
+            <Frame className="player-iframe" initialContent={markup} />
+          </div>
         </div>
-      </div>
+      </CSSTransition>
+      
 
       {
         (videoIsDone && play) || (
-          <FooterBar center text={text} />
+          <FooterBar className="FooterBar" center text={text} />
         )
       }
     </HbSection>

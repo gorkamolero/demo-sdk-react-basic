@@ -1,16 +1,16 @@
-import React, { useState, useContext, useMemo, useEffect } from "react";
+import React, { useState, useContext, useMemo, useEffect, useRef } from "react";
 import Utils from '../../utils/Utils'
 import './FormFields.css';
 import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
-import { HbContent, HbInput, HbRadio, useBreakpoint, icons, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
-import { FlexBox } from "react-styled-flex";
+import { HbContent, HbInput, HbRadio, useBreakpoint, icons, colors, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
+import { FlexBox, FlexItem } from "react-styled-flex";
 import { SlideContext } from "../../context/SlideContext";
 import ReactSelect from 'react-select'
 import SelectStyles from './SelectStyles'
 import { HbHelperTxt ,FlexLabel ,HbBreakLine , HbSpace} from '../../styles/StyledComps'
 // import ConditionalWrap from 'conditional-wrap'
-
+const year = new Date().getFullYear()
 const HbFormElement = ({children, ...rest}) => {
   const fieldRef = React.useRef(null);
   // Scroll To Item
@@ -32,20 +32,21 @@ const Icon = ({ innerRef, innerProps }) => (
 );
 
 const Select = ({field, title, onChangeHandler, size, notValid}) => {
+  const selectRef = useRef(null);
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
     if (field.getValue()) {
-        return options.find(op => op.value === field.getValue())
+      return options.find(op => op.value === field.getValue())
     } else if (meta.defaultValue) {
         return options[0]
     }
   });
-
+  const [placeholder, setPlaceholder] = useState(() => meta && meta.default ? meta.default : 'Select...')
+  const notSearchable = meta.notSearchable || false
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
-      const year = new Date().getFullYear()
       for (let i = year; i >= year - meta.minValue; i--) {
         years.push({
           value: i.toString(),
@@ -57,18 +58,39 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   }, [meta])
 
   /* eslint-disable*/
-  React.useEffect(() => {
+  useEffect(() => {
     if (selected) {
       onChangeHandler(selected.value, field)
+      selectRef.current.select.setValue(selected)
     }
   }, [selected, field])
   /* eslint-enable */
 
+  
+  useEffect(() => {
+    if (!selected && field.getValue()) {
+      setSelected(options.find(op => op.value === field.getValue()))
+    }
+  }, [options, field, selected])
+
   return (
-    <FlexBox column alignItems="center" justifyContent="flex-start" className={`selectContainer`}>
+    <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.notSearchable ? 'notSearchable' : ''} ${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
-      <ReactSelect onChange={setSelected} defaultValue={selected} isSearchable={true} placeholder={meta.default || 'Select...'} options={options} styles={SelectStyles} components={{ DropdownIndicator: Icon }}  min={meta.minSelect || false} />
+      <ReactSelect
+        onChange={setSelected}
+        defaultValue={selected}
+        isSearchable={!notSearchable}
+        placeholder={placeholder}
+        options={options}
+        styles={SelectStyles}
+        components={{ DropdownIndicator: Icon }} 
+        min={meta.minSelect || false}
+        onFocus={() => notSearchable || setPlaceholder('Start typing...')}
+        ref={selectRef}
+        maxWidth={meta.maxWidth}
+        superMaxWidth={meta.superMaxWidth}
+      />
     </FlexBox>
   )
 }
@@ -89,31 +111,29 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const [selected, setSelected] = React.useState(() => {
     let val = field.getValue()
     if (!val) return []
-    if (typeof val === 'string') val = [val]
+    if (typeof val === 'string') val = val.split(',')
     return val
   });
 
   const toggleSelected = value => {
-    if (selected.includes(value)) {
+    if (selected.includes(value) || selected === 'value') {
       setSelected(selected.filter(val => val !== value))
-      field.removeValue(value)
-      onChangeHandler(value, field)
+      field.setValue(value)
     } else {
       setSelected([...selected, value])
-      field.setValue(value)
-      onChangeHandler(value, field)
+      field.removeValue(value)
     }
+    onChangeHandler(value, field)
   }
-
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" style={{ marginBottom: size === 'small' ? 20 : 0 }}>
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
       {title}
 
       {
         selected.length > 0 && (
-          <FlexBox gap={10} center wrap>
+          <FlexBox center wrap>
             {selected.map((o, i) => {
               const op = options.find(op => op.value === o)
               return (
@@ -130,8 +150,10 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   tagText={op && op.label? op.label : op}
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
-                      onPress={() => setSelected(selected.filter(o2 => o2 !== o))}
+                      onPress={() => toggleSelected(o)}
+                      style={{ marginTop: 10 }}
                     />}
+                  style={{ margin: 5 }}
                 />
               </CSSTransition>
             )
@@ -163,6 +185,13 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
+  const notSoValid = () => {
+    if (meta.max && value > meta.max) return true
+    if (meta.maxlength && value.length > meta.maxlength) return true
+    return false
+  }
+  const invalid = notSoValid()
+
   return (
     <>
       {title}
@@ -174,11 +203,24 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
         }}
         placeholder={meta.placeholder || ""}
         size={size}
-        style={{ width: 'auto', margin: '0 10px' }}
-        inputProps={type ? {type} : {type: 'number'}}
-        notValid={notValid} 
+        style={{ width: 'auto', margin: '0 10px', position: 'relative' }}
+        inputProps={{
+          type,
+          ...(meta.max && { max: meta.max }),
+          ...(meta.maxlength && { maxLength: meta.maxlength })
+        }}
+        className={`HbInput ${meta.helperText ? 'hasHelperText' : ''}`}
+        notValid={invalid} 
       >
         { meta.units && <span>{meta.units}</span> }
+        { ((meta.helperText && !meta.onlyShowHelperIfWrong)
+          || (meta.helperText && meta.onlyShowHelperIfWrong && invalid)) &&  (
+          <FlexBox center className="helperText">
+            <FlexItem className="helperTextItem">
+              <small style={{ color: invalid ? colors.red400 : 'inherit' }} className="newLineSmall">{ meta.helperText }</small>
+            </FlexItem>
+          </FlexBox>
+        )}
       </HbInput>
     </>
   );
@@ -195,7 +237,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: size === 'small' ? 0 : 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}
@@ -341,15 +383,14 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
         field.setHidden(false)
 
         if (meta.onlyShowIfFollowsAnswer) {
-          // console.log('ERROR', master.getValue())
           field.setHidden(true)
 
           if (
-            fieldValues[fields.indexOf(master)].includes(meta.onlyShowIfFollowsAnswer)
-            || fieldValues[fields.indexOf(master)] === meta.onlyShowIfFollowsAnswer
+            master.getValue().includes(meta.onlyShowIfFollowsAnswer)
+            || master.getValue() === meta.onlyShowIfFollowsAnswer
           ) {
             field.setHidden(false)
-          }
+          } else { field.setHidden(true) }
         }
       }
 
@@ -388,15 +429,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
   if (meta.hide || !isExpanded) return null
   return (
     <>
-      {
-        meta.forceTogetherFirstElement && <span className="forceTogether" />
-      }
       {meta.newLine && <HbBreakLine className="newLine" />}
         <HbFormElement
-          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine && 'mobileNewLine'}  ${meta.forceSameLine && 'forceSameLine'}`}
+          className={`HbFormElement ${field.getType()} ${getFieldErrorClass(field)} ${meta.mobileNewLine ? 'mobileNewLine' : ''}  ${meta.forceSameLine ? 'forceSameLine' : ''} ${meta.forceTogether ? 'forceTogether' : ''} ${meta.forceTogetherFirstElement ? 'forceTogetherFirstElement' : ''}`}
           style={{
-            marginTop: 20,
-            marginBottom: 20,
             ...(meta.newLine && { marginTop: 20, marginBottom: 20 }),
             // ...(meta.column && { flex: 1 })
             ...(meta.column && { alignItems: "center" }),
@@ -456,7 +492,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
             )
           }
 
-          {meta.afterTxt && (
+          {meta.afterTxt && (size === 'small' && !meta.hideMobileAfterText ) && (
             <>
               <HbSpace />
               {interpolate(customAfterText || meta.afterTxt)}
@@ -470,6 +506,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           <small className="newLineSmall" style={{ marginBottom: 20 }}>
             {interpolate(meta.afterLine)}
           </small>
+          <HbBreakLine className="newLine" />
         </>
       )}
     </>
@@ -490,14 +527,20 @@ function FormFields({ children, fields, showErrors = true }) {
 
         if (type === 'checkbox') {
             field.setValue(event.target.checked);
-        } else if (["select", "text", "radio-group", "number"].includes(type)) {
+        } else if (["text", "select", "number"].includes(type)) {
             const value = event;
             field.setValue(value);
             // console.log(field.getType(), value)
+        } else if (["radio-group"].includes(type)) {
+            const value = event;
+            if (field.getValue().includes(value)) {
+              field.removeValue(value)
+            }
+            else field.setValue(value);
+            // console.log(field.getType(), value)
         } else {
           field.setValue(event);
-        }
-
+        } 
         setFieldValues(getFieldValues());
         
         setTouched(touched + 1);

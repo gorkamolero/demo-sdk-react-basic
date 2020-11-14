@@ -8,6 +8,8 @@ import { useModal } from "react-modal-hook"
 import ProductModal from './ProductModal'
 import CustomHTML from '../../../components/CustomHTML/CustomHTML';
 
+
+
 const Products = ({
     style,
     selectedResults,
@@ -23,6 +25,15 @@ const Products = ({
     texts
 }) => {
 
+    const replacers = {
+        kibble: 'meal',
+        supplement: 'supplement',
+        mixin: 'mixin'
+    }
+
+    const contact = (type) => `<p>Unfortunately we don’t have a Hungry Bark ${replacers[type]} to offer ${dog.gender === 'Male' ? 'him' : 'her'}. Want to discuss this further? Contact us at nutritionist@hungrybark.com</p>`
+    const oops = `Oops… Looks like ${dog.name} has some very specific needs…`
+
     const [results, setResults] = useState(null);
     const [modalData, setModalData] = useState(null);
 
@@ -37,14 +48,15 @@ const Products = ({
 
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
-        console.log('RESULTS', products.kibble, products.supplement, products.mixin)
-    }, [products.kibble, products.supplement, products.mixin]);
+        setSelectedResults([products.kibble, products.supplement, products.mixin])
+        console.log(products)
+    }, [products.kibble, products.supplement, products.mixin, setSelectedResults, products]);
 
 
     useEffect(() => {
         setTotalPrice(
             Math.round((
-                selectedResults.length > 0 ? selectedResults.map(({price}) => price).reduce((a, b) => a + b) : 0
+                selectedResults.length > 0 ? selectedResults.map((result) => result && result.price && result.price).reduce((a, b) => a + b) : 0
             ) * 100) / 100
         )
     }, [subscription, selectedResults, setTotalPrice])
@@ -52,8 +64,9 @@ const Products = ({
     if (!results) return null
 
     const onAddResult = (result) => {
+        if (!result) return
         if (selectedResults.includes(result)) {
-            setSelectedResults(selectedResults.filter(r => r.sku !== result.sku))
+            setSelectedResults(selectedResults.filter(r => r && r.sku !== result.sku))
         }
         else return setSelectedResults(selectedResults.concat(result))
     }
@@ -105,11 +118,10 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Meal'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Kibble to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
-                                    }
+                                    html={contact('kibble')}
                                 />
                             }
                             className="HbCard"
@@ -147,11 +159,10 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Supplement'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Supplement to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
-                                    }
+                                    html={contact('supplement')}
                                 />
                             }
                             className="HbCard"
@@ -189,11 +200,10 @@ const Products = ({
                     ) : (
                         <HbProductEmpty
                             type={'Mixin'}
+                            oops={oops}
                             Extratext={
                                 <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                    html={
-                                        '<p>Unfortunately we don’t have a Hungry Bark Mixin to offer him. Want to discuss this further? <a class="inheritColor" href="mailto:x@hungrybark.com">Contact us</a></p>'
-                                    }
+                                    html={contact('mixin')}
                                 />
                             }
                             className="HbCard"
@@ -202,10 +212,8 @@ const Products = ({
                 }
 
                 <HbResults
-                    className="HbCard"
+                    className="HbCard HbResults"
                     verylongname={`${dog.name}’s Plan`}
-                    // trial={texts.plan.trial}
-                    // afterTrial={texts.plan.afterTrial}
                     DescriptionHtml={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,

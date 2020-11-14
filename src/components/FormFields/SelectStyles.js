@@ -1,31 +1,34 @@
 import { colors } from "../../visly";
 
 export default {
-  control: (provided, state) => ({
-    ...provided,
-    boxShadow: 'none',
-    borderColor: 'none',
-    borderRadius: 0,
-    border: 0,
-    borderBottom: `2px solid ${colors.hbLight}`,
-    paddingLeft: 20,
-    '&:hover': {
-      borderColor: colors.hbGreen
-    }
-  }),
+  control: (provided, state) => {
+    return ({
+      ...provided,
+      boxShadow: 'none',
+      borderColor: 'none',
+      borderRadius: 0,
+      border: 0,
+      borderBottom: `2px solid ${colors.hbLight}`,
+      paddingLeft: 20,
+      '&:hover': {
+        borderColor: colors.hbGreen
+      },
+    })
+  },
   menu: (provided, state) => ({
     ...provided,
     margin: 0,
     minWidth: '100%',
     width: 'auto',
-    borderRadius: 0,
+    borderRadius: 0
   }),
   indicatorSeparator: () => ({ display: 'none' }),
   menuList: (provided) => ({
     ...provided,
-    padding: 0
+    padding: 0,
+    backgroundColor: 'white'
   }),
-  valueContainer: provided => ({
+  valueContainer: (provided, state) => ({
     ...provided,
     display: 'flex',
     alignItems: 'center',
@@ -44,13 +47,19 @@ export default {
   }),
   placeholder: (provided, state) => ({
     ...provided,
-    color: colors.hbText,
+    color: state.isFocused ? colors.hbDark : colors.hbText,
     transform: 'none',
     top: 'auto',
     position: 'static'
   }),
+  input: (provided, state) => ({
+    fontFamily: 'inherit',
+    fontSize: 'inherit'
+  }),
   container: (provided, state) => ({
     ...provided,
+    ...(state.selectProps.maxWidth &&  {maxWidth: !state.hasValue ? state.selectProps.maxWidth : '210px'}),
+    ...(state.selectProps.superMaxWidth && state.hasValue &&  {maxWidth: state.selectProps.superMaxWidth}),
     minWidth: state.selectProps.min ? 60 : 150
   }),
   option: (styles, { data, isDisabled, isFocused, isSelected }) => {

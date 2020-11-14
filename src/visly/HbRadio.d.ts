@@ -93,6 +93,10 @@ export const HbRadio: {
       value?: string;
       onChange: (value: string) => void;
       ariaLabel?: string;
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
       HbRadioColumn?: boolean;
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>

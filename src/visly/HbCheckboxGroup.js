@@ -31,6 +31,11 @@ const styles = [
     propName: "checked",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "column",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -40,7 +45,7 @@ const defaultPropValues = [
       HkvrZpwtE4: {
         none: {
           text: "Example text",
-          column: true,
+          column: false,
         },
       },
     },
@@ -56,12 +61,27 @@ const defaultPropValues = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "column",
+    layers: {
+      HkvrZpwtE4: {
+        none: {
+          column: true,
+        },
+      },
+    },
+  },
 ];
 
 const variantPropTypes = [
   {
     type: "boolean",
     propName: "checked",
+  },
+  {
+    type: "boolean",
+    propName: "column",
   },
 ];
 
@@ -128,6 +148,10 @@ HbCheckboxGroup.HbIconButton = HbIconButtonComposite;
 HbCheckboxGroup.__variants = [
   {
     name: "checked",
+    type: "variant",
+  },
+  {
+    name: "column",
     type: "variant",
   },
 ];

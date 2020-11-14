@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import { SlideContext } from '../../context/SlideContext'
 import CustomHTML from '../../components/CustomHTML/CustomHTML'
-import './Header.css'
 
 function Header() {
     const {slideModel} = useContext(SlideContext);

@@ -7,6 +7,7 @@
     "@visly/core": "^1.0.6",
     "@welldone-software/why-did-you-render": "welldone-software/why-did-you-render",
     "conditional-wrap": "^1.0.2",
+    "flex-gap-polyfill": "^1.0.4",
     "framer-motion": "^2.9.4",
     "ismounted": "^0.1.8",
     "node-sass": "^4.14.1",
@@ -54,6 +55,8 @@
     ]
   },
   "devDependencies": {
-    "electron": "^10.1.2"
+    "electron": "^10.1.2",
+    "npm-run-all": "^4.1.5",
+    "postcss-cli": "^8.2.0"
   }
 }
