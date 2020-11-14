@@ -14,13 +14,14 @@ import {
   Tooltip,
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
+import { FlexBox } from 'react-styled-flex';
 
 const noTest = false
 
 function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
     
-    React.useEffect(() => {
+    useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
     }, [loadingScreenIsSeen, setLoading])
 
@@ -105,12 +106,13 @@ function End({loading, setLoading}) {
         })
     }, [hungry, getPrice, totalPrice])
 
-    if (!hungry) return null
-
-    console.log(hungry)
+    useEffect(() => {
+        return () => setLoading(true)
+    }, [setLoading])
+    if (!hungry) return <div></div>
 
     return (
-        <>
+        <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
                     <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={100} />
@@ -119,7 +121,9 @@ function End({loading, setLoading}) {
 
             {
                 !loading && (
-                    <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                    <FlexBox column center width="100%">
+                        <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                    </FlexBox>
                 )
             }
 
@@ -168,7 +172,7 @@ function End({loading, setLoading}) {
                     </>
                )
             }
-        </>
+        </FlexBox>
     );
 
 }

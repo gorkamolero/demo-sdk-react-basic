@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import Frame from 'react-frame-component'
 import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
-import {CSSTransition} from 'react-transition-group'
-
+import ReactSrcDocIframe from 'react-srcdoc-iframe'
 const texts = [
   `Analyzing... your dog's information`,
   'Analyzing...breed-specific needs',
@@ -31,7 +29,7 @@ const iframeMarkup = (videoURL) => `
   `
 
 const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
-
+  const [visible, setVisible] = useState(false);
   const [count, setCount] = useState(0)
   const [text, setText] = useState(texts[count])
   const textDuration = 1000
@@ -50,22 +48,28 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
     }, textDuration);
     return () => window.clearInterval(interval);
   }, [count, setVideoIsDone, play]);
+
+  useEffect(() => {
+    setVisible(true)
+    return () => {
+      setVisible(false)
+      document.querySelector('#iframe-wrapper').remove()
+    }
+  }, [])
+
+  if (!visible) return <div></div>
   
   return (
     <HbSection noHeadNoPadding style={{ margin: '0 auto' }}>
-      <CSSTransition
-        in={true}
-        timeout={200}
-        classNames="collapse-after"
-        unmountOnExit
-        mountOnEnter
-      >
-        <div className="player-container">
-          <div className="player-wrapper">
-            <Frame className="player-iframe" initialContent={markup} />
+      {
+        visible && (
+          <div className="player-container">
+            <div className="player-wrapper" id="iframe-wrapper">
+              <ReactSrcDocIframe className="player-iframe" srcDoc={visible ? markup : ''} />
+            </div>
           </div>
-        </div>
-      </CSSTransition>
+        )
+      }
       
 
       {

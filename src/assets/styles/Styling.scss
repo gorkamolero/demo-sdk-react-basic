@@ -190,7 +190,8 @@ body {
 }
 
 .react-player,
-.player-iframe {
+.player-iframe,
+.player-wrapper iframe {
   position: absolute;
   top: 0;
   left: 0;

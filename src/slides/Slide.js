@@ -23,6 +23,10 @@ const SlideView = ({slideModel, ...rest}) => {
     <FlexBox column center style={{ width: '100%' }}>
       {
         {
+          // 'Cover':  <Cover />,
+          // 'Filter':<Filter />,
+          // 'Info':<Info />,
+          // 'Feedback':<Feedback />,
           'Form':<Form {...rest} />,
           'End':<End {...rest} />,
         }[type]
@@ -91,8 +95,7 @@ const Slide = () => {
     }
 
     return (
-      <div>
-      <FlexBox column center className={`slide-${type} slide-${slideId && slideId} ${!isEndSlide ? 'animate' : '' }`}>
+      <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
         <div className="HbHeadContainer" ref={HeadRef}>
           <HbHeader
             className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
@@ -140,7 +143,6 @@ const Slide = () => {
           )
         }
       </FlexBox>
-      </div>
     );
 };
 
