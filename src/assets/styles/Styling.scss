@@ -965,3 +965,9 @@ small {
 .screenIsLoaded {
   opacity: 0;
 }
+
+.slide-Form.slide-101 {
+  @media (max-width: $small) {
+    min-height: 100vh;
+  }
+}

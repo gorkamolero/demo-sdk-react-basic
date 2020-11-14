@@ -23,18 +23,6 @@ const Tab = ({ text }) => {
     return <HbTabs.Button text={text} onClick={onClick} selected={isActive} />
 };
 
-const getGoalColum = function(goals, min, max) {
-    let items = [];
-    for (let i = min; i <= max; i += 1) {
-        if (goals[i]) items.push(<li className="goal" key={i}>{goals[i]}</li>);
-    }
-    return (
-        <ul className="health-goals">
-            {items}
-        </ul>
-    )
-};
-
 const getTabs = (product, dog, goals, size) => {
     if (product.type === 'kibble') {
         return (

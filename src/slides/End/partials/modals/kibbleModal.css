@@ -482,7 +482,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  .kibbleModal-content {
+  kibtab-content .kibbleModal-content {
     height: 100%;
     position: relative;
     padding: 20px 0px;
