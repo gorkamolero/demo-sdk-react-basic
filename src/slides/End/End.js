@@ -19,16 +19,16 @@ import { useLocalStorage } from 'react-use';
 import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
-const noTest = false
+const noTest = window.location.href.includes('dev')
 
 function End({loading, setLoading}) {
-    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', false);
+    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage('videoIsSeen', noTest ? true : false);
     
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
-    }, [loadingScreenIsSeen, setLoading])
-
-    const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false)
+        if (videoIsDone) setLoading(false)
+    }, [loadingScreenIsSeen, videoIsDone, setLoading])
 
     const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
@@ -119,13 +119,12 @@ function End({loading, setLoading}) {
     }, [setLoading])
     
     if (!hungry) return <div></div>
-    console.log(hungry)
 
     return (
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={2000} outTiming={100} />
+                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
                 )
             }
 

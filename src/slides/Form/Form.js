@@ -29,7 +29,7 @@ const pageVariants = {
   },
 }
 
-function Form({setSlideHeight, isFirstSlide}) {
+function Form({setSlideHeight, isFirstSlide, isEndSlide}) {
   const { slideModel, touched } = useContext(SlideContext);
   const [showErrors, setShowErrors] = useState(false);
   const fields = slideModel.getFields()
@@ -61,6 +61,7 @@ function Form({setSlideHeight, isFirstSlide}) {
   }, [setSlideHeight])
 
   useEffect(() => {
+    if (isEndSlide) return
     if (slideModel.validate()) {
       setIsValid(true)
     } else {
@@ -76,7 +77,7 @@ function Form({setSlideHeight, isFirstSlide}) {
       }
     })
 
-  }, [touched, fields, slideModel])
+  }, [touched, fields, slideModel, isEndSlide])
   
   return (
     <AnimatePresence>
