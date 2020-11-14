@@ -1,5 +1,4 @@
 import React, { useContext, useState, useMemo, useRef, useEffect } from 'react';
-import { ModalProvider } from "react-modal-hook";
 import { FlexBox } from "react-styled-flex";
 import { SlideContext } from '../context/SlideContext';
 import Utils from '../utils/Utils'
@@ -96,59 +95,54 @@ const Slide = () => {
     }
 
     return (
-      <div>
-      {/* <div style={{ height: '100vh', overflow: 'hidden' }}> */}
-        <ModalProvider>
-          <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
-            <div className="HbHeadContainer" ref={HeadRef}>
-              <HbHeader
-                className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
-                TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
-                SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
-                HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
-                HbProgress={<ProgressBar size={size} />}
-                HbProgressMobile={<ProgressBar size={size} />}
-                HbCircleIcon={<HbHeader.HbCircleIcon />}
-                bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
-                extraImage={Bowl}
-                extraImageT={Bowl}
-                size={size === 'large' ? 'super' : size}
-                discount="20% Off"
-                discount2={isEndSlide ? '$50+ Ships Free' : ''}
-                // ShowImage={slideTitle === 'Profile'}
-                NoWave={ isEndSlide }
-                withVideo={ isEndSlide }
-                style={{ position: 'fixed !important', top: 0 }}
+      <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
+        <div className="HbHeadContainer" ref={HeadRef}>
+          <HbHeader
+            className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
+            TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
+            SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
+            HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
+            HbProgress={<ProgressBar size={size} />}
+            HbProgressMobile={<ProgressBar size={size} />}
+            HbCircleIcon={<HbHeader.HbCircleIcon />}
+            bg={size === "small" ? SmallBG : size === "medium" ? MidBG : LargeBG}
+            extraImage={Bowl}
+            extraImageT={Bowl}
+            size={size === 'large' ? 'super' : size}
+            discount="20% Off"
+            discount2={isEndSlide ? '$50+ Ships Free' : ''}
+            // ShowImage={slideTitle === 'Profile'}
+            NoWave={ isEndSlide }
+            withVideo={ isEndSlide }
+            style={{ position: 'fixed !important', top: 0 }}
+          />
+        </div>
+        <FlexBox
+          is="main"
+          column
+          alignItems="center"
+          style={{
+            position: 'relative',
+            zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
+            marginTop: marginTop(),
+            flex: 1
+        }}>
+          <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
+            <SlideView loading={loading} setLoading={setLoading} setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
+          </Container>
+        </FlexBox>
+
+        {
+          
+          slideId && isFirstSlide && (
+            <div className="slideFooter" style={{ marginTop: slideHeight }}>
+              <HbFirstSlideFooter
+                size={size === 'super' ? 'large' : size}
               />
             </div>
-            <FlexBox
-              is="main"
-              column
-              alignItems="center"
-              style={{
-                position: 'relative',
-                zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
-                marginTop: marginTop(),
-                flex: 1
-            }}>
-              <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
-                <SlideView loading={loading} setLoading={setLoading} setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
-              </Container>
-            </FlexBox>
-
-            {
-              
-              slideId && isFirstSlide && (
-                <div className="slideFooter" style={{ marginTop: slideHeight }}>
-                  <HbFirstSlideFooter
-                    size={size === 'super' ? 'large' : size}
-                  />
-                </div>
-              )
-            }
-          </FlexBox>
-        </ModalProvider>
-      </div>
+          )
+        }
+      </FlexBox>
     );
 };
 

@@ -24,3 +24,20 @@
   flex-shrink: 1;
   flex-basis: 0%;
 }
+.__visly_scope_4manc1ULFQ_PjnQCuWtE6.__visly_stack.__visly_state_none
+  > .__visly_spacing {
+  width: auto;
+  height: 0;
+  position: relative;
+  padding: 5px 0;
+}
+.__visly_scope_4manc1ULFQ_PjnQCuWtE6.__visly_stack.__visly_state_none
+  > .__visly_spacing::after {
+  content: "";
+  position: absolute;
+  margin-left: 0;
+  width: 100%;
+}
+.__visly_scope_4manc1ULFQ_PjnQCuWtE6.__visly_stack.__visly_state_none {
+  flex-direction: column;
+}

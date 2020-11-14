@@ -31,6 +31,7 @@ function End({loading, setLoading}) {
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
+    const [reviews, setReviews] = useState(null)
 
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
@@ -48,6 +49,12 @@ function End({loading, setLoading}) {
                     supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
                     mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
+
+                if (window.hungry.end.kibble) {
+                    setReviews(window.hungry.end.reviews[window.hungry.end.kibble.key])
+                } else {
+                    setReviews(window.hungry.end.reviews['chicken_rice'])
+                }
 
             } else {
                 setTimeout(() => waitForWindowData(), 500);
@@ -100,6 +107,8 @@ function End({loading, setLoading}) {
 
     if (!hungry) return null
 
+    console.log(hungry)
+
     return (
         <>
             {
@@ -123,7 +132,7 @@ function End({loading, setLoading}) {
 
                         { window.location.href.includes('localhost') && <Navigation />}
 
-                        <Features stack={size === 'small'} />
+                        <Features reviews={reviews} stack={size === 'small'} />
 
                         <Testimonials />
 

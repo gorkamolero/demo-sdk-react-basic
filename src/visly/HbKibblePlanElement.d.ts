@@ -93,6 +93,7 @@ export const HbKibblePlanElement: {
       icon?: string;
       slot1?: string;
       slot2?: string;
+      vertical?: boolean;
       NoNext?: boolean;
       HbCircleIcon?: React.ReactNode;
     } & CommonProps<HTMLDivElement>

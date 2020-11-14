@@ -19,6 +19,11 @@ const styles = [
     type: "default",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -39,9 +44,31 @@ const defaultPropValues = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "stack",
+    layers: {
+      BAPwEtimG9: {
+        none: {
+          vertical: true,
+        },
+      },
+      WJES13sMaW: {
+        none: {
+          vertical: true,
+        },
+      },
+      BshJUS7w9H: {},
+    },
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "stack",
+  },
+];
 
 export const HbKibblePlanContext = createContext(null);
 
@@ -138,6 +165,11 @@ function HbKibblePlan(_props) {
 HbKibblePlan.HbKibblePlanElement = HbKibblePlanElementComposite;
 HbKibblePlan.HbKibblePlanElement1 = HbKibblePlanElementComposite;
 HbKibblePlan.HbKibblePlanElement2 = HbKibblePlanElementComposite;
-HbKibblePlan.__variants = [];
+HbKibblePlan.__variants = [
+  {
+    name: "stack",
+    type: "variant",
+  },
+];
 
 export default HbKibblePlan;

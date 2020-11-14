@@ -95,6 +95,7 @@ export const HbCircleIcon: {
       size?: "small";
       justEmoji?: boolean;
       HbGoldIcon?: boolean;
+      down?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

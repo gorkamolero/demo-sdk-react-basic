@@ -62,6 +62,11 @@ const styles = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "down",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -94,6 +99,11 @@ const defaultPropValues = [
     propName: "HbGoldIcon",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "down",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -113,6 +123,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "HbGoldIcon",
+  },
+  {
+    type: "boolean",
+    propName: "down",
   },
 ];
 
@@ -170,6 +184,10 @@ HbCircleIcon.__variants = [
   },
   {
     name: "HbGoldIcon",
+    type: "variant",
+  },
+  {
+    name: "down",
     type: "variant",
   },
 ];

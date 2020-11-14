@@ -43,6 +43,11 @@ const styles = [
   },
   {
     type: "boolean",
+    propName: "vertical",
+    layers: {},
+  },
+  {
+    type: "boolean",
     propName: "NoNext",
     layers: {},
   },
@@ -62,6 +67,13 @@ const defaultPropValues = [
   },
   {
     type: "boolean",
+    propName: "vertical",
+    layers: {
+      HyRg7xxjXN: {},
+    },
+  },
+  {
+    type: "boolean",
     propName: "NoNext",
     layers: {
       HyRg7xxjXN: {},
@@ -70,6 +82,10 @@ const defaultPropValues = [
 ];
 
 const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "vertical",
+  },
   {
     type: "boolean",
     propName: "NoNext",
@@ -187,6 +203,10 @@ function HbKibblePlanElement(_props) {
 
 HbKibblePlanElement.HbCircleIcon = HbCircleIconComposite;
 HbKibblePlanElement.__variants = [
+  {
+    name: "vertical",
+    type: "variant",
+  },
   {
     name: "NoNext",
     type: "variant",

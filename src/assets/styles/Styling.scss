@@ -121,6 +121,7 @@ $medium: '768px';
 $large: '1024px';
 $super: '1200px';
 $hyper: '1440px';
+$reading: 60ch;
 
 main {
   width: 100%;
@@ -351,7 +352,7 @@ ul[role*='listbox'] {
   left: 0;
   width: 100%;
   .HbContent {
-    max-width: 60ch;
+    max-width: $reading;
   }
 }
 
@@ -377,11 +378,14 @@ ul[role*='listbox'] {
   align-items: flex-start;
   padding: 2.5vh 0;
   justify-content: center;
+
+  @media (max-width: $small) {
+    padding: 0;
+  }
 }
 
 .ReactModal__Content {
-  max-width: 60ch;
-  min-width: 60ch;
+  max-width: $reading;
   background: white;
   margin: 0 auto;
   padding: 4ch;
@@ -389,15 +393,66 @@ ul[role*='listbox'] {
   height: 95vh;
   overflow-y: auto;
   align-items: flex-start;
+  .kibGoalContent ul {
+    column-count: 4;
+    column-width: 200px;
+  }
 
-  @media (max-width: 480px) {
+  @media (min-width: $reading) {
+     min-width: $reading;
+  }
+
+  @media (max-width: $small) {
     max-height: 100%;
     height: 100%;
     padding: 2ch;
+
+    [role='img'] {
+      max-width: 100% !important;
+      background-size: calc(100% - 30px) !important;
+    }
+  }
+
+  @media (max-width: $reading) {
+    min-width: 0px;
+    padding: 0;
   }
 
   &:focus {
     outline: none;
+  }
+
+  [role='img'] {
+    max-width: 100%;
+  }
+
+  @media (max-width: $medium) {
+    padding: 0 20px;
+    .kibtab-content {
+      padding: 0 0 20px;
+    }
+    .kibtab-content-1 {
+      padding: 0;
+    }
+    .tabContainer label {
+      padding: 20px 10px;
+      [id^='text'] {
+        font-size: 14px !important;
+      }
+    }
+    .kibtab-contentImgGrp {
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+      > * {
+        margin: 0;
+        margin-bottom: var(--spacing);
+      }
+    }
+    .kibtab-content-trans {
+      margin: 0;
+    }
   }
 }
 
