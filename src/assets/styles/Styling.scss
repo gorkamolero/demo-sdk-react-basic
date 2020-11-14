@@ -246,6 +246,16 @@ body {
       padding: 0 !important;
     }
   }
+
+  &:not(.hideImage) {
+    .title,
+    .subtitle {
+      text-align: left !important;
+      align-self: flex-start;
+      justify-self: flex-start;
+      width: 100%;
+    }
+  }
 }
 
 div[role='radiogroup'] {
@@ -971,4 +981,8 @@ small {
   @media (max-width: $small) {
     min-height: 100vh;
   }
+}
+
+.isNotValid .FormSlide .continueButton {
+  display: none !important;
 }

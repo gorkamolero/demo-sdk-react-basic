@@ -37,7 +37,7 @@ function Navigation({back, next, restart}) {
   useEffect(() => {
     if (!navRef.current || !isValid || isEndSlide) return
     if (navRef.current && isValid && !isEndSlide) {
-      navRef.current.scrollIntoView(false, { behavior: "smooth" });
+      setTimeout(() => navRef.current.scrollIntoView(false, { behavior: "smooth" }), 50)
     }
   }, [isEndSlide, isValid]);
 
@@ -84,6 +84,7 @@ function Navigation({back, next, restart}) {
           {
             isValid && nav.canNext && (
               <HbButton
+                className="continueButton"
                 text={isBlocked ? 'Coming soon' : nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
                 disabled={!nav.canNext || isBlocked || !isValid}
                 onPress={next}

@@ -555,7 +555,7 @@ function FormFields({ children, fields, showErrors = true }) {
 
     return (
       // style={size !== 'super' && { paddingTop: 80 }}
-      <HbContent className="HbContent" size={size}>
+      <HbContent className="HbContent FormSlide" size={size}>
         <HbFormElement className="HbFormElementParent" wrap justifyContent="center">
           {fields.map((field, i) => (
             <FormField

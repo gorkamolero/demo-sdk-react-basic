@@ -34,6 +34,7 @@ function Form({setSlideHeight}) {
   const [showErrors, setShowErrors] = useState(false);
   const fields = slideModel.getFields()
   const id = slideModel.getId()
+  const [isValid, setIsValid] = useState(false)
 
   
   const SlideRef = useRef(null);
@@ -61,6 +62,8 @@ function Form({setSlideHeight}) {
   useEffect(() => {
     slideModel.validate()
 
+    setIsValid(slideModel.validate())
+
     if (slideModel.validate()) {
     } else {
       setShowErrors(true);
@@ -69,7 +72,7 @@ function Form({setSlideHeight}) {
   
   return (
     <AnimatePresence>
-      <FlexBox ref={SlideRef} column center className="slideAnimate" key={id} data-key={id}>
+      <FlexBox ref={SlideRef} column center className={`slideAnimate ${isValid ? 'isValid' : 'isNotValid'}`} key={id} data-key={id}>
         <motion.div
           initial="initial"
           animate="in"
