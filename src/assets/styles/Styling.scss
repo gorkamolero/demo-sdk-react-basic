@@ -506,12 +506,17 @@ li.paging-item.active .pagingDots {
 }
 
 [id^='ExtraImg'] div[role='img'] {
-  @media (max-width: 1240px) {
-    transform: translateY(30%) !important;
-  }
+  :not(.noTitleNoSubtitle) & {
+    @media (max-width: 1240px) {
+      transform: translateY(30%) !important;
+    }
 
-  @media (min-width: 1340px) {
-    transform: translateY(40%) !important;
+    @media (min-width: 1340px) {
+      transform: translateY(40%) !important;
+    }
+  }
+  .noTitleNoSubtitle & {
+    transform: translateY(80%) !important;
   }
 }
 
