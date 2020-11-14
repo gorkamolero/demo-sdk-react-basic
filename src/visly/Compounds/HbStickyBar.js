@@ -20,6 +20,11 @@ const styles = [
   {
     type: "default",
     layers: {
+      K8Rvc3Sc8R: {
+        none: {
+          htmlElement: "footer",
+        },
+      },
       Cv9QgvrcGc: {
         none: {
           text: "Text",
