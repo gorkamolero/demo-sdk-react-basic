@@ -100,7 +100,7 @@ const Slide = () => {
     const style = {
         position: 'relative',
         zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
-        marginTop,
+        marginTop: isEndSlide ? 0 : marginTop,
         flex: 1
     }
     console.log('RENDER', size)
@@ -108,7 +108,7 @@ const Slide = () => {
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
         <div className="HbHeadContainer" ref={HeadRef}>
           <HbHeader
-            className={`HbHeader ${!slideTitle === 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
+            className={`HbHeader ${!slideTitle === 'Profile' ? 'hideImage' : ''} ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
             TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
             SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
             HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}

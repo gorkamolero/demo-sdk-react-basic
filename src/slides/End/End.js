@@ -6,15 +6,18 @@ import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
-import { HbCircleIcon, icons, colors, useBreakpoint } from "../../visly";
+import { HbCircleIcon, icons, colors, useBreakpoint, HbWave, textstyles } from "../../visly";
+import { HbSection } from '../../visly/Pages'
 import Video from './partials/ReactPlayerWistia2'
 import { Footer, Tip } from '../../styles/StyledComps';
+import CustomHTML from '../../components/CustomHTML/CustomHTML';
 import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
 } from 'react-tippy';
 import { useLocalStorage } from 'react-use';
 import { FlexBox } from 'react-styled-flex';
+import { HbSuperProductEmpty } from '../../visly/Compounds';
 
 const noTest = false
 
@@ -33,7 +36,6 @@ function End({loading, setLoading}) {
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [reviews, setReviews] = useState(null)
-
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
     useEffect(() => {
@@ -50,6 +52,12 @@ function End({loading, setLoading}) {
                     supplement:window.hungry.end.supplement ? window.hungry.end.supplement : null,
                     mixin: window.hungry.end.mixin ? window.hungry.end.mixin : null
                 })
+
+                // setProducts({
+                //     kibble: null,
+                //     supplement:null,
+                //     mixin: null
+                // })
 
                 if (window.hungry.end.kibble) {
                     setReviews(window.hungry.end.reviews[window.hungry.end.kibble.key])
@@ -109,7 +117,9 @@ function End({loading, setLoading}) {
     useEffect(() => {
         return () => setLoading(true)
     }, [setLoading])
+    
     if (!hungry) return <div></div>
+    console.log(hungry)
 
     return (
         <FlexBox column center width="100%">
@@ -130,8 +140,37 @@ function End({loading, setLoading}) {
             {
                 videoIsDone && (
                     <>
+                        {/* {
+                            products && (
+
+                            )
+                        } */}
+
                         {
-                            products && <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                            !products.kibble && !products.supplement && !products.mixin ? (
+                                <HbSection
+                                    noMaxWidth
+                                    waveslot1={<HbWave className="HbWave" double />}
+                                    waveslot2={<HbWave className="HbWave" invert />}
+                                    column
+                                    alignItems="center"
+                                    className="wave"
+                                    style={{ backgroundColor: colors.hbGoldLight}}
+                                    title={'Recommended Plan'}
+                                >
+                                    <HbSuperProductEmpty
+                                        className="HbSuperProductEmpty"
+                                        Extratext={
+                                            <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
+                                                html={`It looks like ${hungry.dogName} has some very specific nutrition challenges. We don’t have a Hungry Bark Supplements to offer him. If you would like to discuss this further, please contact our team at Clinical Pet Nutritionists at <span class="hungryBlue">nutritionist@hungrybark.com</span>`}
+                                            />
+                                        }
+                                        oops={`Oops… Looks like ${hungry.dogName} has some very specific needs…`}
+                                    />
+                                </HbSection>
+                            ) : (
+                                <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                            )
                         }
 
                         { window.location.href.includes('localhost') && <Navigation />}

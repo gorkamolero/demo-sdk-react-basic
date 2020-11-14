@@ -42,7 +42,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
       if (count < texts.length) {
         setCount(prevCount => prevCount + 1)
         setText(texts[count])
-        debugger
+        // debugger
       } else {
         setVideoIsDone(true)
       }
