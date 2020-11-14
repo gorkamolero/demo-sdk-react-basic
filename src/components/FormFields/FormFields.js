@@ -515,8 +515,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
               <Input notValid={notValid} {...inputProps} />
             )
           }
-
-          {meta.afterTxt && (size === 'small' && !meta.hideMobileAfterText ) && (
+          {/* (size === 'small' && !meta.hideMobileAfterText )  */}
+          {meta.afterTxt && (
             <>
               <HbSpace />
               {interpolate(customAfterText || meta.afterTxt)}

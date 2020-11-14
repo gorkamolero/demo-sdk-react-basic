@@ -56,20 +56,20 @@ const SlideContextProvider = ({children}) => {
 
     const next = () => {
         slideModel.next();
-        setTouched(touched + 1)
         displayCurrentSlide();
+        setTouched(touched + 1)
     };
 
     const back = () => {
         slideModel.back();
-        setTouched(touched + 1)
         displayCurrentSlide();
+        setTouched(touched + 1)
     };
 
     const restart = () => {
         slideModel.restart();
-        setTouched(touched + 1)
         displayCurrentSlide();
+        setTouched(touched + 1)
     };
 
     return (
