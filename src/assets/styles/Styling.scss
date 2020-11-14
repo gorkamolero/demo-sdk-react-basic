@@ -215,7 +215,7 @@ body {
   top: 0;
   left: 0;
 
-  @media (min-width: $small) {
+  @media (min-width: $large) {
     position: fixed !important;
   }
 
@@ -532,6 +532,7 @@ li.paging-item.active .pagingDots {
   @media (max-width: $small) {
     width: 100%;
     justify-content: center;
+    font-weight: bold !important;
 
     gap: 0;
     flex-wrap: nowrap;
@@ -712,6 +713,7 @@ label[class*='radio-group-button-root'] {
   line-height: 1.4;
   margin-bottom: 20px;
   opacity: 0.6;
+  font-weight: normal;
   @media (max-width: $small) {
     text-align: center;
     margin-bottom: 0;
@@ -919,6 +921,10 @@ div#Background {
   }
 }
 
+.notSearchable input {
+  position: absolute;
+}
+
 .HbResults {
   @media (max-width: $small) {
     [id^='CardFooter'] button {
@@ -995,4 +1001,15 @@ small {
 
 #ContinueButton:hover {
   background-color: #00aeaa !important;
+}
+
+.mobileBold {
+  @media (max-width: $small) {
+    font-weight: bold !important;
+  }
+}
+
+.HbFormElementChild:only-of-type {
+  flex: 1;
+  justify-content: center;
 }

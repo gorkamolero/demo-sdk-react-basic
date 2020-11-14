@@ -9,7 +9,7 @@ import Utils from '../utils/Utils'
 import Form from '../slides/Form/Form';
 import End from '../slides/End/End';
 import ProgressBar from '../components/ProgressBar/ProgressBar';
-import { HbHeader, useBreakpoint, HbFirstSlideFooter } from "../visly";
+import { HbHeader, useBreakpoint } from "../visly";
 import { HbContainer, HbTitle, HbSubtitle } from "../styles/StyledComps";
 import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
@@ -40,9 +40,8 @@ const Slide = () => {
     const [slideId, setSlideId] = useState(null);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
     const [loading, setLoading] = useState(true)
-    const [slideHeight, setSlideHeight] = useState(0)
-
-    const [headerHeight, setHeaderHeight] = useState(0)
+    const [marginTop, setMarginTop] = useState(0)
+    // const [slideHeight, setSlideHeight] = useState(0)
 
     // useEffect(() => {
     //   if (size) console.log(size) 
@@ -50,20 +49,32 @@ const Slide = () => {
     // }, [size])
     
     const HeadRef = useRef(null);
+    const isEndSlide = slideModel.getType() === 'End'
+    /* eslint-disable */
+    const isFirstSlide = slideId == 101 
 
     useEffect(() => {
-      if (size === 'small') return
+      // if (size === 'small') return
       if(HeadRef.current){
         let HeadHeight = HeadRef.current.offsetHeight;
-        setHeaderHeight(HeadHeight)
+      
+        if (isEndSlide) setMarginTop(0)
+        if (size === 'small' || size === 'medium') setMarginTop(0)
+        if(size !=='small' && size !== 'medium') setMarginTop(HeadHeight - 40)
+        // if (size === 'medium') setMarginTop(HeadHeight - 30)
+        console.log(size, marginTop)
       }
-    }, [HeadRef, size])
+      console.log(size);
+    }, [isEndSlide, size])
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(() => {
         if(HeadRef.current){
           let HeadHeight = HeadRef.current.offsetHeight;
-          setHeaderHeight(HeadHeight)
+          
+          if (isEndSlide) setMarginTop(0)
+          if(size !=='small' && size !== 'medium') setMarginTop(HeadHeight - 40)
+          // if (size === 'medium') setMarginTop(HeadHeight - 30)
         }
       })
       resizeObserver.observe(document.body);
@@ -77,28 +88,27 @@ const Slide = () => {
     const slideTitle = useMemo(() => progressBar.find(step => step.slideId === slideModel.getId()).title, [slideModel, progressBar])
     const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
     const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
+
+    console.log('YOLO', !title, !subtitle)
     const type = useMemo(() => slideModel.getType(), [slideModel])
 
     const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
-    const isEndSlide = slideModel.getType() === 'End'
-    /* eslint-disable */
-    const isFirstSlide = slideId == 101 
     /* eslint-enable */
 
     if (!Container) return null
 
-    const marginTop = () => {
-      if (isEndSlide) return 0
-      if(size !=='small') return headerHeight - 40
-      if (size === 'medium') return headerHeight - 20
-      else return 0
+    const style = {
+        position: 'relative',
+        zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
+        marginTop,
+        flex: 1
     }
-
+    console.log('RENDER', size)
     return (
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
         <div className="HbHeadContainer" ref={HeadRef}>
           <HbHeader
-            className={`HbHeader ${slideTitle !== 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
+            className={`HbHeader ${!slideTitle === 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
             TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
             SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
             HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
@@ -111,28 +121,24 @@ const Slide = () => {
             size={size === 'large' ? 'super' : size}
             discount="20% Off"
             discount2={isEndSlide ? '$50+ Ships Free' : ''}
-            // ShowImage={slideTitle === 'Profile'}
             NoWave={ isEndSlide }
             withVideo={ isEndSlide }
             style={{ position: 'fixed !important', top: 0 }}
+            noTitleNoSubtitle={!title && !subtitle}
           />
         </div>
         <FlexBox
           is="main"
           column
           alignItems="center"
-          style={{
-            position: 'relative',
-            zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
-            marginTop: marginTop(),
-            flex: 1
-        }}>
+          style={style}>
           <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
-            <SlideView loading={loading} setLoading={setLoading} setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null} slideModel={slideModel} />
+            <SlideView isFirstSlide={isFirstSlide} loading={loading} setLoading={setLoading} slideModel={slideModel} />
+            {/*  setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null}  */}
           </Container>
         </FlexBox>
 
-        {
+        {/* {
           
           slideId && isFirstSlide && (
             <div className="slideFooter" style={{ marginTop: slideHeight }}>
@@ -141,7 +147,7 @@ const Slide = () => {
               />
             </div>
           )
-        }
+        } */}
       </FlexBox>
     );
 };

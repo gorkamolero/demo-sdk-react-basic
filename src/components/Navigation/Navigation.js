@@ -11,7 +11,6 @@ function Navigation({back, next, restart, isValid}) {
 
   useEffect(() => {
     if (navRef.current) {
-      console.log('NAV SCROLL');
       navRef.current.scrollIntoView({ behavior: 'smooth' });
     }
   })

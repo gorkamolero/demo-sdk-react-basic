@@ -29,7 +29,7 @@ const pageVariants = {
   },
 }
 
-function Form({setSlideHeight}) {
+function Form({setSlideHeight, isFirstSlide}) {
   const { slideModel, touched } = useContext(SlideContext);
   const [showErrors, setShowErrors] = useState(false);
   const fields = slideModel.getFields()
@@ -89,7 +89,7 @@ function Form({setSlideHeight}) {
           transition={{ duration: 0.35 }}
           style={{ width: '100%' }}
         >
-            <FormFields doNotScroll={doNotScroll} showErrors={showErrors} fields={fields}>
+            <FormFields doNotScroll={doNotScroll} isFirstSlide={isFirstSlide} showErrors={showErrors} fields={fields}>
               <Navigation isValid={isValid} doNotScroll={doNotScroll} setDoNotScroll={setDoNotScroll} />
             </FormFields>
         </motion.div>
