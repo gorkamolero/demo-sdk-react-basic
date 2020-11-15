@@ -59,7 +59,7 @@ class Utils {
 
   stripHtml = (dirty) =>
     sanitizeHtml(dirty, {
-      allowedTags: ["b", "i", "em", "strong", "a"],
+      allowedTags: ["b", "i", "em", "strong", "a", "br", "span"],
       allowedAttributes: {
         a: ["href"],
       },

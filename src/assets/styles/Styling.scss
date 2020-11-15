@@ -665,7 +665,7 @@ label[class*='radio-group-button-root'] {
     button,
     button[type='button'] {
       flex: 1;
-      padding: 20px !important;
+      // padding: 20px !important;
     }
   }
 }
@@ -925,7 +925,7 @@ div#Background {
 @media (max-width: $small) {
   .selectContainer {
     &.notSearchable > div {
-      max-width: 0;
+      // max-width: 0;
     }
     &.field-1,
     &.field-5 {
@@ -1084,4 +1084,30 @@ small {
   .kibdisclaimer {
     margin-bottom: 10px !important;
   }
+
+  .selectContainer.field-5 [class*='container'] > [class*='menu'],
+  .radio-group .field-1 [class*='container'] > [class*='menu'] {
+    transform: translateX(-10%);
+  }
+}
+
+// .HbHeadContainer.showingImage
+//   + main
+//   .HbFormElementParent:first-of-type
+//   .HbFormElementChild:first-of-type {
+//   @media (max-width: 480px) {
+//     span.beforeTxt,
+//     div.title {
+//       padding-left: 50px;
+//       white-space: normal;
+//     }
+//   }
+// }
+
+.HbHeadContainer.showingImage + main {
+  margin-top: 20px !important;
+}
+
+.HbHeadContainer .title span {
+  display: block;
 }

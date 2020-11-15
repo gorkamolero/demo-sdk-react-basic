@@ -135,7 +135,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" className={`${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
       {
@@ -158,7 +158,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => toggleSelected(o)}
-                      style={{ marginTop: 10 }}
+                      style={{ marginTop: size !== 'small' ? 10 : 0 }}
                     />}
                   style={{ margin: 5 }}
                 />
@@ -474,10 +474,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           }
 
           {meta.beforeTxt && (
-            <>
+            <span class="beforeTxt">
               {interpolate(meta.beforeTxt)}
               <HbSpace />
-            </>
+            </span>
           )}
 
           { type === 'checkbox' && (<h1>Hey</h1>) }

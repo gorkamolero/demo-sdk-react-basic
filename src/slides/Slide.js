@@ -91,7 +91,7 @@ const Slide = () => {
     console.log('YOLO', !title && !subtitle)
     return (
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
-        <div className={`HbHeadContainer ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''}`} ref={HeadRef}>
+        <div className={`HbHeadContainer ${(!slideTitle === 'Profile' || isEndSlide) ? 'hidingImage' : 'showingImage'} ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''}`} ref={HeadRef}>
           <HbHeader
             className={`HbHeader ${(!slideTitle === 'Profile' || isEndSlide) ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'} ${!title && !subtitle ? 'noTitleNoSubtitle' : ''}`}
             TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
