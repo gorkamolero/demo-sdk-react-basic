@@ -2,9 +2,9 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
-import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbCloseModal, HbTabs, colors, textstyles } from '../../../visly'
+import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbCloseModal, HbTabs, colors, textstyles, HbLinkButton } from '../../../visly'
 import { Tabs, Panel, useTabState } from '@bumaga/tabs'
-import { FlexBox } from "react-styled-flex";
+import { FlexBox, FlexItem } from "react-styled-flex";
 import CustomHTML from "../../../components/CustomHTML/CustomHTML";
 import './modals/commonModals.css'
 import './modals/kibbleModal.css'
@@ -12,7 +12,7 @@ import './modals/mixinModal.css'
 import './modals/supplementModal.css'
 
 const Close = styled(HbCloseModal)`
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
 `
@@ -234,6 +234,14 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
                 imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
             >
                 {getTabs(product, dog, goals, size)}
+                <FlexBox center style={{ padding: '20px' }}>
+                    <FlexItem>
+                        <HbLinkButton
+                            onPress={hideModal}
+                            text="Close"
+                        />
+                    </FlexItem>
+                </FlexBox>
             </HbSection>
 
             <Close onClick={hideModal} />

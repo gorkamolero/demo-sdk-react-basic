@@ -58,6 +58,7 @@ const Testimonials = ({reviews}) => {
         {
           testimonials.map(testimonial => (
               <HbTestimonial
+                className="HbTestimonial"
                 key={testimonial.client}
                 imageSrc={testimonial.Photo}
                 style={{ outline: 'none', border: 'none' }}

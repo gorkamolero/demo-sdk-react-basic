@@ -101,7 +101,6 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
           </div>
         )
       }
-      
 
       {
         (videoIsDone && play) || (

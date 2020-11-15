@@ -260,7 +260,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: ['small', 'medium'].includes(size)  ? 10 : 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}
@@ -319,7 +319,7 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
 
   return (
     <FlexBox column align="center" className="CheckboxGroup">
-      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: ['small', 'medium'].includes(size)  ? 10 : 20 }}>{title}</label>}
       <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }} className={`CheckboxButtonContainer ${meta.noIcons && 'tag-group'}`}>
         {options.map(({ id, title, image: icon }) => {
           if (meta.customUncheckBox && id === 'none') return null

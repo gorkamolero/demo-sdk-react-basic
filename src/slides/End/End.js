@@ -19,7 +19,7 @@ import { useLocalStorage } from 'react-use';
 import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
-const noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
+let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 
 function End({loading, setLoading}) {
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', noTest ? true : false);
@@ -100,11 +100,12 @@ function End({loading, setLoading}) {
 
     useEffect(() => {
         if (!hungry) return
-        let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice*0.8))
+        console.log(hungry)
+        let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice))
         let afterTrialText = hungry.texts.plan.afterTrialText
             .replace('[PRICE]', getPrice(totalPrice*0.9))
             .replace('[PRICEPERDAY]', getPrice(totalPrice*0.9/28))
-            .replace('[SHIPPING]', hungry.getShippingText(totalPrice))
+            .replace('[SHIPPING]', hungry.getShippingText(hungry.kibble.price))
 
         setTexts({
             plan:{
@@ -118,7 +119,7 @@ function End({loading, setLoading}) {
         return () => setLoading(true)
     }, [setLoading])
     
-    if (!hungry) return <div></div>
+    if (!hungry || !products) return <div></div>
 
     return (
         <FlexBox column center width="100%">

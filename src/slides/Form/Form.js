@@ -69,13 +69,13 @@ function Form({setSlideHeight, isFirstSlide, isEndSlide}) {
       setShowErrors(true);
     }
 
-    fields.forEach(field => {
+    // fields.forEach(field => {
 
-      if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
-        setIsValid(false)
-        return
-      }
-    })
+    //   if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
+    //     setIsValid(false)
+    //     return
+    //   }
+    // })
 
   }, [touched, fields, slideModel, isEndSlide])
   
