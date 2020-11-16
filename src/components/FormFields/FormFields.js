@@ -566,21 +566,17 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
+
             if (field.isMultiple()) {
-              if (value.includes('none') && field.getValue().includes('none')) {
                 field.clear()
+              if (value.includes('none') && field.getValue().includes('none')) {
                 field.setValue('none')
-              }
-              if (field.getValue().includes(value)) {
-                field.setValue(value)
-                console.log('yolo', value, field.getValue())
               } else {
-                field.removeValue(value)
-                console.log('yalo', value, field.getValue())
+                  if (value!='') value.split(",").forEach(val => field.setValue(val))
               }
+            } else {
+                field.setValue(value);
             }
-            
-            else field.setValue(value);
             // console.log(field.getType(), value)
         } else {
           field.setValue(event);
