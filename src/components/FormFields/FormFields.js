@@ -137,13 +137,14 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const toggleSelected = value => {
     if (selected.includes(value) || selected === 'value') {
       setSelected(selected.filter(val => val !== value))
-      field.setValue(value)
+      field.removeValue(value)
     } else {
       setSelected([...selected, value])
-      field.removeValue(value)
+      field.setValue(value)
     }
     onChangeHandler(value, field)
   }
+
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
@@ -170,7 +171,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => toggleSelected(o)}
-                      style={{ marginTop: size !== 'small' ? 10 : 0 }}
+                      style={{ marginTop: 0 }}
                     />}
                   style={{ margin: 5 }}
                 />
@@ -485,7 +486,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           }
 
           {meta.beforeTxt && (
-            <span class="beforeTxt">
+            <span className="beforeTxt">
               {interpolate(meta.beforeTxt)}
               <HbSpace />
             </span>
@@ -559,6 +560,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
 
     const onChangeHandler = (event, field) => {
         const type = field.getType()
+        console.log('TYPE', type, field.getTitle())
 
         if (type === 'checkbox') {
             field.setValue(event.target.checked);
@@ -568,7 +570,11 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
-            if (field.getValue().includes(value) && field.isMultiple()) {
+            if (field.isMultiple() && value.includes('none')) {
+                field.clear()
+                field.setValue(value)
+            }
+            else if (field.getValue().includes(value) && field.isMultiple()) {
               field.removeValue(value)
             }
             else field.setValue(value);
