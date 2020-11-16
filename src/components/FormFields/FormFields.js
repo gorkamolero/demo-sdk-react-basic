@@ -1,7 +1,6 @@
 import React, { useState, useContext, useMemo, useEffect, useRef } from "react";
 import Utils from '../../utils/Utils'
 import './FormFields.css';
-import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
 import { HbContent, HbInput, HbRadio, useBreakpoint, icons, colors, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
 import { FlexBox, FlexItem } from "react-styled-flex";
@@ -142,9 +141,10 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
     } else {
       if (value === 'none') {
         console.log('AÑADIENDO NONE')
-        setSelected(selected.filter(s => s !== 'none'))
+        setSelected(['none'])
+      } else {
+        setSelected([...selected, value])
       }
-      setSelected([...selected, value])
       field.setValue(value)
     }
     onChangeHandler(value, field)
@@ -162,25 +162,16 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
             {selected.map((o, i) => {
               const op = options.find(op => op.value === o)
               return (
-              <CSSTransition
-                in={true}
-                timeout={200}
-                classNames="collapse-after"
-                unmountOnExit
-                mountOnEnter
-                key={o + i}
-              >
-                <HbTag
-                  size={size}
-                  tagText={op && op.label? op.label : op}
-                  HbOnlyIconButton={
-                    <HbTag.HbOnlyIconButton
-                      onPress={() => toggleSelected(o)}
-                      style={{ marginTop: 0 }}
-                    />}
-                  style={{ margin: 5 }}
-                />
-              </CSSTransition>
+              <HbTag
+                size={size}
+                tagText={op && op.label? op.label : op}
+                HbOnlyIconButton={
+                  <HbTag.HbOnlyIconButton
+                    onPress={() => toggleSelected(o)}
+                    style={{ marginTop: 0 }}
+                  />}
+                style={{ margin: 5 }}
+              />
             )
             })}
           </FlexBox>
