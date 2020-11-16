@@ -68,15 +68,6 @@ function Form({setSlideHeight, isFirstSlide, isEndSlide}) {
       setIsValid(false)
       setShowErrors(true);
     }
-
-    // fields.forEach(field => {
-
-    //   if ((!field.getValue() || field.getValue() === '') && field.isMandatory() && !field.getMeta().sequence) {
-    //     setIsValid(false)
-    //     return
-    //   }
-    // })
-
   }, [touched, fields, slideModel, isEndSlide])
   
   return (

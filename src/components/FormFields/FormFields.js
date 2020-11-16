@@ -1,7 +1,6 @@
 import React, { useState, useContext, useMemo, useEffect, useRef } from "react";
 import Utils from '../../utils/Utils'
 import './FormFields.css';
-import { CSSTransition } from "react-transition-group";
 import CustomHTML from "../CustomHTML/CustomHTML";
 import { HbContent, HbInput, HbRadio, useBreakpoint, icons, colors, HbCheckboxGroup, HbCheckbox, HbTag, HbIconButton } from "../../visly";
 import { FlexBox, FlexItem } from "react-styled-flex";
@@ -136,14 +135,21 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const toggleSelected = value => {
     if (selected.includes(value) || selected === 'value') {
+      console.log(value)
       setSelected(selected.filter(val => val !== value))
-      field.setValue(value)
-    } else {
-      setSelected([...selected, value])
       field.removeValue(value)
+    } else {
+      if (value === 'none') {
+        console.log('AÑADIENDO NONE')
+        setSelected(['none'])
+      } else {
+        setSelected([...selected, value])
+      }
+      field.setValue(value)
     }
     onChangeHandler(value, field)
   }
+
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
@@ -156,25 +162,16 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
             {selected.map((o, i) => {
               const op = options.find(op => op.value === o)
               return (
-              <CSSTransition
-                in={true}
-                timeout={200}
-                classNames="collapse-after"
-                unmountOnExit
-                mountOnEnter
-                key={o + i}
-              >
-                <HbTag
-                  size={size}
-                  tagText={op && op.label? op.label : op}
-                  HbOnlyIconButton={
-                    <HbTag.HbOnlyIconButton
-                      onPress={() => toggleSelected(o)}
-                      style={{ marginTop: size !== 'small' ? 10 : 0 }}
-                    />}
-                  style={{ margin: 5 }}
-                />
-              </CSSTransition>
+              <HbTag
+                size={size}
+                tagText={op && op.label? op.label : op}
+                HbOnlyIconButton={
+                  <HbTag.HbOnlyIconButton
+                    onPress={() => toggleSelected(o)}
+                    style={{ marginTop: 0 }}
+                  />}
+                style={{ margin: 5 }}
+              />
             )
             })}
           </FlexBox>
@@ -208,9 +205,7 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
-  const notSoValid = () => value && (value <= Number(meta.min) || value > Number(meta.max) || value.length > meta.maxlength)
-
-  const invalid = notSoValid()
+  const invalid = value && !field.isValid(true);
 
   useEffect(() => {
     if (invalid) field.setValid(false)
@@ -487,7 +482,7 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           }
 
           {meta.beforeTxt && (
-            <span class="beforeTxt">
+            <span className="beforeTxt">
               {interpolate(meta.beforeTxt)}
               <HbSpace />
             </span>
@@ -561,6 +556,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
 
     const onChangeHandler = (event, field) => {
         const type = field.getType()
+        console.log('TYPE', type, field.getTitle())
 
         if (type === 'checkbox') {
             field.setValue(event.target.checked);
@@ -570,9 +566,20 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
-            if (field.getValue().includes(value) && field.isMultiple()) {
-              field.removeValue(value)
+            if (field.isMultiple()) {
+              if (value.includes('none') && field.getValue().includes('none')) {
+                field.clear()
+                field.setValue('none')
+              }
+              if (field.getValue().includes(value)) {
+                field.setValue(value)
+                console.log('yolo', value, field.getValue())
+              } else {
+                field.removeValue(value)
+                console.log('yalo', value, field.getValue())
+              }
             }
+            
             else field.setValue(value);
             // console.log(field.getType(), value)
         } else {
