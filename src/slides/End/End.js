@@ -121,6 +121,8 @@ function End({loading, setLoading}) {
     
     if (!hungry || !products) return <div></div>
 
+    console.log("XXXX", hungry.video)
+
     return (
         <FlexBox column center width="100%">
             {
