@@ -71,7 +71,7 @@ const Products = ({
         else return setSelectedResults(selectedResults.concat(result))
     }
 
-    const resultImages = results.map(result => result && result.images && result.images[result.selectedImage]);
+    const resultImages = selectedResults && selectedResults.map(result => result && result.images && result.images[result.selectedImage]);
 
     const roundNumber = (number) => Number(number).toFixed(2)
 
@@ -93,7 +93,7 @@ const Products = ({
                             imageSrc={products.kibble.images[products.kibble.selectedImage]}
                             order={1}
                             title={products.kibble.title}
-                            extra={products.kibble.lbs14 + ' lbs'}
+                            extra={products.kibble.lbs14 + '    lbs'}
                             priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
                             priceFinal={`$${getPrice(products.kibble.price)}`}
                             DescriptionHtml={
