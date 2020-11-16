@@ -197,12 +197,7 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
-  const notSoValid = () => {
-    if (meta.max && value > meta.max) return true
-    if (meta.maxlength && value.length > meta.maxlength) return true
-    return false
-  }
-  const invalid = notSoValid()
+  const invalid = value && !field.isValid(true);
 
   return (
     <>
