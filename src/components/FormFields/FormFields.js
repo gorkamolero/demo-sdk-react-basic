@@ -147,7 +147,8 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
       }
       field.setValue(value)
     }
-    onChangeHandler(value, field)
+    onChangeHandler(value, field, true)
+      // TODO FIX
   }
 
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
@@ -554,7 +555,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
 
     // console.log('Values', fieldValues)
 
-    const onChangeHandler = (event, field) => {
+    const onChangeHandler = (event, field, fix) => {
         const type = field.getType()
         console.log('TYPE', type, field.getTitle())
 
@@ -568,12 +569,17 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             const value = event;
 
             if (field.isMultiple()) {
-                field.clear()
-              if (value.includes('none') && field.getValue().includes('none')) {
-                field.setValue('none')
-              } else {
-                  if (value!='') value.split(",").forEach(val => field.setValue(val))
-              }
+                if (fix) {
+                    // TODO FIX
+                    // Se esta estableciendo desde el otro TODO FIX. Refactorizar!
+                } else {
+                    field.clear()
+                    if (value.includes('none') && field.getValue().includes('none')) {
+                        field.setValue('none')
+                    } else {
+                        if (value != '') value.split(",").forEach(val => field.setValue(val))
+                    }
+                }
             } else {
                 if (value!='') value.split(",").forEach(val => field.setValue(val))
             }
