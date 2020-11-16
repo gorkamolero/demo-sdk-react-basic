@@ -94,6 +94,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         components={{ DropdownIndicator: Icon }} 
         min={meta.minSelect || false}
         onFocus={() => notSearchable || setPlaceholder('Start typing...')}
+        onBlur={() => setPlaceholder(meta && meta.default ? meta.default : 'Select...')}
         ref={selectRef}
         // maxWidth={meta.maxWidth}
         // superMaxWidth={meta.superMaxWidth}
