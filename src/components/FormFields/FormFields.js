@@ -570,18 +570,18 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
               if (value.includes('none') && field.getValue().includes('none')) {
                 field.clear()
                 field.setValue('none')
-              }
-              if (field.getValue().includes(value)) {
-                field.setValue(value)
-                console.log('yolo', value, field.getValue())
               } else {
-                field.removeValue(value)
-                console.log('yalo', value, field.getValue())
+                if (field.getValue().includes(value)) {
+                  field.removeValue(value)
+                  console.log('yolo', value, field.getValue())
+                } else {
+                  field.setValue(value)
+                  console.log('yalo', value, field.getValue())
+                }
               }
             }
             
             else field.setValue(value);
-            // console.log(field.getType(), value)
         } else {
           field.setValue(event);
         } 

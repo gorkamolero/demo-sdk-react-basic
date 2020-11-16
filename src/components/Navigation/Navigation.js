@@ -34,7 +34,6 @@ function Navigation({back, next, restart}) {
   // slideModel.restart()
 
   const isValid = slideModel.validate()
-  console.log(isValid)
 
   return (
     <>
