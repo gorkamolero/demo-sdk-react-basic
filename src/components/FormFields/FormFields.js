@@ -136,14 +136,13 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const toggleSelected = value => {
     if (selected.includes(value) || selected === 'value') {
-      console.log('IS 1', value)
+      console.log(value)
       setSelected(selected.filter(val => val !== value))
       field.removeValue(value)
     } else {
       if (value === 'none') {
-        console.log('IS 2', value)
-        setSelected([])
-        setSelected(value)
+        console.log('AÑADIENDO NONE')
+        setSelected(selected.filter(s => s !== 'none'))
       }
       setSelected([...selected, value])
       field.setValue(value)
@@ -579,6 +578,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             if (field.isMultiple()) {
               if (value.includes('none') && field.getValue().includes('none')) {
                 field.clear()
+                field.setValue('none')
               }
               if (field.getValue().includes(value)) {
                 field.setValue(value)
