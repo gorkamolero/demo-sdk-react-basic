@@ -91,6 +91,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
     }
   }, [options, field, selected])
 
+  if(selectRef) console.log(selectRef.current)
   return (
     <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.notSearchable ? 'notSearchable' : ''} ${field.id ? `field-${field.id}` : ''}`}>
       {title}
