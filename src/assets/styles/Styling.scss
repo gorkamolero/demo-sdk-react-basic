@@ -582,8 +582,6 @@ li.paging-item.active .pagingDots {
       [class*='control'] {
         padding: 0;
       }
-
-      color: transparent;
     }
 
     &.number {
@@ -677,12 +675,14 @@ label[class*='radio-group-button-root'] {
   button {
     width: 100%;
   }
+  .backButton {
+    flex: 1;
+  }
+  .continueButton {
+    flex: 2;
+  }
   @media (max-width: $small) {
     padding: 10px 0;
-    > * {
-      flex: 1;
-      // padding: 20px !important;
-    }
 
     &.nextSlideIsEndSlide {
       .continueButton {
@@ -944,6 +944,7 @@ div#Background {
     > *:not(.selectContainer) {
       display: none;
     }
+    color: transparent;
   }
 }
 
