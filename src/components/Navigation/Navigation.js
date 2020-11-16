@@ -53,12 +53,14 @@ function Navigation({back, next, restart}) {
           unmountOnExit
           mountOnEnter
         >
-          <HbButton
-            text="Go Back"
-            variant="contained"
-            disabled={!nav.canBack}
-            onPress={() => back()}
-          />
+           <FlexItem flex="1" className={`backButton`}>
+            <HbButton
+              text="Go Back"
+              variant="contained"
+              disabled={!nav.canBack}
+              onPress={() => back()}
+            />
+          </FlexItem>
         </CSSTransition>
         
         <CSSTransition

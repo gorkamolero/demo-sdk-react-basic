@@ -4,6 +4,7 @@ import { HbLoadingScreen } from "../visly/Pages";
 import { useBreakpoint } from "../visly";
 import Loading1 from '../assets/images/loading1.png'
 import Loading2 from '../assets/images/loading2.png'
+import Loading3 from '../assets/images/loading3.png'
 
 function useDelayUnmount(isMounted, delayTime) {
     const [ shouldRender, setShouldRender ] = useState(false);
@@ -27,7 +28,7 @@ function useDelayUnmount(isMounted, delayTime) {
 const Loaders = [
   Loading1,
   Loading2,
-  Loading1,
+  Loading3,
 ]
 
 const LoadingScreen = styled(HbLoadingScreen)`

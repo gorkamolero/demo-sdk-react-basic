@@ -424,17 +424,6 @@ ul[role*='listbox'] {
      min-width: $reading;
   }
 
-  @media (max-width: $small) {
-    max-height: 100%;
-    height: 100%;
-    padding: 2ch;
-
-    [role='img'] {
-      max-width: 100% !important;
-      background-size: calc(100% - 30px) !important;
-    }
-  }
-
   @media (max-width: $reading) {
     min-width: 0px;
     padding: 0;
@@ -474,6 +463,25 @@ ul[role*='listbox'] {
     }
     .kibtab-content-trans {
       margin: 0;
+    }
+  }
+
+  @media (max-width: $small) {
+    max-height: 100%;
+    height: 100%;
+    padding: 0 10px;
+    width: 100%;
+
+    [role='img'] {
+      max-width: 100% !important;
+      background-size: calc(100% - 30px) !important;
+    }
+
+    .tabContainer [role='radiogroup'] {
+      margin: 0 -10px;
+    }
+    label {
+      padding: 20px 0 !important;
     }
   }
 }
@@ -574,6 +582,8 @@ li.paging-item.active .pagingDots {
       [class*='control'] {
         padding: 0;
       }
+
+      color: transparent;
     }
 
     &.number {
@@ -630,9 +640,13 @@ li.paging-item.active .pagingDots {
 .HbButtonGroup {
   @media (max-width: $small) {
     width: 100%;
-    button:only-of-type,
-    .continueButton:only-child {
-      flex: 1;
+    & > *,
+    button {
+      flex-basis: 50%;
+    }
+    button {
+      padding-left: 10px;
+      padding-right: 10px;
     }
   }
 }
@@ -660,10 +674,12 @@ label[class*='radio-group-button-root'] {
 
 .Navigation {
   padding: 10px 0 30px;
+  button {
+    width: 100%;
+  }
   @media (max-width: $small) {
     padding: 10px 0;
-    button,
-    button[type='button'] {
+    > * {
       flex: 1;
       // padding: 20px !important;
     }
@@ -1086,8 +1102,14 @@ small {
   }
 
   .selectContainer.field-5 [class*='container'] > [class*='menu'],
+  .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
+  }
+
+  .selectContainer.field-9 [class*='container'] > [class*='menu'],
+  .selectContainer.field-13 [class*='container'] > [class*='menu'] {
+    transform: translateX(-30%);
   }
 }
 
@@ -1110,4 +1132,15 @@ small {
 
 .HbHeadContainer .title span {
   display: block;
+}
+
+.tabContainer.chews,
+.tabContainer.mixin {
+}
+
+.closeFooter.chews,
+.closeFooter.mixin {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
 }
