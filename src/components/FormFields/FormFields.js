@@ -60,6 +60,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
   });
   const [placeholder, setPlaceholder] = useState(() => meta && meta.default ? meta.default : 'Select...')
   const notSearchable = meta.notSearchable || false
+
   useEffect(() => {
     if (meta.hungryYearSelect) {
       let years = []
@@ -115,6 +116,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
 
 const SelectMulti = ({field, title, onChangeHandler, size}) => {
   const meta = field.getMeta()
+  const selectRef = useReactSelectFocusFix()
 
   const [options] = useState(() => {
     let opts = field.getOptions()
@@ -140,7 +142,6 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
       field.removeValue(value)
     } else {
       if (value === 'none') {
-        console.log('AÑADIENDO NONE')
         setSelected(['none'])
       } else {
         setSelected([...selected, value])
@@ -191,7 +192,9 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
             options={options}
             styles={SelectStyles}
             components={{ DropdownIndicator: Icon }} 
-            min={meta.minSelect || false} />
+            min={meta.minSelect || false}
+            ref={selectRef}
+          />
         )
       }
 
