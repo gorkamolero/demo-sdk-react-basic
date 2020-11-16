@@ -62,6 +62,7 @@ function Form({setSlideHeight, isFirstSlide, isEndSlide}) {
 
   useEffect(() => {
     if (isEndSlide || !slideModel.getType()==='Form') return
+
     if (slideModel.validate()) {
       setIsValid(true)
     } else {
