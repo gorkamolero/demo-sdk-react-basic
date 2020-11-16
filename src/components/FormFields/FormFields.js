@@ -575,7 +575,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
                   if (value!='') value.split(",").forEach(val => field.setValue(val))
               }
             } else {
-                field.setValue(value);
+                if (value!='') value.split(",").forEach(val => field.setValue(val))
             }
             // console.log(field.getType(), value)
         } else {

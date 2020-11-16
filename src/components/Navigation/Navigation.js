@@ -33,7 +33,8 @@ function Navigation({back, next, restart}) {
 
   // slideModel.restart()
 
-  const isValid = slideModel.validate()
+  const isValid = slideModel.getType()==='Form'?slideModel.validate():true;
+
   console.log(isValid)
 
   return (
