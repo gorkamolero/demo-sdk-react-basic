@@ -16,7 +16,6 @@ const HbFormElement = ({children,  doNotScroll, isFirstSlide, ...rest}) => {
   // Scroll To Item
   useEffect(() => {
       if (fieldRef.current && !doNotScroll && !isFirstSlide) {
-        console.log('FORM SCROLL');
         fieldRef.current.scrollIntoView({ behavior: "smooth" });
       }
 
@@ -37,8 +36,20 @@ const Icon = ({ innerRef, innerProps }) => (
   <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
 );
 
+  /* eslint-disable*/
+function useReactSelectFocusFix() {
+  const selectRef = useRef()
+  useEffect(() => {
+    if (selectRef.current && selectRef.current.select) {
+      selectRef.current.select.getNextFocusedOption = () => null
+    }
+  }, [selectRef.current])
+  return selectRef
+}
+/* eslint-enable */
+
 const Select = ({field, title, onChangeHandler, size, notValid}) => {
-  const selectRef = useRef(null);
+  const selectRef = useReactSelectFocusFix();
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
@@ -197,12 +208,13 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
-  const notSoValid = () => {
-    if (meta.max && value > meta.max) return true
-    if (meta.maxlength && value.length > meta.maxlength) return true
-    return false
-  }
+  const notSoValid = () => value && (value <= Number(meta.min) || value > Number(meta.max) || value.length > meta.maxlength)
+
   const invalid = notSoValid()
+
+  useEffect(() => {
+    if (invalid) field.setValid(false)
+  }, [invalid, field])
 
   return (
     <>
@@ -218,7 +230,8 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
         style={{ width: 'auto', margin: '0 10px', position: 'relative' }}
         inputProps={{
           type,
-          ...(meta.max && { max: meta.max }),
+          // ...(meta.max && { max: meta.max }),
+          ...(meta.min && { min: Number(meta.min) }),
           ...(meta.maxlength && { maxLength: meta.maxlength })
         }}
         className={`HbInput ${meta.helperText ? 'hasHelperText' : ''}`}
@@ -245,7 +258,6 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   useEffect(() => {
     if (field.getValue()) {
-      console.log(options)
       field.setValue(field.getValue())
     }
   })
