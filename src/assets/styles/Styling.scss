@@ -683,6 +683,15 @@ label[class*='radio-group-button-root'] {
       flex: 1;
       // padding: 20px !important;
     }
+
+    &.nextSlideIsEndSlide {
+      .continueButton {
+        width: 100%;
+      }
+      .backButton {
+        width: 50%;
+      }
+    }
   }
 }
 

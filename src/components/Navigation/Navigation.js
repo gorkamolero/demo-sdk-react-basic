@@ -41,7 +41,7 @@ function Navigation({back, next, restart}) {
     <>
       <FlexBox gap="10px"
         reverse={nextSlideIsEndSlide && size === 'small'}
-        className={`HbButtonGroup Navigation ${!nav.canNext || !isValid ? 'hideContinue': ''}`}
+        className={`HbButtonGroup Navigation ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''} ${!nav.canNext || !isValid ? 'hideContinue': ''}`}
         column={size === 'small' && nextSlideIsEndSlide}
         center
         is="nav"
