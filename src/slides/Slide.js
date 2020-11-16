@@ -88,7 +88,6 @@ const Slide = () => {
         marginTop: isEndSlide ? 0 : marginTop,
         flex: 1
     }
-    console.log('YOLO', !title && !subtitle)
     return (
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
         <div className={`HbHeadContainer ${(!slideTitle === 'Profile' || isEndSlide) ? 'hidingImage' : 'showingImage'} ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''}`} ref={HeadRef}>

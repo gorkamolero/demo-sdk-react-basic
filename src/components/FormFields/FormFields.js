@@ -16,7 +16,6 @@ const HbFormElement = ({children,  doNotScroll, isFirstSlide, ...rest}) => {
   // Scroll To Item
   useEffect(() => {
       if (fieldRef.current && !doNotScroll && !isFirstSlide) {
-        console.log('FORM SCROLL');
         fieldRef.current.scrollIntoView({ behavior: "smooth" });
       }
 
@@ -37,8 +36,18 @@ const Icon = ({ innerRef, innerProps }) => (
   <img alt="Dropdown" style={{ width: 18 }} src={icons.hbChevronDown} aria-label="Dropdown" ref={innerRef} {...innerProps} />
 );
 
+function useReactSelectFocusFix() {
+  const selectRef = useRef()
+  useEffect(() => {
+    if (selectRef.current && selectRef.current.select) {
+      selectRef.current.select.getNextFocusedOption = () => null
+    }
+  }, [selectRef.current])
+  return selectRef
+}
+
 const Select = ({field, title, onChangeHandler, size, notValid}) => {
-  const selectRef = useRef(null);
+  const selectRef = useReactSelectFocusFix();
   const [options, setOptions] = useState(() => field.getOptions().map((op) => ({ value: op.id, label: op.title })))
   const meta = field.getMeta()
   const [selected, setSelected] = React.useState(() => {
@@ -245,7 +254,6 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   useEffect(() => {
     if (field.getValue()) {
-      console.log(options)
       field.setValue(field.getValue())
     }
   })
