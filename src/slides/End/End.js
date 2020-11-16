@@ -84,7 +84,7 @@ function End({loading, setLoading}) {
         [subscribeMultiplier],
     );
     const roundPrice = (price) => Number(price).toFixed(2)
-    const totalProducts = selectedResults.length
+    const totalProducts = selectedResults.filter(s => s).length
 
     const continueToCheckout = () => {
         window.hungry.end.goToCheckout(subscription, selectedResults);
