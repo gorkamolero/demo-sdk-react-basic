@@ -5,7 +5,7 @@ import { HbButton, useBreakpoint } from "../../visly";
 import { CSSTransition } from "react-transition-group";
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
-function Navigation({back, next, restart, isValid}) {
+function Navigation({back, next, restart}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
   const navRef = useRef();
 
@@ -33,8 +33,8 @@ function Navigation({back, next, restart, isValid}) {
 
   // slideModel.restart()
 
-  // const isValid = slideModel.validate() && !slideModel.fields.find(field => field.data.mandatory && !field._isValid);
-  const isBlocked = false
+  const isValid = slideModel.validate()
+  console.log(isValid)
 
   return (
     <>
@@ -74,12 +74,12 @@ function Navigation({back, next, restart, isValid}) {
           />
         </CSSTransition>
         {
-          (!nav.canNext || isBlocked || !isValid) || (
+          (!nav.canNext || !isValid) || (
             <FlexItem ref={navRef} flex="1" className={`continueButton`}>
               <HbButton
                 id="ContinueButton"
-                text={isBlocked ? 'Coming soon' : nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
-                disabled={!nav.canNext|| isBlocked || !isValid}
+                text={nextSlideIsEndSlide ? 'Show me my custom plan' : 'Continue'}
+                disabled={!nav.canNext || !isValid}
                 onPress={next}
               />
             </FlexItem>   
