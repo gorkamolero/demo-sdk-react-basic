@@ -26,8 +26,8 @@ const Tab = ({ text }) => {
 const getTabs = (product, dog, goals, size) => {
     if (product.type === 'kibble') {
         return (
-            <div className="tabContainer" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
-                <Tabs>
+            <div className="tabContainer kibble" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+                <Tabs classContainer="tabs">
                     <HbTabs>
                         <Tab text="Meal Plan" />
                         <Tab text="Transitioning" />
@@ -147,7 +147,7 @@ const getTabs = (product, dog, goals, size) => {
         )
     } else if (product.type === 'chews') {
         return (
-            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer chews" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Description" />
@@ -186,7 +186,7 @@ const getTabs = (product, dog, goals, size) => {
         )
     } else if (product.type === 'mixin') {
         return (
-            <div style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer mixin" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Description" />
@@ -234,7 +234,7 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
                 imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
             >
                 {getTabs(product, dog, goals, size)}
-                <FlexBox center style={{ padding: '20px' }}>
+                <FlexBox className={`closeFooter ${product.type}`} center style={{ padding: '20px' }}>
                     <FlexItem>
                         <HbLinkButton
                             onPress={hideModal}

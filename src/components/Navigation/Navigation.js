@@ -41,7 +41,7 @@ function Navigation({back, next, restart}) {
     <>
       <FlexBox gap="10px"
         reverse={nextSlideIsEndSlide && size === 'small'}
-        className={`HbButtonGroup Navigation ${!nav.canNext || !isValid ? 'hideContinue': ''}`}
+        className={`HbButtonGroup Navigation ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''} ${!nav.canNext || !isValid ? 'hideContinue': ''}`}
         column={size === 'small' && nextSlideIsEndSlide}
         center
         is="nav"
@@ -53,12 +53,14 @@ function Navigation({back, next, restart}) {
           unmountOnExit
           mountOnEnter
         >
-          <HbButton
-            text="Go Back"
-            variant="contained"
-            disabled={!nav.canBack}
-            onPress={() => back()}
-          />
+           <FlexItem flex="1" className={`backButton`}>
+            <HbButton
+              text="Go Back"
+              variant="contained"
+              disabled={!nav.canBack}
+              onPress={() => back()}
+            />
+          </FlexItem>
         </CSSTransition>
         
         <CSSTransition

@@ -4,19 +4,7 @@ import { FooterBar } from '../../../styles/StyledComps';
 import { HbSection } from '../../../visly/Pages';
 import ReactSrcDocIframe from 'react-srcdoc-iframe'
 
-
-const iframeMarkup = (videoURL) => `
-<!DOCTYPE html>
-  <html>
-    <head>
-      <script src="${videoURL}" async></script>
-      <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
-    </head>
-    <body style="padding: 0; margin: 0; overflow: hidden;">
-          <div class="wistia_embed wistia_async_bmwh267dv6 idType=ab-test seo=true videoFoam=true" style="height:100%;position:relative;width:100%">&nbsp;</div>
-    </body>
-</html>
-  `
+const styler = `<style>body { padding: 0 !important; margin: 0 !important; </style>`
 
 const MyWistiaFooter = ({videoIsDone, setVideoIsDone}) => {
   const { getDatasheet } = useContext(SlideContext)
@@ -81,8 +69,6 @@ const MyWistiaFooter = ({videoIsDone, setVideoIsDone}) => {
 const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   const [visible, setVisible] = useState(false);
 
-  const markup = iframeMarkup(video)
-
   useEffect(() => {
     setVisible(true)
     return () => { setVisible(false) }
@@ -96,7 +82,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
         visible && (
           <div className="player-container">
             <div className="player-wrapper" id="iframe-wrapper">
-              <ReactSrcDocIframe className="player-iframe" srcDoc={visible ? markup : ''} />
+              <ReactSrcDocIframe className="player-iframe" srcDoc={visible ? styler + video : ''} />
             </div>
           </div>
         )
