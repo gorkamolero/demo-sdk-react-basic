@@ -136,9 +136,15 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const toggleSelected = value => {
     if (selected.includes(value) || selected === 'value') {
+      console.log('IS 1', value)
       setSelected(selected.filter(val => val !== value))
       field.removeValue(value)
     } else {
+      if (value === 'none') {
+        console.log('IS 2', value)
+        setSelected([])
+        setSelected(value)
+      }
       setSelected([...selected, value])
       field.setValue(value)
     }
@@ -570,13 +576,19 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
             // console.log(field.getType(), value)
         } else if (["radio-group"].includes(type)) {
             const value = event;
-            if (field.isMultiple() && value.includes('none')) {
+            if (field.isMultiple()) {
+              if (value.includes('none') && field.getValue().includes('none')) {
                 field.clear()
+              }
+              if (field.getValue().includes(value)) {
                 field.setValue(value)
+                console.log('yolo', value, field.getValue())
+              } else {
+                field.removeValue(value)
+                console.log('yalo', value, field.getValue())
+              }
             }
-            else if (field.getValue().includes(value) && field.isMultiple()) {
-              field.removeValue(value)
-            }
+            
             else field.setValue(value);
             // console.log(field.getType(), value)
         } else {
