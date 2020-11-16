@@ -208,9 +208,7 @@ const Input = ({field, title, onChangeHandler, size, notValid}) => {
   const meta = field.getMeta();
   const type = field.getType();
 
-  const notSoValid = () => value && (value <= Number(meta.min) || value > Number(meta.max) || value.length > meta.maxlength)
-
-  const invalid = notSoValid()
+  const invalid = value && !field.isValid(true);
 
   useEffect(() => {
     if (invalid) field.setValid(false)
@@ -555,9 +553,8 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
     const { setTouched, touched } = useContext(SlideContext);
     const size = useBreakpoint("small", ["medium", "large", "super"]);
     const getFieldValues = () => fields.map(field => field.getValue())
-
     const [fieldValues, setFieldValues] = React.useState(() => getFieldValues())
-    
+
     // console.log('Values', fieldValues)
 
     const onChangeHandler = (event, field) => {

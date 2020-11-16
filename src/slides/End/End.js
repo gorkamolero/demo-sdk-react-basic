@@ -87,11 +87,11 @@ function End({loading, setLoading}) {
     const totalProducts = selectedResults.length
 
     const continueToCheckout = () => {
-        console.log('Going to checkout with :' + JSON.stringify(selectedResults))
+        window.hungry.end.goToCheckout(subscription, selectedResults);
     }
 
     const addAnotherDog = () => {
-        window.hungry.end.addAnotherDog( () => {
+        window.hungry.end.addAnotherDog( subscription, () => {
             nav.restart();
         });
     }
@@ -105,7 +105,7 @@ function End({loading, setLoading}) {
         let afterTrialText = hungry.texts.plan.afterTrialText
             .replace('[PRICE]', getPrice(totalPrice*0.9))
             .replace('[PRICEPERDAY]', getPrice(totalPrice*0.9/28))
-            .replace('[SHIPPING]', hungry.getShippingText(hungry.kibble.price))
+            .replace('[SHIPPING]', hungry.getShippingText(totalPrice))
 
         setTexts({
             plan:{
@@ -184,7 +184,7 @@ function End({loading, setLoading}) {
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice)}
-                            HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />} 
+                            HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
