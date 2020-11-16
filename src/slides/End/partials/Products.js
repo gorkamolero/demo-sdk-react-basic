@@ -22,7 +22,8 @@ const Products = ({
     products,
     dog,
     goals,
-    texts
+    texts,
+    subscribePriceFactor
 }) => {
 
     const replacers = {
@@ -95,7 +96,7 @@ const Products = ({
                             title={products.kibble.title}
                             extra={products.kibble.lbs14 + '    lbs'}
                             priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
-                            priceFinal={`$${getPrice(products.kibble.price)}`}
+                            priceFinal={`$${getPrice(products.kibble.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
                                     ...textstyles.hbFeatureText,
@@ -137,7 +138,7 @@ const Products = ({
                             title={products.supplement.title}
                             extra={`${products.supplement.chews14 ? products.supplement.chews14 + ' count' : ''}`}
                             priceOriginal={ subscription ? `$${roundNumber(products.supplement.price)}` : '' }
-                            priceFinal={`$${getPrice(products.supplement.price)}`}
+                            priceFinal={`$${getPrice(products.supplement.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
                                     ...textstyles.hbFeatureText,
@@ -179,7 +180,7 @@ const Products = ({
                             title={products.mixin.title}
                             extra={`${products.mixin.bags} ${products.mixin.bags > 1 ? 'bags' : 'bag'}`}
                             priceOriginal={ subscription ? `$${roundNumber(products.mixin.price)}` : '' }
-                            priceFinal={`$${getPrice(products.mixin.price)}`}
+                            priceFinal={`$${getPrice(products.mixin.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
                                     ...textstyles.hbFeatureText,
