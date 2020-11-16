@@ -93,7 +93,7 @@ const Products = ({
                             imageSrc={products.kibble.images[products.kibble.selectedImage]}
                             order={1}
                             title={products.kibble.title}
-                            extra={products.kibble.lbs14 + 'lbs'}
+                            extra={products.kibble.lbs14 + ' lbs'}
                             priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
                             priceFinal={`$${getPrice(products.kibble.price)}`}
                             DescriptionHtml={
@@ -117,6 +117,7 @@ const Products = ({
                         />
                     ) : (
                         <HbProductEmpty
+                            order="1"
                             type={'Meal'}
                             oops={oops}
                             Extratext={
@@ -158,6 +159,7 @@ const Products = ({
                         />
                     ) : (
                         <HbProductEmpty
+                            order="2"
                             type={'Supplement'}
                             oops={oops}
                             Extratext={
@@ -199,6 +201,7 @@ const Products = ({
                         />
                     ) : (
                         <HbProductEmpty
+                            order="3"
                             type={'Mixin'}
                             oops={oops}
                             Extratext={

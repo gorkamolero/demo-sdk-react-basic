@@ -42,30 +42,10 @@ const Slide = () => {
     const [loading, setLoading] = useState(true)
     const [marginTop, setMarginTop] = useState(0)
     // const [slideHeight, setSlideHeight] = useState(0)
-
-    // useEffect(() => {
-    //   if (size) console.log(size) 
-    //   // window.dispatchEvent(new Event('resize'));
-    // }, [size])
-    
     const HeadRef = useRef(null);
     const isEndSlide = slideModel.getType() === 'End'
     /* eslint-disable */
     const isFirstSlide = slideId == 101 
-
-    useEffect(() => {
-      // if (size === 'small') return
-      if(HeadRef.current){
-        let HeadHeight = HeadRef.current.offsetHeight;
-      
-        if (isEndSlide) setMarginTop(0)
-        if (size === 'small' || size === 'medium') setMarginTop(0)
-        if(size !=='small' && size !== 'medium') setMarginTop(HeadHeight - 40)
-        // if (size === 'medium') setMarginTop(HeadHeight - 30)
-        console.log(size, marginTop)
-      }
-      console.log(size);
-    }, [isEndSlide, size])
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(() => {
@@ -89,8 +69,13 @@ const Slide = () => {
     const title = useMemo(() => interpolate(Utils.stripHtml(slideModel.getTitle())), [slideModel, interpolate])
     const subtitle = useMemo(() => interpolate(Utils.stripHtml(slideModel.getSubtitle())), [slideModel, interpolate])
 
-    console.log('YOLO', !title, !subtitle)
     const type = useMemo(() => slideModel.getType(), [slideModel])
+    
+    const nextSlideIsEndSlide = useMemo(() => {
+      const me = progressBar.find((el) => el.slideId === slideModel.id);
+      const next = progressBar[progressBar.indexOf(me) + 1]
+      return (next.slideId === 'end')
+    }, [progressBar, slideModel])
 
     const Container = slideModel.getType() === 'End' ? FlexBox : HbContainer
     /* eslint-enable */
@@ -100,15 +85,15 @@ const Slide = () => {
     const style = {
         position: 'relative',
         zIndex: isEndSlide ? 999 : isFirstSlide ? 2 : 0,
-        marginTop,
+        marginTop: isEndSlide ? 0 : marginTop,
         flex: 1
     }
-    console.log('RENDER', size)
+    console.log('YOLO', !title && !subtitle)
     return (
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
-        <div className="HbHeadContainer" ref={HeadRef}>
+        <div className={`HbHeadContainer ${(!slideTitle === 'Profile' || isEndSlide) ? 'hidingImage' : 'showingImage'} ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''}`} ref={HeadRef}>
           <HbHeader
-            className={`HbHeader ${!slideTitle === 'Profile' ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'}`}
+            className={`HbHeader ${(!slideTitle === 'Profile' || isEndSlide) ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'} ${!title && !subtitle ? 'noTitleNoSubtitle' : ''}`}
             TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
             SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
             HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
@@ -131,9 +116,10 @@ const Slide = () => {
           is="main"
           column
           alignItems="center"
+          className={nextSlideIsEndSlide ? "main-nextSlideIsEndSlide" : ''}
           style={style}>
           <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
-            <SlideView isFirstSlide={isFirstSlide} loading={loading} setLoading={setLoading} slideModel={slideModel} />
+            <SlideView isEndSlide={isEndSlide} isFirstSlide={isFirstSlide} loading={loading} setLoading={setLoading} slideModel={slideModel} />
             {/*  setSlideHeight={size === 'small' && isFirstSlide ? setSlideHeight : null}  */}
           </Container>
         </FlexBox>

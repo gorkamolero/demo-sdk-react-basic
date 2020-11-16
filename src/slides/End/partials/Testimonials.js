@@ -58,12 +58,13 @@ const Testimonials = ({reviews}) => {
         {
           testimonials.map(testimonial => (
               <HbTestimonial
+                className="HbTestimonial"
                 key={testimonial.client}
                 imageSrc={testimonial.Photo}
                 style={{ outline: 'none', border: 'none' }}
                 title={testimonial.Title}
                 client={testimonial.Name}
-                text={testimonial.text}
+                text={testimonial.Content}
                 dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
                 stars={<FlexBox gap={5}>
                   {Array(5).fill().map((i) => (<HbCircleIcon key={i} justEmoji icon={icons.hbStar} />))}

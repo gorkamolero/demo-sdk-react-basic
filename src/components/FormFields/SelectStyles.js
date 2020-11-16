@@ -21,7 +21,8 @@ export default {
     margin: 0,
     minWidth: '100%',
     width: 'auto',
-    borderRadius: 0
+    borderRadius: 0,
+    zIndex: 20
   }),
   indicatorSeparator: () => ({ display: 'none' }),
   menuList: (provided) => ({

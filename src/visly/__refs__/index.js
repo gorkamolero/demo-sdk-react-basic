@@ -191,6 +191,7 @@ export const component = {
   HbSliderArrow: "a08e309b-3b76-4776-8c78-ae425627f109",
   HbSliderArrowButton: "4676eee6-d833-449d-add7-8763ce711387",
   HbStickyBar: "124137e6-1ccb-43fe-a6dd-75dcd419d889",
+  HbSuperProductEmpty: "2f0bdb0e-2699-406b-a57f-3793c6045d69",
   HbTabs: "1093ffc0-8dbd-4c21-bb02-1f5c8493cb1d",
   HbTag: "c34bf8ae-7ee2-4f04-b7f5-c83b3ccf53d3",
   HbTestimonial: "ec54f290-0db3-4d07-bfcf-5f8d76bfcaf8",

@@ -125,6 +125,9 @@ $reading: 60ch;
 
 main {
   width: 100%;
+  &.main-nextSlideIsEndSlide {
+    margin-top: -20px !important;
+  }
 }
 
 @font-face {
@@ -207,7 +210,9 @@ body {
 }
 
 .HbHeadContainer {
-  .slide-End & {
+  &.slide-End,
+  &.isEndSlide,
+  &.nextSlideIsEndSlide & {
     position: static !important;
   }
   z-index: 10;
@@ -217,6 +222,10 @@ body {
 
   @media (min-width: $large) {
     position: fixed !important;
+    &.slide-End,
+    &.nextSlideIsEndSlide {
+      position: static !important;
+    }
   }
 
   header[id^='HbContent'] {
@@ -247,13 +256,15 @@ body {
     }
   }
 
-  &:not(.hideImage) {
+  &:not(.hideImage):not(.isEndSlide) {
     .title,
     .subtitle {
-      text-align: left !important;
-      align-self: flex-start;
-      justify-self: flex-start;
-      width: 100%;
+      @media (max-width: $medium) {
+        text-align: left !important;
+        align-self: flex-start;
+        justify-self: flex-start;
+        width: 100%;
+      }
     }
   }
 }
@@ -506,12 +517,17 @@ li.paging-item.active .pagingDots {
 }
 
 [id^='ExtraImg'] div[role='img'] {
-  @media (max-width: 1340px) {
-    transform: translateY(30%) !important;
-  }
+  :not(.noTitleNoSubtitle):not(.nextSlideIsEndSlide) & {
+    // @media (max-width: 1240px) {
+    //   transform: translateY(30%) !important;
+    // }
 
-  @media (min-width: 1340px) {
-    transform: translateY(40%) !important;
+    // @media (min-width: 1340px) {
+    //   transform: translateY(40%) !important;
+    // }
+  }
+  .noTitleNoSubtitle & {
+    transform: translateY(80%) !important;
   }
 }
 
@@ -529,10 +545,10 @@ li.paging-item.active .pagingDots {
 
 .HbFormElement {
   margin: 20px 0;
+  font-weight: bold !important;
   @media (max-width: $small) {
     width: 100%;
     justify-content: center;
-    font-weight: bold !important;
 
     gap: 0;
     flex-wrap: nowrap;
@@ -649,7 +665,7 @@ label[class*='radio-group-button-root'] {
     button,
     button[type='button'] {
       flex: 1;
-      padding: 20px !important;
+      // padding: 20px !important;
     }
   }
 }
@@ -909,7 +925,7 @@ div#Background {
 @media (max-width: $small) {
   .selectContainer {
     &.notSearchable > div {
-      max-width: 0;
+      // max-width: 0;
     }
     &.field-1,
     &.field-5 {
@@ -1016,6 +1032,82 @@ small {
 
 .FooterBar footer div {
   @media (max-width: $small) {
-    text-align: center;
+    text-align: center !important;
   }
+}
+
+.HbSuperProductEmpty {
+  * {
+    text-align: center !important;
+  }
+
+  [id*='CardContent'] {
+    max-width: 60ch;
+    justify-self: center;
+    align-self: center;
+  }
+
+  @media (min-width: $large) {
+    [id*='CardTitle'] {
+      font-size: 22px !important;
+    }
+  }
+}
+
+.hungryBlue {
+  color: #00aeaa;
+  font-weight: bold;
+}
+
+.HbTestimonial {
+  @media (max-width: $small) {
+    [id^='ClientContainer'] {
+      [id^='Client'] {
+        margin-bottom: 6px;
+      }
+    }
+  }
+}
+
+@media (max-width: $small) {
+  .nutriValue {
+    text-align: right;
+  }
+  .kibcontent-Nutri {
+    flex-direction: column;
+  }
+  .kibcontent-NutriAnalysis {
+    width: 100% !important;
+    margin: 0;
+    margin-bottom: 20px;
+  }
+  .kibdisclaimer {
+    margin-bottom: 10px !important;
+  }
+
+  .selectContainer.field-5 [class*='container'] > [class*='menu'],
+  .radio-group .field-1 [class*='container'] > [class*='menu'] {
+    transform: translateX(-10%);
+  }
+}
+
+// .HbHeadContainer.showingImage
+//   + main
+//   .HbFormElementParent:first-of-type
+//   .HbFormElementChild:first-of-type {
+//   @media (max-width: 480px) {
+//     span.beforeTxt,
+//     div.title {
+//       padding-left: 50px;
+//       white-space: normal;
+//     }
+//   }
+// }
+
+.HbHeadContainer.showingImage + main {
+  // margin-top: 20px !important;
+}
+
+.HbHeadContainer .title span {
+  display: block;
 }

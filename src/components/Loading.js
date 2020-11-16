@@ -5,11 +5,11 @@ import { useBreakpoint } from "../visly";
 import Loading1 from '../assets/images/loading1.png'
 import Loading2 from '../assets/images/loading2.png'
 
-function useDelayUnmount(isMounted: boolean, delayTime: number) {
+function useDelayUnmount(isMounted, delayTime) {
     const [ shouldRender, setShouldRender ] = useState(false);
 
     useEffect(() => {
-        let timeoutId: number;
+        let timeoutId;
         if (isMounted && !shouldRender) {
             setShouldRender(true);
         }
@@ -26,7 +26,8 @@ function useDelayUnmount(isMounted: boolean, delayTime: number) {
 
 const Loaders = [
   Loading1,
-  Loading2
+  Loading2,
+  Loading1,
 ]
 
 const LoadingScreen = styled(HbLoadingScreen)`
@@ -48,7 +49,7 @@ const Img = styled.img`
 `
 
 
-const Loading = ({ timing = 1000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
+const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
@@ -67,28 +68,14 @@ const Loading = ({ timing = 1000, loading, setLoading, outTiming = 0, setLoading
     if (progress === 100) return
     let min = 0, max = Loaders.length - 1, step = +1, now = 0;
 
-
-    const interval = setInterval(() => {
+    const interval = setInterval(
+      () => {
         if(now >= max) {step = -1;}
         if(now <= min) {step = +1;}
         now += step;
         setRotation(now)
-    }, timing, progress);
-
-
-    return () => clearInterval(interval);
-  }, [timing, progress])
-  
-  // Rotate progress
-  useEffect(() => {
-    let min = 0, step = 20, now = 0;
-
-    const interval = setInterval(() => {
-        now += Math.floor(Math.random() * step) + min  ;
-        // if (now <= max) { clearInterval(interval) }
-        if (progress === 100) return
-        setProgress(now)
-    }, timing * 2 / 3);
+        setProgress(progress + 33)
+      }, timing / 3);
 
 
     return () => clearInterval(interval);
@@ -98,11 +85,12 @@ const Loading = ({ timing = 1000, loading, setLoading, outTiming = 0, setLoading
   useEffect(() => {
     setTimeout(() => {
       setProgress(100)
-      setTimeout(() => {
-        setIsMounted(!isMounted);
-        setLoading(false)
-      }, timing)
-    }, outTiming);
+    }, timing - 200);
+
+    setTimeout(() => {
+      setIsMounted(!isMounted);
+      setLoading(false)
+    }, timing)
   })
   
   return (

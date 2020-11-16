@@ -94,6 +94,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         components={{ DropdownIndicator: Icon }} 
         min={meta.minSelect || false}
         onFocus={() => notSearchable || setPlaceholder('Start typing...')}
+        onBlur={() => setPlaceholder(meta && meta.default ? meta.default : 'Select...')}
         ref={selectRef}
         // maxWidth={meta.maxWidth}
         // superMaxWidth={meta.superMaxWidth}
@@ -135,7 +136,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start">
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" className={`${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
       {
@@ -158,7 +159,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
                   HbOnlyIconButton={
                     <HbTag.HbOnlyIconButton
                       onPress={() => toggleSelected(o)}
-                      style={{ marginTop: 10 }}
+                      style={{ marginTop: size !== 'small' ? 10 : 0 }}
                     />}
                   style={{ margin: 5 }}
                 />
@@ -169,18 +170,22 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
         )
       }
 
-      <ReactSelect
-        onChange={(option) => {
-          toggleSelected(option.value)
-        }}
-        // defaultValue={selected}
-        value={''}
-        isSearchable={true}
-        placeholder={selected.length > 0 ? 'Add more...' : 'Add...'}
-        options={options}
-        styles={SelectStyles}
-        components={{ DropdownIndicator: Icon }} 
-        min={meta.minSelect || false} />
+      {
+        (selected.includes('none') || selected === 'none') || (
+          <ReactSelect
+            onChange={(option) => {
+              toggleSelected(option.value)
+            }}
+            // defaultValue={selected}
+            value={''}
+            isSearchable={true}
+            placeholder={selected.length > 0 ? 'Add more...' : 'Add...'}
+            options={options}
+            styles={SelectStyles}
+            components={{ DropdownIndicator: Icon }} 
+            min={meta.minSelect || false} />
+        )
+      }
 
       {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
     </FlexBox>
@@ -256,7 +261,7 @@ const RadioWithImages = ({field, title, onChangeHandler, size}) => {
 
   return (
     <>
-      {meta.showTitle && <label style={{ marginBottom: 20, textAlign: 'center' }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: ['small', 'medium'].includes(size)  ? 10 : 20, textAlign: 'center' }}>{title}</label>}
       <HbRadio
         selected={selected}
         onSelect={(id) => setSelected(id)}
@@ -315,7 +320,7 @@ const CheckboxGroup = ({field, title, fieldValues, onChangeHandler, size}) => {
 
   return (
     <FlexBox column align="center" className="CheckboxGroup">
-      {meta.showTitle && <label style={{ marginBottom: 20 }}>{title}</label>}
+      {meta.showTitle && <label style={{ marginBottom: ['small', 'medium'].includes(size)  ? 10 : 20 }}>{title}</label>}
       <FlexBox wrap justifyContent="center" gap="10px" style={{ maxWidth: '50ch' }} className={`CheckboxButtonContainer ${meta.noIcons && 'tag-group'}`}>
         {options.map(({ id, title, image: icon }) => {
           if (meta.customUncheckBox && id === 'none') return null
@@ -470,10 +475,10 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
           }
 
           {meta.beforeTxt && (
-            <>
+            <span class="beforeTxt">
               {interpolate(meta.beforeTxt)}
               <HbSpace />
-            </>
+            </span>
           )}
 
           { type === 'checkbox' && (<h1>Hey</h1>) }
@@ -511,8 +516,8 @@ const FormField = ({field, i, onChangeHandler, size, fieldValues, fields, getFie
               <Input notValid={notValid} {...inputProps} />
             )
           }
-
-          {meta.afterTxt && (size === 'small' && !meta.hideMobileAfterText ) && (
+          {/* (size === 'small' && !meta.hideMobileAfterText )  */}
+          {meta.afterTxt && (
             <>
               <HbSpace />
               {interpolate(customAfterText || meta.afterTxt)}
