@@ -91,7 +91,7 @@ function End({loading, setLoading}) {
     }
 
     const addAnotherDog = () => {
-        window.hungry.end.addAnotherDog( subscription, () => {
+        window.hungry.end.addAnotherDog( subscription, selectedResults, () => {
             nav.restart();
         });
     }
