@@ -537,6 +537,10 @@ li.paging-item.active .pagingDots {
   .noTitleNoSubtitle & {
     transform: translateY(80%) !important;
   }
+  .noTitleSubtitle &,
+  .titleNotSubtitle & {
+    transform: translateY(60%) !important;
+  }
 }
 
 .selectContainer {
