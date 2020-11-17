@@ -52,7 +52,7 @@
 
 .switch-label::before {
   content: attr(data-off);
-  right: -6px;
+  right: -4px;
   width: 116px;
   height: 15px;
   font-size: 11px;
@@ -71,7 +71,7 @@
   text-transform: capitalize;
   top: 44%;
   text-align: left;
-  left: 7px;
+  left: 12px;
 }
 
 .switch-input:checked ~ .switch-label {
