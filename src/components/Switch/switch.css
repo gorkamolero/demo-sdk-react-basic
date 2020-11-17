@@ -63,7 +63,6 @@
 
 .switch-label::after {
   content: attr(data-on);
-  color: #1b1c24;
   width: 145px;
   height: 18px;
   font-size: 11px;
