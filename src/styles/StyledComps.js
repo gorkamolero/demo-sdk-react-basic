@@ -72,6 +72,7 @@ export const WaveContainer = styled.section`
 
 export const Footer = styled(HbEndFooter)`
   position: fixed;
+  position: sticky;
   left: 0;
   bottom: 0;
 `
