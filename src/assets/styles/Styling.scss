@@ -1217,8 +1217,22 @@ small {
   }
 }
 
-.lastImage [role='img'] {
-  background-position: 50% 0% !important;
+.HbLoadingScreen {
+  @media (max-width: $small) {
+    [role='img'] {
+      margin-top: 40px;
+    }
+    &.lastImage [role='img'] {
+      margin-top: 0;
+    }
+
+    [id^='Column'] [id^='Text'] {
+      text-align: center;
+    }
+  }
+  &.lastImage [role='img'] {
+    background-position: 50% 0% !important;
+  }
 }
 
 .display-text-group {
