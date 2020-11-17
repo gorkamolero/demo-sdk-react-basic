@@ -2,6 +2,7 @@ export const colors = require("./colors");
 export const icons = require("./icons");
 export const textstyles = require("./textstyles");
 export const sizes = require("./sizes");
+export const shadows = require("./shadows");
 export const __refs__ = require("./__refs__");
 export const {
   setBreakpoints,

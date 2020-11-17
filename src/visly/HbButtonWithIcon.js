@@ -10,7 +10,11 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { TextPrimitive, IconPrimitive } from "./_internal_primitives";
+import {
+  TextPrimitive,
+  ContainerPrimitive,
+  IconPrimitive,
+} from "./_internal_primitives";
 import { ButtonRoot } from "./_internal_button";
 
 const styles = [
@@ -52,6 +56,11 @@ const styles = [
     propName: "noIcon",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "withProgress",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -74,6 +83,11 @@ const defaultPropValues = [
     propName: "noIcon",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "withProgress",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -85,6 +99,10 @@ const variantPropTypes = [
   {
     type: "boolean",
     propName: "noIcon",
+  },
+  {
+    type: "boolean",
+    propName: "withProgress",
   },
 ];
 
@@ -113,6 +131,29 @@ function HbButtonWithIcon(_props) {
     >
       {(getStyle) => (
         <>
+          <ContainerPrimitive
+            id={"Overlay_MqQmHAoM6W"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_PZuf8HbDvD_MqQmHAoM6W"
+            }
+            key={"MqQmHAoM6W"}
+            addSpacing={false}
+            element={getStyle("MqQmHAoM6W", "htmlElement")}
+          >
+            {
+              <ContainerPrimitive
+                id={"Progress_Dz8jeyRa9z"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_PZuf8HbDvD_Dz8jeyRa9z"
+                }
+                key={"Dz8jeyRa9z"}
+                addSpacing={false}
+                element={getStyle("Dz8jeyRa9z", "htmlElement")}
+              >
+                {null}
+              </ContainerPrimitive>
+            }
+          </ContainerPrimitive>
           <TextPrimitive
             id={"text_QrGpru5iuK"}
             className={
@@ -147,6 +188,10 @@ HbButtonWithIcon.__variants = [
   },
   {
     name: "noIcon",
+    type: "variant",
+  },
+  {
+    name: "withProgress",
     type: "variant",
   },
 ];

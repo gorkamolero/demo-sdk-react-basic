@@ -10,7 +10,7 @@ import {
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "./_internal_utils";
-import { TextPrimitive } from "./_internal_primitives";
+import { TextPrimitive, ContainerPrimitive } from "./_internal_primitives";
 import { ButtonRoot } from "./_internal_button";
 
 const styles = [
@@ -34,6 +34,11 @@ const styles = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "withProgress",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -51,6 +56,11 @@ const defaultPropValues = [
       },
     ],
   },
+  {
+    type: "boolean",
+    propName: "withProgress",
+    layers: {},
+  },
 ];
 
 const variantPropTypes = [
@@ -58,6 +68,10 @@ const variantPropTypes = [
     type: "enum",
     propName: "variant",
     propValues: ["contained"],
+  },
+  {
+    type: "boolean",
+    propName: "withProgress",
   },
 ];
 
@@ -85,17 +99,42 @@ function HbButton(_props) {
       }}
     >
       {(getStyle) => (
-        <TextPrimitive
-          id={"text_QrGpru5iuK"}
-          className={
-            "__visly_reset_WDRq65T88Q __visly_scope_LoHyGddKTC_QrGpru5iuK"
-          }
-          key={"QrGpru5iuK"}
-          text={
-            exists(props.text) ? props.text : getStyle("QrGpru5iuK", "text")
-          }
-          element={getStyle("QrGpru5iuK", "htmlElement")}
-        />
+        <>
+          <ContainerPrimitive
+            id={"Overlay_VgX8sxpTgz"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_LoHyGddKTC_VgX8sxpTgz"
+            }
+            key={"VgX8sxpTgz"}
+            addSpacing={false}
+            element={getStyle("VgX8sxpTgz", "htmlElement")}
+          >
+            {
+              <ContainerPrimitive
+                id={"Row_UgHyr1HdEi"}
+                className={
+                  "__visly_reset_WDRq65T88Q __visly_scope_LoHyGddKTC_UgHyr1HdEi"
+                }
+                key={"UgHyr1HdEi"}
+                addSpacing={false}
+                element={getStyle("UgHyr1HdEi", "htmlElement")}
+              >
+                {null}
+              </ContainerPrimitive>
+            }
+          </ContainerPrimitive>
+          <TextPrimitive
+            id={"text_QrGpru5iuK"}
+            className={
+              "__visly_reset_WDRq65T88Q __visly_scope_LoHyGddKTC_QrGpru5iuK"
+            }
+            key={"QrGpru5iuK"}
+            text={
+              exists(props.text) ? props.text : getStyle("QrGpru5iuK", "text")
+            }
+            element={getStyle("QrGpru5iuK", "htmlElement")}
+          />
+        </>
       )}
     </ButtonRoot>
   );
@@ -106,6 +145,10 @@ HbButton.__variants = [
     name: "variant",
     type: "group",
     variants: ["contained"],
+  },
+  {
+    name: "withProgress",
+    type: "variant",
   },
 ];
 

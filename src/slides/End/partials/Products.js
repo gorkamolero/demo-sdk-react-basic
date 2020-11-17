@@ -24,7 +24,8 @@ const Products = ({
     goals,
     texts,
     subscribePriceFactor,
-    onlySubscription
+    onlySubscription,
+    buttonProgress
 }) => {
 
     const replacers = {
@@ -216,7 +217,7 @@ const Products = ({
                 }
 
                 <HbResults
-                    className="HbCard HbResults"
+                    className={`HbCard HbResults progress-${buttonProgress}`}
                     verylongname={`${dog.name}’s Plan`}
                     DescriptionHtml={
                         <CustomHTML style={{
@@ -230,7 +231,7 @@ const Products = ({
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }
-                    HbButton={<HbResults.HbButton onPress={continueToCheckout} />}
+                    HbButton={<HbResults.HbButton className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
                     trialOff={!subscription}
                     children={onlySubscription || <Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={

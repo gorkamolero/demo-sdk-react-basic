@@ -19,16 +19,15 @@ export const DefaultPopoverPositions = {
     crossOffset: 0,
   },
 };
-
-const PopoverInner = ({
+export const PopoverInner = ({
   onClose,
   isOpen,
   innerRef,
   triggerProps,
   positionProps,
   children,
-  autoFocusFirst,
-  containFocus,
+  autoFocusFirst = false,
+  containFocus = false,
 }) => {
   const { overlayProps } = useOverlay(
     {
@@ -59,7 +58,6 @@ const PopoverInner = ({
     </FocusScope>
   );
 };
-
 export function Popover(props) {
   const {
     triggerRef,

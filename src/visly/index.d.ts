@@ -2,8 +2,9 @@ import * as colors from './colors';
 import * as textstyles from './textstyles';
 import * as icons from './icons';
 import * as sizes from './sizes';
+import * as shadows from './shadows';
 import * as __refs__ from './__refs__';
-export { icons, textstyles, colors, sizes, __refs__ };
+export { icons, textstyles, colors, sizes, shadows, __refs__ };
 type ElementType<T extends ReadonlyArray<unknown>> = T extends ReadonlyArray<infer ElementType> ? ElementType : never;
 export function setBreakpoints(rule: 'min-width' | 'max-width', breaks: string[]);
 export function useBreakpoint<T extends string, R extends ReadonlyArray<string>>(def: T, variants: R): T | ElementType<R>;
@@ -120,10 +121,11 @@ export const HbButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
     variant?: "contained";
+    withProgress?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbButtonGroup: {
@@ -140,11 +142,12 @@ export const HbButtonWithIcon: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
     variant?: "contained";
     noIcon?: boolean;
+    withProgress?: boolean;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
 export const HbCheckbox: {
@@ -289,8 +292,8 @@ export const HbIconButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
     column?: boolean;
     noIcon?: boolean;
@@ -343,8 +346,8 @@ export const HbLinkButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -361,8 +364,8 @@ export const HbOnlyIconButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
   } & CommonProps<HTMLDivElement>): JSX.Element;
 };
@@ -404,8 +407,8 @@ export const HbProgressButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
     HbProgressButtonActive?: boolean;
     HbProgressButtonEmpty?: boolean;
@@ -487,8 +490,8 @@ export const HbSliderArrowButton: {
     'aria-labelledby'?: string;
     'aria-describedby'?: string;
     'aria-details'?: string;
-    'aria-expanded'?: boolean;
-    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog';
+    'aria-expanded'?: boolean | string;
+    'aria-haspopup'?: boolean | 'menu' | 'listbox' | 'tree' | 'grid' | 'dialog' | 'true' | 'false';
     'aria-controls'?: string;
     reverse?: boolean;
     HbSliderArrow?: React.ReactNode;

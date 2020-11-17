@@ -28,6 +28,7 @@ function Option({ item, state }) {
       key: item.key,
       isDisabled,
       isSelected,
+      shouldSelectOnPressUp: true,
     },
     state,
     ref

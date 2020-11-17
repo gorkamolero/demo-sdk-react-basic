@@ -44,6 +44,11 @@ function End({loading, setLoading}) {
     const [totalPrice, setTotalPrice] = useState(0)
     const [subscription, setSubscription] = useState(true)
 
+    const [buttonProgress, setButtonProgress] = useState(0)
+    useEffect(() => {
+        if (buttonProgress > 0) setButtonProgress(100)
+    }, [buttonProgress])
+
     useEffect(() => {
         const waitForWindowData = () => {
             if (window.hungry.end) {
@@ -89,6 +94,7 @@ function End({loading, setLoading}) {
     const totalProducts = selectedResults.filter(s => s).length
 
     const continueToCheckout = () => {
+        setButtonProgress(1)
         window.hungry.end.goToCheckout(subscription, selectedResults);
     }
 
@@ -147,11 +153,6 @@ function End({loading, setLoading}) {
             {
                 videoIsDone && (
                     <>
-                        {/* {
-                            products && (
-
-                            )
-                        } */}
 
                         {
                             !products.kibble && !products.supplement && !products.mixin ? (
@@ -176,7 +177,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
+                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
                             )
                         }
 
@@ -192,8 +193,8 @@ function End({loading, setLoading}) {
                             priceOriginal={subscription && !onlySubscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
-                            HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
-                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
+                            HbButtonWithIcon={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
+                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
                             RestartSlotMobile={<Footer.RestartSlotMobile onPress={restartQuiz} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}

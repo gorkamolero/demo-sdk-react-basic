@@ -1229,3 +1229,15 @@ small {
     }
   }
 }
+
+button {
+  [id^='Overlay'] [id^='Progress'] {
+    transition: all 5s ease-out;
+  }
+}
+
+.progress-100 {
+  [id^='Overlay'] [id^='Progress'] {
+    flex-basis: 100% !important;
+  }
+}

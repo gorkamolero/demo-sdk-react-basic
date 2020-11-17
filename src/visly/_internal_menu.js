@@ -29,6 +29,7 @@ import {
   buildCollectionItemProxyWithType,
   buildCollectionSectionProxy,
 } from "./_internal_collection";
+import { MenuTriggerContext } from "./builtins/MenuTriggerContext";
 const MenuContext = createContext(null);
 const ItemContext = createContext(null);
 export function SubmenuImpl(props) {
@@ -133,6 +134,9 @@ export function MenuImpl(props) {
   });
   const state = useTreeState({ ...props, children: items });
   const { menuProps } = useMenu({ ...props, children: items }, state, ref);
+  const { menuProps: menuDOMProps, close } = useContext(MenuTriggerContext) || {
+    menuProps: {},
+  };
   const _style = { ...style, margin: 0 };
 
   if (renderInline) {
@@ -148,7 +152,7 @@ export function MenuImpl(props) {
         }}
       >
         <ul
-          {...mergeProps(menuProps, vislyProps)}
+          {...mergeProps(menuProps, menuDOMProps, vislyProps)}
           data-testid={testId}
           ref={combineRef(ref, combineRef(measureRef, innerRef))}
           style={_style}
@@ -165,7 +169,7 @@ export function MenuImpl(props) {
         style: _style,
         className: vislyProps.className,
         onAction,
-        onShouldClose,
+        onShouldClose: close || onShouldClose,
         resetProps,
         selectedKeys,
         onSelectionChange,

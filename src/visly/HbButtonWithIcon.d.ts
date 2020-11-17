@@ -97,17 +97,20 @@ export const HbButtonWithIcon: {
       "aria-labelledby"?: string;
       "aria-describedby"?: string;
       "aria-details"?: string;
-      "aria-expanded"?: boolean;
+      "aria-expanded"?: boolean | string;
       "aria-haspopup"?:
         | boolean
         | "menu"
         | "listbox"
         | "tree"
         | "grid"
-        | "dialog";
+        | "dialog"
+        | "true"
+        | "false";
       "aria-controls"?: string;
       variant?: "contained";
       noIcon?: boolean;
+      withProgress?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

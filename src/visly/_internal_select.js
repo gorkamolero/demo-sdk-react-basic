@@ -208,6 +208,7 @@ function _SelectOptionContainer(props) {
                   width: buttonWidth,
                 }
               : {}),
+            padding: undefined,
           }}
         >
           {(_type, item) => {
