@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import styled from 'styled-components';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
 import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbCloseModal, HbTabs, colors, textstyles, HbLinkButton } from '../../../visly'
@@ -10,13 +9,6 @@ import './modals/commonModals.css'
 import './modals/kibbleModal.css'
 import './modals/mixinModal.css'
 import './modals/supplementModal.css'
-
-const Close = styled(HbCloseModal)`
-  position: fixed;
-  top: 0;
-  right: 0;
-`
-
 const Tab = ({ text }) => {
     const { onClick, isActive } = useTabState();
 
@@ -226,7 +218,11 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
     }, [])
 
     return (
-        <FlexBox is={ReactModal} isOpen onAfterClose={hideModal} className="Modal">
+        <FlexBox is={ReactModal} column isOpen onAfterClose={hideModal} className="Modal">
+            <div className="stickyClose">
+                <HbCloseModal className="closeButton" onClick={hideModal} />
+            </div>
+
             <HbSection
                 style={{ margin: '0 auto', alignItems: 'flex-start', position: 'relative' }}
                 withImage={product.type !== 'kibble'}
@@ -234,17 +230,16 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
                 imageSrc={product.type === 'kibble' ? product.sectionsImg : product.images[product.selectedImage]}
             >
                 {getTabs(product, dog, goals, size)}
-                <FlexBox className={`closeFooter ${product.type}`} center style={{ padding: '20px' }}>
-                    <FlexItem>
-                        <HbLinkButton
-                            onPress={hideModal}
-                            text="Close"
-                        />
-                    </FlexItem>
-                </FlexBox>
             </HbSection>
 
-            <Close onClick={hideModal} />
+            <FlexBox className={`closeFooter ${product.type}`} center style={{ padding: '20px' }}>
+                <FlexItem>
+                    <HbLinkButton
+                        onPress={hideModal}
+                        text="Close"
+                    />
+                </FlexItem>
+            </FlexBox>
         </FlexBox>
     );
 }

@@ -406,7 +406,8 @@ ul[role*='listbox'] {
   }
 }
 
-.ReactModal__Content {
+.ReactModal__Content,
+.emulateModalContent {
   max-width: $reading;
   background: white;
   margin: 0 auto;
@@ -484,6 +485,13 @@ ul[role*='listbox'] {
       padding: 20px 0 !important;
     }
   }
+}
+
+.emulateModalContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
 }
 
 div[id^='Slot'] {
@@ -1152,11 +1160,41 @@ small {
 .tabContainer.mixin {
 }
 
+.closeFooter {
+  width: 100%;
+  align-self: flex-end;
+  margin-top: auto;
+  @media (min-width: $medium) {
+    transform: translateY(4ch);
+  }
+}
+
 .closeFooter.chews,
 .closeFooter.mixin {
-  position: fixed;
-  bottom: 0;
+}
+
+.closeButton {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+
+  @media (max-width: $small) {
+    position: fixed !important;
+  }
+
+  @media (min-width: $medium) {
+    transform: translate(100%, -100%);
+  }
+}
+
+.stickyClose {
+  height: 0;
+  overflow: visible;
+  position: sticky;
+  top: 0;
+  right: 0;
   width: 100%;
+  z-index: 99999;
 }
 
 .lastImage [role='img'] {

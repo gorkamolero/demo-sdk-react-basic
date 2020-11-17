@@ -20,7 +20,6 @@ import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
-noTest=false
 
 function End({loading, setLoading}) {
     const currentDog = localStorage.getItem('currentDog')
