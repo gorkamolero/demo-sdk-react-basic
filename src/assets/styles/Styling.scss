@@ -1262,3 +1262,9 @@ button {
     flex-basis: 100% !important;
   }
 }
+
+[id*='ClientContainer'] [id*='Spacer'] {
+  @media (max-width: $small) {
+    height: 6px !important;
+  }
+}
