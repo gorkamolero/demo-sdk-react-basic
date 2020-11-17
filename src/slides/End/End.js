@@ -40,6 +40,10 @@ function End({loading, setLoading}) {
     const [subscribePriceFactor, setSubscribePriceFactor] = useState({trial:0, postTrial:0});
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
+    const [selectedResults, setSelectedResults] = useState([])
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [subscription, setSubscription] = useState(true)
+
     useEffect(() => {
         const waitForWindowData = () => {
             if (window.hungry.end) {
@@ -68,6 +72,8 @@ function End({loading, setLoading}) {
                 }
 
                 setSubscribePriceFactor(window.hungry.end.subscribePriceFactor);
+
+                if (window.hungry.end.onlySubscription) setSubscription(true)
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -76,10 +82,6 @@ function End({loading, setLoading}) {
         waitForWindowData()
 
     }, [])
-
-    const [selectedResults, setSelectedResults] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [subscription, setSubscription] = useState(true)
 
     const getPrice =  (price, factor) => Number(price * (factor||1)).toFixed(2);
 
@@ -123,6 +125,8 @@ function End({loading, setLoading}) {
     }, [setLoading])
     
     if (!hungry || !products) return <div></div>
+
+    let onlySubscription = hungry.onlySubscription
 
     return (
         <FlexBox column center width="100%">
@@ -172,7 +176,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
+                                <Products onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
                             )
                         }
 
@@ -185,7 +189,7 @@ function End({loading, setLoading}) {
                         <Footer
                             className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
-                            priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
+                            priceOriginal={subscription && !onlySubscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
