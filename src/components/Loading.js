@@ -43,14 +43,8 @@ const LoadingScreen = styled(HbLoadingScreen)`
   }
 `
 
-const Img = styled.img`
-  width: 100%;
-  max-width: 400px;
-  /* object-fit: cover; */
-`
 
-
-const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen }) => {
+const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen, dogName }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
@@ -66,32 +60,29 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
   
   // Rotate images
   useEffect(() => {
-    if (progress === 100) return
-    let min = 0, max = Loaders.length - 1, step = +1, now = 0;
+    // if (progress === 100) return
 
     const interval = setInterval(
       () => {
-        if(now >= max) {step = -1;}
-        if(now <= min) {step = +1;}
-        now += step;
-        setRotation(now)
+        setRotation(rotation => rotation + 1)
         setProgress(progress + 33)
       }, timing / 3);
 
 
     return () => clearInterval(interval);
-  }, [timing, progress])
+  }, [timing, progress, rotation])
 
   // Set loading when complete
   useEffect(() => {
     setTimeout(() => {
       setProgress(100)
-    }, timing - 200);
+    }, timing);
 
     setTimeout(() => {
+      debugger
       setIsMounted(!isMounted);
       setLoading(false)
-    }, timing)
+    }, timing + 100)
   })
   
   return (
@@ -105,10 +96,10 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
               size={size}
             />
           }
-          className={`HbLoadingScreen ${loading ? 'screenIsLoading' : 'screenIsLoaded'}`}
-          text="We are creating Oscar's custom plan"
+          className={`HbLoadingScreen ${rotation >= 2 ? 'lastImage' : ''} ${loading ? 'screenIsLoading' : 'screenIsLoaded'}`}
+          text={`We are creating ${dogName}'s custom plan`}
+          imageSrc={Loaders[rotation]}
         >
-          <Img src={Loaders[rotation]} />
         </LoadingScreen>
       )}
     </>

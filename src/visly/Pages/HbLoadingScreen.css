@@ -45,12 +45,14 @@
 }
 .__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_5QBpZXrySw {
   overflow: hidden;
+  width: 100%;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   align-content: flex-start;
-  justify-content: center;
+  justify-content: space-between;
+  padding: 0 20px 20px;
 }
 .__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_PWRTy8cZVP {
   overflow: hidden;
@@ -63,12 +65,41 @@
 .__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_VkW5vGa1r6 {
   max-width: 940px;
 }
-.__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_LMeEA2JES7 {
-  overflow: hidden;
+.__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_WCSj3htCLu {
+  display: block;
   box-sizing: border-box;
-  flex-direction: row;
+  color: #623b2a;
+  text-align: start;
+  white-space: normal;
+  font-family: Averta;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 24px;
+  flex-shrink: 1;
+}
+.__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_AYZWHdsAr6 {
+  align-self: stretch;
+  width: unset;
+  height: 20px;
+}
+.__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_DJZPmZaYwR {
+  overflow: hidden;
+  width: 100%;
+  max-width: 400px;
+  flex-grow: 1;
+  flex-direction: column;
   flex-wrap: nowrap;
   align-items: center;
   align-content: flex-start;
   justify-content: center;
+}
+.__visly_scope_2Zvr78cate_WfC8wEAYmR .__visly_scope_2Zvr78cate_55PHVUTJ8V {
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  background-size: contain;
 }

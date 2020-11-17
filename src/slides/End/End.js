@@ -20,10 +20,12 @@ import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
+noTest=false
 
 function End({loading, setLoading}) {
-    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useLocalStorage('videoIsSeen', noTest ? true : false);
+    const currentDog = localStorage.getItem('currentDog')
+    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
@@ -127,7 +129,7 @@ function End({loading, setLoading}) {
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
+                    <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
                 )
             }
 
