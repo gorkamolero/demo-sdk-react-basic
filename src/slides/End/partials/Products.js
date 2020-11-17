@@ -23,7 +23,8 @@ const Products = ({
     dog,
     goals,
     texts,
-    subscribePriceFactor
+    subscribePriceFactor,
+    onlySubscription
 }) => {
 
     const replacers = {
@@ -94,7 +95,7 @@ const Products = ({
                             order={1}
                             title={products.kibble.title}
                             extra={products.kibble.lbs14 + '    lbs'}
-                            priceOriginal={ subscription ? `$${roundNumber(products.kibble.price)}` : '' }
+                            priceOriginal={ subscription && !onlySubscription ? `$${roundNumber(products.kibble.price)}` : '' }
                             priceFinal={`$${getPrice(products.kibble.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
@@ -136,7 +137,7 @@ const Products = ({
                             order={2}
                             title={products.supplement.title}
                             extra={`${products.supplement.chews14 ? products.supplement.chews14 + ' count' : ''}`}
-                            priceOriginal={ subscription ? `$${roundNumber(products.supplement.price)}` : '' }
+                            priceOriginal={ subscription && !onlySubscription ? `$${roundNumber(products.supplement.price)}` : '' }
                             priceFinal={`$${getPrice(products.supplement.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
@@ -178,7 +179,7 @@ const Products = ({
                             order={3}
                             title={products.mixin.title}
                             extra={`${products.mixin.bags} ${products.mixin.bags > 1 ? 'bags' : 'bag'}`}
-                            priceOriginal={ subscription ? `$${roundNumber(products.mixin.price)}` : '' }
+                            priceOriginal={ subscription && !onlySubscription ? `$${roundNumber(products.mixin.price)}` : '' }
                             priceFinal={`$${getPrice(products.mixin.price, subscription?subscribePriceFactor.trial:1)}`}
                             DescriptionHtml={
                                 <CustomHTML style={{
@@ -231,7 +232,7 @@ const Products = ({
                     }
                     HbButton={<HbResults.HbButton onPress={continueToCheckout} />}
                     trialOff={!subscription}
-                    children={<Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
+                    children={onlySubscription || <Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={
                         resultImages.map(img => (
                             <>

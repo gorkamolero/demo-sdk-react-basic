@@ -208,10 +208,10 @@ export const HbTestimonial: {
     props: {
       title?: string;
       client?: string;
-      text?: string;
       stars?: React.ReactNode | React.ReactNode[];
       imageSrc?: string;
       dog?: string;
+      Texto?: React.ReactNode | React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };

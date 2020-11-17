@@ -28,12 +28,6 @@ const styles = [
           text: "So far so good!",
         },
       },
-      "72EEoP6Shu": {
-        none: {
-          text:
-            "Sed ut perspiciatis unde omnis iste natus error sit voluptat accusant doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.",
-        },
-      },
       GfQQK2QSw7: {
         none: {
           text: "Mary Wilkerson",
@@ -299,17 +293,16 @@ function HbTestimonial(_props) {
             }
             key={"7Sh4tYJVoL"}
           />
-          <TextPrimitive
-            id={"Text_72EEoP6Shu"}
+          <ContainerPrimitive
+            key={"SAc5YGxnaF"}
+            id={"Slot_SAc5YGxnaF"}
             className={
-              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_72EEoP6Shu"
+              "__visly_reset_WDRq65T88Q __visly_scope_WBdVWKo3g2_SAc5YGxnaF"
             }
-            key={"72EEoP6Shu"}
-            text={
-              exists(props.text) ? props.text : getStyle("72EEoP6Shu", "text")
-            }
-            element={getStyle("72EEoP6Shu", "htmlElement")}
-          />
+            addSpacing={false}
+          >
+            {props.Texto}
+          </ContainerPrimitive>
         </>
       )}
     </RootPrimitive>

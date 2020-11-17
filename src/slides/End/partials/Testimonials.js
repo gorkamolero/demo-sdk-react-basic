@@ -5,6 +5,31 @@ import { HbSection } from '../../../visly/Pages'
 import { HbWave, colors, useBreakpoint, HbSliderArrow, HbCircleIcon, icons } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
+import ReadMoreReact from 'read-more-react';
+
+const Testimonial = ({testimonial}) => {
+  return (
+    <HbTestimonial
+      imageSrc={testimonial.Photo}
+      style={{ outline: 'none', border: 'none' }}
+      title={testimonial.Title}
+      client={testimonial.Name}
+      dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
+      stars={<FlexBox gap={5}>
+        {[...Array(5).keys()].map((i) => (<HbCircleIcon key={i} justEmoji icon={icons.hbStar} />))}
+      </FlexBox>}
+
+      Texto={
+        <ReadMoreReact text={testimonial.Content}
+          min={80}
+          ideal={100}
+          max={200}
+          readMoreText={'Read more'}/>
+      }
+    />
+
+  )
+}
 
 const Testimonials = ({reviews}) => {
   const { getDatasheet } = useContext(SlideContext)
@@ -57,17 +82,9 @@ const Testimonials = ({reviews}) => {
       <Carousel {...settings}>
         {
           testimonials.map( (testimonial, i) => (
-              <HbTestimonial
+              <Testimonial
                 key={i}
-                imageSrc={testimonial.Photo}
-                style={{ outline: 'none', border: 'none' }}
-                title={testimonial.Title}
-                client={testimonial.Name}
-                text={testimonial.Content}
-                dog={`Breed: ${testimonial.Breed} - Age: ${testimonial.Age} - Pickiness: ${testimonial.Pickiness}`}
-                stars={<FlexBox gap={5}>
-                  {[...Array(5).keys()].map((i) => (<HbCircleIcon key={i} justEmoji icon={icons.hbStar} />))}
-                </FlexBox>}
+                testimonial={testimonial}
               />
           ))
         }

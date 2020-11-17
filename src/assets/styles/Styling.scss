@@ -325,6 +325,15 @@ ul[role*='listbox'] {
     transform: translate(-100%, -50%) !important;
   }
 }
+.slider-control-bottomcenter {
+  @media (max-width: $medium) {
+    width: 100%;
+    ul {
+      flex-wrap: wrap !important;
+      justify-content: center;
+    }
+  }
+}
 
 .slider-frame {
   // padding: 40px 20px !important;
@@ -406,7 +415,8 @@ ul[role*='listbox'] {
   }
 }
 
-.ReactModal__Content {
+.ReactModal__Content,
+.emulateModalContent {
   max-width: $reading;
   background: white;
   margin: 0 auto;
@@ -421,7 +431,7 @@ ul[role*='listbox'] {
   }
 
   @media (min-width: $reading) {
-     min-width: $reading;
+    width: $reading;
   }
 
   @media (max-width: $reading) {
@@ -486,6 +496,13 @@ ul[role*='listbox'] {
   }
 }
 
+.emulateModalContent {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+}
+
 div[id^='Slot'] {
   overflow: visible !important;
 }
@@ -497,7 +514,8 @@ h2 {
 .inheritColor {
   color: inherit;
 }
-.underline {
+.underline,
+.read-more-button {
   text-decoration: underline;
 }
 
@@ -536,6 +554,10 @@ li.paging-item.active .pagingDots {
   }
   .noTitleNoSubtitle & {
     transform: translateY(80%) !important;
+  }
+  .noTitleSubtitle &,
+  .titleNotSubtitle & {
+    transform: translateY(60%) !important;
   }
 }
 
@@ -1111,13 +1133,13 @@ small {
     margin-bottom: 10px !important;
   }
 
-  .selectContainer.field-5 [class*='container'] > [class*='menu'],
   .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
   }
 
   .selectContainer.field-9 [class*='container'] > [class*='menu'],
+  .selectContainer.field-5 [class*='container'] > [class*='menu'],
   .selectContainer.field-13 [class*='container'] > [class*='menu'] {
     transform: translateX(-30%);
   }
@@ -1148,9 +1170,62 @@ small {
 .tabContainer.mixin {
 }
 
+.closeFooter {
+  width: 100%;
+  align-self: flex-end;
+  margin-top: auto;
+  @media (min-width: $medium) {
+    transform: translateY(4ch);
+  }
+  position: sticky;
+  bottom: 0;
+  background: white;
+}
+
 .closeFooter.chews,
 .closeFooter.mixin {
-  position: fixed;
-  bottom: 0;
+}
+
+.closeButton {
+  position: absolute !important;
+  top: 0;
+  right: 0;
+
+  @media (max-width: $small) {
+    position: fixed !important;
+  }
+
+  @media (min-width: $medium) {
+    transform: translate(100%, -100%);
+  }
+}
+
+.stickyClose {
+  height: 0;
+  overflow: visible;
+  position: sticky;
+  top: 0;
+  right: 0;
   width: 100%;
+  z-index: 99999;
+}
+
+.lastImage [role='img'] {
+  background-position: 50% 0% !important;
+}
+
+.display-text-group {
+  font-size: 16px;
+  line-height: normal;
+}
+
+.isFirstSlide {
+  @media (max-width: $small) {
+    header div[id^='Slot'] {
+      justify-content: flex-start;
+    }
+    .title {
+      width: 60%;
+    }
+  }
 }

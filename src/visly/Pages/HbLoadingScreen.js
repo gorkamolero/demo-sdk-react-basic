@@ -6,11 +6,15 @@ import "../reset.css";
 import "./HbLoadingScreen.css";
 import React, { createContext, useContext } from "react";
 import {
+  exists,
   findSetVariantProps,
   makeCompositeDefaultProps,
 } from "../_internal_utils";
 import {
   RootPrimitive,
+  SpacerPrimitive,
+  ImagePrimitive,
+  TextPrimitive,
   ContainerPrimitive,
   IconPrimitive,
 } from "../_internal_primitives";
@@ -28,6 +32,11 @@ const styles = [
           role: "img",
           icon: require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
           useMask: true,
+        },
+      },
+      WCSj3htCLu: {
+        none: {
+          text: "Text",
         },
       },
     },
@@ -150,18 +159,49 @@ function HbLoadingScreen(_props) {
             addSpacing={false}
             element={getStyle("5QBpZXrySw", "htmlElement")}
           >
-            {
-              <ContainerPrimitive
-                key={"LMeEA2JES7"}
-                id={"Slot_LMeEA2JES7"}
-                className={
-                  "__visly_reset_WDRq65T88Q __visly_scope_2Zvr78cate_LMeEA2JES7"
-                }
-                addSpacing={false}
-              >
-                {props.children}
-              </ContainerPrimitive>
-            }
+            <ContainerPrimitive
+              id={"Column_DJZPmZaYwR"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_2Zvr78cate_DJZPmZaYwR"
+              }
+              key={"DJZPmZaYwR"}
+              addSpacing={false}
+              element={getStyle("DJZPmZaYwR", "htmlElement")}
+            >
+              {
+                <ImagePrimitive
+                  id={"Image_55PHVUTJ8V"}
+                  className={
+                    "__visly_reset_WDRq65T88Q __visly_scope_2Zvr78cate_55PHVUTJ8V"
+                  }
+                  key={"55PHVUTJ8V"}
+                  src={
+                    exists(props.imageSrc)
+                      ? props.imageSrc
+                      : getStyle("55PHVUTJ8V", "src")
+                  }
+                  alt={getStyle("55PHVUTJ8V", "alternateText")}
+                />
+              }
+            </ContainerPrimitive>
+            <SpacerPrimitive
+              id={"Spacer_AYZWHdsAr6"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_2Zvr78cate_AYZWHdsAr6"
+              }
+              key={"AYZWHdsAr6"}
+            />
+            <TextPrimitive
+              id={"Text_WCSj3htCLu"}
+              className={
+                "__visly_reset_WDRq65T88Q __visly_scope_2Zvr78cate_WCSj3htCLu"
+              }
+              key={"WCSj3htCLu"}
+              text={
+                exists(props.text) ? props.text : getStyle("WCSj3htCLu", "text")
+              }
+              element={getStyle("WCSj3htCLu", "htmlElement")}
+            />
           </ContainerPrimitive>
           <ContainerPrimitive
             id={"Footer_PWRTy8cZVP"}

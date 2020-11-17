@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useContext, useMemo } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
@@ -22,8 +22,9 @@ import { HbSuperProductEmpty } from '../../visly/Compounds';
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 
 function End({loading, setLoading}) {
-    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage('loadingScreenIsSeen', noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useLocalStorage('videoIsSeen', noTest ? true : false);
+    const currentDog = localStorage.getItem('currentDog')
+    const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
@@ -38,6 +39,10 @@ function End({loading, setLoading}) {
     const [reviews, setReviews] = useState(null)
     const [subscribePriceFactor, setSubscribePriceFactor] = useState({trial:0, postTrial:0});
     const size = useBreakpoint("small", ["medium", "large", "super"]);
+
+    const [selectedResults, setSelectedResults] = useState([])
+    const [totalPrice, setTotalPrice] = useState(0)
+    const [subscription, setSubscription] = useState(true)
 
     useEffect(() => {
         const waitForWindowData = () => {
@@ -67,6 +72,8 @@ function End({loading, setLoading}) {
                 }
 
                 setSubscribePriceFactor(window.hungry.end.subscribePriceFactor);
+
+                if (window.hungry.end.onlySubscription) setSubscription(true)
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -75,10 +82,6 @@ function End({loading, setLoading}) {
         waitForWindowData()
 
     }, [])
-
-    const [selectedResults, setSelectedResults] = useState([])
-    const [totalPrice, setTotalPrice] = useState(0)
-    const [subscription, setSubscription] = useState(true)
 
     const getPrice =  (price, factor) => Number(price * (factor||1)).toFixed(2);
 
@@ -115,7 +118,7 @@ function End({loading, setLoading}) {
                 afterTrial: afterTrialText
             }
         })
-    }, [hungry, totalPrice])
+    }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])
 
     useEffect(() => {
         return () => setLoading(true)
@@ -123,11 +126,13 @@ function End({loading, setLoading}) {
     
     if (!hungry || !products) return <div></div>
 
+    let onlySubscription = hungry.onlySubscription
+
     return (
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
+                    <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
                 )
             }
 
@@ -164,14 +169,14 @@ function End({loading, setLoading}) {
                                         className="HbSuperProductEmpty"
                                         Extratext={
                                             <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                                html={`It looks like ${hungry.dogName} has some very specific nutrition challenges. We don’t have a Hungry Bark Supplements to offer him. If you would like to discuss this further, please contact our team at Clinical Pet Nutritionists at <span class="hungryBlue">nutritionist@hungrybark.com</span>`}
+                                                html={`It looks like ${hungry.dogName} has some very specific nutrition challenges. We don’t have any Hungry Bark products to offer. If you would like to discuss this further, please contact our team at Clinical Pet Nutritionists at <span class="hungryBlue">nutritionist@hungrybark.com</span>`}
                                             />
                                         }
                                         oops={`Oops… Looks like ${hungry.dogName} has some very specific needs…`}
                                     />
                                 </HbSection>
                             ) : (
-                                <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
+                                <Products onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
                             )
                         }
 
@@ -184,7 +189,7 @@ function End({loading, setLoading}) {
                         <Footer
                             className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
-                            priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
+                            priceOriginal={subscription && !onlySubscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}

@@ -90,7 +90,8 @@ export interface CommonProps<T extends HTMLElement> {
 export const HbLoadingScreen: {
   (
     props: {
-      children?: React.ReactNode | React.ReactNode[];
+      text?: string;
+      imageSrc?: string;
       HbProgressBar?: React.ReactNode;
       HbFirstSlideFooter?: React.ReactNode;
     } & CommonProps<HTMLDivElement>
