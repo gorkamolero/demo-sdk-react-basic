@@ -325,6 +325,15 @@ ul[role*='listbox'] {
     transform: translate(-100%, -50%) !important;
   }
 }
+.slider-control-bottomcenter {
+  @media (max-width: $medium) {
+    width: 100%;
+    ul {
+      flex-wrap: wrap !important;
+      justify-content: center;
+    }
+  }
+}
 
 .slider-frame {
   // padding: 40px 20px !important;
@@ -505,7 +514,8 @@ h2 {
 .inheritColor {
   color: inherit;
 }
-.underline {
+.underline,
+.read-more-button {
   text-decoration: underline;
 }
 
@@ -1123,13 +1133,13 @@ small {
     margin-bottom: 10px !important;
   }
 
-  .selectContainer.field-5 [class*='container'] > [class*='menu'],
   .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
   }
 
   .selectContainer.field-9 [class*='container'] > [class*='menu'],
+  .selectContainer.field-5 [class*='container'] > [class*='menu'],
   .selectContainer.field-13 [class*='container'] > [class*='menu'] {
     transform: translateX(-30%);
   }
@@ -1202,4 +1212,9 @@ small {
 
 .lastImage [role='img'] {
   background-position: 50% 0% !important;
+}
+
+.display-text-group {
+  font-size: 16px;
+  line-height: normal;
 }

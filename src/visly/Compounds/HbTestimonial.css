@@ -23,19 +23,6 @@
   line-height: 28px;
   flex-shrink: 1;
 }
-.__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_72EEoP6Shu {
-  display: block;
-  box-sizing: border-box;
-  color: #623b2a;
-  text-align: start;
-  white-space: normal;
-  font-family: Averta;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 24px;
-  flex-shrink: 1;
-}
 .__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_GfQQK2QSw7 {
   display: block;
   box-sizing: border-box;
@@ -224,4 +211,13 @@
   align-self: stretch;
   width: unset;
   height: 10px;
+}
+.__visly_scope_WBdVWKo3g2_TEMvSpZsq9 .__visly_scope_WBdVWKo3g2_SAc5YGxnaF {
+  overflow: hidden;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  align-content: flex-start;
+  justify-content: flex-start;
 }
