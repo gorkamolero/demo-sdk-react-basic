@@ -164,7 +164,7 @@ function End({loading, setLoading}) {
                                         className="HbSuperProductEmpty"
                                         Extratext={
                                             <CustomHTML style={{ ...textstyles.hbFeatureText, color: colors.hbBrown }}
-                                                html={`It looks like ${hungry.dogName} has some very specific nutrition challenges. We don’t have a Hungry Bark Supplements to offer him. If you would like to discuss this further, please contact our team at Clinical Pet Nutritionists at <span class="hungryBlue">nutritionist@hungrybark.com</span>`}
+                                                html={`It looks like ${hungry.dogName} has some very specific nutrition challenges. We don’t have any Hungry Bark products to offer. If you would like to discuss this further, please contact our team at Clinical Pet Nutritionists at <span class="hungryBlue">nutritionist@hungrybark.com</span>`}
                                             />
                                         }
                                         oops={`Oops… Looks like ${hungry.dogName} has some very specific needs…`}
