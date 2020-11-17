@@ -1218,3 +1218,14 @@ small {
   font-size: 16px;
   line-height: normal;
 }
+
+.isFirstSlide {
+  @media (max-width: $small) {
+    header div[id^='Slot'] {
+      justify-content: flex-start;
+    }
+    .title {
+      width: 60%;
+    }
+  }
+}
