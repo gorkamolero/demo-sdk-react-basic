@@ -25,7 +25,7 @@ function End({loading, setLoading}) {
     const currentDog = localStorage.getItem('currentDog')
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
-    
+
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
         if (videoIsDone) setLoading(false)
