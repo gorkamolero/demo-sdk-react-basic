@@ -422,7 +422,7 @@ ul[role*='listbox'] {
   }
 
   @media (min-width: $reading) {
-     min-width: $reading;
+    width: $reading;
   }
 
   @media (max-width: $reading) {
@@ -1167,6 +1167,9 @@ small {
   @media (min-width: $medium) {
     transform: translateY(4ch);
   }
+  position: sticky;
+  bottom: 0;
+  background: white;
 }
 
 .closeFooter.chews,

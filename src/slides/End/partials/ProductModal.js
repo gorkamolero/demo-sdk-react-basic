@@ -18,7 +18,7 @@ const Tab = ({ text }) => {
 const getTabs = (product, dog, goals, size) => {
     if (product.type === 'kibble') {
         return (
-            <div className="tabContainer kibble" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer kibble" style={{ ...textstyles.bodySmall }}>
                 <Tabs classContainer="tabs">
                     <HbTabs>
                         <Tab text="Meal Plan" />
@@ -63,7 +63,7 @@ const getTabs = (product, dog, goals, size) => {
                             <p>Hungry Bark has over 66 billion probiotic microorganisms, making it easier for your dog to transition to.</p>
                         </div>
 
-                        <div className="kibtab-content">
+                        <div className="kibtab-content" style={{ backgroundColor: colors.hbGoldLight }}>
                             <div className="kibtab-content-trans" style={{ backgroundColor: colors.hbGoldLight }}>
                                 <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Easily Transition Your Dog’s Meal To Hungry Bark In Less Than 2 Weeks</h2>
 
