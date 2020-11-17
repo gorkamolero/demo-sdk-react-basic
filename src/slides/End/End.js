@@ -193,10 +193,10 @@ function End({loading, setLoading}) {
                             priceOriginal={subscription && !onlySubscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
-                            HbButtonWithIcon={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
-                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
+                            HbButtonWithIcon={<Footer.HbButtonWithIcon className={` buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
+                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
-                            RestartSlotMobile={<Footer.RestartSlotMobile onPress={restartQuiz} />}
+                            RestartSlotMobile={<Footer.RestartSlotMobile className="" onPress={restartQuiz} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}
                             stack={size === 'small' ||  size === 'medium'}
                             HelpSlot={

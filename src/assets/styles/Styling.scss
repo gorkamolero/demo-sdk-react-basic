@@ -336,7 +336,7 @@ ul[role*='listbox'] {
 }
 
 .slider-frame {
-  // padding: 40px 20px !important;
+  padding: 20px 0;
 }
 
 .slide-End {
@@ -1210,6 +1210,13 @@ small {
   z-index: 99999;
 }
 
+.buttonMobileHide,
+[id*='HbButtonWithIcon_QNXBFmS13r'] {
+  @media (max-width: $small) {
+     display: none !important;
+  }
+}
+
 .lastImage [role='img'] {
   background-position: 50% 0% !important;
 }
@@ -1225,7 +1232,7 @@ small {
       justify-content: flex-start;
     }
     .title {
-      width: 60%;
+      width: 60% !important;
     }
   }
 }
