@@ -50,7 +50,6 @@ const Products = ({
     useEffect(() => {
         setResults([products.kibble, products.supplement, products.mixin])
         setSelectedResults([products.kibble, products.supplement, products.mixin])
-        console.log(products)
     }, [products.kibble, products.supplement, products.mixin, setSelectedResults, products]);
 
 

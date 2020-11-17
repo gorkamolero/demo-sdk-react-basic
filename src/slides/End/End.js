@@ -95,12 +95,14 @@ function End({loading, setLoading}) {
         });
     }
 
-    const restartQuiz = () => nav.restart()
+    const restartQuiz = () => {
+        window.hungry.end.startOver( () => {
+            nav.restart();
+        });
+    }
 
     useEffect(() => {
         if (!hungry) return
-        console.log(hungry)
-        debugger
         let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice, subscribePriceFactor.trial))
         let afterTrialText = hungry.texts.plan.afterTrialText
             .replace('[PRICE]', getPrice(totalPrice, subscribePriceFactor.postTrial))
@@ -120,8 +122,6 @@ function End({loading, setLoading}) {
     }, [setLoading])
     
     if (!hungry || !products) return <div></div>
-
-    console.log("XXXX", hungry.video)
 
     return (
         <FlexBox column center width="100%">
