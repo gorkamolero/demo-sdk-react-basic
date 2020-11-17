@@ -5,7 +5,7 @@ import { HbButton, useBreakpoint } from "../../visly";
 import { CSSTransition } from "react-transition-group";
 import { FlexBox, FlexItem } from 'react-styled-flex';
 
-function Navigation({back, next, restart}) {
+function Navigation({back, next, restart, isValid}) {
   const {nav, slideModel, progressBar} = useContext(SlideContext);
   const navRef = useRef();
 
@@ -30,12 +30,7 @@ function Navigation({back, next, restart}) {
     return (next.slideId === 'end')
   }, [progressBar, slideModel])
 
-
-  // slideModel.restart()
-
-  const isValid = slideModel.getType()==='Form'?slideModel.validate():true;
-
-  console.log(isValid)
+  //const isValid = slideModel.getType()==='Form'?slideModel.validate():true;
 
   return (
     <>

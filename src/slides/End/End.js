@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useContext, useMemo } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
@@ -36,6 +36,7 @@ function End({loading, setLoading}) {
     const [products, setProducts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [reviews, setReviews] = useState(null)
+    const [subscribePriceFactor, setSubscribePriceFactor] = useState({trial:0, postTrial:0});
     const size = useBreakpoint("small", ["medium", "large", "super"]);
 
     useEffect(() => {
@@ -65,6 +66,7 @@ function End({loading, setLoading}) {
                     setReviews(window.hungry.end.reviews['chicken_rice'])
                 }
 
+                setSubscribePriceFactor(window.hungry.end.subscribePriceFactor);
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -78,12 +80,8 @@ function End({loading, setLoading}) {
     const [totalPrice, setTotalPrice] = useState(0)
     const [subscription, setSubscription] = useState(true)
 
-    const subscribeMultiplier = useMemo(() => subscription ? 0.8 : 1, [subscription])
-    const getPrice = useCallback(
-        (price) => Number(price * subscribeMultiplier).toFixed(2),
-        [subscribeMultiplier],
-    );
-    const getPriceWithoutMultiplier = (price) => Number(price).toFixed(2)
+    const getPrice =  (price, factor) => Number(price * (factor||1)).toFixed(2);
+
     const roundPrice = (price) => Number(price).toFixed(2)
     const totalProducts = selectedResults.filter(s => s).length
 
@@ -97,15 +95,18 @@ function End({loading, setLoading}) {
         });
     }
 
-    const restartQuiz = () => nav.restart()
+    const restartQuiz = () => {
+        window.hungry.end.startOver( () => {
+            nav.restart();
+        });
+    }
 
     useEffect(() => {
         if (!hungry) return
-        console.log(hungry)
-        let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice))
+        let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice, subscribePriceFactor.trial))
         let afterTrialText = hungry.texts.plan.afterTrialText
-            .replace('[PRICE]', getPriceWithoutMultiplier(totalPrice*0.9))
-            .replace('[PRICEPERDAY]', getPrice(totalPrice*0.9/28))
+            .replace('[PRICE]', getPrice(totalPrice, subscribePriceFactor.postTrial))
+            .replace('[PRICEPERDAY]', getPrice(totalPrice/28, subscribePriceFactor.postTrial))
             .replace('[SHIPPING]', hungry.getShippingText(totalPrice))
 
         setTexts({
@@ -114,15 +115,13 @@ function End({loading, setLoading}) {
                 afterTrial: afterTrialText
             }
         })
-    }, [hungry, getPrice, totalPrice])
+    }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])
 
     useEffect(() => {
         return () => setLoading(true)
     }, [setLoading])
     
     if (!hungry || !products) return <div></div>
-
-    console.log("XXXX", hungry.video)
 
     return (
         <FlexBox column center width="100%">
@@ -172,7 +171,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} continueToCheckout={continueToCheckout} />
+                                <Products products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
                             )
                         }
 
@@ -186,7 +185,7 @@ function End({loading, setLoading}) {
                             className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
-                            priceFinal={'$' + getPrice(totalPrice)}
+                            priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}
                             HbButtonWithIconMobile={<Footer.HbButtonWithIcon onPress={continueToCheckout} />}

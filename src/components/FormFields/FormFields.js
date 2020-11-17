@@ -19,7 +19,7 @@ const HbFormElement = ({children,  doNotScroll, isFirstSlide, ...rest}) => {
       }
 
       if (isFirstSlide && window) {
-        console.log('FIRST')
+        //console.log('FIRST')
         window.scrollTo(0, 0)
       }
   }, [doNotScroll, isFirstSlide]);
@@ -168,6 +168,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
               <HbTag
                 size={size}
                 tagText={op && op.label? op.label : op}
+                key={i}
                 HbOnlyIconButton={
                   <HbTag.HbOnlyIconButton
                     onPress={() => toggleSelected(o)}
@@ -561,7 +562,7 @@ function FormFields({ children, fields, showErrors = true, doNotScroll, isFirstS
 
     const onChangeHandler = (event, field, fix) => {
         const type = field.getType()
-        console.log('TYPE', type, field.getTitle())
+        //console.log('TYPE', type, field.getTitle())
 
         if (type === 'checkbox') {
             field.setValue(event.target.checked);
