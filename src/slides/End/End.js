@@ -83,6 +83,7 @@ function End({loading, setLoading}) {
         (price) => Number(price * subscribeMultiplier).toFixed(2),
         [subscribeMultiplier],
     );
+    const getPriceWithoutMultiplier = (price) => Number(price).toFixed(2)
     const roundPrice = (price) => Number(price).toFixed(2)
     const totalProducts = selectedResults.filter(s => s).length
 
@@ -103,7 +104,7 @@ function End({loading, setLoading}) {
         console.log(hungry)
         let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice))
         let afterTrialText = hungry.texts.plan.afterTrialText
-            .replace('[PRICE]', getPrice(totalPrice*0.9))
+            .replace('[PRICE]', getPriceWithoutMultiplier(totalPrice*0.9))
             .replace('[PRICEPERDAY]', getPrice(totalPrice*0.9/28))
             .replace('[SHIPPING]', hungry.getShippingText(totalPrice))
 
