@@ -1221,6 +1221,7 @@ small {
   @media (max-width: $small) {
     [role='img'] {
       margin-top: 40px;
+      max-width: 250px !important;
     }
     &.lastImage [role='img'] {
       margin-top: 0;
