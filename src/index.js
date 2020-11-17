@@ -7,5 +7,5 @@ import { setBreakpoints } from './visly';
 
 setBreakpoints('min-width', ['768px', '1024px', '1280px'])
 
-ReactDOM.render(<App />, document.getElementById('pickzen'));
+ReactDOM.render(<App />, document.getElementById(window.pickzen.holder || 'pickzen'));
 
