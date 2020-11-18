@@ -15,19 +15,19 @@ import 'react-tippy/dist/tippy.css'
 import {
   Tooltip,
 } from 'react-tippy';
-// import { useLocalStorage } from 'react-use';
+import { useLocalStorage } from 'react-use';
 import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 
 function End({loading, setLoading}) {
-    // const currentDog = localStorage.getItem('currentDog')
+    const currentDog = localStorage.getItem('currentDog')
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useState(noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
