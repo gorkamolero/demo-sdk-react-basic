@@ -98,17 +98,26 @@ function End({loading, setLoading}) {
 
     const continueToCheckout = () => {
         setButtonProgress(1)
+        const currentDog = localStorage.getItem('currentDog')
+        localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+        
         window.hungry.end.goToCheckout(subscription, selectedResults);
     }
 
     const addAnotherDog = () => {
         window.hungry.end.addAnotherDog( subscription, selectedResults, () => {
+            const currentDog = localStorage.getItem('currentDog')
+            localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+
             nav.restart();
         });
     }
 
     const restartQuiz = () => {
         window.hungry.end.startOver( () => {
+            const currentDog = localStorage.getItem('currentDog')
+            localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+
             nav.restart();
         });
     }
