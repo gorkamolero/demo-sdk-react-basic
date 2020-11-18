@@ -125,10 +125,13 @@ function End({loading, setLoading}) {
     useEffect(() => {
         if (!hungry) return
         let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice, subscribePriceFactor.trial))
+
+        let afterTrialPrice = totalPrice*subscribePriceFactor.postTrial*2;
+
         let afterTrialText = hungry.texts.plan.afterTrialText
-            .replace('[PRICE]', getPrice(totalPrice, subscribePriceFactor.postTrial))
-            .replace('[PRICEPERDAY]', getPrice(totalPrice/28, subscribePriceFactor.postTrial))
-            .replace('[SHIPPING]', hungry.getShippingText(totalPrice*subscribePriceFactor.postTrial))
+            .replace('[PRICE]', getPrice(afterTrialPrice))
+            .replace('[PRICEPERDAY]', getPrice(afterTrialPrice/28))
+            .replace('[SHIPPING]', hungry.getShippingText(afterTrialPrice))
 
         setTexts({
             plan:{
