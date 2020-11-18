@@ -1209,6 +1209,15 @@ small {
   right: 0;
   width: 100%;
   z-index: 99999;
+
+  [id^='Icon'] {
+    @media not all and (min-resolution: 0.001dpcm) {
+      // SAFARI
+      @supports (-webkit-appearance: none) {
+        position: absolute;
+      }
+    }
+  }
 }
 
 .buttonMobileHide,
