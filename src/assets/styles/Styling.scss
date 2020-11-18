@@ -1211,11 +1211,10 @@ small {
   z-index: 99999;
 
   [id^='Icon'] {
-    @media not all and (min-resolution: 0.001dpcm) {
-      // SAFARI
-      @supports (-webkit-appearance: none) {
-        position: absolute;
-      }
+    @media (min-width: $small) {
+      position: absolute;
+      width: 60%;
+      height: 60%;
     }
   }
 }
