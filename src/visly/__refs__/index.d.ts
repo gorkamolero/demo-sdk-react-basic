@@ -26,6 +26,7 @@ export const color: {
   hbLight: "e41ecce4-9898-47bd-ae4e-740614cbdba3";
   hbPlaceholder: "49fc50a5-b9f9-4c6b-b955-1ad97af4211e";
   hbSkyBlue: "a16dfaa5-1f25-4de0-bc98-bbdc03a4e867";
+  hbTealBold: "f7683780-ba4c-405e-a4dc-495ca397b0c8";
   hbText: "e3925156-eef9-4f32-ad9a-8aef08d1b16f";
   hbText2: "6534e7c4-97f7-4eb4-abda-82f4c9e9a97d";
   hbYellow: "e07f1511-9b1a-404c-9b33-f6e28314ea12";

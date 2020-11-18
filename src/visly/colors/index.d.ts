@@ -25,6 +25,7 @@ export const hbIcon: string;
 export const hbLight: string;
 export const hbPlaceholder: string;
 export const hbSkyBlue: string;
+export const hbTealBold: string;
 export const hbText: string;
 export const hbText2: string;
 export const hbYellow: string;
