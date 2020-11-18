@@ -118,7 +118,7 @@ const Slide = () => {
           is="main"
           column
           alignItems="center"
-          className={nextSlideIsEndSlide ? "main-nextSlideIsEndSlide" : ''}
+          className={`${nextSlideIsEndSlide ? "main-nextSlideIsEndSlide" : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'} `}
           style={style}>
           <Container style={{ width: '100%', position: 'relative', marginTop: 0 }} alignItems="center" column>
             <SlideView isEndSlide={isEndSlide} isFirstSlide={isFirstSlide} loading={loading} setLoading={setLoading} slideModel={slideModel} />

@@ -24,7 +24,7 @@ const Testimonial = ({testimonial, resize}) => {
         <div className="readmore" onClick={() => resize()}>
           <ReadMoreAndLess
             className="read-more-content"
-            charLimit={80}
+            charLimit={250}
             readMoreText="Read more"
             readLessText="Read less"
             >

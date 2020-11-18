@@ -1218,17 +1218,23 @@ small {
 }
 
 .HbLoadingScreen {
+  [role='img'] {
+    margin-top: 40px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  &.lastImage [role='img'] {
+    margin-top: 0;
+  }
   @media (max-width: $small) {
     [role='img'] {
-      margin-top: 40px;
       max-width: 250px !important;
     }
-    &.lastImage [role='img'] {
-      margin-top: 0;
-    }
-
-    [id^='Column'] [id^='Text'] {
+    [id^='Content'] [id^='Text'] {
       text-align: center;
+      font-size: 18px;
     }
   }
   &.lastImage [role='img'] {
