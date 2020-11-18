@@ -5,11 +5,12 @@ import { HbSection } from '../../../visly/Pages'
 import { HbWave, colors, useBreakpoint, HbSliderArrow, HbCircleIcon, icons } from '../../../visly'
 import { HbTestimonial } from '../../../visly/Compounds'
 import Carousel from 'nuka-carousel'
-import ReadMoreReact from 'read-more-react';
+import ReadMoreAndLess from 'react-read-more-less';
 
-const Testimonial = ({testimonial}) => {
+const Testimonial = ({testimonial, resize}) => {
   return (
     <HbTestimonial
+      className="HbTestimonial"
       imageSrc={testimonial.Photo}
       style={{ outline: 'none', border: 'none' }}
       title={testimonial.Title}
@@ -20,11 +21,16 @@ const Testimonial = ({testimonial}) => {
       </FlexBox>}
 
       Texto={
-        <ReadMoreReact text={testimonial.Content}
-          min={60}
-          ideal={80}
-          max={100}
-          readMoreText={'Read more'}/>
+        <div className="readmore" onClick={() => resize()}>
+          <ReadMoreAndLess
+            className="read-more-content"
+            charLimit={80}
+            readMoreText="Read more"
+            readLessText="Read less"
+            >
+              {testimonial.Content}
+          </ReadMoreAndLess>
+        </div>
       }
     />
 
@@ -33,8 +39,10 @@ const Testimonial = ({testimonial}) => {
 
 const Testimonials = ({reviews}) => {
   const { getDatasheet } = useContext(SlideContext)
-
   const [ testimonials, setTestimonials ] = useState([])
+  const resize = () => {
+    window.dispatchEvent(new Event('resize'));
+  }
 
   React.useEffect(() => {
     const id = '1XaJ9jNcSLz'
@@ -83,6 +91,7 @@ const Testimonials = ({reviews}) => {
         {
           testimonials.map( (testimonial, i) => (
               <Testimonial
+                resize={resize}
                 key={i}
                 testimonial={testimonial}
               />

@@ -1241,7 +1241,8 @@ small {
   line-height: normal;
 }
 
-.isFirstSlide {
+.isFirstSlide,
+.isSecondSlide {
   @media (max-width: $small) {
     header div[id^='Slot'] {
       justify-content: flex-start;
@@ -1267,5 +1268,25 @@ button {
 [id*='ClientContainer'] [id*='Spacer'] {
   @media (max-width: $small) {
     height: 6px !important;
+  }
+}
+
+.readmore {
+  font-size: 16px;
+  line-height: normal;
+}
+.readMoreText {
+  display: block;
+  color: inherit !important;
+  // font-weight: bold;
+  margin-top: 6px;
+  text-decoration: underline;
+}
+
+.HbTestimonial,
+.slider-slide {
+  outline: none !important;
+  &:focus {
+     outline: none !important;
   }
 }

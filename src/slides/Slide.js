@@ -46,10 +46,12 @@ const Slide = () => {
     const isEndSlide = slideModel.getType() === 'End'
     /* eslint-disable */
     const isFirstSlide = slideId == 101 
+    const isSecondSlide = slideId == 124
 
     useEffect(() => {
       const resizeObserver = new ResizeObserver(() => {
         if(HeadRef.current){
+          console.log('SIZING')
           let HeadHeight = HeadRef.current.offsetHeight;
           
           if (isEndSlide) setMarginTop(0)
@@ -57,8 +59,9 @@ const Slide = () => {
           // if (size === 'medium') setMarginTop(HeadHeight - 30)
         }
       })
-      resizeObserver.observe(document.body);
+      resizeObserver.observe(document.querySelector('#pickzen'));
     }, [])
+    /* eslint-enable */
 
 
     React.useEffect(() => {
@@ -92,7 +95,7 @@ const Slide = () => {
       <FlexBox column center className={`slide-${type} slide-${slideId && slideId} animate`}>
         <div className={`HbHeadContainer ${(!slideTitle === 'Profile' || isEndSlide) ? 'hidingImage' : 'showingImage'} ${isEndSlide ? 'isEndSlide' : 'isNotEndSlide'} ${nextSlideIsEndSlide ? 'nextSlideIsEndSlide' : ''}`} ref={HeadRef}>
           <HbHeader
-            className={`HbHeader ${(!slideTitle === 'Profile' || isEndSlide) ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'} ${!title && !subtitle ? 'noTitleNoSubtitle' : ''} ${title && !subtitle ? 'titleNoSubtitle' : ''} ${!title && subtitle ? 'noTitleSubtitle' : ''} ${isFirstSlide ? 'isFirstSlide' : ''} `}
+            className={`HbHeader ${(!slideTitle === 'Profile' || isEndSlide) ? 'hideImage' : ''} ${loading && isEndSlide ? 'isLoading' : 'finishedLoading'} ${!title && !subtitle ? 'noTitleNoSubtitle' : ''} ${title && !subtitle ? 'titleNoSubtitle' : ''} ${!title && subtitle ? 'noTitleSubtitle' : ''} ${isFirstSlide ? 'isFirstSlide' : ''} ${isSecondSlide ? 'isSecondSlide' : ''} `}
             TitleSlot={<HbTitle data-size={size} size={size} className="title" html={title} />}
             SubtitleSlot={<HbSubtitle data-size={size} size={size} className="subtitle" html={subtitle} />}
             HbLogo={<HbHeader.HbLogo className="HbLogo" onClick={event =>  window.location.href='/'} />}
