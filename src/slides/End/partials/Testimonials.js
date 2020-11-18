@@ -21,7 +21,7 @@ const Testimonial = ({testimonial, resize}) => {
       </FlexBox>}
 
       Texto={
-        <div className="readmore" onClick={() => resize()}>
+        <div className="read-more-testimonials" onClick={() => resize()}>
           <ReadMoreAndLess
             className="read-more-content"
             charLimit={250}
