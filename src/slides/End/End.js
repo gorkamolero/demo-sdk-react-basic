@@ -119,7 +119,7 @@ function End({loading, setLoading}) {
         let afterTrialText = hungry.texts.plan.afterTrialText
             .replace('[PRICE]', getPrice(totalPrice, subscribePriceFactor.postTrial))
             .replace('[PRICEPERDAY]', getPrice(totalPrice/28, subscribePriceFactor.postTrial))
-            .replace('[SHIPPING]', hungry.getShippingText(totalPrice))
+            .replace('[SHIPPING]', hungry.getShippingText(totalPrice*subscribePriceFactor.postTrial))
 
         setTexts({
             plan:{
@@ -193,7 +193,7 @@ function End({loading, setLoading}) {
                         <Footer
                             className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
                             total={`Total (${totalProducts})`}
-                            priceOriginal={subscription && !onlySubscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
+                            priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
                             HbButtonWithIcon={<Footer.HbButtonWithIcon className={` buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}

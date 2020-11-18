@@ -59,7 +59,7 @@ const Slide = () => {
           // if (size === 'medium') setMarginTop(HeadHeight - 30)
         }
       })
-      resizeObserver.observe(document.querySelector('#pickzen'));
+      resizeObserver.observe(document.body);
     }, [])
     /* eslint-enable */
 
