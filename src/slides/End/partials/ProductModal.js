@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import ReactModal from 'react-modal';
 import { HbSection } from '../../../visly/Pages'
-import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbCloseModal, HbTabs, colors, textstyles, HbLinkButton } from '../../../visly'
+import { HbKibblePlan, HbKibblePlanElement, icons, useBreakpoint, HbTabs, colors, textstyles, HbLinkButton } from '../../../visly'
 import { Tabs, Panel, useTabState } from '@bumaga/tabs'
 import { FlexBox, FlexItem } from "react-styled-flex";
 import CustomHTML from "../../../components/CustomHTML/CustomHTML";
@@ -9,6 +9,7 @@ import './modals/commonModals.css'
 import './modals/kibbleModal.css'
 import './modals/mixinModal.css'
 import './modals/supplementModal.css'
+import { HbCloseModalTwo } from '../../../styles/StyledComps'
 const Tab = ({ text }) => {
     const { onClick, isActive } = useTabState();
 
@@ -220,7 +221,9 @@ const ProductModal = ({hideModal, product, dog, goals}) => {
     return (
         <FlexBox is={ReactModal} column isOpen onAfterClose={hideModal} className="Modal">
             <div className="stickyClose">
-                <HbCloseModal className="closeButton" onClick={hideModal} />
+                <HbCloseModalTwo className="closeButton" onClick={hideModal}>
+                    <img src={icons.hbClose} alt="Close!"/>
+                </HbCloseModalTwo>
             </div>
 
             <HbSection

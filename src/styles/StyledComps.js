@@ -118,3 +118,23 @@ export const HbSpace = styled.div`
     white-space: pre;
   }
 `;
+
+export const HbCloseModalTwo = styled.button `
+  position: sticky;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  img { width: 30px; height: 30px; }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border: none;
+  outline: none;
+  margin: 0;
+  text-decoration: none;
+  font-size: 1rem;
+  cursor: pointer;
+  text-align: center;
+  appearance: none;
+`

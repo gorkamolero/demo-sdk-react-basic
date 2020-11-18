@@ -1229,7 +1229,7 @@ small {
 
 .HbLoadingScreen {
   [role='img'] {
-    margin-top: 40px;
+    margin-top: 20px;
     position: absolute;
     top: 0;
     left: 50%;
@@ -1240,6 +1240,7 @@ small {
   }
   @media (max-width: $small) {
     [role='img'] {
+      margin-top: 10px;
       max-width: 250px !important;
     }
     [id^='Content'] [id^='Text'] {
