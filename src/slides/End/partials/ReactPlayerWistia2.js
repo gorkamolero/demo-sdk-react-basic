@@ -77,7 +77,7 @@ const Wistia = ({video, videoIsDone, setVideoIsDone, play}) => {
   if (!visible) return <div></div>
   
   return (
-    <HbSection noHeadNoPadding style={{ margin: '0 auto' }}>
+    <HbSection noHeadNoPadding style={{ margin: '0 auto 80px' }}>
       {
         visible && (
           <div className="player-container">
