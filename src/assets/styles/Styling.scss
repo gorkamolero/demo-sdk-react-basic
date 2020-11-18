@@ -1174,6 +1174,7 @@ small {
   width: 100%;
   align-self: flex-end;
   margin-top: auto;
+  z-index: 999;
   @media (min-width: $medium) {
     transform: translateY(4ch);
   }
