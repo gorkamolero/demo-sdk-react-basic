@@ -51,7 +51,6 @@ const Slide = () => {
     useEffect(() => {
       const resizeObserver = new ResizeObserver(() => {
         if(HeadRef.current){
-          console.log('SIZING')
           let HeadHeight = HeadRef.current.offsetHeight;
           
           if (isEndSlide) setMarginTop(0)
