@@ -26,7 +26,9 @@ const getTabs = (product, dog, goals, size) => {
                         <Tab text="Transitioning" />
                         <Tab text={['small', 'medium'].includes(size) ? 'Nutritional' : 'Nutritional Info'} />
                     </HbTabs>
+
                     <div className="spacer"></div>
+
                     <Panel>
                         <div className="kibtab-header">
                             <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}><span className="capitalise-pz">{dog.name}</span>'s Custom Plan</h2>
@@ -149,8 +151,8 @@ const getTabs = (product, dog, goals, size) => {
                     </HbTabs>
                     <div className="spacer"></div>
                     <Panel>
-                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>Scoop, Pour & Mix</h2>
-                        <p>Mix in 1 tablespoon per cup of food.</p>
+                        <h2 style={{ color: colors.hbBrown, ...textstyles.hbFeatureTitle }}>{product.title}</h2>
+                        <CustomHTML html={product.description}></CustomHTML>
                     </Panel>
 
                     <Panel>
