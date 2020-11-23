@@ -325,6 +325,13 @@ ul[role*='listbox'] {
     transform: translate(-100%, -50%) !important;
   }
 }
+.slider-control-centerright,
+.slider-control-centerleft {
+  [id^='Icon'] {
+    position: absolute;
+  }
+}
+
 .slider-control-bottomcenter {
   @media (max-width: $medium) {
     width: 100%;
