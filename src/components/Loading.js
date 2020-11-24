@@ -93,6 +93,9 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
           HbProgressBar={<HbLoadingScreen.HbProgressBar value={progress / 100} />}
           HbFirstSlideFooter={
             <HbLoadingScreen.HbFirstSlideFooter
+              HbFooterRectangle={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle title="Super premium ingredients" subtitle="Made with real meat and superfoods." />}
+              HbFooterRectangle1={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle1 title="Vet approved" subtitle="Shop with confidence" />}
+              HbFooterRectangle2={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle2 title="Custom nutrition" subtitle="Personalized plan for your dog" />} 
               size={size}
             />
           }
