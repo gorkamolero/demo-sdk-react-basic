@@ -69,7 +69,9 @@ const Products = ({
         if (!result) return
 
         let newValue = selectedResults[index]?null:result;
+        /* eslint-disable eqeqeq*/
         setSelectedResults(selectedResults.map( (r,i) => i==index?newValue:selectedResults[i]));
+        /* eslint-enable */
     }
 
     const resultImages = selectedResults && selectedResults.map(result => result && result.images && result.images[result.selectedImage]);
