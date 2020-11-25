@@ -95,6 +95,9 @@ export const HbResults: {
       children?: React.ReactNode | React.ReactNode[];
       DescriptionHtml?: React.ReactNode | React.ReactNode[];
       DescriptionHtml2?: React.ReactNode | React.ReactNode[];
+      TrialHeading?: string;
+      AfterTrialHeading?: string;
+      OneTimeBoxText?: string;
       trialOff?: boolean;
       HbButton?: React.ReactNode;
     } & CommonProps<HTMLDivElement>

@@ -58,8 +58,8 @@ function End({loading, setLoading}) {
 
     useEffect(() => {
         const waitForWindowData = () => {
-            if (window.hungry.end) {
-                setHungry(window.hungry.end)
+            if (window.hungry.end && window.hungry.values) {
+                setHungry({...window.hungry.end, ...window.hungry.values})
                 setDog({
                     name: window.hungry.end.dogName,
                     weight: window.hungry.end.dogWeight,
@@ -128,19 +128,29 @@ function End({loading, setLoading}) {
 
     useEffect(() => {
         if (!hungry) return
-        let trialText = hungry.texts.plan.trialText.replace('[PRICETRIAL]',getPrice(totalPrice, subscribePriceFactor.trial))
+        
+        let trialText = hungry.TrialText.replace('[PRICETRIAL]',getPrice(totalPrice, subscribePriceFactor.trial))
 
         let afterTrialPrice = totalPrice*subscribePriceFactor.postTrial*2;
 
-        let afterTrialText = hungry.texts.plan.afterTrialText
+        let afterTrialText = hungry.AfterTrialText
             .replace('[PRICE]', getPrice(afterTrialPrice))
             .replace('[PRICEPERDAY]', getPrice(afterTrialPrice/28))
             .replace('[SHIPPING]', hungry.getShippingText(afterTrialPrice))
 
+        let rest = {
+            AfterTrialHeading: hungry.AfterTrialHeading || '',
+            TrialHeading: hungry.TrialHeading || '',
+            OneTimeBoxText: hungry.OneTimeBoxText || '',
+            SwitchOneTimeText: hungry.SwitchOneTimeText || '',
+            SwitchSubscribeText: hungry.SwitchSubscribeText || '',
+        }
+
         setTexts({
-            plan:{
+            plan: {
                 trial: trialText,
-                afterTrial: afterTrialText
+                afterTrial: afterTrialText,
+                rest
             }
         })
     }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])

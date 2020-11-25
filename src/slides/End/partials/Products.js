@@ -221,6 +221,9 @@ const Products = ({
                 <HbResults
                     className={`HbCard HbResults progress-${buttonProgress}`}
                     verylongname={`${dog.name}’s Plan`}
+                    TrialHeading={texts.plan.rest.TrialHeading}
+                    AfterTrialHeading={texts.plan.rest.AfterTrialHeading}
+                    OneTimeBoxText={texts.plan.rest.OneTimeBoxText}
                     DescriptionHtml={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,
@@ -235,7 +238,7 @@ const Products = ({
                     }
                     HbButton={<HbResults.HbButton className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
                     trialOff={!subscription}
-                    children={onlySubscription || <Switch checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
+                    children={onlySubscription || <Switch texts={texts} checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={
                         resultImages.map(img => (
                             <>

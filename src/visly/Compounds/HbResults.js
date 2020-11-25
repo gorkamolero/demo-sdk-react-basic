@@ -215,12 +215,16 @@ function HbResults(_props) {
                 key={"9Nbg29zFJz"}
               />
               <TextPrimitive
-                id={"Title1_TSKydwWpV5"}
+                id={"TrialText_TSKydwWpV5"}
                 className={
                   "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_TSKydwWpV5"
                 }
                 key={"TSKydwWpV5"}
-                text={getStyle("TSKydwWpV5", "text")}
+                text={
+                  exists(props.TrialHeading)
+                    ? props.TrialHeading
+                    : getStyle("TSKydwWpV5", "text")
+                }
                 element={getStyle("TSKydwWpV5", "htmlElement")}
               />
               <ContainerPrimitive
@@ -246,7 +250,11 @@ function HbResults(_props) {
                   "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_Xdq8EgbVmd"
                 }
                 key={"Xdq8EgbVmd"}
-                text={getStyle("Xdq8EgbVmd", "text")}
+                text={
+                  exists(props.AfterTrialHeading)
+                    ? props.AfterTrialHeading
+                    : getStyle("Xdq8EgbVmd", "text")
+                }
                 element={getStyle("Xdq8EgbVmd", "htmlElement")}
               />
               <ContainerPrimitive
@@ -310,7 +318,11 @@ function HbResults(_props) {
                   "__visly_reset_WDRq65T88Q __visly_scope_GBUFXK8ScG_MCawwQFVkV"
                 }
                 key={"MCawwQFVkV"}
-                text={getStyle("MCawwQFVkV", "text")}
+                text={
+                  exists(props.OneTimeBoxText)
+                    ? props.OneTimeBoxText
+                    : getStyle("MCawwQFVkV", "text")
+                }
                 element={getStyle("MCawwQFVkV", "htmlElement")}
               />
             </ContainerPrimitive>
