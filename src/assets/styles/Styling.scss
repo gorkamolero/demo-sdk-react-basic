@@ -724,7 +724,8 @@ label[class*='radio-group-button-root'] {
   }
 }
 
-.HbEndFooter {
+.HbEndFooter,
+.HbVideoFooter {
   &.stack {
     button[type='button']:not([id^='HbLinkButton']) {
       flex: 1;

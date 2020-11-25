@@ -32,6 +32,11 @@ const styles = [
       },
     },
   },
+  {
+    type: "boolean",
+    propName: "end",
+    layers: {},
+  },
 ];
 
 const defaultPropValues = [
@@ -39,9 +44,19 @@ const defaultPropValues = [
     type: "default",
     layers: {},
   },
+  {
+    type: "boolean",
+    propName: "end",
+    layers: {},
+  },
 ];
 
-const variantPropTypes = [];
+const variantPropTypes = [
+  {
+    type: "boolean",
+    propName: "end",
+  },
+];
 
 export const HbStickyBarContext = createContext(null);
 
@@ -95,6 +110,11 @@ function HbStickyBar(_props) {
   );
 }
 
-HbStickyBar.__variants = [];
+HbStickyBar.__variants = [
+  {
+    name: "end",
+    type: "variant",
+  },
+];
 
 export default HbStickyBar;

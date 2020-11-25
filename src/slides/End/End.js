@@ -10,6 +10,7 @@ import Testimonials from './partials/Testimonials'
 import { HbCircleIcon, icons, colors, useBreakpoint, HbWave, textstyles } from "../../visly";
 import { HbSection } from '../../visly/Pages'
 import Video from './partials/ReactPlayerWistia2'
+import MyWistiaFooter from './partials/VideoFooter'
 import { Footer, Tip } from '../../styles/StyledComps';
 import CustomHTML from '../../components/CustomHTML/CustomHTML';
 import 'react-tippy/dist/tippy.css'
@@ -32,12 +33,27 @@ function End({loading, setLoading}) {
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
+    const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
         if (videoIsDone) setLoading(false)
     }, [loadingScreenIsSeen, videoIsDone, setLoading])
+
+    useEffect(() => {
+        const onScroll = e => {
+            setTimeout(() => {
+                if (videoIsDone && e.target.documentElement.scrollTop > 100) {
+                    setShowWistiaFooter(false)
+                    window.removeEventListener("scroll", onScroll);
+                }
+            }, [10])
+        };
+        window.addEventListener("scroll", onScroll);
+
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [videoIsDone]);
 
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
@@ -169,7 +185,6 @@ function End({loading, setLoading}) {
 
     return (
         <FlexBox column center width="100%">
-            <h1>{}</h1>
             {
                 loading && !loadingScreenIsSeen && (
                     <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
@@ -178,9 +193,13 @@ function End({loading, setLoading}) {
 
             {
                 !loading && (
-                    <FlexBox column center width="100%">
-                        <Video video={hungry.video} play={true} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
-                    </FlexBox>
+                    <HbSection noHeadNoPadding style={{ margin: '0 auto 80px' }}>
+                        <FlexBox column center width="100%">
+                            <Video video={hungry.video} play={true} />
+
+                            <MyWistiaFooter className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                        </FlexBox>
+                    </HbSection>
                 )
             }
 

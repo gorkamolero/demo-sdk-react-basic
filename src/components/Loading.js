@@ -79,7 +79,6 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
     }, timing);
 
     setTimeout(() => {
-      debugger
       setIsMounted(!isMounted);
       setLoading(false)
     }, timing + 100)

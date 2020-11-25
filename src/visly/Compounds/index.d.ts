@@ -194,6 +194,7 @@ export const HbStickyBar: {
   (
     props: {
       text?: string;
+      end?: boolean;
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;
 };
