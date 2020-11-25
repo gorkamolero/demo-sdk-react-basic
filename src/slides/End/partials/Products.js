@@ -65,12 +65,11 @@ const Products = ({
 
     if (!results) return null
 
-    const onAddResult = (result) => {
+    const toggleSelectedResult = (result, index) => {
         if (!result) return
-        if (selectedResults.includes(result)) {
-            setSelectedResults(selectedResults.filter(r => r && r.sku !== result.sku))
-        }
-        else return setSelectedResults(selectedResults.concat(result))
+
+        let newValue = selectedResults[index]?null:result;
+        setSelectedResults(selectedResults.map( (r,i) => i==index?newValue:selectedResults[i]));
     }
 
     const resultImages = selectedResults && selectedResults.map(result => result && result.images && result.images[result.selectedImage]);
@@ -108,7 +107,7 @@ const Products = ({
                             details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.kibble) }>See details</HbLinkButton>}
                             CardFooter={
                                 <HbProduct.CardFooter
-                                    onClick={() => onAddResult(products.kibble)}
+                                    onClick={(e) => toggleSelectedResult(products.kibble, 0)}
                                     addLabel={selectedResults.includes(products.kibble) ? 'Added' : `Add ${'Meal'}` }
                                     HbCheckbox2={
                                         <HbCheckbox2 checked={selectedResults.includes(products.kibble)} />
@@ -150,7 +149,7 @@ const Products = ({
                             details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.supplement) }>See details</HbLinkButton>}
                             CardFooter={
                                 <HbProduct.CardFooter
-                                    onClick={() => onAddResult(products.supplement)}
+                                    onClick={() => toggleSelectedResult(products.supplement, 1)}
                                     addLabel={selectedResults.includes(products.supplement) ? 'Added' : `Add ${'Supplement'}` }
                                     HbCheckbox2={
                                         <HbCheckbox2 checked={selectedResults.includes(products.supplement)} />
@@ -192,7 +191,7 @@ const Products = ({
                             details={<HbLinkButton text="See details" href="#" onPress={ () => viewProductDetails(products.mixin) }>See details</HbLinkButton>}
                             CardFooter={
                                 <HbProduct.CardFooter
-                                    onClick={() => onAddResult(products.mixin)}
+                                    onClick={() => toggleSelectedResult(products.mixin, 2)}
                                     addLabel={selectedResults.includes(products.mixin) ? 'Added' : `Add ${'Mixin'}` }
                                     HbCheckbox2={
                                         <HbCheckbox2 checked={selectedResults.includes(products.mixin)} />

@@ -22,10 +22,11 @@ import { HbSuperProductEmpty } from '../../visly/Compounds';
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 
 function End({loading, setLoading}) {
-    const currentDog = localStorage.getItem('currentDog')
+    const { nav, Engine } = useContext(SlideContext);
+
+    const currentDog = Engine.getLocalStorageItem('currentDog', 1);
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
-    
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
 
@@ -34,7 +35,6 @@ function End({loading, setLoading}) {
         if (videoIsDone) setLoading(false)
     }, [loadingScreenIsSeen, videoIsDone, setLoading])
 
-    const { nav } = useContext(SlideContext);
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
@@ -98,7 +98,7 @@ function End({loading, setLoading}) {
 
     const continueToCheckout = () => {
         setButtonProgress(1)
-        const currentDog = localStorage.getItem('currentDog')
+        const currentDog = Engine.getLocalStorageItem('currentDog', 1);
         localStorage.setItem(`videoIsSeen-${currentDog}`, false);
         
         window.hungry.end.goToCheckout(subscription, selectedResults);
@@ -106,7 +106,7 @@ function End({loading, setLoading}) {
 
     const addAnotherDog = () => {
         window.hungry.end.addAnotherDog( subscription, selectedResults, () => {
-            const currentDog = localStorage.getItem('currentDog')
+            const currentDog = Engine.getLocalStorageItem('currentDog', 1);
             localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();
@@ -115,7 +115,7 @@ function End({loading, setLoading}) {
 
     const restartQuiz = () => {
         window.hungry.end.startOver( () => {
-            const currentDog = localStorage.getItem('currentDog')
+            const currentDog = Engine.getLocalStorageItem('currentDog', 1);
             localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();

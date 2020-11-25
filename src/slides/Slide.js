@@ -15,6 +15,7 @@ import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
+import ResizeObserver from "resize-observer-polyfill";
 
 const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
