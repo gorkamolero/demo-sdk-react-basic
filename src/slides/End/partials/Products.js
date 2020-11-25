@@ -25,7 +25,8 @@ const Products = ({
     texts,
     subscribePriceFactor,
     onlySubscription,
-    buttonProgress
+    buttonProgress,
+    visibilityDiv
 }) => {
 
     const replacers = {
@@ -246,6 +247,7 @@ const Products = ({
                     }
                 />
             </FlexBox>
+            {visibilityDiv}
         </HbSection>
     );
 }

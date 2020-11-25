@@ -734,6 +734,16 @@ label[class*='radio-group-button-root'] {
       }
     }
   }
+
+  will-change: transform;
+
+  transition: transform 500ms ease;
+
+  transform: translateY(100%);
+
+  &.show {
+    transform: translateY(0);
+  }
 }
 
 .RadioWithImages {

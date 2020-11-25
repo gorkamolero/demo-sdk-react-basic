@@ -1,4 +1,5 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState, useContext, useRef } from 'react';
+import useVisibility from 'react-use-visibility';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
@@ -23,12 +24,15 @@ let noTest = window.location.href.includes('dev') || window.location.href.inclu
 
 function End({loading, setLoading}) {
     const { nav, Engine } = useContext(SlideContext);
+    const prodRef = useRef();
+    const isFooterVisible = useVisibility(prodRef.current);
 
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
+    const [showFooter, setShowFooter] = useState(false)
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
@@ -144,6 +148,10 @@ function End({loading, setLoading}) {
     useEffect(() => {
         return () => setLoading(true)
     }, [setLoading])
+
+    useEffect(() => {
+        if (isFooterVisible) setShowFooter(true)
+    }, [isFooterVisible])
     
     if (!hungry || !products) return <div></div>
 
@@ -151,6 +159,7 @@ function End({loading, setLoading}) {
 
     return (
         <FlexBox column center width="100%">
+            <h1>{}</h1>
             {
                 loading && !loadingScreenIsSeen && (
                     <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
@@ -192,7 +201,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} />
+                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
                             )
                         }
 
@@ -203,7 +212,7 @@ function End({loading, setLoading}) {
                         <Testimonials />
 
                         <Footer
-                            className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''}`}
+                            className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''} ${showFooter && 'show'}`}
                             total={`Total (${totalProducts})`}
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
