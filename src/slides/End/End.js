@@ -48,7 +48,7 @@ function End({loading, setLoading}) {
                     setShowWistiaFooter(false)
                     window.removeEventListener("scroll", onScroll);
                 }
-            }, [10])
+            })
         };
         window.addEventListener("scroll", onScroll);
 
