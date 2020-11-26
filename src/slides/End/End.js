@@ -35,6 +35,7 @@ function End({loading, setLoading}) {
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
+    const [videoOff, setVideoOff] = useState(false)
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
@@ -102,6 +103,10 @@ function End({loading, setLoading}) {
                 setSubscribePriceFactor(window.hungry.end.subscribePriceFactor);
 
                 if (window.hungry.end.onlySubscription) setSubscription(true)
+                if (window.hungry.values.videoIsOff) {
+                    setVideoOff(true)
+                    setVideoIsDone(true)
+                }
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -109,7 +114,7 @@ function End({loading, setLoading}) {
 
         waitForWindowData()
 
-    }, [])
+    }, [setVideoIsDone])
 
     const getPrice =  (price, factor) => Number(price * (factor||1)).toFixed(2);
 
@@ -192,7 +197,7 @@ function End({loading, setLoading}) {
             }
 
             {
-                !loading && (
+                !loading && !videoOff && (
                     <HbSection noHeadNoPadding style={{ margin: '0 auto 80px' }}>
                         <FlexBox column center width="100%">
                             <Video video={hungry.video} play={true} />
