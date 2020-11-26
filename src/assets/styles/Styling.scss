@@ -168,7 +168,7 @@ main {
 body {
   font-family: var(--fontFamily);
   color: var(--hbTextColor);
-  font-size: 18px;
+  font-size: 20px;
 
   @media (min-width: 520px) {
     font-size: 24px;
@@ -1057,7 +1057,7 @@ div#Background {
 }
 
 small {
-  font-size: 16px;
+  font-size: 17px;
   font-style: italic;
   opacity: 0.6;
 }
@@ -1283,7 +1283,7 @@ small {
       justify-content: flex-start;
     }
     .title {
-      width: 60% !important;
+      width: 70% !important;
     }
   }
 }

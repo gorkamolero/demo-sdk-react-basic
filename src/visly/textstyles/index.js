@@ -19,7 +19,7 @@ export const bodyLarge = {
 };
 export const bodyReallySmall = {
   fontFamily: "Averta",
-  fontSize: "14px",
+  fontSize: "16px",
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "18px",
@@ -40,14 +40,14 @@ export const bodySmallBold = {
 };
 export const bodySmallMobile = {
   fontFamily: "Averta",
-  fontSize: "16px",
+  fontSize: "20px",
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "1",
 };
 export const hbFeatureText = {
   fontFamily: "Averta",
-  fontSize: "16px",
+  fontSize: "18px",
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "24px",
@@ -61,7 +61,7 @@ export const hbFeatureTitle = {
 };
 export const headSmall = {
   fontFamily: "Averta",
-  fontSize: "16px",
+  fontSize: "20px",
   fontWeight: 400,
   fontStyle: "normal",
   lineHeight: "20px",
