@@ -63,7 +63,6 @@ function End({loading, setLoading}) {
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
-    const [loadingTexts, setLoadingTexts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [reviews, setReviews] = useState(null)
     const [subscribePriceFactor, setSubscribePriceFactor] = useState({trial:0, postTrial:0});
@@ -111,16 +110,6 @@ function End({loading, setLoading}) {
                 if (window.hungry.values.videoIsOff) {
                     setVideoOff(true)
                     setVideoIsDone(true)
-                }
-                if (window.hungry.values) {
-                    setLoadingTexts({
-                        lsTitle1: window.hungry.values.lsTitle1,
-                        lsSubtitle1: window.hungry.values.lsSubtitle1,
-                        lsTitle2: window.hungry.values.lsTitle2,
-                        lsSubtitle2: window.hungry.values.lsSubtitle2,
-                        lsTitle3: window.hungry.values.lsTitle3,
-                        lsSubtitle3: window.hungry.values.lsSubtitle3,
-                    })
                 }
             } else {
                 setTimeout(() => waitForWindowData(), 500);
@@ -182,11 +171,22 @@ function End({loading, setLoading}) {
             SwitchSubscribeText: hungry.SwitchSubscribeText || '',
         }
 
+        let loadingMainText = hungry.lsMainText.replace('[DOGNAME]', 'Gorkolo')
+
         setTexts({
             plan: {
                 trial: trialText,
                 afterTrial: afterTrialText,
                 rest
+            },
+            loading: {
+                lsTitle1: hungry.lsTitle1,
+                lsSubtitle1: hungry.lsSubtitle1,
+                lsTitle2: hungry.lsTitle2,
+                lsSubtitle2: hungry.lsSubtitle2,
+                lsTitle3: hungry.lsTitle3,
+                lsSubtitle3: hungry.lsSubtitle3,
+                main: loadingMainText
             }
         })
     }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])
@@ -199,7 +199,7 @@ function End({loading, setLoading}) {
         if (isFooterVisible) setShowFooter(true)
     }, [isFooterVisible])
     
-    if (!hungry || !products) return <div></div>
+    if (!hungry || !products || !texts) return <div></div>
 
     let onlySubscription = hungry.onlySubscription
 
@@ -207,7 +207,7 @@ function End({loading, setLoading}) {
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading texts={loadingTexts} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
+                    <Loading texts={texts.loading} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
                 )
             }
 
@@ -218,7 +218,7 @@ function End({loading, setLoading}) {
                             <Video video={hungry.video} play={true} />
 
                             {/* Maybe evaluate isNewDog */}
-                            <MyWistiaFooter className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                            <MyWistiaFooter hex={hungry.footerHexCode || `#00aeaa`} className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
                         </FlexBox>
                     </HbSection>
                 )

@@ -99,7 +99,7 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
             />
           }
           className={`HbLoadingScreen ${rotation >= 2 ? 'lastImage' : ''} ${loading ? 'screenIsLoading' : 'screenIsLoaded'}`}
-          text={`We are creating ${dogName}'s custom plan`}
+          text={texts.main ? texts.main : `We are creating ${dogName}'s custom plan`}
           imageSrc={Loaders[rotation]}
         >
         </LoadingScreen>

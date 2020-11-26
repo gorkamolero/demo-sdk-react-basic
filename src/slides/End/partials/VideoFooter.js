@@ -3,7 +3,7 @@ import { SlideContext } from "../../../context/SlideContext";
 import { FooterBar } from '../../../styles/StyledComps';
 
 
-const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, videoIsDone, className}) => {
+const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, videoIsDone, className, hex}) => {
   const { getDatasheet } = useContext(SlideContext)
   const [textsAndTimes, setTextsAndTimes] = useState(null)
   const [count, setCount] = useState(0)
@@ -50,7 +50,7 @@ const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, videoIsDone, classNa
   const text = textsAndTimes.length === count + 1 ? dogName + "'s " + textsAndTimes[count].text : textsAndTimes[count].text
   
   return (
-    <FooterBar end={textsAndTimes.length === count + 1} className={`FooterBar ${className ? className : ''}`} center text={text} />
+    <FooterBar end={textsAndTimes.length === count + 1} hex={hex} className={`FooterBar ${className ? className : ''}`} center text={text} />
   )
 }
 
