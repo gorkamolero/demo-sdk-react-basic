@@ -9,10 +9,11 @@
   align-content: flex-start;
   justify-content: center;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  overflow: visible;
   padding: 30px;
 }
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw .__visly_scope_3Fk3gvCxrB_K8Rvc3Sc8R {
-  overflow: hidden;
+  overflow: visible;
   width: 1280px;
   max-width: 100%;
   flex-direction: row;
@@ -33,6 +34,7 @@
   font-size: 22px;
   line-height: 24px;
   flex-shrink: 1;
+  overflow: visible;
 }
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw.__visly_end.__visly_state_none {
   background-color: #00aeaa;
