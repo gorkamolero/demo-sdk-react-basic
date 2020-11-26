@@ -113,6 +113,8 @@
 
   --spacing: 10px;
   --negative-spacing: -10px;
+
+  --mobileTextSize: 22px;
 }
 
 $fontPath: '../fonts/AvertaStd/';
@@ -168,7 +170,7 @@ main {
 body {
   font-family: var(--fontFamily);
   color: var(--hbTextColor);
-  font-size: 22px;
+  font-size: var(--mobileTextSize);
 
   @media (min-width: 520px) {
     font-size: 24px;
@@ -972,7 +974,7 @@ div#Background {
     .selectContainer {
       position: absolute;
       left: 10px;
-      transform: translateY(calc(100% + 20px));
+      transform: translateY(calc(100% + var(--mobileTextSize)));
       z-index: 9;
       width: 50%;
     }
@@ -1115,7 +1117,7 @@ small {
 
   @media (min-width: $large) {
     [id*='CardTitle'] {
-      font-size: 22px !important;
+      font-size: var(--mobileTextSize) !important;
     }
   }
 }
@@ -1323,5 +1325,11 @@ button {
   outline: none !important;
   &:focus {
      outline: none !important;
+  }
+}
+
+[class*='MenuList'] {
+  @media (max-width: $small) {
+    min-width: 60vw;
   }
 }
