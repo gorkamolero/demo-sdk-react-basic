@@ -28,11 +28,15 @@ function End({loading, setLoading}) {
     const prodRef = useRef();
     const isFooterVisible = useVisibility(prodRef.current);
 
+    /* eslint-disable */
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+    const isNewDog = currentDog != 1
+    /* eslint-enable */
+
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest || isNewDog ? true : false);
     const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
     const [videoOff, setVideoOff] = useState(false)
@@ -202,6 +206,7 @@ function End({loading, setLoading}) {
                         <FlexBox column center width="100%">
                             <Video video={hungry.video} play={true} />
 
+                            {/* Maybe evaluate isNewDog */}
                             <MyWistiaFooter className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
                         </FlexBox>
                     </HbSection>
