@@ -8,59 +8,15 @@
     <title>Pickzen-React Basic App</title>
 
     <script>
-        window.pickzen={
-            code:'TEFsv2HCCHe',
-            server:'https://admin.pickzen.com'
-        };
+        window.pickzen = window.pickzen || {};
+        window.pickzen.code = 'TEFsv2HCCHe';
+
+        if (!window.jQuery) window.jQuery={getJSON:()=>{}};
     </script>
 
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/starter.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/bowser.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/async.srv.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/helper.srv.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/generic.srv.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/event.srv.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/session.srv.js"></script>
-    <script src="https://local.pickzen.com/webserver/sdk/src/core/filter.srv.js"></script>
-
-    <script type="module">
-        import Engine from 'https://local.pickzen.com/webserver/sdk/src/Engine.js'
-        window.pickzen.Engine=Engine;
-
-        if (!window.jQuery) {
-            window.jQuery={
-                getJSON:()=>{}
-            }
-        }
-    </script>
+    <script src="https://cdn-us.pickzen.com/sdk/pickzen-sdk@2-2.0.14.min.js"></script>
 </head>
 <body>
 <div id="pickzen"></div>
-<div id='video-root'></div>
 </body>
 </html>
-
-<!--
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="https://cdn.pickzen.com/images/fav.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script src="http://localhost:8097"></script>
-    <title>Pickzen-React Basic App</title>
-
-    <script>
-        window.pickzen=window.pickzen || {};
-        window.pickzen.code='i4YjeTcBnGU';
-    </script>
-
-    <script src="https://cdn-us.pickzen.com/sdk/pickzen-sdk@2-2.0.6.min.js"></script>
-</head>
-
-<body>
-    <div id="pickzen"></div>
-    <div id='video-root'></div>
-</body>
-</html>
--->
