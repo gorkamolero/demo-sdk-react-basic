@@ -3,12 +3,10 @@ import { SlideContext } from "../../../context/SlideContext";
 import { FooterBar } from '../../../styles/StyledComps';
 
 
-const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, className}) => {
+const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, videoIsDone, className, hex}) => {
   const { getDatasheet } = useContext(SlideContext)
   const [textsAndTimes, setTextsAndTimes] = useState(null)
   const [count, setCount] = useState(0)
-
-  // console.log('WISSSS', textsAndTimes,  textsAndTimes && textsAndTimes.length === count)
 
   useEffect(() => {
     const id = 'qwKF1uB4A7V'
@@ -19,18 +17,21 @@ const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, className}) => {
         console.log(textsAndTimes)
         textsAndTimes = textsAndTimes.result[id]
         setTextsAndTimes(textsAndTimes)
+
+        if (videoIsDone) {
+          setCount(textsAndTimes.length - 1)
+        }
       } catch(err) {
         console.error(err)
       }
     }
 
     getTextsAndTimes()
-  }, [getDatasheet])
+  }, [getDatasheet, videoIsDone])
 
   useEffect(() => {
     if (!textsAndTimes ) return
     if (textsAndTimes.length === count + 1) {
-      console.warn('YOOOO', 'istru')
       setVideoIsDone(true)
       return
     }
@@ -49,7 +50,7 @@ const MyWistiaFooter = ({dogName = 'Oscar', setVideoIsDone, className}) => {
   const text = textsAndTimes.length === count + 1 ? dogName + "'s " + textsAndTimes[count].text : textsAndTimes[count].text
   
   return (
-    <FooterBar end={textsAndTimes.length === count + 1} className={`FooterBar ${className ? className : ''}`} center text={text} />
+    <FooterBar end={textsAndTimes.length === count + 1} hex={hex} className={`FooterBar ${className ? className : ''}`} center text={text} />
   )
 }
 

@@ -44,7 +44,7 @@ const LoadingScreen = styled(HbLoadingScreen)`
 `
 
 
-const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen, dogName }) => {
+const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoadingScreenIsSeen, dogName, texts }) => {
   const [rotation, setRotation] = useState(0)
   const [progress, setProgress] = useState(0)
   const size = useBreakpoint("small", ["medium", "large", "large"]);
@@ -92,14 +92,14 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
           HbProgressBar={<HbLoadingScreen.HbProgressBar value={progress / 100} />}
           HbFirstSlideFooter={
             <HbLoadingScreen.HbFirstSlideFooter
-              HbFooterRectangle={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle title="Super premium ingredients" subtitle="Made with real meat and superfoods." />}
-              HbFooterRectangle1={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle1 title="Vet approved" subtitle="Shop with confidence" />}
-              HbFooterRectangle2={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle2 title="Custom nutrition" subtitle="Personalized plan for your dog" />} 
+              HbFooterRectangle={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle title={texts && texts.lsTitle1 ? texts.lsTitle1 : `Super premium ingredients`} subtitle={texts && texts.lsSubtitle1 ? texts.lsSubtitle1 : `Made with real meat and superfoods`} />}
+              HbFooterRectangle1={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle1 title={texts && texts.lsTitle2 ? texts.lsTitle2 :`Vet approved`} subtitle={texts && texts.lsSubtitle2 ? texts.lsSubtitle2 : `Shop with confidence`} />}
+              HbFooterRectangle2={<HbLoadingScreen.HbFirstSlideFooter.HbFooterRectangle2 title={texts && texts.lsTitle3 ? texts.lsTitle3 :`Custom nutrition`} subtitle={texts && texts.lsSubtitle3 ? texts.lsSubtitle3 : `Personalized plan for your dog`} />} 
               size={size}
             />
           }
           className={`HbLoadingScreen ${rotation >= 2 ? 'lastImage' : ''} ${loading ? 'screenIsLoading' : 'screenIsLoaded'}`}
-          text={`We are creating ${dogName}'s custom plan`}
+          text={texts.main ? texts.main : `We are creating ${dogName}'s custom plan`}
           imageSrc={Loaders[rotation]}
         >
         </LoadingScreen>

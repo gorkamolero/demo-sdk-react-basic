@@ -83,6 +83,9 @@ export const FooterBar = styled(HbStickyBar)`
   left: 0;
   bottom: 0;
   z-index: 1;
+  ${props => props.end && props.hex && `
+    background-color: ${props.hex} !important;
+  `}
 `
 
 export const Tip = styled.div(props => ({

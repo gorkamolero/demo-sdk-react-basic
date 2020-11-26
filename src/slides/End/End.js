@@ -28,13 +28,18 @@ function End({loading, setLoading}) {
     const prodRef = useRef();
     const isFooterVisible = useVisibility(prodRef.current);
 
+    /* eslint-disable */
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+    const isNewDog = currentDog != 1
+    /* eslint-enable */
+
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest || isNewDog ? true : false);
     const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
+    const [videoOff, setVideoOff] = useState(false)
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
@@ -102,6 +107,10 @@ function End({loading, setLoading}) {
                 setSubscribePriceFactor(window.hungry.end.subscribePriceFactor);
 
                 if (window.hungry.end.onlySubscription) setSubscription(true)
+                if (window.hungry.values.videoIsOff) {
+                    setVideoOff(true)
+                    setVideoIsDone(true)
+                }
             } else {
                 setTimeout(() => waitForWindowData(), 500);
             }
@@ -109,7 +118,7 @@ function End({loading, setLoading}) {
 
         waitForWindowData()
 
-    }, [])
+    }, [setVideoIsDone])
 
     const getPrice =  (price, factor) => Number(price * (factor||1)).toFixed(2);
 
@@ -162,11 +171,22 @@ function End({loading, setLoading}) {
             SwitchSubscribeText: hungry.SwitchSubscribeText || '',
         }
 
+        let loadingMainText = hungry.lsMainText.replace('[DOGNAME]', 'Gorkolo')
+
         setTexts({
             plan: {
                 trial: trialText,
                 afterTrial: afterTrialText,
                 rest
+            },
+            loading: {
+                lsTitle1: hungry.lsTitle1,
+                lsSubtitle1: hungry.lsSubtitle1,
+                lsTitle2: hungry.lsTitle2,
+                lsSubtitle2: hungry.lsSubtitle2,
+                lsTitle3: hungry.lsTitle3,
+                lsSubtitle3: hungry.lsSubtitle3,
+                main: loadingMainText
             }
         })
     }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])
@@ -179,7 +199,7 @@ function End({loading, setLoading}) {
         if (isFooterVisible) setShowFooter(true)
     }, [isFooterVisible])
     
-    if (!hungry || !products) return <div></div>
+    if (!hungry || !products || !texts) return <div></div>
 
     let onlySubscription = hungry.onlySubscription
 
@@ -187,17 +207,18 @@ function End({loading, setLoading}) {
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
+                    <Loading texts={texts.loading} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
                 )
             }
 
             {
-                !loading && (
+                !loading && !videoOff && (
                     <HbSection noHeadNoPadding style={{ margin: '0 auto 80px' }}>
                         <FlexBox column center width="100%">
                             <Video video={hungry.video} play={true} />
 
-                            <MyWistiaFooter className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                            {/* Maybe evaluate isNewDog */}
+                            <MyWistiaFooter hex={hungry.footerHexCode || `#00aeaa`} className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
                         </FlexBox>
                     </HbSection>
                 )
