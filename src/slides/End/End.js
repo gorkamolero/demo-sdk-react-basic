@@ -63,6 +63,7 @@ function End({loading, setLoading}) {
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
     const [products, setProducts] = useState(null)
+    const [loadingTexts, setLoadingTexts] = useState(null)
     const [texts, setTexts] = useState(null)
     const [reviews, setReviews] = useState(null)
     const [subscribePriceFactor, setSubscribePriceFactor] = useState({trial:0, postTrial:0});
@@ -110,6 +111,16 @@ function End({loading, setLoading}) {
                 if (window.hungry.values.videoIsOff) {
                     setVideoOff(true)
                     setVideoIsDone(true)
+                }
+                if (window.hungry.values) {
+                    setLoadingTexts({
+                        lsTitle1: window.hungry.values.lsTitle1,
+                        lsSubtitle1: window.hungry.values.lsSubtitle1,
+                        lsTitle2: window.hungry.values.lsTitle2,
+                        lsSubtitle2: window.hungry.values.lsSubtitle2,
+                        lsTitle3: window.hungry.values.lsTitle3,
+                        lsSubtitle3: window.hungry.values.lsSubtitle3,
+                    })
                 }
             } else {
                 setTimeout(() => waitForWindowData(), 500);
@@ -196,7 +207,7 @@ function End({loading, setLoading}) {
         <FlexBox column center width="100%">
             {
                 loading && !loadingScreenIsSeen && (
-                    <Loading dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={9000} outTiming={100} />
+                    <Loading texts={loadingTexts} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
                 )
             }
 
