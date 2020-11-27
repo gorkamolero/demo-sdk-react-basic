@@ -171,7 +171,7 @@ function End({loading, setLoading}) {
             SwitchSubscribeText: hungry.SwitchSubscribeText || '',
         }
 
-        let loadingMainText = hungry.lsMainText.replace('[DOGNAME]', 'Gorkolo')
+        let loadingMainText = hungry.lsMainText.replace('[DOGNAME]', hungry.dogName)
 
         setTexts({
             plan: {
