@@ -130,11 +130,11 @@ function End({loading, setLoading}) {
         const currentDog = Engine.getLocalStorageItem('currentDog', 1);
         localStorage.setItem(`videoIsSeen-${currentDog}`, false);
         
-        window.hungry.end.goToCheckout(subscription, selectedResults);
+        hungry.goToCheckout(subscription, selectedResults);
     }
 
     const addAnotherDog = () => {
-        window.hungry.end.addAnotherDog( subscription, selectedResults, () => {
+        hungry.addAnotherDog( subscription, selectedResults, () => {
             const currentDog = Engine.getLocalStorageItem('currentDog', 1);
             localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
@@ -143,7 +143,7 @@ function End({loading, setLoading}) {
     }
 
     const restartQuiz = () => {
-        window.hungry.end.startOver( () => {
+        hungry.startOver( () => {
             const currentDog = Engine.getLocalStorageItem('currentDog', 1);
             localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
@@ -251,7 +251,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
+                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
                             )
                         }
 

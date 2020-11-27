@@ -26,7 +26,8 @@ const Products = ({
     subscribePriceFactor,
     onlySubscription,
     buttonProgress,
-    visibilityDiv
+    visibilityDiv,
+    preselectedResults
 }) => {
 
     const replacers = {
@@ -51,9 +52,12 @@ const Products = ({
     };
 
     useEffect(() => {
-        setResults([products.kibble, products.supplement, products.mixin])
-        setSelectedResults([products.kibble&&products.kibble.selected?products.kibble:null, products.supplement&&products.supplement.selected?products.supplement:null, products.mixin&&products.mixin.selected?products.mixin:null])
-    }, [products.kibble, products.supplement, products.mixin, setSelectedResults, products]);
+        setResults([products.kibble, products.supplement, products.mixin]);
+
+        let preselected = preselectedResults.split(';').map(it => it==='1');
+
+        setSelectedResults([products.kibble&&preselected[0]?products.kibble:null, products.supplement&&preselected[1]?products.supplement:null, products.mixin&&preselected[2]?products.mixin:null])
+    }, [products.kibble, products.supplement, products.mixin, setSelectedResults, products, preselectedResults]);
 
 
     useEffect(() => {

@@ -138,11 +138,11 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
 
   const toggleSelected = value => {
     if (selected.includes(value) || selected === 'value') {
-      console.log(value)
       setSelected(selected.filter(val => val !== value))
       field.removeValue(value)
     } else {
       if (value === 'none') {
+        field.clear();
         setSelected(['none'])
       } else {
         setSelected([...selected, value])
