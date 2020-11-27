@@ -747,6 +747,10 @@ label[class*='radio-group-button-root'] {
   &.show {
     transform: translateY(0);
   }
+
+  [id*='Container'] {
+    margin: 0 auto !important;
+  }
 }
 
 .RadioWithImages {
@@ -1102,6 +1106,10 @@ small {
   @media (max-width: $small) {
     text-align: center !important;
   }
+}
+
+.FooterBar footer {
+  margin: 0 auto !important;
 }
 
 .HbSuperProductEmpty {
