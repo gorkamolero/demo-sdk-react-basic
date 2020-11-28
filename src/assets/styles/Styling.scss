@@ -113,6 +113,8 @@
 
   --spacing: 10px;
   --negative-spacing: -10px;
+
+  --mobileTextSize: 22px;
 }
 
 $fontPath: '../fonts/AvertaStd/';
@@ -168,7 +170,7 @@ main {
 body {
   font-family: var(--fontFamily);
   color: var(--hbTextColor);
-  font-size: 18px;
+  font-size: var(--mobileTextSize);
 
   @media (min-width: 520px) {
     font-size: 24px;
@@ -620,7 +622,7 @@ li.paging-item.active .pagingDots {
     }
   }
 
-  white-space: nowrap;
+  // white-space: nowrap;
 
   @media (min-width: $medium) {
     &.select {
@@ -976,7 +978,7 @@ div#Background {
     .selectContainer {
       position: absolute;
       left: 10px;
-      transform: translateY(calc(100% + 20px));
+      transform: translateY(calc(100% + var(--mobileTextSize)));
       z-index: 9;
       width: 50%;
     }
@@ -1061,7 +1063,7 @@ div#Background {
 }
 
 small {
-  font-size: 16px;
+  font-size: 17px;
   font-style: italic;
   opacity: 0.6;
 }
@@ -1109,6 +1111,10 @@ small {
   margin: 0 auto !important;
 }
 
+.FooterBar footer {
+  margin: 0 auto !important;
+}
+
 .HbSuperProductEmpty {
   * {
     text-align: center !important;
@@ -1122,7 +1128,7 @@ small {
 
   @media (min-width: $large) {
     [id*='CardTitle'] {
-      font-size: 22px !important;
+      font-size: var(--mobileTextSize) !important;
     }
   }
 }
@@ -1290,7 +1296,7 @@ small {
       justify-content: flex-start;
     }
     .title {
-      width: 60% !important;
+      width: 70% !important;
     }
   }
 }
@@ -1330,5 +1336,11 @@ button {
   outline: none !important;
   &:focus {
      outline: none !important;
+  }
+}
+
+[class*='MenuList'] {
+  @media (max-width: $small) {
+    min-width: 60vw;
   }
 }
