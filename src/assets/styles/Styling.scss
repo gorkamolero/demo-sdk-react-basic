@@ -1165,7 +1165,7 @@ small {
     margin-bottom: 10px !important;
   }
 
-  .selectContainer.field-9 [class*='container'] > [class*='menu'],
+  /* .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
   }
@@ -1174,7 +1174,7 @@ small {
   .selectContainer.field-5 [class*='container'] > [class*='menu'],
   .selectContainer.field-13 [class*='container'] > [class*='menu'] {
     transform: translateX(-30%);
-  }
+  } */
 }
 
 // .HbHeadContainer.showingImage
@@ -1342,5 +1342,14 @@ button {
 [class*='MenuList'] {
   @media (max-width: $small) {
     min-width: 60vw;
+  }
+}
+
+.selectMultiContainer,
+.selectContainer {
+  @media (max-width: $small) {
+    [class*='container'] > [class*='menu'] {
+      min-width: 70vw !important;
+    }
   }
 }

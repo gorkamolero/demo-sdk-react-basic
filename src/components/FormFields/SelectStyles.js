@@ -22,7 +22,9 @@ export default {
     minWidth: '100%',
     width: 'auto',
     borderRadius: 0,
-    zIndex: 20
+    zIndex: 20,
+    left: '50%',
+    transform: 'translate(-50%)'
   }),
   indicatorSeparator: () => ({ display: 'none' }),
   menuList: (provided) => ({

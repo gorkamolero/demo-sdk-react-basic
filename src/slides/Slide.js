@@ -63,6 +63,8 @@ const Slide = () => {
     }, [])
     /* eslint-enable */
 
+    useEffect(() => console.log(marginTop), [marginTop])
+
 
     React.useEffect(() => {
       if (slideId !== slideModel.getId()) setSlideId(slideModel.getId());

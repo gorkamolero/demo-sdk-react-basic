@@ -111,6 +111,8 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         // maxWidth={meta.maxWidth}
         // superMaxWidth={meta.superMaxWidth}
       />
+
+      {meta && meta.helperTxt && <HbHelperTxt>{meta.helperTxt}</HbHelperTxt>}
     </FlexBox>
   )
 }
@@ -156,7 +158,7 @@ const SelectMulti = ({field, title, onChangeHandler, size}) => {
   // const label = options.find(op => op.value == 0) ? options.find(op => op.value == 0).label : '' // eslint-disable-line eqeqeq
 
   return (
-    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" className={`${field.id ? `field-${field.id}` : ''}`}>
+    <FlexBox gap={20} column alignItems="center" justifyContent="flex-start" className={`${field.id ? `field-${field.id}` : ''} selectMultiContainer`}>
       {title}
 
       {

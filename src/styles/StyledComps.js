@@ -99,9 +99,10 @@ export const Tip = styled.div(props => ({
 export const HbHelperTxt = styled.small`
   font-size: 16px;
   font-style: italic;
+  font-weight: lighter;
   color: var(--hbTextColor);
   opacity: 80%;
-  margin-top: 10px;
+  margin-top: 8px;
   margin-bottom: 10px;
 `;
 
