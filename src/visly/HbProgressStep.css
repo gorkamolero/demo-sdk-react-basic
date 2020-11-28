@@ -10,7 +10,6 @@
   padding: 0;
 }
 .__visly_scope_VDZamdUPev_E1DeTUQrkS .__visly_scope_VDZamdUPev_T9iA7HLyzJ {
-  overflow: hidden;
   width: 22px;
   height: 22px;
   border-color: #e0d7d3;
@@ -26,8 +25,6 @@
   padding: 0;
 }
 .__visly_scope_VDZamdUPev_E1DeTUQrkS .__visly_scope_VDZamdUPev_9kNRN8qWcz {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: center;
   white-space: nowrap;
@@ -37,13 +34,12 @@
   font-size: 15px;
   text-transform: uppercase;
   flex-shrink: 1;
+  display: block;
   overflow: visible;
   transform: translateY(-100%);
   padding: 20px;
 }
 .__visly_scope_VDZamdUPev_E1DeTUQrkS .__visly_scope_VDZamdUPev_ND1GG14HkM {
-  overflow: visible;
-  position: absolute;
   width: 100%;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -56,6 +52,7 @@
   bottom: auto;
   left: 0;
   transform: translate(0, 0);
+  overflow: visible;
 }
 .__visly_scope_VDZamdUPev_E1DeTUQrkS.__visly_HbActiveStep.__visly_state_none {
   box-shadow: none;

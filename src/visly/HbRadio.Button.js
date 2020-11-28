@@ -29,7 +29,6 @@ const styles = [
       },
       PpaiPZQUUA: {
         none: {
-          role: "img",
           icon: require("./assets/b903d3b8-3830-4199-b34c-ca76aadb867b.svg"),
           useMask: true,
         },

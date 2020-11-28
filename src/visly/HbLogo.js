@@ -17,7 +17,6 @@ const styles = [
     layers: {
       FLHNXYLopv: {
         none: {
-          role: "img",
           icon: require("./assets/ab92840c-8034-4e5a-8bf1-9ba903d98d7a.svg"),
           useMask: true,
         },

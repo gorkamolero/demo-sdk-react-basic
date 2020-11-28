@@ -27,8 +27,6 @@
   width: 100%;
 }
 .__visly_scope_MgHA7CBn3d_GWx7RTdU26 .__visly_scope_MgHA7CBn3d_863xCtrSQi {
-  overflow: visible;
-  box-sizing: border-box;
   width: 100%;
   align-self: center;
   flex-direction: column;
@@ -36,6 +34,7 @@
   align-items: center;
   align-content: flex-start;
   justify-content: flex-start;
+  overflow: visible;
 }
 .__visly_scope_MgHA7CBn3d_GWx7RTdU26.__visly_size-small.__visly_state_none {
   padding: 20px 10px 0;

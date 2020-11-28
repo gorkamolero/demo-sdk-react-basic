@@ -29,6 +29,7 @@ export function CheckboxRoot(props) {
     props,
     ignoreFocusHandling: true,
     isFocusVisible,
+    noUserSelect: true,
   });
   const reactAriaProps = vislyToReactAriaProps(props);
   const state = useToggleState(reactAriaProps);

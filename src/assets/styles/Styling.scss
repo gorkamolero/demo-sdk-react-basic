@@ -1259,18 +1259,18 @@ small {
 }
 
 .HbLoadingScreen {
-  [role='img'] {
+  [id^='Content'] [role='img'] {
     margin-top: 20px;
     position: absolute;
     top: 0;
     left: 50%;
     transform: translateX(-50%);
   }
-  &.lastImage [role='img'] {
+  &.lastImage [id^='Content'] [role='img'] {
     margin-top: 0;
   }
   @media (max-width: $small) {
-    [role='img'] {
+    [id^='Content'] [role='img'] {
       margin-top: 10px;
       max-width: 250px !important;
     }
@@ -1279,7 +1279,7 @@ small {
       font-size: 18px;
     }
   }
-  &.lastImage [role='img'] {
+  &.lastImage [id^='Content'] [role='img'] {
     background-position: 50% 0% !important;
   }
 }

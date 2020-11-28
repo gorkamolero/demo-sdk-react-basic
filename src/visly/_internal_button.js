@@ -26,6 +26,7 @@ export function ButtonRoot(_props) {
     isPressed,
     ignoreFocusHandling: true,
     isFocusVisible,
+    noUserSelect: true,
   });
   const children = injectSpacing(
     props.addSpacing,

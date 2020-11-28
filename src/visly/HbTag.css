@@ -13,8 +13,6 @@
   padding: 20px;
 }
 .__visly_scope_R7jV18AV1o_GUwTDFwRcZ .__visly_scope_R7jV18AV1o_XJDGMLiSr8 {
-  display: block;
-  box-sizing: border-box;
   color: #00aeaa;
   text-align: start;
   white-space: normal;
@@ -24,9 +22,9 @@
   font-size: 22px;
   line-height: 23px;
   flex-shrink: 1;
+  display: block;
 }
 .__visly_scope_R7jV18AV1o_GUwTDFwRcZ .__visly_scope_R7jV18AV1o_MQ47jJXDie {
-  align-self: stretch;
   width: 20px;
   height: unset;
 }

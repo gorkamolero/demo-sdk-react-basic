@@ -163,6 +163,9 @@ function HbProgressStep(_props) {
             key={"ND1GG14HkM"}
             addSpacing={false}
             element={getStyle("ND1GG14HkM", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <TextPrimitive

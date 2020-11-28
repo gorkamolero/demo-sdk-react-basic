@@ -3,7 +3,6 @@
   flex-direction: column;
 }
 .__visly_scope_9cCvR1MveE_select-root .__visly_scope_9cCvR1MveE_select-button {
-  overflow: hidden;
   height: 28px;
   border-color: #d9dae6;
   border-style: solid;
@@ -30,8 +29,6 @@
 }
 .__visly_scope_9cCvR1MveE_select-root
   .__visly_scope_9cCvR1MveE_select-button-text {
-  display: block;
-  box-sizing: border-box;
   color: #4a4c52;
   font-family: Averta;
   font-style: normal;
@@ -39,9 +36,9 @@
   font-size: 22px;
   line-height: 24px;
   align-self: auto;
+  display: block;
 }
 .__visly_scope_9cCvR1MveE_select-root .__visly_scope_9cCvR1MveE_select-menu {
-  overflow: hidden;
   max-height: 200px;
   background-color: #fff;
   flex-direction: column;
@@ -51,14 +48,12 @@
   border-radius: 2px;
 }
 .__visly_scope_9cCvR1MveE_select-root .__visly_scope_9cCvR1MveE_2pmEsZq6Nc {
-  display: block;
-  box-sizing: border-box;
   width: 12px;
   height: 12px;
   background-color: #4a4c52;
+  display: block;
 }
 .__visly_scope_9cCvR1MveE_select-root .__visly_scope_9cCvR1MveE_XD9syCR31b {
-  align-self: stretch;
   width: 6px;
   height: unset;
 }

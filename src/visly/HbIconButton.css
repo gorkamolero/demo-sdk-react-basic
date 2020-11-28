@@ -12,11 +12,6 @@
   height: 100%;
 }
 .__visly_scope_RK1ajYQDzn_root {
-  overflow: hidden;
-  user-select: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
   min-width: 192px;
   min-height: 88px;
   border-color: #623b2a;
@@ -43,8 +38,6 @@
   opacity: 0.5;
 }
 .__visly_scope_RK1ajYQDzn_root .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   font-family: Averta;
   font-style: normal;
@@ -52,6 +45,7 @@
   font-size: 22px;
   line-height: 24px;
   align-self: auto;
+  display: block;
 }
 .__visly_scope_RK1ajYQDzn_root.__visly_default.__visly_state_hover
   .__visly_scope_RK1ajYQDzn_2raK7yRvmH {
@@ -62,11 +56,10 @@
   color: #fff;
 }
 .__visly_scope_RK1ajYQDzn_root .__visly_scope_RK1ajYQDzn_8CLRfG5L7n {
-  display: block;
-  box-sizing: border-box;
   width: 45px;
   height: 45px;
   background-color: #623b2a;
+  display: block;
   transition: 0.3s ease-in-out;
 }
 .__visly_scope_RK1ajYQDzn_root.__visly_default.__visly_state_hover

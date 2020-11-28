@@ -18,7 +18,6 @@ const styles = [
     layers: {
       "5dbE92sXAG": {
         none: {
-          role: "img",
           icon: require("./assets/6c09c43b-abd0-4776-8845-1535cdff712b.svg"),
           useMask: true,
         },

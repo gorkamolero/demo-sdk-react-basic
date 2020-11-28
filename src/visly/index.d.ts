@@ -268,10 +268,19 @@ export const HbHeader: {
   HbProgressMobile: typeof HbProgress;
 };
 export const HbHelper: {
-  (props: {
-    selected?: string | string[] | Set<string>;
-    onSelect: (values: Set<string>) => void;
-    selectionMode?: 'none' | 'single' | 'multiple';
+  (props: ({
+    selected?: string;
+    onSelect: (value: string) => void;
+    selectionMode?: 'none' | 'single';
+  } | {
+    selected?: string[];
+    onSelect: (values: string[]) => void;
+    selectionMode?: multiple;
+  }) & {
+    'aria-label'?: string;
+    'aria-labelledby'?: string;
+    'aria-describedby'?: string;
+    'aria-details'?: string;
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
   Item: {
@@ -461,6 +470,7 @@ export const HbSelect: {
     selected?: string;
     onSelect: (value: string) => void;
     gap?: number;
+    minimumItemHeight?: number;
     HbUnselected?: boolean;
     size?: "small" | "medium" | "large" | "super";
     children?: React.ReactNode[];
@@ -578,6 +588,7 @@ export const Select: {
     selected?: string;
     onSelect: (value: string) => void;
     gap?: number;
+    minimumItemHeight?: number;
     children?: React.ReactNode[];
   } & CommonProps<HTMLDivElement>): JSX.Element;
   Option: {

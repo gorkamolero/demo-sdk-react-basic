@@ -243,6 +243,9 @@ function HbHeader(_props) {
             key={"7zMWCZsd7M"}
             addSpacing={false}
             element={getStyle("7zMWCZsd7M", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <ImagePrimitive
@@ -275,6 +278,9 @@ function HbHeader(_props) {
               key={"5dTrnoEMCT"}
               addSpacing={true}
               element={getStyle("5dTrnoEMCT", "htmlElement")}
+              style={{
+                position: "absolute",
+              }}
             >
               {
                 <ImagePrimitive
@@ -538,6 +544,9 @@ function HbHeader(_props) {
                 key={"kUjGG71oGb"}
                 addSpacing={false}
                 element={getStyle("kUjGG71oGb", "htmlElement")}
+                style={{
+                  position: "absolute",
+                }}
               >
                 {
                   <ImagePrimitive

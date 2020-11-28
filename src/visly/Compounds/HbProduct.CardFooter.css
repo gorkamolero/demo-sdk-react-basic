@@ -12,13 +12,10 @@
   padding: 20px;
 }
 .__visly_scope_VPEBQVFE5o_J5cx7VB4y6 .__visly_scope_VPEBQVFE5o_XFvZ2Mjt3S {
-  align-self: stretch;
   width: 10px;
   height: unset;
 }
 .__visly_scope_VPEBQVFE5o_J5cx7VB4y6 .__visly_scope_VPEBQVFE5o_56KJ5eG26K {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -28,4 +25,5 @@
   font-size: 20px;
   flex-shrink: 1;
   opacity: 0.8;
+  display: block;
 }

@@ -29,7 +29,6 @@ const styles = [
     layers: {
       TF559DqWXE: {
         none: {
-          role: "img",
           icon: require("../assets/17a82962-2adc-4a57-a7ef-b52a36220673.svg"),
           useMask: true,
         },

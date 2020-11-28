@@ -30,7 +30,12 @@ export function ContainerPrimitive(props) {
   const children = injectSpacing(props.addSpacing, props.children);
   const Element = exists(props.element) ? props.element : "div";
   return (
-    <Element ref={props.measureRef} id={props.id} className={props.className}>
+    <Element
+      ref={props.measureRef}
+      id={props.id}
+      className={props.className}
+      style={props.style}
+    >
       {children}
     </Element>
   );
@@ -60,6 +65,7 @@ export function IconPrimitive(props) {
   const styles = error ? errorStyles : maskStyles;
   return (
     <div
+      role="img"
       id={props.id}
       className={props.className}
       style={styles}
@@ -77,6 +83,8 @@ export function ImagePrimitive(props) {
       id={props.id}
       style={{
         backgroundImage: `url(${src}`,
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
       }}
       aria-label={exists(alt) ? alt : ""}
     />
@@ -84,7 +92,16 @@ export function ImagePrimitive(props) {
 }
 export function SpacerPrimitive(props) {
   const { className, id, measureRef } = props;
-  return <div id={id} className={className} ref={measureRef} />;
+  return (
+    <div
+      id={id}
+      className={className}
+      ref={measureRef}
+      style={{
+        alignSelf: "stretch",
+      }}
+    />
+  );
 }
 export function ProgressFillPrimitive(props) {
   function clamp(value, min, max) {

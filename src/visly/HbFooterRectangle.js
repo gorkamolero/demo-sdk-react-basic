@@ -24,7 +24,6 @@ const styles = [
     layers: {
       Mo7rGSicAa: {
         none: {
-          role: "img",
           icon: require("./assets/dbe16c81-bff3-4c34-a2cf-276c5ce67996.png"),
           useMask: true,
         },

@@ -71,6 +71,7 @@ export function TextFieldPrimitive(props) {
       className={props.className}
       id={props.id}
       style={{
+        border: "none",
         borderImage: "none",
         outline: "none",
         background: "none",

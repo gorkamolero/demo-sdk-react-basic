@@ -28,7 +28,6 @@
   height: 100%;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_8NeAjDqg32 {
-  overflow: hidden;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: baseline;
@@ -52,7 +51,6 @@
   height: 100%;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_3Uo7BCssEJ {
-  overflow: hidden;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: center;
@@ -60,7 +58,6 @@
   justify-content: flex-end;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_K8Rvc3Sc8R {
-  overflow: hidden;
   width: 100%;
   max-width: 1280px;
   flex-direction: row;
@@ -70,8 +67,6 @@
   justify-content: space-between;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_XXvgsKKhsZ {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -81,10 +76,9 @@
   font-size: 22px;
   line-height: 28px;
   flex-shrink: 1;
+  display: block;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_96PHAUg8AY {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -95,6 +89,7 @@
   line-height: 44px;
   text-decoration: line-through;
   flex-shrink: 1;
+  display: block;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw
   .__visly_scope_XdYhdmDsxs_FvzVudkqtn
@@ -113,18 +108,16 @@
   height: 100%;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_FvzVudkqtn {
-  overflow: visible;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
   align-content: flex-start;
   justify-content: flex-start;
   display: flex;
+  overflow: visible;
   padding: 0 30px 0 0;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_GMQGJ3oWuC {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -134,10 +127,9 @@
   font-size: 36px;
   line-height: 44px;
   flex-shrink: 1;
+  display: block;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_K4wEpWEnXY {
-  overflow: hidden;
-  box-sizing: border-box;
   width: 32px;
   height: 32px;
   flex-direction: row;
@@ -166,7 +158,6 @@
   height: 100%;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_BLig2wrCBm {
-  overflow: hidden;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;
@@ -191,7 +182,6 @@
   height: 100%;
 }
 .__visly_scope_XdYhdmDsxs_k3jaASDPhw .__visly_scope_XdYhdmDsxs_XgdpVejVV4 {
-  overflow: hidden;
   flex-direction: row;
   flex-wrap: nowrap;
   align-items: stretch;

@@ -35,7 +35,6 @@ const styles = [
       },
       Jp3AYaDT1R: {
         none: {
-          role: "img",
           icon: require("../assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },
@@ -96,6 +95,9 @@ function HbTestimonial(_props) {
             key={"V1dKWcVmPd"}
             addSpacing={false}
             element={getStyle("V1dKWcVmPd", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <ContainerPrimitive

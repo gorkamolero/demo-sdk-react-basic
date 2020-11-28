@@ -94,6 +94,7 @@ export const Select: {
       selected?: string;
       onSelect: (value: string) => void;
       gap?: number;
+      minimumItemHeight?: number;
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

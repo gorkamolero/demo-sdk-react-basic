@@ -20,8 +20,6 @@
   justify-content: flex-start;
 }
 .__visly_scope_2nqE2sA12b_Ha2hSNMdJw .__visly_scope_2nqE2sA12b_WMJS8iYUM2 {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -31,10 +29,9 @@
   font-size: 22px;
   line-height: 28px;
   flex-shrink: 1;
+  display: block;
 }
 .__visly_scope_2nqE2sA12b_Ha2hSNMdJw .__visly_scope_2nqE2sA12b_QpvH3usWxS {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -45,14 +42,13 @@
   line-height: 22px;
   flex-shrink: 1;
   opacity: 0.8;
+  display: block;
 }
 .__visly_scope_2nqE2sA12b_Ha2hSNMdJw .__visly_scope_2nqE2sA12b_2871CeG9P2 {
-  align-self: stretch;
   width: unset;
   height: 10px;
 }
 .__visly_scope_2nqE2sA12b_Ha2hSNMdJw .__visly_scope_2nqE2sA12b_Gwzj8Sp6Nq {
-  overflow: hidden;
   width: 40px;
   height: 3px;
   background-color: #d59b2b;

@@ -21,14 +21,12 @@ const styles = [
     layers: {
       Pvi6YdPjgx: {
         none: {
-          role: "img",
           icon: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
           useMask: true,
         },
       },
       TGjmjt52AW: {
         none: {
-          role: "img",
           icon: require("./assets/39bdde3d-e340-41ab-a8c8-5499642106d5.svg"),
           useMask: true,
         },
@@ -128,6 +126,9 @@ function HbWave(_props) {
             key={"EeCGBQ8FkZ"}
             addSpacing={false}
             element={getStyle("EeCGBQ8FkZ", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <IconPrimitive
@@ -149,6 +150,9 @@ function HbWave(_props) {
             key={"91q2eiiHtA"}
             addSpacing={false}
             element={getStyle("91q2eiiHtA", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <IconPrimitive

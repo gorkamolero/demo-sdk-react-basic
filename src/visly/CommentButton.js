@@ -28,7 +28,6 @@ const styles = [
       },
       YLowiHcxUk: {
         none: {
-          role: "img",
           icon: require("./assets/c960c1cc-f05b-4842-972b-c497154e2e5b@1x.svg"),
           useMask: true,
         },

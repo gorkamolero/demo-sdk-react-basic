@@ -12,8 +12,6 @@
   padding: 0 0 80px;
 }
 .__visly_scope_RtitAK5Bpp_G1EfLQfWP6 .__visly_scope_RtitAK5Bpp_91q2eiiHtA {
-  overflow: visible;
-  position: absolute;
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -26,20 +24,18 @@
   bottom: auto;
   left: 0;
   transform: none;
+  overflow: visible;
   padding: 0;
 }
 .__visly_scope_RtitAK5Bpp_G1EfLQfWP6 .__visly_scope_RtitAK5Bpp_Pvi6YdPjgx {
-  display: block;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
   align-self: flex-end;
   background-color: #f9f5e8;
+  display: block;
   transform: translateY(1px);
 }
 .__visly_scope_RtitAK5Bpp_G1EfLQfWP6 .__visly_scope_RtitAK5Bpp_EeCGBQ8FkZ {
-  overflow: visible;
-  position: absolute;
   width: 100%;
   height: 100%;
   flex-direction: row;
@@ -53,14 +49,14 @@
   bottom: auto;
   left: 0;
   transform: none;
+  overflow: visible;
   padding: 0;
 }
 .__visly_scope_RtitAK5Bpp_G1EfLQfWP6 .__visly_scope_RtitAK5Bpp_TGjmjt52AW {
-  display: block;
-  box-sizing: border-box;
   width: 100%;
   height: 100%;
   background-color: #f6dfa4;
+  display: block;
   transform: translateX(0) translateY(-2px);
 }
 .__visly_scope_RtitAK5Bpp_G1EfLQfWP6.__visly_double.__visly_state_none

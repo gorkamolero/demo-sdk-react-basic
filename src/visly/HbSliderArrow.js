@@ -22,7 +22,6 @@ const styles = [
     layers: {
       DXgkmLvzSZ: {
         none: {
-          role: "img",
           icon: require("./assets/ce16c0b7-38b6-43fe-b6de-f496af3224ba.svg"),
           useMask: true,
         },

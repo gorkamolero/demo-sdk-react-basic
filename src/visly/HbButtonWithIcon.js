@@ -28,7 +28,6 @@ const styles = [
       },
       "21mnkDJ1UQ": {
         none: {
-          role: "img",
           icon: require("./assets/d335cc69-ef1c-4fab-a477-d420f754e056.svg"),
           useMask: true,
         },
@@ -139,6 +138,9 @@ function HbButtonWithIcon(_props) {
             key={"MqQmHAoM6W"}
             addSpacing={false}
             element={getStyle("MqQmHAoM6W", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <ContainerPrimitive

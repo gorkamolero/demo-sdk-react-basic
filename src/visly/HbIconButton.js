@@ -24,7 +24,6 @@ const styles = [
       },
       "8CLRfG5L7n": {
         none: {
-          role: "img",
           icon: require("./assets/5cd79169-4d72-486a-bd71-20cfa0420bb2@1x.svg"),
           useMask: true,
         },

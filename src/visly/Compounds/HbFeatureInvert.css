@@ -12,15 +12,12 @@
   flex-basis: 50%;
 }
 .__visly_scope_SPtN2tvqGr_QF3aX47C17 .__visly_scope_SPtN2tvqGr_NtUhg3o63o {
-  display: block;
-  background-position: center;
-  background-repeat: no-repeat;
   width: 100%;
   height: 100%;
+  display: block;
   background-size: cover;
 }
 .__visly_scope_SPtN2tvqGr_QF3aX47C17 .__visly_scope_SPtN2tvqGr_KxhjEmTBpq {
-  overflow: hidden;
   flex-basis: 40%;
   background-color: #d9dae6;
   flex-direction: column;
@@ -31,7 +28,6 @@
 }
 .__visly_scope_SPtN2tvqGr_QF3aX47C17 .__visly_scope_SPtN2tvqGr_2VS5uK6ip5,
 .__visly_scope_SPtN2tvqGr_QF3aX47C17 .__visly_scope_SPtN2tvqGr_AniiyGaDfa {
-  align-self: stretch;
   width: 10%;
   height: unset;
 }

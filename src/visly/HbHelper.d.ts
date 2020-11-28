@@ -89,10 +89,22 @@ export interface CommonProps<T extends HTMLElement> {
 }
 export const HbHelper: {
   (
-    props: {
-      selected?: string | string[] | Set<string>;
-      onSelect: (values: Set<string>) => void;
-      selectionMode?: "none" | "single" | "multiple";
+    props: (
+      | {
+          selected?: string;
+          onSelect: (value: string) => void;
+          selectionMode?: "none" | "single";
+        }
+      | {
+          selected?: string[];
+          onSelect: (values: string[]) => void;
+          selectionMode?: multiple;
+        }
+    ) & {
+      "aria-label"?: string;
+      "aria-labelledby"?: string;
+      "aria-describedby"?: string;
+      "aria-details"?: string;
       children?: React.ReactNode[];
     } & CommonProps<HTMLDivElement>
   ): JSX.Element;

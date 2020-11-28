@@ -13,7 +13,6 @@
   padding: 30px;
 }
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw .__visly_scope_3Fk3gvCxrB_K8Rvc3Sc8R {
-  overflow: visible;
   width: 1280px;
   max-width: 100%;
   flex-direction: row;
@@ -21,10 +20,9 @@
   align-items: center;
   align-content: flex-start;
   justify-content: center;
+  overflow: visible;
 }
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw .__visly_scope_3Fk3gvCxrB_Cv9QgvrcGc {
-  display: block;
-  box-sizing: border-box;
   color: #623b2a;
   text-align: start;
   white-space: normal;
@@ -34,6 +32,7 @@
   font-size: 22px;
   line-height: 24px;
   flex-shrink: 1;
+  display: block;
   overflow: visible;
 }
 .__visly_scope_3Fk3gvCxrB_k3jaASDPhw.__visly_end.__visly_state_none {

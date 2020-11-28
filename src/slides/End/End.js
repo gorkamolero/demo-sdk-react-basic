@@ -22,6 +22,7 @@ import { FlexBox } from 'react-styled-flex';
 import { HbSuperProductEmpty } from '../../visly/Compounds';
 
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
+noTest=false
 
 function End({loading, setLoading}) {
     const { nav, Engine } = useContext(SlideContext);
@@ -43,8 +44,9 @@ function End({loading, setLoading}) {
 
     useEffect(() => {
         if (loadingScreenIsSeen) setLoading(false)
-        if (videoIsDone) setLoading(false)
-    }, [loadingScreenIsSeen, videoIsDone, setLoading])
+        if (isNewDog) setVideoIsDone(true)
+        // if (videoIsDone) setLoading(false)
+    }, [loadingScreenIsSeen, setLoading, isNewDog, setVideoIsDone])
 
     useEffect(() => {
         const onScroll = e => {
@@ -213,7 +215,7 @@ function End({loading, setLoading}) {
 
             {
                 !loading && !videoOff && (
-                    <HbSection noHeadNoPadding style={{ margin: '0 auto 80px' }}>
+                    <HbSection noHeadNoPadding style={{ margin: '0 auto 40px' }}>
                         <FlexBox column center width="100%">
                             <Video video={hungry.video} play={true} />
 

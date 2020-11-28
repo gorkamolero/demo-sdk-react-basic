@@ -24,7 +24,6 @@ const styles = [
     layers: {
       "9ybSBrXEhR": {
         none: {
-          role: "img",
           icon: require("./assets/9eea1f39-dddc-4ae6-bde8-be3877fd7c68.svg"),
           useMask: true,
         },
@@ -125,6 +124,9 @@ function HbKibblePlanElement(_props) {
             key={"S9avakhyM6"}
             addSpacing={false}
             element={getStyle("S9avakhyM6", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {props.HbCircleIcon === undefined ? (
               <HbCircleIconComposite

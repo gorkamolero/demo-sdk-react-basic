@@ -33,7 +33,6 @@ const styles = [
       },
       "3VtGBBDCR3": {
         none: {
-          role: "img",
           icon: require("./assets/43a5e139-2110-4a5e-aacf-5845cb331df8.svg"),
           useMask: true,
         },

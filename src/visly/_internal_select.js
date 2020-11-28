@@ -90,14 +90,14 @@ function SelectOptionContainerImpl(props) {
   ) : null;
 }
 
-function useListBoxLayout(state) {
+function useListBoxLayout(state, minimumItemHeight) {
   const layout = useMemo(
     () =>
       new ListLayout({
-        estimatedRowHeight: 0,
+        estimatedRowHeight: exists(minimumItemHeight) ? minimumItemHeight : 20,
         padding: 0,
       }),
-    []
+    [minimumItemHeight]
   );
   layout.collection = state.collection;
   layout.disabledKeys = state.disabledKeys;
@@ -241,7 +241,13 @@ function Option({ item }) {
   );
   const { focusProps, isFocusVisible } = useFocusRing();
   return (
-    <li {...mergeProps(optionProps, focusProps)} ref={ref}>
+    <li
+      {...mergeProps(optionProps, focusProps)}
+      ref={ref}
+      style={{
+        outline: "none",
+      }}
+    >
       <ItemContext.Provider
         value={{
           isSelected,
@@ -257,7 +263,14 @@ function Option({ item }) {
 
 export function SelectRootImpl(props) {
   const ref = useRef(null);
-  const { selected, onSelect, renderInline, items, gap = 10 } = props;
+  const {
+    selected,
+    onSelect,
+    renderInline,
+    items,
+    gap = 10,
+    minimumItemHeight,
+  } = props;
   const { style, testId, values, vislyProps, isDisabled } = usePrimitive({
     ref,
     props,
@@ -273,7 +286,7 @@ export function SelectRootImpl(props) {
     label,
     isDisabled,
   });
-  const layout = useListBoxLayout(state);
+  const layout = useListBoxLayout(state, minimumItemHeight);
   const { triggerProps, menuProps, labelProps } = useSelect(
     {
       children: items,

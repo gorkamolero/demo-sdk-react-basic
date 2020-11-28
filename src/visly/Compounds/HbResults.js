@@ -45,7 +45,6 @@ const styles = [
       },
       PyjEEck4UC: {
         none: {
-          role: "img",
           icon: require("../assets/30e3cbc9-e9aa-470f-b855-a46ead2e3c56.svg"),
           useMask: true,
         },

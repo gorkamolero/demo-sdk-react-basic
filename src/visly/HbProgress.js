@@ -83,6 +83,9 @@ function HbProgress(_props) {
           key={"9C7DRr8xaT"}
           addSpacing={false}
           element={getStyle("9C7DRr8xaT", "htmlElement")}
+          style={{
+            position: "absolute",
+          }}
         >
           {
             <ContainerPrimitive

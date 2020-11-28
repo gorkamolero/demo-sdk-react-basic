@@ -16,8 +16,6 @@
 }
 .__visly_scope_7bKpy8A4f9_listbox-item-root
   .__visly_scope_7bKpy8A4f9_4WQusUCHUn {
-  display: block;
-  box-sizing: border-box;
   color: #1e1e1e;
   font-family: Averta;
   font-style: normal;
@@ -25,6 +23,7 @@
   font-size: 14px;
   line-height: 20px;
   align-self: auto;
+  display: block;
 }
 .__visly_scope_7bKpy8A4f9_listbox-item-root.__visly_selected.__visly_state_none {
   background-color: #3291ff;

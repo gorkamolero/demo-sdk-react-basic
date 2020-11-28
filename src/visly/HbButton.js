@@ -108,6 +108,9 @@ function HbButton(_props) {
             key={"VgX8sxpTgz"}
             addSpacing={false}
             element={getStyle("VgX8sxpTgz", "htmlElement")}
+            style={{
+              position: "absolute",
+            }}
           >
             {
               <ContainerPrimitive
