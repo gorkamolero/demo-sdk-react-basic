@@ -36,7 +36,7 @@ function End({loading, setLoading}) {
     // const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useLocalStorage(`loadingScreenIsSeen-${currentDog}`, noTest ? true : false);
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
-    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest || isNewDog ? true : false);
+    const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, (noTest || isNewDog) ? true : false);
     const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
     const [videoOff, setVideoOff] = useState(false)
