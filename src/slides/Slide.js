@@ -15,7 +15,6 @@ import LargeBG from '../assets/images/svg-bg-large.svg'
 import MidBG from '../assets/images/svg-bg-medium.svg'
 import SmallBG from '../assets/images/svg-bg-small.svg'
 import Bowl from '../assets/images/Bowl.png'
-import ResizeObserver from "resize-observer-polyfill";
 
 const SlideView = ({slideModel, ...rest}) => {
   const type = useMemo(() => slideModel.getType(), [slideModel])
@@ -50,18 +49,14 @@ const Slide = () => {
     const isSecondSlide = slideId == 124
 
     useEffect(() => {
-      const resizeObserver = new ResizeObserver(() => {
-        if(HeadRef.current){
-          let HeadHeight = HeadRef.current.offsetHeight;
-          
-          if (isEndSlide) setMarginTop(0)
-          if(size !=='small' && size !== 'medium') setMarginTop(HeadHeight - 40)
-          // if (size === 'medium') setMarginTop(HeadHeight - 30)
-        }
-      })
-      resizeObserver.observe(document.body);
-    }, [])
-    /* eslint-enable */
+      if(HeadRef.current){
+        let HeadHeight = HeadRef.current.offsetHeight;
+        
+        
+        if (isEndSlide || size === 'small') setMarginTop(0)
+        if(size !=='small' && size !== 'medium') setMarginTop(HeadHeight - 40)
+      }
+    }, [size])
 
     useEffect(() => console.log(marginTop), [marginTop])
 
