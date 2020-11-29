@@ -19,7 +19,7 @@ const Tab = ({ text }) => {
 const getTabs = (product, dog, goals, size) => {
     if (product.type === 'kibble') {
         return (
-            <div className="tabContainer kibble" style={{ ...textstyles.bodySmall }}>
+            <div className="tabContainer kibble" style={{ ...textstyles.bodyReallySmall }}>
                 <Tabs classContainer="tabs">
                     <HbTabs>
                         <Tab text="Meal Plan" />
@@ -142,7 +142,7 @@ const getTabs = (product, dog, goals, size) => {
         )
     } else if (product.type === 'chews') {
         return (
-            <div className="tabContainer chews" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer chews" style={{ ...textstyles.bodyReallySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Description" />
@@ -181,7 +181,7 @@ const getTabs = (product, dog, goals, size) => {
         )
     } else if (product.type === 'mixin') {
         return (
-            <div className="tabContainer mixin" style={{ ...textstyles.bodySmall, paddingTop: 20 }}>
+            <div className="tabContainer mixin" style={{ ...textstyles.bodyReallySmall, paddingTop: 20 }}>
                 <Tabs>
                     <HbTabs>
                         <Tab text="Description" />

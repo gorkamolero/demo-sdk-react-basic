@@ -1165,6 +1165,18 @@ small {
     margin-bottom: 10px !important;
   }
 
+  .selectContainer.field-15,
+  .selectContainer.field-14 {
+    [class*='container'] > [class*='menu'] {
+      left: auto !important;
+      transform: none !important;
+      min-width: 100% !important;
+    }
+    [class*='MenuList'] {
+      min-width: 100% !important;
+    }
+  }
+
   /* .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
@@ -1182,6 +1194,10 @@ small {
 .selectMultiContainer.field-1 [class*='menu'],
 .selectContainer.field-5 [class*='menu'] {
   min-width: 250px !important;
+}
+.selectContainer.field-9 [class*='menu'],
+.selectContainer.field-13 [class*='menu'] {
+  min-width: 300px !important;
 }
 
 .HbHeadContainer.showingImage + main {
@@ -1298,6 +1314,7 @@ small {
 button {
   [id^='Overlay'] [id^='Progress'] {
     transition: all 5s ease-out;
+    flex-basis: 0%;
   }
 }
 
