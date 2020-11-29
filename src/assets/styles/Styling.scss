@@ -269,6 +269,12 @@ body {
       }
     }
   }
+  @media (min-width: $medium) {
+    .subtitle {
+      font-size: 20px !important;
+      margin-top: -20px !important;
+    }
+  }
 }
 
 div[role='radiogroup'] {
@@ -1312,6 +1318,8 @@ small {
 }
 
 button {
+  [id^='Overlay'] {
+  }
   [id^='Overlay'] [id^='Progress'] {
     transition: all 5s ease-out;
     flex-basis: 0%;
@@ -1367,4 +1375,8 @@ button {
 
 .HbCardContainer .buttonWithProgress {
   max-width: 100% !important;
+}
+
+main.finishedLoading {
+  padding-bottom: 60px;
 }
