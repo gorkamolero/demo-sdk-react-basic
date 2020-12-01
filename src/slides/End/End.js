@@ -128,17 +128,17 @@ function End({loading, setLoading}) {
     const totalProducts = selectedResults.filter(s => s).length
 
     const continueToCheckout = () => {
-        setButtonProgress(1)
-        const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-        localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+        //setButtonProgress(1)
+        //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+        //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
         
         hungry.goToCheckout(subscription, selectedResults);
     }
 
     const addAnotherDog = () => {
         hungry.addAnotherDog( subscription, selectedResults, () => {
-            const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-            localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+            //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+            //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();
         });
@@ -146,8 +146,8 @@ function End({loading, setLoading}) {
 
     const restartQuiz = () => {
         hungry.startOver( () => {
-            const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-            localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+            //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+            //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();
         });

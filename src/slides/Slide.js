@@ -103,8 +103,8 @@ const Slide = () => {
             extraImage={Bowl}
             extraImageT={Bowl}
             size={size === 'large' ? 'super' : size}
-            discount="20% Off"
-            discount2={isEndSlide ? '$50+ Ships Free' : ''}
+            discount={ window.hungry.values.discountHeader1 }
+            discount2={isEndSlide ? window.hungry.values.discountHeader2 : ''}
             NoWave={ isEndSlide }
             withVideo={ isEndSlide }
             style={{ position: 'fixed !important', top: 0 }}
