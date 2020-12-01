@@ -31,6 +31,7 @@
   line-height: 23px;
   flex-shrink: 1;
   display: block;
+  padding: 0 0 6px;
 }
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_4ZpyWfeCAG {
   flex-grow: 1;
@@ -91,6 +92,7 @@
   justify-content: flex-start;
 }
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_UdYVCcCaqY {
+  min-height: 260px;
   flex-grow: 1;
   flex-direction: column;
   flex-wrap: nowrap;

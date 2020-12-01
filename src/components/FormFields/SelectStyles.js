@@ -30,7 +30,8 @@ export default {
   menuList: (provided) => ({
     ...provided,
     padding: 0,
-    backgroundColor: 'white'
+    backgroundColor: 'white',
+    minWidth: '250px'
   }),
   valueContainer: (provided, state) => ({
     ...provided,

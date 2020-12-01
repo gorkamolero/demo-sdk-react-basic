@@ -269,6 +269,12 @@ body {
       }
     }
   }
+  @media (min-width: $medium) {
+    .subtitle {
+      font-size: 20px !important;
+      margin-top: -20px !important;
+    }
+  }
 }
 
 div[role='radiogroup'] {
@@ -340,6 +346,11 @@ ul[role*='listbox'] {
     ul {
       flex-wrap: wrap !important;
       justify-content: center;
+    }
+  }
+  @media (max-width: $small) {
+    ul {
+      top: 10px !important;
     }
   }
 }
@@ -1143,7 +1154,7 @@ small {
   @media (max-width: $small) {
     [id^='ClientContainer'] {
       [id^='Client'] {
-        margin-bottom: 6px;
+        // margin-bottom: 6px;
       }
     }
   }
@@ -1165,6 +1176,18 @@ small {
     margin-bottom: 10px !important;
   }
 
+  .selectContainer.field-15,
+  .selectContainer.field-14 {
+    [class*='container'] > [class*='menu'] {
+      left: auto !important;
+      transform: none !important;
+      min-width: 100% !important;
+    }
+    [class*='MenuList'] {
+      min-width: 100% !important;
+    }
+  }
+
   /* .selectContainer.field-9 [class*='container'] > [class*='menu'],
   .radio-group .field-1 [class*='container'] > [class*='menu'] {
     transform: translateX(-10%);
@@ -1182,6 +1205,10 @@ small {
 .selectMultiContainer.field-1 [class*='menu'],
 .selectContainer.field-5 [class*='menu'] {
   min-width: 250px !important;
+}
+.selectContainer.field-9 [class*='menu'],
+.selectContainer.field-13 [class*='menu'] {
+  min-width: 300px !important;
 }
 
 .HbHeadContainer.showingImage + main {
@@ -1296,8 +1323,11 @@ small {
 }
 
 button {
+  [id^='Overlay'] {
+  }
   [id^='Overlay'] [id^='Progress'] {
     transition: all 5s ease-out;
+    flex-basis: 0%;
   }
 }
 
@@ -1350,4 +1380,17 @@ button {
 
 .HbCardContainer .buttonWithProgress {
   max-width: 100% !important;
+}
+
+main.finishedLoading {
+  // margin-bottom: 60px;
+}
+
+.tabContainer h2 {
+  font-size: 18px;
+  font-family: 'Filson Pro';
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  line-height: 28px;
 }

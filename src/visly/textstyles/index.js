@@ -47,14 +47,14 @@ export const bodySmallMobile = {
 };
 export const hbFeatureText = {
   fontFamily: "Averta",
-  fontSize: "20px",
+  fontSize: "16px",
   fontWeight: 400,
   fontStyle: "normal",
-  lineHeight: "24px",
+  lineHeight: "21px",
 };
 export const hbFeatureTitle = {
   fontFamily: "Filson Pro",
-  fontSize: "22px",
+  fontSize: "18px",
   fontWeight: 700,
   fontStyle: "normal",
   lineHeight: "28px",

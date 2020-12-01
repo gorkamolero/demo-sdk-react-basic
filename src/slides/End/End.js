@@ -7,7 +7,7 @@ import Loading from '../../components/Loading';
 import Products from './partials/Products'
 import Features from './partials/Features'
 import Testimonials from './partials/Testimonials'
-import { HbCircleIcon, icons, colors, useBreakpoint, HbWave, textstyles } from "../../visly";
+import { HbCircleIcon, icons, colors, useBreakpoint, HbWave, textstyles, HbButton } from "../../visly";
 import { HbSection } from '../../visly/Pages'
 import Video from './partials/ReactPlayerWistia2'
 import MyWistiaFooter from './partials/VideoFooter'
@@ -24,6 +24,22 @@ import { HbSuperProductEmpty } from '../../visly/Compounds';
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 noTest=false
 
+const ProgressButton = ({icon, action}) => {
+    const [buttonProgress, setButtonProgress] = useState(0)
+
+    const onPress = () => {
+        setButtonProgress(100);
+        action();
+    }
+
+    if (icon) return (
+        <Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={true} onPress={onPress} />
+    )
+    else return (
+        <HbButton text={'Continue to checkout'} className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={true} onPress={onPress} />
+    )
+}
+
 function End({loading, setLoading}) {
     const { nav, Engine } = useContext(SlideContext);
     const prodRef = useRef();
@@ -31,6 +47,7 @@ function End({loading, setLoading}) {
 
     /* eslint-disable */
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+    window.currentDog = currentDog;
     const isNewDog = currentDog != 1
     /* eslint-enable */
 
@@ -38,6 +55,7 @@ function End({loading, setLoading}) {
     // const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, noTest ? true : false);
     const [loadingScreenIsSeen, setLoadingScreenIsSeen] = useState(noTest ? true : false);
     const [videoIsDone, setVideoIsDone] = useLocalStorage(`videoIsSeen-${currentDog}`, (noTest || isNewDog) ? true : false);
+    window.videoIsDone = videoIsDone
     const [showWistiaFooter, setShowWistiaFooter] = useState(true)
     const [showFooter, setShowFooter] = useState(false)
     const [videoOff, setVideoOff] = useState(false)
@@ -73,11 +91,6 @@ function End({loading, setLoading}) {
     const [selectedResults, setSelectedResults] = useState([])
     const [totalPrice, setTotalPrice] = useState(0)
     const [subscription, setSubscription] = useState(true)
-
-    const [buttonProgress, setButtonProgress] = useState(0)
-    useEffect(() => {
-        if (buttonProgress > 0) setButtonProgress(100)
-    }, [buttonProgress])
 
     useEffect(() => {
         const waitForWindowData = () => {
@@ -128,17 +141,17 @@ function End({loading, setLoading}) {
     const totalProducts = selectedResults.filter(s => s).length
 
     const continueToCheckout = () => {
-        //setButtonProgress(1)
-        //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-        //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+        // setButtonProgress(1)
+        // const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+        // localStorage.setItem(`videoIsSeen-${currentDog}`, false);
         
         hungry.goToCheckout(subscription, selectedResults);
     }
 
     const addAnotherDog = () => {
         hungry.addAnotherDog( subscription, selectedResults, () => {
-            //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-            //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+            // const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+            // localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();
         });
@@ -146,8 +159,8 @@ function End({loading, setLoading}) {
 
     const restartQuiz = () => {
         hungry.startOver( () => {
-            //const currentDog = Engine.getLocalStorageItem('currentDog', 1);
-            //localStorage.setItem(`videoIsSeen-${currentDog}`, false);
+            // const currentDog = Engine.getLocalStorageItem('currentDog', 1);
+            // localStorage.setItem(`videoIsSeen-${currentDog}`, false);
 
             nav.restart();
         });
@@ -215,7 +228,7 @@ function End({loading, setLoading}) {
 
             {
                 !loading && !videoOff && (
-                    <HbSection noHeadNoPadding style={{ margin: '0 auto 40px' }}>
+                    <HbSection noHeadNoPadding style={videoIsDone ? {} : { minHeight: '100vh' }}>
                         <FlexBox column center width="100%">
                             <Video video={hungry.video} play={true} />
 
@@ -253,7 +266,7 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products buttonProgress={buttonProgress} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} continueToCheckout={continueToCheckout} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
+                                <Products ProgressButton={ProgressButton} continueToCheckout={continueToCheckout} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
                             )
                         }
 
@@ -269,8 +282,10 @@ function End({loading, setLoading}) {
                             priceOriginal={subscription && selectedResults.length ? '$' + roundPrice(totalPrice) : ''}
                             priceFinal={'$' + getPrice(totalPrice, subscription?subscribePriceFactor.trial:1)}
                             HbLinkButton={<Footer.HbLinkButton text={size === 'small' ? '+ Dog' : 'Add another dog'} onPress={addAnotherDog} />}
-                            HbButtonWithIcon={<Footer.HbButtonWithIcon className={` buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
-                            HbButtonWithIconMobile={<Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
+                            YOLO
+                            HbButtonWithIcon={<ProgressButton icon={true} action={continueToCheckout} />}
+                            HbButtonWithIconMobile={<ProgressButton icon={true} action={continueToCheckout} />}
+
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
                             RestartSlotMobile={<Footer.RestartSlotMobile className="" onPress={restartQuiz} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}

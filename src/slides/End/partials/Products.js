@@ -18,7 +18,6 @@ const Products = ({
     setSubscription,
     setTotalPrice,
     getPrice,
-    continueToCheckout,
     products,
     dog,
     goals,
@@ -27,7 +26,9 @@ const Products = ({
     onlySubscription,
     buttonProgress,
     visibilityDiv,
-    preselectedResults
+    preselectedResults,
+    ProgressButton,
+    continueToCheckout
 }) => {
 
     const replacers = {
@@ -240,7 +241,7 @@ const Products = ({
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }
-                    HbButton={<HbResults.HbButton className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : 0}`} withProgress={buttonProgress > 0} onPress={continueToCheckout} />}
+                    HbButton={<ProgressButton action={continueToCheckout} />}
                     trialOff={!subscription}
                     children={onlySubscription || <Switch texts={texts} checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={
