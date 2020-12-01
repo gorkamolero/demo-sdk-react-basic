@@ -54,7 +54,7 @@ export const hbFeatureText = {
 };
 export const hbFeatureTitle = {
   fontFamily: "Filson Pro",
-  fontSize: "22px",
+  fontSize: "18px",
   fontWeight: 700,
   fontStyle: "normal",
   lineHeight: "28px",
