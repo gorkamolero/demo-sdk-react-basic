@@ -348,6 +348,11 @@ ul[role*='listbox'] {
       justify-content: center;
     }
   }
+  @media (max-width: $small) {
+    ul {
+      top: 10px !important;
+    }
+  }
 }
 
 .slider-frame {
@@ -1149,7 +1154,7 @@ small {
   @media (max-width: $small) {
     [id^='ClientContainer'] {
       [id^='Client'] {
-        margin-bottom: 6px;
+        // margin-bottom: 6px;
       }
     }
   }
@@ -1381,7 +1386,7 @@ main.finishedLoading {
   // margin-bottom: 60px;
 }
 
-.chews h2 {
+.tabContainer h2 {
   font-size: 18px;
   font-family: 'Filson Pro';
   font-size: 18px;
