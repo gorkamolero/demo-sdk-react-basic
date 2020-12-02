@@ -243,7 +243,7 @@ const Products = ({
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }
-                    HbButton={<ProgressButton action={continueToCheckout} />}
+                    HbButton={<ProgressButton action={continueToCheckout} size="small" />}
                     trialOff={!subscription}
                     children={onlySubscription || <Switch texts={texts} checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={
