@@ -246,10 +246,10 @@ const Products = ({
                     trialOff={!subscription}
                     children={onlySubscription || <Switch texts={texts} checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={
-                        resultImages.map(img => (
+                        resultImages.map((img, i) => (
                             <>
                                 {
-                                    img && <HbProductImage imageSrc={img} style={{ marginLeft: -15 }} />
+                                    img && <HbProductImage key={i} imageSrc={img} style={{ marginLeft: -15 }} />
                                 }
                             </>
                         ))

@@ -223,8 +223,8 @@ function End({loading, setLoading}) {
     return (
         <FlexBox column center width="100%">
             {
-                loading && !loadingScreenIsSeen && (
-                    <Loading texts={texts.loading} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen}  timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
+                loading && !loadingScreenIsSeen && texts && hungry &&  (
+                    <Loading texts={texts.loading} dogName={hungry.dogName} loading={loading} setLoading={setLoading} setLoadingScreenIsSeen={setLoadingScreenIsSeen} timing={hungry.loadingScreenTimeMilliseconds ? hungry.loadingScreenTimeMilliseconds : 9000} outTiming={100} />
                 )
             }
 
