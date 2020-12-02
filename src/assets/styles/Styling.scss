@@ -1184,9 +1184,11 @@ small {
       left: auto !important;
       transform: none !important;
       min-width: 100% !important;
+      width: 100% !important;
     }
     [class*='MenuList'] {
       min-width: 100% !important;
+      width: 100% !important;
     }
   }
 
