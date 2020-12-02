@@ -1186,7 +1186,8 @@ small {
       min-width: 100% !important;
       width: 100% !important;
     }
-    [class*='MenuList'] {
+    [class*='MenuList'],
+    [class*='container'] > [class*='menu'] > div {
       min-width: 100% !important;
       width: 100% !important;
     }
