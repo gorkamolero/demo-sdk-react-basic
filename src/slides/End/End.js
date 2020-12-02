@@ -298,7 +298,7 @@ function End({loading, setLoading}) {
                             YOLO
                             HbButtonWithIcon={<ProgressButton icon={true} action={continueToCheckout} />}
                             HbButtonWithIconMobile={<ProgressButton icon={true} action={continueToCheckout} />}
-                            
+
                             RestartSlot={<Footer.RestartSlot onPress={restartQuiz} />}
                             RestartSlotMobile={<Footer.RestartSlotMobile className="" onPress={restartQuiz} />}
                             NoHbAddAnotherDog={hungry.currentDog >= hungry.dogsInHousehold}

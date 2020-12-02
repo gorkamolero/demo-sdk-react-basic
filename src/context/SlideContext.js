@@ -19,11 +19,13 @@ const SlideContextProvider = ({children}) => {
         Utils.waitForEngine((Engine)=>{
             if (Engine) {
                 EngineRef.current = Engine;
-                Engine.load(cfg.code, cfg.server, {}, cfg.preview, cfg.preload).then(() => {
+                Engine.load(cfg.code, cfg.server, {}, cfg.preview, cfg.preload).then( ({css, jsLibs}) => {
                     let progressBar = Engine.getProgressBar()
                     setProgressBar(progressBar)
                     displayCurrentSlide();
-                    window.Engine = Engine
+
+                    Utils.embedCSS(css);
+                    Utils.embedJSLibs(jsLibs);
                 }).catch((error) => {
                     console.error(error);
                 });
