@@ -125,6 +125,10 @@ $super: '1200px';
 $hyper: '1440px';
 $reading: 60ch;
 
+html {
+  margin: 0 !important;
+}
+
 main {
   width: 100%;
   &.main-nextSlideIsEndSlide {
@@ -1366,6 +1370,10 @@ button {
   &:focus {
      outline: none !important;
   }
+
+  @media (min-width: $medium) {
+    max-height: 480px;
+  }
 }
 
 [class*='MenuList'] {
@@ -1407,4 +1415,9 @@ main.finishedLoading {
   @media (min-width: $small) {
     font-size: 18px !important;
   }
+}
+
+.noscroll {
+  height: 100vh;
+  overflow: hidden;
 }

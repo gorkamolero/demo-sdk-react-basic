@@ -1,5 +1,4 @@
 import React, { useEffect, useState, useContext, useRef } from 'react';
-import useVisibility from 'react-use-visibility';
 import {SlideContext} from "../../context/SlideContext";
 import './End.css'
 import Navigation from "../../components/Navigation/Navigation";
@@ -42,10 +41,7 @@ const ProgressButton = ({icon, action, size}) => {
 
 function End({loading, setLoading}) {
     const { nav, Engine } = useContext(SlideContext);
-    const prodRef = useRef();
-    const prodRef2 = useRef();
-    const isFooterVisible = useVisibility(prodRef.current);
-    const isFooterVisible2 = useVisibility(prodRef2.current);
+    const firstSectionRef = useRef();
 
     /* eslint-disable */
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
@@ -68,19 +64,31 @@ function End({loading, setLoading}) {
         // if (videoIsDone) setLoading(false)
     }, [loadingScreenIsSeen, setLoading, isNewDog, setVideoIsDone])
 
+    
+    /* eslint-disable */
     useEffect(() => {
+        const windowHeight = window.innerHeight;
         const onScroll = e => {
             setTimeout(() => {
                 if (videoIsDone && e.target.documentElement.scrollTop > 100) {
                     setShowWistiaFooter(false)
-                    window.removeEventListener("scroll", onScroll);
+                    // window.removeEventListener("scroll", onScroll);
                 }
-            })
+
+                if (!firstSectionRef.current) return;
+                if (
+                    e.target.documentElement.scrollTop > firstSectionRef.current.getBoundingClientRect().bottom
+                    && e.target.documentElement.scrollTop > windowHeight / 2
+                ) {
+                    setShowFooter(true)
+                }
+            }, 0)
         };
         window.addEventListener("scroll", onScroll);
 
         return () => window.removeEventListener("scroll", onScroll);
-    }, [videoIsDone]);
+    }, []);
+    /* eslint-enable */
 
     const [hungry, setHungry] = useState(null)
     const [dog, setDog] = useState(null)
@@ -211,10 +219,6 @@ function End({loading, setLoading}) {
     useEffect(() => {
         return () => setLoading(true)
     }, [setLoading])
-
-    useEffect(() => {
-        if (isFooterVisible || isFooterVisible2) setShowFooter(true)
-    }, [isFooterVisible, isFooterVisible2])
     
     if (!hungry || !products || !texts) return <div></div>
 
@@ -230,14 +234,16 @@ function End({loading, setLoading}) {
 
             {
                 !loading && !videoOff && (
-                    <HbSection noHeadNoPadding style={videoIsDone ? {} : { minHeight: '100vh' }}>
-                        <FlexBox column center width="100%">
-                            <Video video={hungry.video} play={true} />
+                    <div ref={firstSectionRef}>
+                        <HbSection noHeadNoPadding style={videoIsDone ? {} : { minHeight: '100vh' }}>
+                            <FlexBox column center width="100%">
+                                <Video video={hungry.video} play={true} />
 
-                            {/* Maybe evaluate isNewDog */}
-                            <MyWistiaFooter hex={hungry.footerHexCode || `#00aeaa`} className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
-                        </FlexBox>
-                    </HbSection>
+                                {/* Maybe evaluate isNewDog */}
+                                <MyWistiaFooter hex={hungry.footerHexCode || `#00aeaa`} className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
+                            </FlexBox>
+                        </HbSection>
+                    </div>
                 )
             }
 
@@ -273,10 +279,8 @@ function End({loading, setLoading}) {
                         }
 
                         { window.location.href.includes('localhost') && <Navigation />}
-                        <div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>
 
                         <Features reviews={reviews} stack={size === 'small'} />
-                        <div className="visibility div2" ref={prodRef2} style={{ height: 1 }}> </div>
 
                         <Testimonials />
 

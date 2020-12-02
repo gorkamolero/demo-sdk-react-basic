@@ -33,6 +33,12 @@ const Loading = ({ timing = 6000, loading, setLoading, outTiming = 0, setLoading
   useEffect(() => {
     return () => setLoadingScreenIsSeen(true)
   }, [setLoadingScreenIsSeen])
+
+  useEffect(() => {
+    document.body.classList.add('noscroll')
+
+    return () => document.body.classList.remove('noscroll')
+  }, [])
   
   // Rotate images
   useEffect(() => {
