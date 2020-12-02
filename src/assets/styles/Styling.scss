@@ -125,6 +125,10 @@ $super: '1200px';
 $hyper: '1440px';
 $reading: 60ch;
 
+html {
+  margin: 0 !important;
+}
+
 main {
   width: 100%;
   &.main-nextSlideIsEndSlide {
