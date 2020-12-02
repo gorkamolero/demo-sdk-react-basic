@@ -232,12 +232,14 @@ const Products = ({
                     DescriptionHtml={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,
+                            fontSize: '14px',
                             color: colors.hbBrown
                         }} html={texts.plan.trial} />
                     }
                     DescriptionHtml2={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,
+                            fontSize: '14px',
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }
