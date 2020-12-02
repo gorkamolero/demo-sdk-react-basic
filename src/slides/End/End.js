@@ -212,6 +212,11 @@ function End({loading, setLoading}) {
                 lsTitle3: hungry.lsTitle3,
                 lsSubtitle3: hungry.lsSubtitle3,
                 main: loadingMainText
+            },
+            other: {
+                sectionTitle1: hungry.recSlideSection1,
+                sectionTitle2: hungry.recSlideSection2,
+                sectionTitle3: hungry.recSlideSection3,
             }
         })
     }, [hungry, totalPrice, subscribePriceFactor.postTrial, subscribePriceFactor.trial])
@@ -261,7 +266,7 @@ function End({loading, setLoading}) {
                                     alignItems="center"
                                     className="wave"
                                     style={{ backgroundColor: colors.hbGoldLight}}
-                                    title={'Recommended Plan'}
+                                    title={texts.other.sectionTitle1 || 'Recommended Plan'}
                                 >
                                     <HbSuperProductEmpty
                                         className="HbSuperProductEmpty"
@@ -274,15 +279,15 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products ProgressButton={ProgressButton} continueToCheckout={continueToCheckout} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} />
+                                <Products title={texts.other.sectionTitle1 || 'Recommended Plan'} ProgressButton={ProgressButton} continueToCheckout={continueToCheckout} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} />
                             )
                         }
 
                         { window.location.href.includes('localhost') && <Navigation />}
 
-                        <Features reviews={reviews} stack={size === 'small'} />
+                        <Features title={texts.other.sectionTitle2 || "Smarter, Healthier Dog Food"} reviews={reviews} stack={size === 'small'} />
 
-                        <Testimonials />
+                        <Testimonials title={texts.other.sectionTitle3 || "What Dog Owners Like You Are Saying"} />
 
                         <Footer
                             className={`HbEndFooter ${size === 'small' ||  size === 'medium' ? 'stack' : ''} ${showFooter && 'show'}`}

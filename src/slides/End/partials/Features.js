@@ -15,7 +15,7 @@ const Section = styled(HbSection)`
 
 `
 
-const Features = ({stack}) => {
+const Features = ({stack, title}) => {
   const { getDatasheet } = useContext(SlideContext)
   const [ features, setFeatures ] = useState([])
 
@@ -38,7 +38,7 @@ const Features = ({stack}) => {
 
   if (!features) return null
   return (    
-    <Section padded title="Smarter, Healthier Dog Food">
+    <Section padded title={title || "Smarter, Healthier Dog Food"}>
       {
         features.map((feature, i) =>
           !(i % 2) ? (

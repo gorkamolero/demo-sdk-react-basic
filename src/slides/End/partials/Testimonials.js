@@ -37,7 +37,7 @@ const Testimonial = ({testimonial, resize}) => {
   )
 }
 
-const Testimonials = ({reviews}) => {
+const Testimonials = ({title}) => {
   const { getDatasheet } = useContext(SlideContext)
   const [ testimonials, setTestimonials ] = useState([])
   const resize = () => {
@@ -84,7 +84,7 @@ const Testimonials = ({reviews}) => {
       column
       alignItems="center"
       className="wave"
-      title="What Dog Owners Like You Are Saying"
+      title={title || "What Dog Owners Like You Are Saying"}
       style={{ backgroundColor: colors.hbYellow, paddingBottom: 20, overflow: 'hidden' }}
     >
       <Carousel {...settings}>

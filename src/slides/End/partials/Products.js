@@ -12,6 +12,7 @@ import CustomHTML from '../../../components/CustomHTML/CustomHTML';
 
 const Products = ({
     style,
+    title,
     selectedResults,
     setSelectedResults,
     subscription,
@@ -83,6 +84,13 @@ const Products = ({
 
     const roundNumber = (number) => Number(number).toFixed(2)
 
+    const titler = () => {
+        if (!results) return ''
+        else return title ? title : 'Recommended Plan'
+    }
+
+    const sectionTitle = titler()
+
     return (
         <HbSection
             noMaxWidth
@@ -92,7 +100,7 @@ const Products = ({
             alignItems="center"
             className="wave"
             style={{ backgroundColor: colors.hbGoldLight}}
-            title={results ? 'Recommended Plan' : ''}
+            title={sectionTitle}
         >
             <FlexBox gap={'2%'} wrap className="HbCardContainer">
                 {
