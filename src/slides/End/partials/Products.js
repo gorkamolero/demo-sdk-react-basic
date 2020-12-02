@@ -232,16 +232,18 @@ const Products = ({
                     DescriptionHtml={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,
+                            fontSize: '14px',
                             color: colors.hbBrown
                         }} html={texts.plan.trial} />
                     }
                     DescriptionHtml2={
                         <CustomHTML style={{
                             ...textstyles.bodyReallySmall,
+                            fontSize: '14px',
                             color: colors.hbBrown
                         }} html={texts.plan.afterTrial} />
                     }
-                    HbButton={<ProgressButton action={continueToCheckout} />}
+                    HbButton={<ProgressButton action={continueToCheckout} size="small" />}
                     trialOff={!subscription}
                     children={onlySubscription || <Switch texts={texts} checked={!subscription} onChange={(e) => setSubscription(!subscription)} />}
                     ImageSlot={

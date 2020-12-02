@@ -24,7 +24,7 @@ import { HbSuperProductEmpty } from '../../visly/Compounds';
 let noTest = window.location.href.includes('dev') || window.location.href.includes('localhost')
 noTest=false
 
-const ProgressButton = ({icon, action}) => {
+const ProgressButton = ({icon, action, size}) => {
     const [buttonProgress, setButtonProgress] = useState(0)
 
     const onPress = () => {
@@ -33,10 +33,10 @@ const ProgressButton = ({icon, action}) => {
     }
 
     if (icon) return (
-        <Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={true} onPress={onPress} />
+        <Footer.HbButtonWithIcon className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''} ${size && size === 'small' ? `small` : ''}`} withProgress={true} onPress={onPress} />
     )
     else return (
-        <HbButton text={'Continue to checkout'} className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}`} withProgress={true} onPress={onPress} />
+        <HbButton text={'Continue to checkout'} className={`buttonWithProgress ${buttonProgress > 0 ? `progress-${buttonProgress}` : ''}  ${size && size === 'small' ? `small` : ''}`} withProgress={true} onPress={onPress} />
     )
 }
 
