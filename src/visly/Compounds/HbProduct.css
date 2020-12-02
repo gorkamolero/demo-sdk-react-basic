@@ -27,7 +27,7 @@
   font-family: Averta;
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 22px;
   line-height: 23px;
   flex-shrink: 1;
   display: block;
@@ -118,6 +118,7 @@
   height: 100%;
 }
 .__visly_scope_F2wQruQTHP_TEMvSpZsq9 .__visly_scope_F2wQruQTHP_DA8Xa72aFn {
+  height: 60px;
   background-color: #f6dfa4;
   flex-direction: row;
   flex-wrap: nowrap;
