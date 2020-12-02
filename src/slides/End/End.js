@@ -239,7 +239,7 @@ function End({loading, setLoading}) {
 
             {
                 !loading && !videoOff && (
-                    <div ref={firstSectionRef}>
+                    <div style={{ width: '100%', height: '100%' }} ref={firstSectionRef}>
                         <HbSection noHeadNoPadding style={videoIsDone ? {} : { minHeight: '100vh' }}>
                             <FlexBox column center width="100%">
                                 <Video video={hungry.video} play={true} />
