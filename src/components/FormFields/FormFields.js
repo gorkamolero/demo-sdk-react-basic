@@ -91,13 +91,12 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
     }
   }, [options, field, selected])
 
-  if(selectRef) console.log(selectRef.current)
   return (
     <FlexBox gap={10} column alignItems="center" justifyContent="flex-start" className={`selectContainer ${meta.notSearchable ? 'notSearchable' : ''} ${field.id ? `field-${field.id}` : ''}`}>
       {title}
 
       <ReactSelect
-        onChange={setSelected}
+        onChange={(val, { action }) => (action !== 'clear') ? setSelected(val) : field && field.clear() }
         defaultValue={selected}
         isSearchable={!notSearchable}
         placeholder={placeholder}
@@ -108,6 +107,7 @@ const Select = ({field, title, onChangeHandler, size, notValid}) => {
         onFocus={() => notSearchable || setPlaceholder('Start typing...')}
         onBlur={() => setPlaceholder(meta && meta.default ? meta.default : 'Select...')}
         ref={selectRef}
+        isClearable={meta.isClearable}
         // maxWidth={meta.maxWidth}
         // superMaxWidth={meta.superMaxWidth}
       />
