@@ -71,6 +71,21 @@ class Utils {
     return s.charAt(0).toUpperCase() + s.slice(1)
   }
 
+  embedCSS(css) {
+    let style = document.createElement('style');
+    style.setAttribute('type', 'text/css');
+    style.innerHTML = css;
+    document.getElementsByTagName('head')[0].appendChild(style);
+  }
+
+  embedJSLibs(libs) {
+    libs.forEach(lib => {
+      let tag = document.createElement('script');
+      tag.setAttribute('src',lib);
+      document.head.appendChild(tag);
+    });
+  }
+
 }
 
 export default new Utils()
