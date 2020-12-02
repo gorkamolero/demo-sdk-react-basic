@@ -25,7 +25,6 @@ const Products = ({
     subscribePriceFactor,
     onlySubscription,
     buttonProgress,
-    visibilityDiv,
     preselectedResults,
     ProgressButton,
     continueToCheckout
@@ -257,7 +256,6 @@ const Products = ({
                     }
                 />
             </FlexBox>
-            {visibilityDiv}
         </HbSection>
     );
 }

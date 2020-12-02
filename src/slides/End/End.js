@@ -43,7 +43,9 @@ const ProgressButton = ({icon, action, size}) => {
 function End({loading, setLoading}) {
     const { nav, Engine } = useContext(SlideContext);
     const prodRef = useRef();
+    const prodRef2 = useRef();
     const isFooterVisible = useVisibility(prodRef.current);
+    const isFooterVisible2 = useVisibility(prodRef2.current);
 
     /* eslint-disable */
     const currentDog = Engine.getLocalStorageItem('currentDog', 1);
@@ -211,8 +213,8 @@ function End({loading, setLoading}) {
     }, [setLoading])
 
     useEffect(() => {
-        if (isFooterVisible) setShowFooter(true)
-    }, [isFooterVisible])
+        if (isFooterVisible || isFooterVisible2) setShowFooter(true)
+    }, [isFooterVisible, isFooterVisible2])
     
     if (!hungry || !products || !texts) return <div></div>
 
@@ -266,13 +268,15 @@ function End({loading, setLoading}) {
                                     />
                                 </HbSection>
                             ) : (
-                                <Products ProgressButton={ProgressButton} continueToCheckout={continueToCheckout} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} visibilityDiv={<div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>} />
+                                <Products ProgressButton={ProgressButton} continueToCheckout={continueToCheckout} onlySubscription={onlySubscription} products={products} dog={dog} goals={hungry.goals} texts={texts} totalPrice={totalPrice} setTotalPrice={setTotalPrice} preselectedResults={hungry.Preselections} selectedResults={selectedResults} setSelectedResults={setSelectedResults} subscription={subscription} setSubscription={setSubscription} getPrice={getPrice} subscribePriceFactor={subscribePriceFactor} />
                             )
                         }
 
                         { window.location.href.includes('localhost') && <Navigation />}
+                        <div className="visibility div" ref={prodRef} style={{ height: 1 }}> </div>
 
                         <Features reviews={reviews} stack={size === 'small'} />
+                        <div className="visibility div2" ref={prodRef2} style={{ height: 1 }}> </div>
 
                         <Testimonials />
 
