@@ -239,7 +239,7 @@ function End({loading, setLoading}) {
 
             {
                 !loading && !videoOff && (
-                    <div style={{ width: '100%', height: '100%' }} ref={firstSectionRef}>
+                    <FlexBox center width="100%" height="100%"ref={firstSectionRef}>
                         <HbSection noHeadNoPadding style={videoIsDone ? {} : { minHeight: '100vh' }}>
                             <FlexBox column center width="100%">
                                 <Video video={hungry.video} play={true} />
@@ -248,7 +248,7 @@ function End({loading, setLoading}) {
                                 <MyWistiaFooter hex={hungry.footerHexCode || `#00aeaa`} className={`HbVideoFooter ${showWistiaFooter ? 'show' : ''}`} dogName={hungry.dogName} videoIsDone={videoIsDone} setVideoIsDone={setVideoIsDone} />
                             </FlexBox>
                         </HbSection>
-                    </div>
+                    </FlexBox>
                 )
             }
 
