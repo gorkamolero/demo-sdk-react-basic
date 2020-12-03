@@ -1,9 +1,11 @@
-0. Install AWS CLI 2
+1. Install AWS CLI 2
     https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
 
-1. Configure
+2. Configure
     aws cli --profile [username]
     ex: aws cli --profile gorka
+
+-----------
 
 1. Build
     yarn build [version]
