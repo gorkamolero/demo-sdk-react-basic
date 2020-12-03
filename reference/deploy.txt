@@ -1,0 +1,24 @@
+0. Install AWS CLI 2
+    https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html
+
+1. Configure
+    aws cli --profile [username]
+    ex: aws cli --profile gorka
+
+1. Build
+    yarn build [version]
+    ex: yarn build 0.0.35
+
+2. replace
+
+    JS:
+    n.p+"static/media -> "https://cdn-us.pickzen.com/clients/hungrybark/theme/media-1
+
+    CSS:
+    /static/media -> //cdn-us.pickzen.com/clients/hungrybark/theme/media-1
+
+3. deploy into AWS
+    ./scripts/deploy.sh [version] [profile]
+    ex: ./scripts/deploy.sh 0.0.35 george
+
+urces/clients/hungrybark/test.txt --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --profile gorka
