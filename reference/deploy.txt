@@ -21,6 +21,4 @@
 
 3. deploy into AWS
     ./scripts/deploy.sh [version] [profile]
-    ex: ./scripts/deploy.sh 0.0.35 george
-
-urces/clients/hungrybark/test.txt --grants read=uri=http://acs.amazonaws.com/groups/global/AllUsers --profile gorka
+    ex: ./scripts/deploy.sh 0.0.35 gorka
